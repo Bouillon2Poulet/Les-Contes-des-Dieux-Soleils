@@ -9,26 +9,37 @@ public class OrbitRenderer : MonoBehaviour
     private float semiMinorAxis;
     private LineRenderer lineRenderer; // Référence au LineRenderer
 
-    void Start()
-    {
-        // Ajouter le LineRenderer au même objet
-        lineRenderer = gameObject.AddComponent<LineRenderer>();
+void Start()
+{
+    // Créer un nouvel objet enfant
+    GameObject childObject = new GameObject("LineRendererObject");
+    childObject.transform.SetParent(transform); // Définir l'objet enfant comme enfant du même objet auquel est attaché le script
+    childObject.layer = LayerMask.NameToLayer("UI");
 
-        // Définir les paramètres du LineRenderer
-        lineRenderer.positionCount = resolution + 1;
-        lineRenderer.useWorldSpace = true; // Utiliser les coordonnées du monde pour les positions
-        lineRenderer.startWidth = 5f;
-        lineRenderer.endWidth = 5f;
+    // Ajouter le LineRenderer au nouvel objet enfant
+    lineRenderer = childObject.AddComponent<LineRenderer>();
 
-        // Appliquer le matériau au LineRenderer
-        lineRenderer.material = lineMaterial;
+    // Définir les paramètres du LineRenderer
+    lineRenderer.positionCount = resolution + 1;
+    lineRenderer.useWorldSpace = true; // Utiliser les coordonnées du monde pour les positions
+    lineRenderer.startWidth = 5f;
+    lineRenderer.endWidth = 5f;
 
-        semiMajorAxis = GetComponent<SimpleEllipseRotation>().semiMajorAxis;
-        semiMinorAxis = GetComponent<SimpleEllipseRotation>().semiMinorAxis;
+    // Appliquer le matériau au LineRenderer
+    lineRenderer.material = lineMaterial;
+    // Désactiver l'éclairage pour l'objet spécifique
+    lineRenderer.gameObject.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+    lineRenderer.gameObject.GetComponent<Renderer>().receiveShadows = false;
 
-        // Tracer le contour de l'orbite
-        UpdateOrbit();
-    }
+
+
+    semiMajorAxis = GetComponent<SimpleEllipseRotation>().semiMajorAxis;
+    semiMinorAxis = GetComponent<SimpleEllipseRotation>().semiMinorAxis;
+
+    // Tracer le contour de l'orbite
+    UpdateOrbit();
+}
+
 
     void Update()
     {
