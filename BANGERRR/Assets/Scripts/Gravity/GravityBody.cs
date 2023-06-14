@@ -24,8 +24,10 @@ public class GravityBody : MonoBehaviour
 
     void Start()
     {
-        _rigidbody = transform.GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
         _gravityAreas = new List<GravityArea>();
+
+        _rigidbody.freezeRotation = true;
     }
 
     void FixedUpdate()
@@ -33,7 +35,7 @@ public class GravityBody : MonoBehaviour
         _rigidbody.AddForce(GravityDirection * (GRAVITY_FORCE * Time.fixedDeltaTime), ForceMode.Acceleration);
 
         Quaternion upRotation = Quaternion.FromToRotation(transform.up, -GravityDirection);
-        Quaternion newRotation = Quaternion.Slerp(_rigidbody.rotation, upRotation * _rigidbody.rotation, Time.fixedDeltaTime * 3f); ;
+        Quaternion newRotation = Quaternion.Slerp(_rigidbody.rotation, upRotation * _rigidbody.rotation, Time.fixedDeltaTime * 3f);
         _rigidbody.MoveRotation(newRotation);
     }
 

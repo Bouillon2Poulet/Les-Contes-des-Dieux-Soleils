@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,5 +30,10 @@ public abstract class GravityArea : MonoBehaviour
         {
             gravityBody.RemoveGravityArea(this); // à implémenter dans gravity body
         }
+    }
+
+    internal object GetGravityDirection(ThirdPersonMovement thirdPersonMovement)
+    {
+        throw new NotImplementedException();
     }
 }
