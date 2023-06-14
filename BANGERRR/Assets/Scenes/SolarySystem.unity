@@ -490,6 +490,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9142487727485147711, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -566,6 +570,10 @@ PrefabInstance:
     - target: {fileID: 7260572071603504507, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142487727485147711, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 547235505124101656, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
@@ -673,6 +681,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9142487727485147711, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -704,9 +716,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cometPrefab: {fileID: 1684585627474501188, guid: f465ff1020e3f38488569fa152b1e9bc, type: 3}
-  systemParent: {fileID: 1460733685}
-  dayCounter: 0
-  angleDegOffsetComet: 190
 --- !u!4 &837963869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7260572071603504507, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
@@ -731,8 +740,9 @@ GameObject:
   - component: {fileID: 933289534}
   - component: {fileID: 933289533}
   - component: {fileID: 933289538}
+  - component: {fileID: 933289539}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CosmoGuide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -858,6 +868,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933289532}
   m_CullTransparentMesh: 1
+--- !u!114 &933289539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933289532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060c6942212268f4691ee6088102338c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cosmoGuideCamera: {fileID: 1719197268}
+  planetNamePrefab: {fileID: 1635965754499751228, guid: c4b41b5981415684ab73b32d24082ab9, type: 3}
+  growFactor: 3.75
+  nameOffset: {x: 123.9, y: -23}
+  offset: {x: 0, y: -28.5}
 --- !u!1001 &1069752590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -957,6 +984,10 @@ PrefabInstance:
     - target: {fileID: 7260572071603504507, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142487727485147711, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1079,6 +1110,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9142487727485147711, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1187,6 +1222,10 @@ PrefabInstance:
     - target: {fileID: 7260572071603504507, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142487727485147711, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
+      propertyPath: m_TagString
+      value: Planet
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1502339662261294879, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
@@ -1297,6 +1336,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9142487727485147711, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1394,6 +1437,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9142487727485147711, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1425,7 +1472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460733685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 86.08003, y: 21.533508, z: 56.929123}
+  m_LocalPosition: {x: 0, y: 0, z: 56.929123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
