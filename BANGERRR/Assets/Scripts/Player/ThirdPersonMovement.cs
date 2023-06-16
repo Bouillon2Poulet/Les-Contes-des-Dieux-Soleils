@@ -34,8 +34,11 @@ public class ThirdPersonMovement : MonoBehaviour
     private float verticalInput;
     private Vector3 moveDirection;
     
-    [Header("Debug Indicator")]
-    public Transform indicator;
+    //[Header("Debug")]
+    //public Transform indicator;
+
+    //public Transform GravityAreaTransform;
+    //private Vector3 previousPosition;
 
 
     void Start()
@@ -45,6 +48,9 @@ public class ThirdPersonMovement : MonoBehaviour
         rb.freezeRotation = true; /// Mandatory so that the player doesn't fall over
         gravityBody = GetComponent<GravityBody>();
         ResetJump();
+
+        // gravity area velocity heritage tests
+        //previousPosition = GravityAreaTransform.position;
     }
 
     void Update()
@@ -116,6 +122,17 @@ public class ThirdPersonMovement : MonoBehaviour
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+
+        /// gravity area velocity heritage tests
+        /*
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Vector3 gravityAreaVelocity = (GravityAreaTransform.position - previousPosition) / Time.deltaTime;
+            previousPosition = GravityAreaTransform.position;
+            rb.velocity += gravityAreaVelocity;
+        }
+        */
+
     }
 
     void FixedUpdate()
@@ -134,7 +151,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Quaternion newRotation = Quaternion.Slerp(rb.rotation, rb.rotation * rightDirection, Time.fixedDeltaTime * 3f);
 
         //indicator.rotation = newRotation;
-        indicator.rotation = Quaternion.FromToRotation(indicator.forward, moveDirectionOnGravityPlane) * indicator.rotation;
+        //indicator.rotation = Quaternion.FromToRotation(indicator.forward, moveDirectionOnGravityPlane) * indicator.rotation;
 
 
         rb.MoveRotation(newRotation);
@@ -170,7 +187,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 velocityOnHorizontalPlane = rb.velocity - Vector3.Dot(rb.velocity, gravityBody.GravityDirection) * gravityBody.GravityDirection;
 
         //Vector3 flatVel = new Vector3(velocityOnGravityPlane.x, 0f, velocityOnGravityPlane.z);
-        Debug.Log(velocityOnHorizontalPlane.magnitude);
+        //Debug.Log(velocityOnHorizontalPlane.magnitude);
         if (velocityOnHorizontalPlane.magnitude > moveSpeed)
         {
             // Here we clamp the magnitude of velocityOnHorizontalPlane between -moveSpeed and movespeed
