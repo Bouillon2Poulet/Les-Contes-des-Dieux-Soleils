@@ -8,6 +8,7 @@ public class OrbitRenderer : MonoBehaviour
     private float semiMajorAxis;
     private float semiMinorAxis;
     private LineRenderer lineRenderer; // Référence au LineRenderer
+    private GameObject cosmoguide;
 
 void Start()
 {
@@ -36,14 +37,20 @@ void Start()
     semiMajorAxis = GetComponent<SimpleEllipseRotation>().semiMajorAxis;
     semiMinorAxis = GetComponent<SimpleEllipseRotation>().semiMinorAxis;
 
+    // Trouver le GameObject "CosmoGuide" par son nom
+    cosmoguide = GameObject.Find("System");
+
+
+
     // Tracer le contour de l'orbite
-    UpdateOrbit();
+    if(cosmoguide.GetComponent<OpenCosmoGuide>().CosmoGuideIsOpen)
+        UpdateOrbit();
 }
 
 
     void Update()
     {
-        // Tracer le contour de l'orbite à chaque frame (si vous voulez que l'orbite se mette à jour en temps réel)
+        lineRenderer.enabled = cosmoguide.GetComponent<OpenCosmoGuide>().CosmoGuideIsOpen;
         UpdateOrbit();
     }
 
