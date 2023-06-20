@@ -33,13 +33,12 @@ public class ThirdPersonMovement : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private Vector3 moveDirection;
-    
-    //[Header("Debug")]
-    //public Transform indicator;
 
-    //public Transform GravityAreaTransform;
-    //private Vector3 previousPosition;
-
+    [Header("Debug")]
+    //public Transform gravityAreaTransform; // this debug feature allows me to retrieve the current gravityArea the player is in
+    private Vector3 GAPreviousPosition;
+    private bool GAFirstEntering;
+    private int GAPreviousID;
 
     void Start()
     {
@@ -49,70 +48,51 @@ public class ThirdPersonMovement : MonoBehaviour
         gravityBody = GetComponent<GravityBody>();
         ResetJump();
 
-        // gravity area velocity heritage tests
-        //previousPosition = GravityAreaTransform.position;
+        GAPreviousPosition = Vector3.zero;
+        GAFirstEntering = true;
+        GAPreviousID = -1;
     }
 
     void Update()
     {
-        // Test (trying to aligned the calculations with the correct gravity
-        //transform.up = Vector3.Slerp(transform.up, -gravityBody.GravityDirection, Time.deltaTime * rotationSpeed);
-
         /// GROUND CHECK
         /// Checks what's under the player using a raycast to see if the player is on the ground.
-        //grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + raycastMargin, groundMask);
         grounded = Physics.Raycast(transform.position, gravityBody.GravityDirection, playerHeight * 0.5f + raycastMargin, groundMask);
-        //Debug.Log("grounded: " + grounded);
+        //Debug.Log("grounded: " + grounded); // To know when player is grounded
 
         /// ORIENTATION
         /// Gets the inputs of the joystick or keys, horizontally and vertically separately, and put them in floats.
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        /// Calculates the direction in which the player if facing, only horizontally and vertically
-        // Maybe all of this should be first aligned with the current gravity ?
-        //Vector3 viewDirection = transform.position - new Vector3(cam.position.x, transform.position.y, cam.position.z);
-        //Vector3 viewDirection = Quaternion.FromToRotation(Vector3.up, -gravityBody.GravityDirection) * (transform.position - new Vector3(cam.position.x, transform.position.y, cam.position.z));
+        /// Calculates the direction in which the player if facing
         Vector3 gravityDirection = gravityBody.GravityDirection;
         Vector3 forwardDirection = cam.forward;
         Quaternion viewDirection = Quaternion.LookRotation(Vector3.ProjectOnPlane(forwardDirection, gravityDirection), -gravityDirection);
 
 
-        /// Determines the forward vector of the sub object of the player "orientation" which is used to store its orientation
-        // This makes it so that "forward" for the player is also in the direction the camera is facing (but only according to the world's plane)
-        //orientation.forward = viewDirection.normalized;
-        //orientation.forward = Vector3.ProjectOnPlane(viewDirection.normalized, gravityBody.GravityDirection).normalized;
+        /// Determines the rotation of the child object (called "orientation") of the player responsible for the orientation
         orientation.rotation = viewDirection;
 
-
         /// Determines the movement direction according to inputs and the orientation calculated above
-        // How can I adapt this to the current gravity ?
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        //indicator.rotation = Quaternion.FromToRotation(indicator.forward, moveDirection) * indicator.rotation;
-
         /// If there are inputs, we change the rotation of the player's graphics
-        // Maybe here the rigidBody (which is the object that holds the player's physics) should also be turned to be aligned with the gravity?
         if (moveDirection != Vector3.zero)
         {
-            //playerGraphics.forward = Vector3.Slerp(playerGraphics.forward, moveDirection.normalized, Time.deltaTime * rotationSpeed);
-            //playerGraphics.up = Vector3.Slerp(playerGraphics.up, -gravityDirection, Time.deltaTime * rotationSpeed);
-            //Quaternion correctRotation = Quaternion.FromToRotation(orientation.forward, moveDirection.normalized) * orientation.rotation;
             Quaternion correctRotation = Quaternion.LookRotation(moveDirection, -gravityDirection);
-
-            //indicator.rotation = correctRotation;
-
             playerGraphics.rotation = Quaternion.Lerp(playerGraphics.rotation, correctRotation, rotationSpeed * Time.deltaTime);
-
         }
 
         /// DRAG
+        /// Drag is applied on the rigidbody of the player only if they're an the ground
         if (grounded)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
 
         /// SPEED CAP
+        /// This function limits the velocity of the player
         SpeedControl();
 
         /// JUMP
@@ -122,100 +102,79 @@ public class ThirdPersonMovement : MonoBehaviour
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-
-        /// gravity area velocity heritage tests
-        /*
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            Vector3 gravityAreaVelocity = (GravityAreaTransform.position - previousPosition) / Time.deltaTime;
-            previousPosition = GravityAreaTransform.position;
-            rb.velocity += gravityAreaVelocity;
-        }
-        */
-
     }
 
     void FixedUpdate()
     {
-        /// MOVEMENT
+        FollowGravityArea();
         MovePlayer();
+    }
+
+    private void FollowGravityArea()
+    {
+        if (gravityBody.GravityTransform != null)
+        {
+            int currentID = gravityBody.GravityTransform.GetInstanceID();
+
+            if (currentID != GAPreviousID || GAFirstEntering)
+            {
+                GAPreviousID = currentID;
+                GAPreviousPosition = gravityBody.GravityTransform.position;
+                GAFirstEntering = false;
+            }
+            else
+            {
+                Vector3 GAPositionDelta = GAPreviousPosition - gravityBody.GravityTransform.position;
+                rb.MovePosition(rb.position - GAPositionDelta);
+                GAPreviousPosition = gravityBody.GravityTransform.position;
+            }
+        }
+        else
+        {
+            GAFirstEntering = true;
+        }
     }
 
     private void MovePlayer()
     {
-        // Project the moveDirection onto the plane defined by the current gravity
+        /// Project the moveDirection vector onto the plane defined by the current gravity
         Vector3 moveDirectionOnGravityPlane = Vector3.ProjectOnPlane(moveDirection, gravityBody.GravityDirection).normalized;
 
-        // Rotate the rigidBody as wanted
+        /// Rotate the rigidBody as wanted
         Quaternion rightDirection = Quaternion.Euler(0f, moveDirectionOnGravityPlane.x * (rotationSpeed * Time.fixedDeltaTime), 0f);
         Quaternion newRotation = Quaternion.Slerp(rb.rotation, rb.rotation * rightDirection, Time.fixedDeltaTime * 3f);
-
-        //indicator.rotation = newRotation;
-        //indicator.rotation = Quaternion.FromToRotation(indicator.forward, moveDirectionOnGravityPlane) * indicator.rotation;
-
-
         rb.MoveRotation(newRotation);
 
+        /// Apply the movement forces to the player's rigidbody
         if (grounded)
         {
-            //rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
             rb.AddForce(moveDirectionOnGravityPlane * moveSpeed * 10f, ForceMode.Force);
         }
         else if (!grounded)
         {
-            //rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
             rb.AddForce(moveDirectionOnGravityPlane * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
     }
 
     private void SpeedControl()
     {
-        /// Here we get the flat velocity (uniqually horizontal and verticalas always, according to the world's plane)
-        /// If it's too big, we limit it
-
-        //Vector3 velocityOnGravityPlane = Vector3.ProjectOnPlane(rb.velocity, gravityBody.GravityDirection);
-
-        //projectedVelocity.x = Mathf.Clamp(projectedVelocity.x, -moveSpeed, moveSpeed);
-        //projectedVelocity.z = Mathf.Clamp(projectedVelocity.z, -moveSpeed, moveSpeed);
-
-        //indicator.rotation = Quaternion.FromToRotation(indicator.forward, velocityOnGravityPlane) * indicator.rotation;
-
-        //rb.velocity = Vector3.Project(projectedVelocity, rb.velocity);
-
-        //Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
+        /// Calculation of the lateral velocity of the player on the plan defined by the gravity
         Vector3 velocityOnHorizontalPlane = rb.velocity - Vector3.Dot(rb.velocity, gravityBody.GravityDirection) * gravityBody.GravityDirection;
 
-        //Vector3 flatVel = new Vector3(velocityOnGravityPlane.x, 0f, velocityOnGravityPlane.z);
-        //Debug.Log(velocityOnHorizontalPlane.magnitude);
+        /// If the velocity is too big, we clamp it
         if (velocityOnHorizontalPlane.magnitude > moveSpeed)
         {
-            // Here we clamp the magnitude of velocityOnHorizontalPlane between -moveSpeed and movespeed
-
             Vector3 clampedHorizontalVelocity = Vector3.ClampMagnitude(velocityOnHorizontalPlane, moveSpeed);
             rb.velocity = clampedHorizontalVelocity + Vector3.Dot(rb.velocity, gravityBody.GravityDirection) * gravityBody.GravityDirection;
-            //Debug.Log("limiting Velocity 8)");
-
-            //Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            //rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
-
-            //Vector3 newVel = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
-            //rb.velocity = Vector3.Project(newVel, rb.velocity); // À TESTER
-            //rb.velocity = Vector3.Project(rb.velocity, newVel); // À TESTER
         }
     }
 
     private void Jump()
     {
-        /// Before jumping, we reset the y velocity (again, it's only compatible for areas that are aligned with the world)
-        //rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        // Reset the velocity on the gravity plane
+        /// Giving only the lateral velocity to the rb to cancel up and down velocity
         Vector3 velocityOnGravityPlane = Vector3.ProjectOnPlane(rb.velocity, gravityBody.GravityDirection);
-        rb.velocity = new Vector3(velocityOnGravityPlane.x, 0f, velocityOnGravityPlane.z);
+        rb.velocity = velocityOnGravityPlane;
 
-
-        //rb.AddForce(transform.up * jumpForce, ForceMode.Impulse); // old way of jumping, adapted only to the world's plane
         rb.AddForce(-gravityBody.GravityDirection * jumpForce, ForceMode.Impulse);
     }
 
