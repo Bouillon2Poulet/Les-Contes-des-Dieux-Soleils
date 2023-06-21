@@ -57,7 +57,11 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         /// GROUND CHECK
         /// Checks what's under the player using a raycast to see if the player is on the ground.
-        grounded = Physics.Raycast(transform.position, gravityBody.GravityDirection, playerHeight * 0.5f + raycastMargin, groundMask);
+        //grounded = Physics.Raycast(transform.position, gravityBody.GravityDirection, playerHeight * 0.5f + raycastMargin, groundMask);
+        grounded = Physics.Raycast(transform.position, gravityBody.GravityDirection, out RaycastHit hit, playerHeight * 0.5f + raycastMargin);
+
+        grounded = grounded && hit.collider.CompareTag("Ground") ? true : false;
+
         //Debug.Log("grounded: " + grounded); // To know when player is grounded
 
         /// ORIENTATION
