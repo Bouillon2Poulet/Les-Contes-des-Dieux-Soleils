@@ -106,32 +106,32 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        FollowGravityArea();
-        MovePlayer();
-    }
-
-    private void FollowGravityArea()
-    {
         if (gravityBody.GravityTransform != null)
         {
-            int currentID = gravityBody.GravityTransform.GetInstanceID();
-
-            if (currentID != GAPreviousID || GAFirstEntering)
-            {
-                GAPreviousID = currentID;
-                GAPreviousPosition = gravityBody.GravityTransform.position;
-                GAFirstEntering = false;
-            }
-            else
-            {
-                Vector3 GAPositionDelta = GAPreviousPosition - gravityBody.GravityTransform.position;
-                rb.MovePosition(rb.position - GAPositionDelta);
-                GAPreviousPosition = gravityBody.GravityTransform.position;
-            }
+            FollowGravityArea();
+            MovePlayer();
         }
         else
         {
             GAFirstEntering = true;
+        }
+    }
+
+    private void FollowGravityArea()
+    {
+        int currentID = gravityBody.GravityTransform.GetInstanceID();
+
+        if (currentID != GAPreviousID || GAFirstEntering)
+        {
+            GAPreviousID = currentID;
+            GAPreviousPosition = gravityBody.GravityTransform.position;
+            GAFirstEntering = false;
+        }
+        else
+        {
+            Vector3 GAPositionDelta = GAPreviousPosition - gravityBody.GravityTransform.position;
+            rb.MovePosition(rb.position - GAPositionDelta);
+            GAPreviousPosition = gravityBody.GravityTransform.position;
         }
     }
 
