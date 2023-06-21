@@ -22,6 +22,15 @@ public class GravityBody : MonoBehaviour
         }
     }
 
+    public Transform GravityTransform
+    {
+        get
+        {
+            if (_gravityAreas.Count == 0) return null;
+            return _gravityAreas.Last().transform;
+        }
+    }
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();

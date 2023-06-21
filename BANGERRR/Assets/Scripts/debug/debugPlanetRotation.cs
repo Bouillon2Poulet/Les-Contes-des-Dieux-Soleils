@@ -9,7 +9,7 @@ public class debugPlanetRotation : MonoBehaviour
     public float distance = 100.0f; // The distance of the planet from the center point
 
 
-    void Update()
+    void FixedUpdate()
     {
         // Calculate the angle of rotation based on the elapsed time and rotation speed
         float angle = Time.time * rotationSpeed;
