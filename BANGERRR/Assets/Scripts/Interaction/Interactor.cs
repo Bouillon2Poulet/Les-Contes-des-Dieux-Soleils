@@ -10,7 +10,6 @@ interface IInteractable
 
 public class Interactor : MonoBehaviour
 {
-    public float InteractRange = 4f;
     public KeyCode InteractionKey = KeyCode.E;
 
     void Update()
@@ -18,7 +17,7 @@ public class Interactor : MonoBehaviour
         if (Input.GetKeyDown(InteractionKey))
         {
             List<IInteractable> interactables = new List<IInteractable>();
-            float interactRange = 2f;
+            float interactRange = 1f;
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
             foreach (Collider collider in colliderArray)
             {
@@ -43,8 +42,10 @@ public class Interactor : MonoBehaviour
                     }
                 }
             }
-
-            closestInteractable.Interact();
+            if (closestInteractable != null)
+            {
+                closestInteractable.Interact();
+            }
         }
     }
 }

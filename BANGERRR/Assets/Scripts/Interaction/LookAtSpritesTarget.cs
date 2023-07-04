@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LookAtPlayer : MonoBehaviour
+public class LookAtSpritesTarget : MonoBehaviour
 {
     private GameObject player;
     private Vector3 up;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("SpritesTarget");
         up = transform.up;
     }
 

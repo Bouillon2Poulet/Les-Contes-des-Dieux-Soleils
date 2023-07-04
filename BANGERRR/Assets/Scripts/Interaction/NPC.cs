@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCtest : MonoBehaviour, IInteractable
+public class NPC : MonoBehaviour, IInteractable
 {
+    [SerializeField] public GameObject bubble;
     [SerializeField] public string npcName;
     [SerializeField] public string[] messages;
-    [SerializeField] public GameObject bubble;
+    [SerializeField] public SpriteRenderer sprite;
+
+    private GameObject lookAtTarget;
+    private float initialBubbleSize;
     private bool hasSomethingToSay;
+    private GravityBody gb;
 
     public void Interact()
     {
@@ -19,7 +24,7 @@ public class NPCtest : MonoBehaviour, IInteractable
 
     public void ShowBubble()
     {
-        bubble.transform.localScale = Vector3.one * .145f;
+        bubble.transform.localScale = Vector3.one * initialBubbleSize;
     }
 
     public void HideBubble()
@@ -29,6 +34,9 @@ public class NPCtest : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        lookAtTarget = GameObject.FindGameObjectWithTag("SpritesTarget");
+        gb = GetComponent<GravityBody>();
+        initialBubbleSize = bubble.transform.localScale.x;
         HideBubble();
         if (messages.Length > 0)
         {
@@ -38,6 +46,11 @@ public class NPCtest : MonoBehaviour, IInteractable
         {
             hasSomethingToSay = false;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        sprite.transform.LookAt(lookAtTarget.transform.position, -gb.GravityDirection);
     }
 
     private void OnTriggerEnter(Collider other)

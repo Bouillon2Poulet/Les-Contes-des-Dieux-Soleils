@@ -9,14 +9,24 @@ public class Fleurbulle : MonoBehaviour, IInteractable
 
     private Sprite originalSprite;
     private Sprite emptySprite;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
+
+    private GravityBody gb;
+    private GameObject lookAtTarget;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         player = FindAnyObjectByType<PlayerStatus>();
         emptySprite = Resources.Load<Sprite>("fleurbulle_empty");
         originalSprite = spriteRenderer.sprite;
+
+        lookAtTarget = GameObject.FindGameObjectWithTag("SpritesTarget");
+        gb = GetComponent<GravityBody>();
+    }
+
+    private void FixedUpdate()
+    {
+        spriteRenderer.transform.LookAt(lookAtTarget.transform.position, -gb.GravityDirection);
     }
 
     public void Interact()
