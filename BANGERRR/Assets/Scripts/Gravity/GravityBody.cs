@@ -6,9 +6,8 @@ using System.Linq;
 [RequireComponent(typeof(Rigidbody))]
 public class GravityBody : MonoBehaviour
 {
-    private static float GRAVITY_FORCE = 800f;
-
     private Rigidbody _rigidbody;
+    private PlayerStatus player;
 
     private List<GravityArea> _gravityAreas;
 
@@ -21,6 +20,24 @@ public class GravityBody : MonoBehaviour
             return _gravityAreas.Last().GetGravityDirection(this).normalized;
         }
     }
+    public float GravityForce
+    {
+        get
+        {
+            if (_gravityAreas.Count == 0) return 0;
+            _gravityAreas.Sort((area1, area2) => area1.Priority.CompareTo(area2.Priority));
+            return _gravityAreas.Last().GravityForce;
+        }
+    }
+    public bool IsBreathable
+    {
+        get
+        {
+            if (_gravityAreas.Count == 0) return false;
+            _gravityAreas.Sort((area1, area2) => area1.Priority.CompareTo(area2.Priority));
+            return _gravityAreas.Last().IsBreathable;
+        }
+    }
 
     public Transform GravityTransform
     {
@@ -29,6 +46,11 @@ public class GravityBody : MonoBehaviour
             if (_gravityAreas.Count == 0) return null;
             return _gravityAreas.Last().transform;
         }
+    }
+
+    private void Awake()
+    {
+        player = FindAnyObjectByType<PlayerStatus>();
     }
 
     void Start()
@@ -41,10 +63,10 @@ public class GravityBody : MonoBehaviour
 
     void FixedUpdate()
     {
-        _rigidbody.AddForce(GravityDirection * (GRAVITY_FORCE * Time.fixedDeltaTime), ForceMode.Acceleration);
+        _rigidbody.AddForce(GravityDirection * (GravityForce * Time.fixedDeltaTime), ForceMode.Acceleration);
 
         Quaternion upRotation = Quaternion.FromToRotation(transform.up, -GravityDirection);
-        Quaternion newRotation = Quaternion.Slerp(_rigidbody.rotation, upRotation * _rigidbody.rotation, Time.fixedDeltaTime * 3f);
+        Quaternion newRotation = Quaternion.Lerp(_rigidbody.rotation, upRotation * _rigidbody.rotation, Time.fixedDeltaTime * 3f);
         _rigidbody.MoveRotation(newRotation);
     }
 

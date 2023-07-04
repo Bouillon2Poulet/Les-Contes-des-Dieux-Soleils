@@ -20,5 +20,8 @@ public class debugPlanetRotation : MonoBehaviour
 
         // Update the planet's transform position
         transform.position = new Vector3(x, transform.position.y, z);
+
+        // Add slow rotation to the planet itself
+        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime * 100);
     }
 }

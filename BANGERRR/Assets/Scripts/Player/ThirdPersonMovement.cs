@@ -9,7 +9,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform playerGraphics;
     public Transform cam;
     private Rigidbody rb;
-    private GravityBody gravityBody;
+    public GravityBody gravityBody;
 
     [Header("Player Variables")]
     public float rotationSpeed; /// default: 7
@@ -60,14 +60,15 @@ public class ThirdPersonMovement : MonoBehaviour
         //grounded = Physics.Raycast(transform.position, gravityBody.GravityDirection, playerHeight * 0.5f + raycastMargin, groundMask);
         grounded = Physics.Raycast(transform.position, gravityBody.GravityDirection, out RaycastHit hit, playerHeight * 0.5f + raycastMargin);
 
-        grounded = grounded && hit.collider.CompareTag("Ground") ? true : false;
+        grounded = grounded && (hit.collider.CompareTag("Ground") || hit.collider.CompareTag("Planet")) ? true : false;
 
         //Debug.Log("grounded: " + grounded); // To know when player is grounded
 
         /// ORIENTATION
         /// Gets the inputs of the joystick or keys, horizontally and vertically separately, and put them in floats.
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        int stopper = (DialogManager.isActive) ? 0 : 1;
+        horizontalInput = Input.GetAxisRaw("Horizontal") * stopper;
+        verticalInput = Input.GetAxisRaw("Vertical") * stopper;
 
         /// Calculates the direction in which the player if facing
         Vector3 gravityDirection = gravityBody.GravityDirection;
@@ -100,7 +101,7 @@ public class ThirdPersonMovement : MonoBehaviour
         SpeedControl();
 
         /// JUMP
-        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded && !DialogManager.isActive)
         {
             readyToJump = false;
             Jump();
@@ -133,8 +134,14 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else
         {
+            // Follow GA position
             Vector3 GAPositionDelta = GAPreviousPosition - gravityBody.GravityTransform.position;
             rb.MovePosition(rb.position - GAPositionDelta);
+
+            // Follow GA rotation
+            // Vector3 positionOffset = rb.position - GAPreviousPosition;
+            // Vector3 rotatedPositionOffset = positionOffset * gravityBody.GravityTransform.rotation.normalized;
+
             GAPreviousPosition = gravityBody.GravityTransform.position;
         }
     }
