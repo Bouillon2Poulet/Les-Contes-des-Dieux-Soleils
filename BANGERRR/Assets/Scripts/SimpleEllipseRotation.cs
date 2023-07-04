@@ -19,7 +19,7 @@ public class SimpleEllipseRotation : MonoBehaviour
         transform.position = GetPosition(GetComponentInParent<SystemDayCounter>().systemTime, invertFactor); // Met à jour la position de l'objet sur l'ellipse
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         int invertFactor = (invert) ? -1 : 1;
         transform.position = GetPosition(GetComponentInParent<SystemDayCounter>().systemTime, invertFactor); // Met à jour la position de l'objet sur l'ellipse

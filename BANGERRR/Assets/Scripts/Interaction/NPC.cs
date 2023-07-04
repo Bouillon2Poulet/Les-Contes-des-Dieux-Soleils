@@ -38,14 +38,7 @@ public class NPC : MonoBehaviour, IInteractable
         gb = GetComponent<GravityBody>();
         initialBubbleSize = bubble.transform.localScale.x;
         HideBubble();
-        if (messages.Length > 0)
-        {
-            hasSomethingToSay = true;
-        }
-        else
-        {
-            hasSomethingToSay = false;
-        }
+        hasSomethingToSay = messages.Length > 0;
     }
 
     private void FixedUpdate()
