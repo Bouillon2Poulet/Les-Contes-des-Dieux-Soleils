@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public bool hasBubbleOn = false;
+    [Header("Status")]
     public bool isDead = false;
+    public SpriteRenderer spriteRenderer;
+    [SerializeField] private bool canSuffocate = true;
 
+    [Header("Suffocation")]
+    public bool hasBubbleOn = false;
     public float suffocationCountdown = 10f;
     public float initialBlinkInterval = 1f;
     public Color blinkColor = Color.red;
+
     private Color originalColor;
     private bool isBlinking;
     private float blinkTimer;
 
     private Sprite withBubbleSprite;
     private Sprite originalSprite;
-    public SpriteRenderer spriteRenderer;
 
     private Vector3 respawnPointPosition;
     private Quaternion respawnPointRotation;
@@ -79,7 +83,7 @@ public class PlayerStatus : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!gBody.IsBreathable && !hasBubbleOn && !isDead)
+        if (!gBody.IsBreathable && !hasBubbleOn && !isDead && canSuffocate)
         {
             if (!isBlinking)
             {
@@ -101,5 +105,15 @@ public class PlayerStatus : MonoBehaviour
         {
             StopBlinking();
         }
+    }
+
+    public void blockSuffocation()
+    {
+        canSuffocate = false;
+    }
+
+    public void unblockSuffocation()
+    {
+        canSuffocate = true;
     }
 }
