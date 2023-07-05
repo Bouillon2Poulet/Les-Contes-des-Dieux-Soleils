@@ -24,6 +24,8 @@ public class DialogManager : MonoBehaviour
             currentMessages = messages;
             activeMessageIndex = 0;
             isActive = true;
+            FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
+
 
             Debug.Log("[DialogManager] Loaded message : " + messages.Length);
             DisplayMessage();
@@ -59,6 +61,7 @@ public class DialogManager : MonoBehaviour
         {
             Debug.Log("[DialogManager] End of messages");
             isActive = false;
+            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             backgroundBox.localScale = Vector3.zero;
         }
     }

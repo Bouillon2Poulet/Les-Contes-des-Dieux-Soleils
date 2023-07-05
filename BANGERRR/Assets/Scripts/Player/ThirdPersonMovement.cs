@@ -9,11 +9,13 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform playerGraphics;
     public Transform cam;
     private Rigidbody rb;
-    public GravityBody gravityBody;
+    private GravityBody gravityBody;
 
     [Header("Player Variables")]
     public float rotationSpeed; /// default: 7
     public float moveSpeed; /// default: 7
+    public bool isListeningToMoveInputs = true;
+    public bool isFollowingGA = true;
 
     [Header("Drag")]
     public float playerHeight; /// mine: 1.25
@@ -34,11 +36,12 @@ public class ThirdPersonMovement : MonoBehaviour
     private float verticalInput;
     private Vector3 moveDirection;
 
-    [Header("Debug")]
+    [Header("Gravity Stuff")]
     //public Transform gravityAreaTransform; // this debug feature allows me to retrieve the current gravityArea the player is in
     private Vector3 GAPreviousPosition;
     private bool GAFirstEntering;
     private int GAPreviousID;
+
 
     void Start()
     {
@@ -66,9 +69,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
         /// ORIENTATION
         /// Gets the inputs of the joystick or keys, horizontally and vertically separately, and put them in floats.
-        int stopper = (DialogManager.isActive) ? 0 : 1;
-        horizontalInput = Input.GetAxisRaw("Horizontal") * stopper;
-        verticalInput = Input.GetAxisRaw("Vertical") * stopper;
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
 
         /// Calculates the direction in which the player if facing
         Vector3 gravityDirection = gravityBody.GravityDirection;
@@ -101,7 +103,7 @@ public class ThirdPersonMovement : MonoBehaviour
         SpeedControl();
 
         /// JUMP
-        if (Input.GetKey(jumpKey) && readyToJump && grounded && !DialogManager.isActive)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded && isListeningToMoveInputs)
         {
             readyToJump = false;
             Jump();
@@ -111,10 +113,13 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (gravityBody.GravityTransform != null)
+        if (gravityBody.GravityTransform != null && isFollowingGA)
         {
             FollowGravityArea();
-            MovePlayer();
+            if (isListeningToMoveInputs)
+            {
+                MovePlayer();
+            }
         }
         else
         {
@@ -198,5 +203,25 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void blockPlayerMoveInputs()
+    {
+        isListeningToMoveInputs = false;
+    }
+
+    public void unblockPlayerMoveInputs()
+    {
+        isListeningToMoveInputs = true;
+    }
+
+    public void blockPlayerGAFollow()
+    {
+        isFollowingGA = false;
+    }
+
+    public void unblockPlayerGAFollow()
+    {
+        isFollowingGA = true;
     }
 }
