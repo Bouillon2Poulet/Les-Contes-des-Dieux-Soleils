@@ -16,8 +16,9 @@ public class Interactor : MonoBehaviour
     {
         if (Input.GetKeyDown(InteractionKey))
         {
+            Debug.Log("InteractionKey pressed");
             List<IInteractable> interactables = new List<IInteractable>();
-            float interactRange = 1f;
+            float interactRange = 2f;
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
             foreach (Collider collider in colliderArray)
             {
@@ -44,6 +45,7 @@ public class Interactor : MonoBehaviour
             }
             if (closestInteractable != null)
             {
+                Debug.Log("Engaging interaction");
                 closestInteractable.Interact();
             }
         }

@@ -1206,6 +1206,37 @@ MonoBehaviour:
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
+--- !u!1 &6834873458454925018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5450348585796012515}
+  m_Layer: 10
+  m_Name: Eyes
+  m_TagString: SpritesTarget
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5450348585796012515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834873458454925018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7467868607780905615}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7302734220197462499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,7 +1265,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 5450348585796012515}
   m_Father: {fileID: 3116723735190882865}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1397,9 +1429,10 @@ MonoBehaviour:
   orientation: {fileID: 3116723735190882865}
   playerGraphics: {fileID: 4231740313269857684}
   cam: {fileID: 2653169651963188867}
-  gravityBody: {fileID: 0}
   rotationSpeed: 10
   moveSpeed: 7
+  isListeningToMoveInputs: 1
+  isFollowingGA: 1
   playerHeight: 3
   groundMask:
     serializedVersion: 2
@@ -1447,12 +1480,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96df6e1d45be8e4391e53772506ae4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBubbleOn: 0
   isDead: 0
+  spriteRenderer: {fileID: 7847526443295078657}
+  canSuffocate: 1
+  hasBubbleOn: 0
   suffocationCountdown: 10
   initialBlinkInterval: 1
   blinkColor: {r: 1, g: 0, b: 0, a: 1}
-  spriteRenderer: {fileID: 7847526443295078657}
 --- !u!1 &8489826763019323256
 GameObject:
   m_ObjectHideFlags: 0
