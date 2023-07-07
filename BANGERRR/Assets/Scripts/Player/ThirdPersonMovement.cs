@@ -39,6 +39,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Gravity Stuff")]
     //public Transform gravityAreaTransform; // this debug feature allows me to retrieve the current gravityArea the player is in
     private Vector3 GAPreviousPosition;
+    float GAPreviousRotationY;
     private bool GAFirstEntering;
     private int GAPreviousID;
 
@@ -52,6 +53,7 @@ public class ThirdPersonMovement : MonoBehaviour
         ResetJump();
 
         GAPreviousPosition = Vector3.zero;
+        GAPreviousRotationY = 0;
         GAFirstEntering = true;
         GAPreviousID = -1;
     }
@@ -135,18 +137,27 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             GAPreviousID = currentID;
             GAPreviousPosition = gravityBody.GravityTransform.position;
+            GAPreviousRotationY = gravityBody.GravityTransform.rotation.eulerAngles.y;
             GAFirstEntering = false;
         }
         else
         {
             // Follow GA position
-            Vector3 GAPositionDelta = GAPreviousPosition - gravityBody.GravityTransform.position;
-            rb.MovePosition(rb.position - GAPositionDelta);
+            Vector3 GAPositionDelta = gravityBody.GravityTransform.position - GAPreviousPosition;
+            //rb.MovePosition(rb.position - GAPositionDelta); // old way
+            rb.position += GAPositionDelta;
 
             // Follow GA rotation
-            // Vector3 positionOffset = rb.position - GAPreviousPosition;
-            // Vector3 rotatedPositionOffset = positionOffset * gravityBody.GravityTransform.rotation.normalized;
+            Vector3 offset = rb.position - GAPreviousPosition;
+            
+            float deltaRotation = gravityBody.GravityTransform.rotation.eulerAngles.y - GAPreviousRotationY;
+            Quaternion rotation = Quaternion.Euler(0f, deltaRotation, 0f);
+            Vector3 rotatedOffset = rotation * offset;
 
+            rb.position = GAPreviousPosition + rotatedOffset;
+
+            // Store for next time
+            GAPreviousRotationY = gravityBody.GravityTransform.rotation.eulerAngles.y;
             GAPreviousPosition = gravityBody.GravityTransform.position;
         }
     }

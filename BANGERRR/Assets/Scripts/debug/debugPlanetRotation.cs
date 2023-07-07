@@ -7,6 +7,7 @@ public class debugPlanetRotation : MonoBehaviour
     public Transform centerPoint; // The point around which the planet will rotate
     public float rotationSpeed = 1.0f; // The speed of rotation
     public float distance = 100.0f; // The distance of the planet from the center point
+    public float selfRotationSpeed = 100;
 
 
     void FixedUpdate()
@@ -22,6 +23,6 @@ public class debugPlanetRotation : MonoBehaviour
         transform.position = new Vector3(x, transform.position.y, z);
 
         // Add slow rotation to the planet itself
-        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime * 100);
+        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime * selfRotationSpeed);
     }
 }
