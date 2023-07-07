@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1611825713659495553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2714633114037417994, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714633114037417994, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.2280746
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714633114037417994, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 27.891487
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714633114037417994, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.49545
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714633114037417994, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.48545417
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714633114037417994, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7853469
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714633114037417994, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.28470477
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714633114037417994, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.2578906
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714633114037417994, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 4.451
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714633114037417994, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -74.568
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714633114037417994, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -139.827
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001415705815714051, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      propertyPath: m_Name
+      value: PorteOmnioPrefab Variant 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5001415705815714051, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7019688645533772532}
+  m_SourcePrefab: {fileID: 100100000, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+--- !u!95 &5292972530725746925 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6857346758151584876, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+  m_PrefabInstance: {fileID: 1611825713659495553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5996195353642618242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5001415705815714051, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+  m_PrefabInstance: {fileID: 1611825713659495553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7019688645533772532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5996195353642618242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c368bc3a3a48374b8a5d24f050afd97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miroirAlpha: {fileID: 0}
+  miroirBeta: {fileID: 0}
+  miroirDelta: {fileID: 0}
+  oeilAlpha: {fileID: 7900425266610441586}
+  oeilBeta: {fileID: 5292972530725746925}
+  oeilDelta: {fileID: 7130225082146594885}
+  hasBeenOpened: 0
+--- !u!95 &7130225082146594885 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8407656579849938116, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+  m_PrefabInstance: {fileID: 1611825713659495553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7900425266610441586 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8934482063924775411, guid: 556337f1bfecc2a4a8271c4b1c7ef28a, type: 3}
+  m_PrefabInstance: {fileID: 1611825713659495553}
+  m_PrefabAsset: {fileID: 0}
