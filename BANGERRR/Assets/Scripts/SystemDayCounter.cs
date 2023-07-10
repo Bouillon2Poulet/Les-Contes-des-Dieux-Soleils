@@ -19,7 +19,7 @@ public class SystemDayCounter : MonoBehaviour
         systemTime = ((appTime  + offset) * convertFactor) % 86400;
         dayCounter = (int)((appTime) * convertFactor) / 86400;
         hour = (int)(systemTime / 3600f);
-        // float seconds = systemTime - (hour * 60f);
+        float seconds = systemTime - (hour * 60f);
 
         string timeString = string.Format("Jour {0} - {1}h", dayCounter, hour);
         timeText.text = timeString;

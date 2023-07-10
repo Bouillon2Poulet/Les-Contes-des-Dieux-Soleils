@@ -27,6 +27,8 @@ public class PlayerStatus : MonoBehaviour
 
     private GravityBody gBody;
 
+    public bool hasCosmoGuide = false;
+
     public void WearBubble()
     {
         Debug.Log("Joueur porte une bulle");
