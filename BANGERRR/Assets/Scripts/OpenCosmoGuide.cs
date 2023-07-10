@@ -3,37 +3,37 @@ using UnityEngine.UI;
 
 public class OpenCosmoGuide : MonoBehaviour
 {
-    public Canvas cosmoguideCanvas;
+    public GameObject PixelatedImage;
     public bool CosmoGuideIsOpen = false;
     public Texture CosmoGuide;
     public Texture Background;
-    public GameObject playerObject;
+    public PlayerStatus playerStatus;
     public GameObject timeObject;
     private RawImage rawImage;
 
     void Start()
     {
-        rawImage = cosmoguideCanvas.GetComponent<RawImage>();
+        rawImage = PixelatedImage.GetComponent<RawImage>();
         rawImage.texture = Background;
         if (rawImage == null)
         {
             Debug.LogError("Le composant RawImage n'est pas attaché au cosmoguideCanvas !");
         }
+        timeObject.SetActive(CosmoGuideIsOpen);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && playerStatus.hasCosmoGuide)
         {
             CosmoGuideIsOpen = !CosmoGuideIsOpen;
             if (rawImage != null)
             {
-                playerObject.SetActive(!CosmoGuideIsOpen);
+                // playerObject.SetActive(!CosmoGuideIsOpen);
                 timeObject.SetActive(CosmoGuideIsOpen);
 
                 rawImage.texture = CosmoGuideIsOpen ? CosmoGuide : Background;
             }
-
         }
     }
 }

@@ -10,18 +10,17 @@ public class PlanetNameDisplay : MonoBehaviour
     public float growFactor;
     public Vector2 nameOffset;
     public Vector2 offset;
+    public GameObject system;
 
     private GameObject[] planets;
     private GameObject[] names;
 
-
-    private GameObject system;
     private void Start()
     {
         // Recherche tous les objets nommés "Planet" dans la scène
-        planets = new GameObject[15];
         planets = GameObject.FindGameObjectsWithTag("Planet");
-        names = new GameObject[15]; // Initialisation du tableau des noms
+        names = new GameObject[planets.Length]; // Initialise le tableau des noms avec la taille correspondante
+        Debug.Log(planets.Length);
 
         // Crée un nouvel objet vide pour contenir les noms des planètes
         GameObject namesContainer = new GameObject("Names");
@@ -39,10 +38,7 @@ public class PlanetNameDisplay : MonoBehaviour
             // Copie le matériau du MeshRenderer sur le TextMeshProUGUI
             names[i].GetComponentInChildren<TextMeshProUGUI>().color = planetRenderer.material.color;
         }
-            // Trouver le GameObject "CosmoGuide" par son nom
-    
-    
-    system = GameObject.Find("System");
+        // Debug.Log(names);
     }
 
     private void Update()
