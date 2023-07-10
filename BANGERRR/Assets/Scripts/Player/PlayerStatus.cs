@@ -6,6 +6,7 @@ public class PlayerStatus : MonoBehaviour
 {
     [Header("Status")]
     public bool isDead = false;
+    public bool isAnimated = false;
     public SpriteRenderer spriteRenderer;
     [SerializeField] private bool canSuffocate = true;
 
@@ -22,8 +23,13 @@ public class PlayerStatus : MonoBehaviour
     private Sprite withBubbleSprite;
     private Sprite originalSprite;
 
+    // Bubble Respawn
     private Vector3 respawnPointPosition;
     private Quaternion respawnPointRotation;
+
+    [Header("Jump Respawn")]
+    private bool hasJumpRespawnBeenInvoked;
+    public float timeBeforeJumpRespawn = 22;
 
     private GravityBody gBody;
 
@@ -62,12 +68,16 @@ public class PlayerStatus : MonoBehaviour
 
     private void DieAndRespawn()
     {
-        // Implement your respawn logic here
         Debug.Log("T'es mort");
         isDead = true;
-
+        // Va falloir animer une transition plus sympa ici
         isDead = false;
         transform.SetPositionAndRotation(respawnPointPosition, respawnPointRotation);
+    }
+
+    public void jumpRespawn()
+    {
+        transform.position = FindObjectOfType<ThirdPersonMovement>().lastJumpPosition;
     }
 
     private void Awake()
@@ -83,7 +93,8 @@ public class PlayerStatus : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!gBody.IsBreathable && !hasBubbleOn && !isDead && canSuffocate)
+        // Suffocation Logic (in GA)
+        if (!gBody.IsBreathable && !hasBubbleOn && !isDead && canSuffocate && gBody.inGravityArea)
         {
             if (!isBlinking)
             {
@@ -105,15 +116,54 @@ public class PlayerStatus : MonoBehaviour
         {
             StopBlinking();
         }
+
+        // Void respawn (not in GA)
+        if (!isAnimated && !gBody.inGravityArea && !hasJumpRespawnBeenInvoked)
+        {
+            Debug.Log("invoke JR");
+            Invoke(nameof(jumpRespawn), timeBeforeJumpRespawn);
+            hasJumpRespawnBeenInvoked = true;
+        }
+
+        if (hasJumpRespawnBeenInvoked && gBody.inGravityArea)
+        {
+            Debug.Log("cancel invoke JR");
+            CancelInvoke(nameof(jumpRespawn));
+            hasJumpRespawnBeenInvoked = false;
+        }
+
+        // Changement de Shader
+        if (gBody.AreaShader != null)
+        {
+            spriteRenderer.material.shader = gBody.AreaShader;
+        } else
+        {
+            spriteRenderer.material.shader = Shader.Find("Universal Render Pipeline/Lit");
+        }
     }
 
     public void blockSuffocation()
     {
         canSuffocate = false;
     }
-
     public void unblockSuffocation()
     {
         canSuffocate = true;
+    }
+    public void stopAnimate()
+    {
+        isAnimated = false;
+    }
+    public void animate()
+    {
+        isAnimated = true;
+    }
+    public void hideSprite()
+    {
+        spriteRenderer.enabled = false;
+    }
+    public void showSprite()
+    {
+        spriteRenderer.enabled = true;
     }
 }

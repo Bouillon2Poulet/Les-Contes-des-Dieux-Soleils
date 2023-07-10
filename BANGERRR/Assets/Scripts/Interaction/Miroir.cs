@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Miroir : MonoBehaviour, IInteractable
 {
-    private Animator Animator;
     public bool hasBeenTriggered;
+    public CinemachineVirtualCamera miroirCam;
+
+    private Animator Animator;
+    private bool hasFocus = false;
 
     public void Interact()
     {
@@ -14,6 +18,20 @@ public class Miroir : MonoBehaviour, IInteractable
             hasBeenTriggered = true;
             Debug.Log("Opening Mirror Eye " + GetInstanceID());
             Animator.SetTrigger("TriggerOpenEyelid");
+        }
+
+        if (!hasFocus)
+        {
+            miroirCam.Priority = 100;
+            hasFocus = true;
+            FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
+            FindObjectOfType<MainCameraManager>().blockMovement();
+            FindObjectOfType<PlayerStatus>().hideSprite();
+        } else
+        {
+            miroirCam.Priority = 0;
+            FindObjectOfType<PlayerStatus>().showSprite();
+            Invoke(nameof(unblockEvent), 3);
         }
     }
 
@@ -26,5 +44,12 @@ public class Miroir : MonoBehaviour, IInteractable
     public Transform GetTransform()
     {
         return transform;
+    }
+
+    private void unblockEvent()
+    {
+        hasFocus = false;
+        FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+        FindObjectOfType<MainCameraManager>().unblockMovement();
     }
 }

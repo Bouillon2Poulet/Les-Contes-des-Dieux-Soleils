@@ -36,6 +36,7 @@ public class EDTransitionScript : MonoBehaviour
         FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
         FindObjectOfType<ThirdPersonMovement>().blockPlayerGAFollow();
         FindObjectOfType<PlayerStatus>().blockSuffocation();
+        FindObjectOfType<PlayerStatus>().animate();
         hasAnimationStarted = true;
     }
 
@@ -44,6 +45,7 @@ public class EDTransitionScript : MonoBehaviour
         FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
         FindObjectOfType<ThirdPersonMovement>().unblockPlayerGAFollow();
         FindObjectOfType<PlayerStatus>().unblockSuffocation();
+        FindObjectOfType<PlayerStatus>().stopAnimate();
         hasAnimationStopped = true;
     }
 

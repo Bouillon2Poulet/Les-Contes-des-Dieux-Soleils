@@ -9,6 +9,10 @@ public class debugPlanetRotation : MonoBehaviour
     public float distance = 100.0f; // The distance of the planet from the center point
     public float selfRotationSpeed = 100;
 
+    [Header("ED pointing")]
+    public Transform pointingTowards;
+    public Quaternion rotationOffset;
+
 
     void FixedUpdate()
     {
@@ -24,5 +28,11 @@ public class debugPlanetRotation : MonoBehaviour
 
         // Add slow rotation to the planet itself
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime * selfRotationSpeed);
+
+        if (pointingTowards != null)
+        {
+            transform.LookAt(pointingTowards.position);
+            transform.rotation *= rotationOffset;
+        }
     }
 }

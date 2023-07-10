@@ -38,6 +38,15 @@ public class GravityBody : MonoBehaviour
             return _gravityAreas.Last().IsBreathable;
         }
     }
+    public Shader AreaShader
+    {
+        get
+        {
+            if (_gravityAreas.Count == 0) return null;
+            _gravityAreas.Sort((area1, area2) => area1.Priority.CompareTo(area2.Priority));
+            return _gravityAreas.Last().AreaShader;
+        }
+    }
 
     public Transform GravityTransform
     {
@@ -45,6 +54,15 @@ public class GravityBody : MonoBehaviour
         {
             if (_gravityAreas.Count == 0) return null;
             return _gravityAreas.Last().transform;
+        }
+    }
+
+    public bool inGravityArea
+    {
+        get
+        {
+            if (_gravityAreas.Count == 0) return false;
+            return true;
         }
     }
 

@@ -9,11 +9,13 @@ public abstract class GravityArea : MonoBehaviour
     [SerializeField] private int _priority;
     [SerializeField] private float _gravityForce = 800f;
     [SerializeField] private bool _isBreathable = true;
+    [SerializeField] private Shader _areaShader;
 
     public int Priority => _priority;
     public float GravityForce => _gravityForce;
     public bool IsBreathable => _isBreathable;
-    // Start is called before the first frame update
+    public Shader AreaShader => _areaShader;
+
     void Start()
     {
         transform.GetComponent<Collider>().isTrigger = true;
