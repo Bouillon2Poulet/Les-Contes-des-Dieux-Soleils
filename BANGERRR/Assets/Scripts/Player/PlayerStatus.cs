@@ -168,4 +168,8 @@ public class PlayerStatus : MonoBehaviour
     {
         spriteRenderer.enabled = true;
     }
+    public void giveCosmoguide()
+    {
+        hasCosmoGuide = true;
+    }
 }

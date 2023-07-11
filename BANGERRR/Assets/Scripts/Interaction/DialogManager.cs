@@ -40,6 +40,12 @@ public class DialogManager : MonoBehaviour
         }
     }
 
+    public void OpenMessage(string message, string name)
+    {
+        string[] messages = {message};
+        OpenDialog(messages, name);
+    }
+
     void DisplayMessage()
     {
         messageText.text = currentMessages[activeMessageIndex];

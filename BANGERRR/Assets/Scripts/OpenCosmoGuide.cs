@@ -24,7 +24,7 @@ public class OpenCosmoGuide : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerStatus.hasCosmoGuide)
+        if (Input.GetKeyDown(KeyCode.C) && playerStatus.hasCosmoGuide)
         {
             CosmoGuideIsOpen = !CosmoGuideIsOpen;
             if (rawImage != null)
