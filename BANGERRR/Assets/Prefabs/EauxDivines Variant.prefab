@@ -167,6 +167,7 @@ MonoBehaviour:
   _priority: 10
   _gravityForce: 600
   _isBreathable: 1
+  _areaShader: {fileID: 0}
 --- !u!1 &6879725417781334823
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +711,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d1575a39c44f780458d536f36251ce45, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d1575a39c44f780458d536f36251ce45, type: 3}
       propertyPath: m_LocalScale.x
