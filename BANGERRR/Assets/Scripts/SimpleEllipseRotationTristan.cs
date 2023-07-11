@@ -12,6 +12,10 @@ public class SimpleEllipseRotationTristan : MonoBehaviour
     private float vitesseRadiale;
     private float currentAngle;
 
+    [Header("Pointing Towards")]
+    public Transform pointingTowards;
+    public Quaternion rotationOffset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,12 @@ public class SimpleEllipseRotationTristan : MonoBehaviour
         int invertFactor = (invert) ? -1 : 1;
         currentAngle += invertFactor * vitesseRadiale * Time.deltaTime;
         transform.position = GetPosition(invertFactor); // Met à jour la position de l'objet sur l'ellipse
+
+        if (pointingTowards != null)
+        {
+            transform.LookAt(pointingTowards.position);
+            transform.rotation *= rotationOffset;
+        }
     }
 
     Vector3 GetPosition(int invertFactor){
