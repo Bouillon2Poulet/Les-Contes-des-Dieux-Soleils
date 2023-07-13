@@ -1657,18 +1657,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 53940190}
   npcName: Francis
-  messages:
-  - wo la team
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - dernier message
   sprite: {fileID: 1885502821}
+  actors: []
+  messagesA: []
+  pageB: 0
+  messagesB: []
+  pageC: 0
+  messagesC: []
+  pageD: 0
+  messagesD: []
+  pageE: 0
+  messagesE: []
 --- !u!135 &365515230
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2895,9 +2894,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 885865924}
   npcName: Jacques
-  messages:
-  - 1 seul message
   sprite: {fileID: 2056316796}
+  actors: []
+  messagesA: []
+  pageB: 0
+  messagesB: []
+  pageC: 0
+  messagesC: []
+  pageD: 0
+  messagesD: []
+  pageE: 0
+  messagesE: []
 --- !u!114 &598347100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5524,8 +5531,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 1718728952}
   npcName: 
-  messages: []
   sprite: {fileID: 811057819}
+  actors: []
+  messagesA: []
+  pageB: 0
+  messagesB: []
+  pageC: 0
+  messagesC: []
+  pageD: 0
+  messagesD: []
+  pageE: 0
+  messagesE: []
 --- !u!114 &1130812600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5746,10 +5762,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 519546360}
   npcName: Francis 2
-  messages:
-  - j'adore la vie
-  - swag de poule
   sprite: {fileID: 1106011134}
+  actors: []
+  messagesA: []
+  pageB: 0
+  messagesB: []
+  pageC: 0
+  messagesC: []
+  pageD: 0
+  messagesD: []
+  pageE: 0
+  messagesE: []
 --- !u!114 &1157785636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7315,6 +7338,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -8.94
       objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.b
+      value: 0.702765
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: npcName
       value: Cyprien
@@ -7395,6 +7430,18 @@ PrefabInstance:
     - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -8.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.b
+      value: 0.051886797
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.r
+      value: 0.26307705
       objectReference: {fileID: 0}
     - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: npcName
@@ -9526,6 +9573,102 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 40.182
       objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: pageB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: pageC
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[0]
+      value: Squeezie
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[1]
+      value: Michou
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[2]
+      value: ' '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[0]
+      value: Salut !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[1]
+      value: C'est mon premier dialogue !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[2]
+      value: "voil\xE0"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[0]
+      value: "Te revoil\xE0 !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[1]
+      value: "J'ai rien de plus \xE0 dire"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[0]
+      value: "L\xE2che moi les baskets !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[0].message
+      value: Salut !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[1].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[1].message
+      value: C'est mon premier Dialogue !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[2].actorID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[2].message
+      value: UNE GRENOUILLE
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[0].message
+      value: "Te Revoil\xE0 !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[1].actorID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[1].message
+      value: "J'ai rien de plus \xE0 dire"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[0].message
+      value: "L\xE2che moi les baskets !"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9717,15 +9860,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1050154554665944190, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1
+      value: -279
       objectReference: {fileID: 0}
     - target: {fileID: 1050154554665944190, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.3
+      value: 68.09
       objectReference: {fileID: 0}
     - target: {fileID: 1050154554665944190, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.29
+      value: 219.94
       objectReference: {fileID: 0}
     - target: {fileID: 1050154554665944190, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9761,7 +9904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2653169651963188867, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.488
+      value: 4.4880004
       objectReference: {fileID: 0}
     - target: {fileID: 2653169651963188867, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9773,27 +9916,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2653169651963188867, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.19593807
+      value: 0.1959381
       objectReference: {fileID: 0}
     - target: {fileID: 2653169651963188867, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018996646
+      value: -0.000000034856168
       objectReference: {fileID: 0}
     - target: {fileID: 2653169651963188867, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000037957415
+      value: 0.000000006964652
       objectReference: {fileID: 0}
     - target: {fileID: 3134223380135175182, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000000038773638
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3134223380135175182, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000000012475453
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3134223380135175182, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0000001191402
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3134223380135175182, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9813,15 +9956,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3697823082102751619, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000000038773638
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3697823082102751619, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000000012475453
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3697823082102751619, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0000001191402
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3697823082102751619, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9845,7 +9988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6570725431136239260, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.488
+      value: 4.4880004
       objectReference: {fileID: 0}
     - target: {fileID: 6570725431136239260, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9869,11 +10012,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7868750421937019282, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6103307
+      value: 1.6103295
       objectReference: {fileID: 0}
     - target: {fileID: 7868750421937019282, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.645211
+      value: -5.645212
       objectReference: {fileID: 0}
     - target: {fileID: 7868750421937019282, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalPosition.z

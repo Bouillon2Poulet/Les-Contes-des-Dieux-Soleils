@@ -11,21 +11,20 @@ public class DialogManager : MonoBehaviour
     public RectTransform backgroundBox;
     public RectTransform arrow;
 
-    private string[] currentMessages;
+    private Message[] currentMessages;
+    private string[] currentActors;
     private int activeMessageIndex = 0;
     public static bool isActive = false;
 
-    public void OpenDialog(string[] messages, string npcName)
+    public void OpenDialog(Message[] messages, string[] actors)
     {
         if (!isActive)
         {
-            npcNameText.text = npcName;
-
             currentMessages = messages;
+            currentActors = actors;
             activeMessageIndex = 0;
             isActive = true;
             FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
-
 
             Debug.Log("[DialogManager] Loaded message : " + messages.Length);
             DisplayMessage();
@@ -40,15 +39,23 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void OpenMessage(string message, string name)
+    public void OpenMessage(string text, string name)
     {
-        string[] messages = {message};
-        OpenDialog(messages, name);
+        Message uniqueMessage = new Message
+        {
+            message = text,
+            actorID = 0
+        };
+        Message[] messages = { uniqueMessage };
+        string[] actors = { name };
+        OpenDialog(messages, actors);
     }
 
     void DisplayMessage()
     {
-        messageText.text = currentMessages[activeMessageIndex];
+        Message messageToDisplay = currentMessages[activeMessageIndex];
+        messageText.text = messageToDisplay.message;
+        npcNameText.text = currentActors[messageToDisplay.actorID];
     }
 
     public void NextMessage()

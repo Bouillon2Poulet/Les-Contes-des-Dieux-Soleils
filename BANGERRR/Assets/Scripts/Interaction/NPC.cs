@@ -2,23 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField] public GameObject bubble;
     [SerializeField] public string npcName;
-    [SerializeField] public string[] messages;
     [SerializeField] public SpriteRenderer sprite;
+    
+    [SerializeField] public string[] actors;
+
+    [SerializeField] public Message[] messagesA;
+    public bool pageB;
+    [SerializeField] public Message[] messagesB;
+    public bool pageC;
+    [SerializeField] public Message[] messagesC;
+    public bool pageD;
+    [SerializeField] public Message[] messagesD;
+    public bool pageE;
+    [SerializeField] public Message[] messagesE;
 
     private GameObject lookAtTarget;
     private float initialBubbleSize;
-    private bool hasSomethingToSay;
     private GravityBody gb;
 
     public void Interact()
     {
-        if (hasSomethingToSay)
+        if (pageE && messagesE.Length > 0)
         {
-            FindObjectOfType<DialogManager>().OpenDialog(messages, npcName);
+            FindObjectOfType<DialogManager>().OpenDialog(messagesE, actors);
+        }
+        else if (pageD && messagesD.Length > 0)
+        {
+            FindObjectOfType<DialogManager>().OpenDialog(messagesD, actors);
+        }
+        else if (pageC && messagesC.Length > 0)
+        {
+            FindObjectOfType<DialogManager>().OpenDialog(messagesC, actors);
+        }
+        else if (pageB && messagesB.Length > 0)
+        {
+            FindObjectOfType<DialogManager>().OpenDialog(messagesB, actors);
+        } 
+        else if (messagesA.Length > 0)
+        {
+            FindObjectOfType<DialogManager>().OpenDialog(messagesA, actors);
         }
     }
 
@@ -38,7 +65,6 @@ public class NPC : MonoBehaviour, IInteractable
         gb = GetComponent<GravityBody>();
         initialBubbleSize = bubble.transform.localScale.x;
         HideBubble();
-        hasSomethingToSay = messages.Length > 0;
     }
 
     private void FixedUpdate()
@@ -48,7 +74,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ThirdPersonMovement player) && hasSomethingToSay)
+        if (other.TryGetComponent(out ThirdPersonMovement player) && messagesA.Length > 0)
         {
             ShowBubble();
         }
@@ -68,3 +94,9 @@ public class NPC : MonoBehaviour, IInteractable
     }
 }
 
+[System.Serializable]
+public class Message
+{
+    public int actorID;
+    public string message;
+}
