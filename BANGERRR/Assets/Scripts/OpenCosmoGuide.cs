@@ -9,7 +9,9 @@ public class OpenCosmoGuide : MonoBehaviour
     public Texture Background;
     public PlayerStatus playerStatus;
     public GameObject timeObject;
+
     private RawImage rawImage;
+    public int nbOpenings;
 
     void Start()
     {
@@ -31,6 +33,11 @@ public class OpenCosmoGuide : MonoBehaviour
             {
                 // playerObject.SetActive(!CosmoGuideIsOpen);
                 timeObject.SetActive(CosmoGuideIsOpen);
+                if (CosmoGuideIsOpen)
+                {
+                    nbOpenings++;
+                }
+                Debug.Log("nombre d'ouverture du cosmoguide : " + nbOpenings);
 
                 rawImage.texture = CosmoGuideIsOpen ? CosmoGuide : Background;
             }
