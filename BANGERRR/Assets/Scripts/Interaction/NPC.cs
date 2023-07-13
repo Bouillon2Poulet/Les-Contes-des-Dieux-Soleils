@@ -12,14 +12,23 @@ public class NPC : MonoBehaviour, IInteractable
     [SerializeField] public string[] actors;
 
     [SerializeField] public Message[] messagesA;
+    public bool isPageARead = false;
+
     public bool pageB;
     [SerializeField] public Message[] messagesB;
+    public bool isPageBRead = false;
+
     public bool pageC;
     [SerializeField] public Message[] messagesC;
+    public bool isPageCRead = false;
+
     public bool pageD;
     [SerializeField] public Message[] messagesD;
+    public bool isPageDRead = false;
+
     public bool pageE;
     [SerializeField] public Message[] messagesE;
+    public bool isPageERead = false;
 
     private GameObject lookAtTarget;
     private float initialBubbleSize;
@@ -30,23 +39,29 @@ public class NPC : MonoBehaviour, IInteractable
         if (pageE && messagesE.Length > 0)
         {
             FindObjectOfType<DialogManager>().OpenDialog(messagesE, actors);
+            isPageERead = true;
         }
         else if (pageD && messagesD.Length > 0)
         {
             FindObjectOfType<DialogManager>().OpenDialog(messagesD, actors);
+            isPageDRead = true;
         }
         else if (pageC && messagesC.Length > 0)
         {
             FindObjectOfType<DialogManager>().OpenDialog(messagesC, actors);
+            isPageCRead = true;
         }
         else if (pageB && messagesB.Length > 0)
         {
             FindObjectOfType<DialogManager>().OpenDialog(messagesB, actors);
-        } 
+            isPageBRead = true;
+        }
         else if (messagesA.Length > 0)
         {
             FindObjectOfType<DialogManager>().OpenDialog(messagesA, actors);
+            isPageARead = true;
         }
+        FindAnyObjectByType<NPCEventsManager>().updateNPCPages();
     }
 
     public void ShowBubble()

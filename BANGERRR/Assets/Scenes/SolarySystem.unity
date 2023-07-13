@@ -2099,6 +2099,400 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.19
   m_Center: {x: -0.0022293827, y: 0.0009796012, z: -0.08270849}
+--- !u!1001 &229769193
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2046793439}
+    m_Modifications:
+    - target: {fileID: 1040951368927688421, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Name
+      value: NPC Isador
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1441262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1441262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.144126
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.45244646
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.51946956
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.052382804
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7229798
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -156.776
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -119.664
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 50.455
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9078033
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[0]
+      value: Isador
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[0].message
+      value: "... Mais o\xF9 est-ce qu'elle est pass\xE9e..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[1].message
+      value: ?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[2].message
+      value: "Une\u2026 grenouille ?\u2026 Tu n'aurais pas pris la derni\xE8re pi\xE8ce
+        de mon puzzle, par hasard ? J'esp\xE8re que ce n'est pas toi qui l'a prise..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[3].message
+      value: "D'accord, je te crois ! Que puis-je faire pour toi ? Je n'ai pas vraiment
+        le temps de discuter. Cela fait 57 ans cette ann\xE9e que j'ai commenc\xE9
+        ce puzzle d'un trillion de pi\xE8ces. \xC7a m'a bien occup\xE9e, mais j'aimerais
+        passer \xE0 autre chose, tu comprends..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[4].message
+      value: "Que je te parle de l'Exode ? L'histoire est plut\xF4t longue... Peut-\xEAtre
+        que si tu m'aides \xE0 retrouver la derni\xE8re pi\xE8ce, ensuite je pourrais
+        te partager ce que je sais !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[5].message
+      value: "Je vois, merci pour votre franchise... En effet, j'\xE9tais na\xEFve
+        de penser que notre plan\xE8te pouvait retrouver sa gloire d'antan..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[6].message
+      value: "Ah oui, j'oubliais que tu ne connais rien de cette histoire. Tu devrais
+        t'adresser \xE0 mon amour, Isador, elle est l\xE0-bas en train de faire le
+        puzzle. Elle en sait bien plus que moi sur l'histoire de notre peuple. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[7].actorID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[7].message
+      value: "Moi, ma sp\xE9cialit\xE9, c'est la science et l'astrologie ! D'ailleurs,
+        \xE0 ce propos, ce serait un honneur de te pr\xE9senter ma derni\xE8re invention
+        : un cadran solaire !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[8].message
+      value: "On a parfois tendance \xE0 perdre la notion du temps ici, alors je
+        me suis dit que cela pourrait \xEAtre utile !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[9].message
+      value: "Merci ! Le probl\xE8me, vois-tu, c'est que j'ai besoin de le calibrer
+        ! Tu n'aurais pas l'heure par hasard ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[0].message
+      value: "Tu ne l'as toujours pas trouv\xE9e ? J'ai cherch\xE9 partout. J'esp\xE8re
+        juste qu'elle n'est pas du c\xF4t\xE9 expos\xE9 au soleil rouge..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[0].message
+      value: "Mais... C'est la pi\xE8ce ?! Tu l'as trouv\xE9e !!! Je vais enfin pouvoir
+        finir ce puzzle. Merci beaucoup, Triton. Je te suis infiniment reconnaissante.
+        Comme promis, je vais te raconter ce que je sais de l'Exode."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[1].message
+      value: "Il y a tr\xE8s longtemps, un myst\xE9rieux soleil rouge est apparu
+        dans le ciel d'Eaux Divines. Au d\xE9but, cela n'avait pas vraiment d'impact,
+        mais nos anc\xEAtres ont fini par remarquer que le niveau de l'eau commen\xE7ait
+        \xE0 baisser. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[2].message
+      value: "Leurs pri\xE8res \xE0 Omnio n'ont rien chang\xE9. Notre dieu semblait
+        absent. Les algues, qui \xE9taient notre source de nourriture, ont commenc\xE9
+        \xE0 manquer, et de nombreux poissons sont morts\u2026 "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[3].message
+      value: "Alors que la plan\xE8te \xE9tait pratiquement ass\xE9ch\xE9e, certains
+        poissons ont commenc\xE9 \xE0 muter, d\xE9veloppant des jambes et des poumons.
+        La plan\xE8te \xE9tant devenue d\xE9sertique, ils ont d\xFB la fuir en rejoignant
+        Solis\xE8de depuis le sommet du temple d'Omnio..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[4].message
+      value: "C'est tout ce que je sais sur l'Exode. Mais si tu veux en savoir plus
+        sur l'histoire de notre peuple, tu devrais aller voir Okaoka, il a toujours
+        des choses \xE0 raconter lui... Merci encore pour le puzzle !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[0].message
+      value: Ce puzzle est magnifique. Je vais pouvoir le contempler pendant au moins
+        10 ans ! Merci, Triton !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[1].message
+      value: "Pr\xE9parez-vous \xE0 courir, car une fois en place, nous ne tiendrons
+        pas longtemps. Alors foncez sans vous retourner et n'oubliez pas de retenir
+        votre respiration ! Bon courage, cher Triton..."
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+--- !u!4 &229769194 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+  m_PrefabInstance: {fileID: 229769193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &235095669
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2046793439}
+    m_Modifications:
+    - target: {fileID: 1040951368927688421, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Name
+      value: NPC Nere
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1441262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1441262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.144126
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.5511808
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.13875386
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.52029866
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6373669
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -125.294
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -223.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 104.947
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6147589
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.r
+      value: 0.41037738
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[0]
+      value: "N\xE9r\xE9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[0].message
+      value: "Mais ?! Vous n'\xEAtes clairement pas un poisson vous, n'est-ce pas
+        ? Vous ressemblez plut\xF4t \xE0\u2026 Une grenouille ? Comment \xEAtes-vous
+        arriv\xE9s ici ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[1].message
+      value: "Vous avez grimp\xE9 tout en haut du temple ? Vous avez suivi les poissons
+        dans leur exode. H\xE9las, si vous les cherchez, je suis au regret de vous
+        annoncer que la majorit\xE9 a d\xE9cid\xE9 de quitter cette plan\xE8te depuis
+        un certain temps..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[2].message
+      value: "Comment \xE7a, ce ne sont pas les poissons qui vous int\xE9ressent
+        ? Alors qu'est-ce qui vous am\xE8ne sur Solis\xE8de ?! Si vous \xEAtes envoy\xE9s
+        par le soleil rouge, sachez qu'il n'y a rien \xE0 voler ici."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[3].message
+      value: "Une m\xE9t\xE9orite a frapp\xE9 votre plan\xE8te et vous cherchez \xE0
+        retourner chez vous... Je crains que nous ne puissions pas vous aider...
+        Si seulement nous avions eu le temps de prendre le CosmoGuide avec nous avant
+        l'Exode."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[4].message
+      value: "Quoi ?! Vous avez le CosmoGuide ! Votre pr\xE9sence n'est donc pas
+        due au hasard, cher Triton. Les habitants de Solis\xE8de seraient heureux
+        de vous aider \xE0 rejoindre votre plan\xE8te, mais h\xE9las, j'ai peur que
+        l'ennui ne les ait conduit \xE0 la paresse. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[5].message
+      value: Je ne sais plus quoi faire pour les occuper. Notre foi envers le grand
+        Omnio ne leur suffit clairement plus... Si seulement vous pouviez leur redonner
+        le sourire, je pense qu'ils sauraient vous remercier !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[0].message
+      value: "Encore vous ?! Je vous conseille d'aller parler aux habitants de Solis\xE8de.
+        Ils pourront s\xFBrement vous aider dans votre qu\xEAte..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[0].message
+      value: "Les habitants m'ont parl\xE9 de vous et de tout ce que vous avez fait
+        pour eux. Je vous en remercie, surtout pour avoir eu la patience d'\xE9couter
+        Okaoka jusqu'au bout ! "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[1].message
+      value: "Nous avons d\xE9cid\xE9 de vous aider \xE0 rejoindre la plan\xE8te
+        la plus proche, Solimont. Nous allons pr\xE9parer le rituel. Rendez-vous
+        \xE0 l'autel d'Omnio \xE0 minuit !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[0].message
+      value: "Vous voil\xE0 enfin, nous vous attendions. Le rituel va pouvoir commencer. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[1].message
+      value: "Pr\xE9parez-vous \xE0 courir, car une fois en place, nous ne tiendrons
+        pas longtemps. Alors foncez sans vous retourner et n'oubliez pas de retenir
+        votre respiration ! Bon courage, cher Triton..."
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
 --- !u!4 &240208426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7260572071603504507, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
@@ -2163,6 +2557,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.19
   m_Center: {x: -0.0022293974, y: 0.0015255444, z: -0.08270082}
+--- !u!1 &255757714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 255757715}
+  m_Layer: 10
+  m_Name: Nepti InitialPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &255757715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255757714}
+  m_LocalRotation: {x: -0.019189369, y: -0.6499317, z: 0.1340688, w: -0.7478276}
+  m_LocalPosition: {x: 2.7460005, y: 17.282001, z: -2.005989}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2046793439}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &260684764 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2310454826225974707, guid: 7b95ccdabbcb9f749b5d99fdbbc19163, type: 3}
@@ -2458,6 +2883,205 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.19
   m_Center: {x: -0.0022293995, y: 0.0009948489, z: -0.08268942}
+--- !u!1001 &318156591
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2046793439}
+    m_Modifications:
+    - target: {fileID: 1040951368927688421, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Name
+      value: NPC Astrid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1441262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1441262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.144126
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.5990337
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.34016907
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.19017826
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.69948256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -137.655
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -160.391
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 73.495
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.g
+      value: 0.48126557
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8156396
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[0]
+      value: Astrid
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[0].message
+      value: "Une Grenouille ?! Enfin, vous leur ressemblez\u2026 Par Omnio, dites-moi
+        que je r\xEAve ! Votre existence rel\xE8ve de la l\xE9gende ! C'est un honneur
+        de faire votre connaissance ! Qu'est-ce qui vous am\xE8ne sur notre petite
+        plan\xE8te ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[1].message
+      value: "Hmmm... Vous cherchez \xE0 rentrer chez vous, je comprends... Nous
+        sommes semblables, vous et moi. Bien que je sois n\xE9e ici, sur Solis\xE8de,
+        je r\xEAve de rejoindre la plan\xE8te d'origine des Poissons, Eaux Divines..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[2].message
+      value: "Quoi ?! Vous avez pu visiter Eaux Divines ?! Je vous en prie, racontez-moi
+        tout en d\xE9tail ! Ses paysages sont-ils aussi somptueux que dans les livres
+        du vieux N\xE9r\xE9 ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[3].message
+      value: Ah...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[4].message
+      value: Hmm...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[5].message
+      value: "Je vois, merci pour votre franchise... En effet, j'\xE9tais na\xEFve
+        de penser que notre plan\xE8te pouvait retrouver sa gloire d'antan..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[6].message
+      value: "Ah oui, j'oubliais que tu ne connais rien de cette histoire. Tu devrais
+        t'adresser \xE0 mon amour, Isador, elle est l\xE0-bas en train de faire le
+        puzzle. Elle en sait bien plus que moi sur l'histoire de notre peuple. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[7].actorID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[7].message
+      value: "Moi, ma sp\xE9cialit\xE9, c'est la science et l'astrologie ! D'ailleurs,
+        \xE0 ce propos, ce serait un honneur de te pr\xE9senter ma derni\xE8re invention
+        : un cadran solaire !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[8].message
+      value: "On a parfois tendance \xE0 perdre la notion du temps ici, alors je
+        me suis dit que cela pourrait \xEAtre utile !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[9].message
+      value: "Merci ! Le probl\xE8me, vois-tu, c'est que j'ai besoin de le calibrer
+        ! Tu n'aurais pas l'heure par hasard ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[0].message
+      value: "Si tu pouvais me donner l\u2019heure, je pourrais enfin calibrer mon
+        cadran solaire ! Je compte sur toi."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[0].message
+      value: Quelle incroyable relique ! Merci infiniment pour ton aide, Triton.
+        Tu peux compter sur moi si tu as besoin de quoi que ce soit !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[1].message
+      value: "Nous avons d\xE9cid\xE9 de vous aider \xE0 rejoindre la plan\xE8te
+        la plus proche, Solimont. Nous allons pr\xE9parer le rituel. Rendez-vous
+        \xE0 l'autel d'Omnio \xE0 minuit !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[0].message
+      value: "Tu vois l'ombre qui bouge ? Cela veut dire que le cadran fonctionne
+        parfaitement, et c'est gr\xE2ce \xE0 toi ! Encore merci, Triton."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[1].message
+      value: "Pr\xE9parez-vous \xE0 courir, car une fois en place, nous ne tiendrons
+        pas longtemps. Alors foncez sans vous retourner et n'oubliez pas de retenir
+        votre respiration ! Bon courage, cher Triton..."
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+--- !u!4 &318156592 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+  m_PrefabInstance: {fileID: 318156591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &318355667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7260572071603504507, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
@@ -4688,6 +5312,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5107032332401874281, guid: acd92c0d9402f9e47b84a1b5975cb53c, type: 3}
   m_PrefabInstance: {fileID: 594359964}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &602767436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 602767437}
+  m_Layer: 10
+  m_Name: Coral CachePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &602767437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602767436}
+  m_LocalRotation: {x: 0.6945713, y: -0.41286522, z: 0.4033177, w: -0.42947406}
+  m_LocalPosition: {x: -4.51, y: -3.68, z: -16.53}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2046793439}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: -15.282, y: 108.481, z: -107.507}
 --- !u!1 &611068995 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8378047281969053395, guid: 7b95ccdabbcb9f749b5d99fdbbc19163, type: 3}
@@ -6106,6 +6761,273 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.19
   m_Center: {x: -0.00372772, y: 0.007436632, z: -0.08269322}
+--- !u!1001 &737982542
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2046793439}
+    m_Modifications:
+    - target: {fileID: 1040951368927688421, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Name
+      value: NPC Nepti
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.746
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.282
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7478276
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.019189404
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6499317
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.13406882
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -191.711
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -99.07501
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 169.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.b
+      value: 0.36561054
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5630527
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[0]
+      value: Nepti
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[1]
+      value: Coral
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[2]
+      value: ' '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[0].actorID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[0].message
+      value: "H\xE9 Coral ! Regarde comme il est bizarre, ce poisson !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[1].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[1].message
+      value: J'pense pas qu'c'est un poisson, dis, t'es quoi, toi ?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[2].actorID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[2].message
+      value: Un triton ?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[3].message
+      value: C'est trop dingue !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[4].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[4].message
+      value: J'en ai jamais vu !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[5].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[5].message
+      value: "Nepti, tu penses \xE0 la m\xEAme chose que moi... ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[6].message
+      value: J'crois bien, ouais...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[7].actorID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[7].message
+      value: TU VEUX JOUER AVEC NOUS ???
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[8].message
+      value: Tu sais, on s'ennuie grave ici, et aucun adulte veut jouer avec nous...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[9].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[9].message
+      value: "On a invent\xE9 un jeu pour deux, mais on arrive jamais \xE0 se mettre
+        d'accord sur qui fait le soleil rouge..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[0].message
+      value: "Quoi ?! T'as d\xE9j\xE0 trouv\xE9 aussi vite, t'es clairement meilleur
+        que Coral\u2026 "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[0].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[0].message
+      value: "Bravo ! T'as r\xE9ussi \xE0 nous trouver, c'\xE9tait rapide, mais on
+        s'est trop amus\xE9, pas vrai Nepti ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[1].message
+      value: "Ouais ! J'suis s\xFBr qu'on aurait pu mieux s'cacher si on \xE9tait
+        sur Eaux Divines, Solis\xE8de est vraiment trop petite..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[2].actorID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[2].message
+      value: "En tout cas, merci d'avoir jou\xE9 avec nous !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[3].message
+      value: "Alors que la plan\xE8te \xE9tait pratiquement ass\xE9ch\xE9e, certains
+        poissons ont commenc\xE9 \xE0 muter, d\xE9veloppant des jambes et des poumons.
+        La plan\xE8te \xE9tant devenue d\xE9sertique, ils ont d\xFB la fuir en rejoignant
+        Solis\xE8de depuis le sommet du temple d'Omnio..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[4].message
+      value: "C'est tout ce que je sais sur l'Exode. Mais si tu veux en savoir plus
+        sur l'histoire de notre peuple, tu devrais aller voir Okaoka, il a toujours
+        des choses \xE0 raconter lui... Merci encore pour le puzzle !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[0].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[0].message
+      value: "J'suis fatigu\xE9... On peut aller dormir, Nepti ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[1].message
+      value: "Ouais, j'arrive\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[10].message
+      value: 'On va t''expliquer : toi, tu fais le soleil rouge...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[11].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[11].message
+      value: ...et nous, on s'cache !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[12].actorID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[12].message
+      value: ET TU DOIS NOUS TROUVER !!!
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+--- !u!4 &737982543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+  m_PrefabInstance: {fileID: 737982542}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &739132490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6768,8 +7690,9 @@ GameObject:
   m_Component:
   - component: {fileID: 835908773}
   - component: {fileID: 835908772}
+  - component: {fileID: 835908774}
   m_Layer: 0
-  m_Name: DialogManager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6806,6 +7729,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &835908774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835908771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ed5f9d838f85f42b369ded4808bcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nere: {fileID: 1912900757}
 --- !u!4 &837963869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7260572071603504507, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
@@ -6989,6 +7925,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6505552537926968463, guid: 4f6134f3e0bc54642b233cb36a69b1a2, type: 3}
+--- !u!1 &845313615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 845313616}
+  m_Layer: 10
+  m_Name: Coral InitialPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &845313616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845313615}
+  m_LocalRotation: {x: -0.17971286, y: -0.6702542, z: 0.07564645, w: -0.7160589}
+  m_LocalPosition: {x: 2.6300066, y: 17.570002, z: 0.13000211}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2046793439}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &846096989 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9142487727485147711, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
@@ -20065,6 +21032,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.19
   m_Center: {x: -0.0022255825, y: 0.001540793, z: -0.08269319}
+--- !u!1 &1744458304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744458305}
+  m_Layer: 10
+  m_Name: Nepti CachePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1744458305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744458304}
+  m_LocalRotation: {x: -0.317963, y: -0.24245746, z: 0.8479302, w: -0.348035}
+  m_LocalPosition: {x: 11.62, y: -12.99, z: 0.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2046793439}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 39.235, y: -28.573, z: -145.74}
 --- !u!1 &1747776764
 GameObject:
   m_ObjectHideFlags: 0
@@ -20290,6 +21288,248 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b77c7e015279b8442aee3884b930a3b9, type: 3}
+--- !u!1001 &1776629405
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2046793439}
+    m_Modifications:
+    - target: {fileID: 1040951368927688421, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Name
+      value: NPC Okaoka
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1441262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1441262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.144126
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.22421259
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.20516622
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6646037
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.68259615
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -234.618
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -93.208984
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 88.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.b
+      value: 0.07135868
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[0]
+      value: Okaoka
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[0].message
+      value: "Tiens, une Grenouille ? Enfin, pardonne-moi, tu sembles ne pas \xEAtre
+        totalement d\xE9velopp\xE9e, comme une sorte de Triton finalement. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[1].message
+      value: "Vois-tu, je suis occup\xE9 \xE0 scruter le ciel en ce moment m\xEAme.
+        Ne viens pas me d\xE9ranger, s'il te pla\xEEt."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[2].message
+      value: "Si tu peux faire quelque chose pour moi ?! J'appr\xE9cie ta proposition,
+        mais... je crois que seul Omnio, ou plut\xF4t le soleil rouge, pourrait me
+        venir en aide."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[3].message
+      value: "Vois-tu, j'essaie d\xE9sesp\xE9r\xE9ment de rejoindre mon adelphe Okidoki,
+        qui se trouve sur la plan\xE8te autour de laquelle nous gravitons actuellement,
+        Solimont. Je n'ai pas su le convaincre de rester, et maintenant je regrette
+        de ne pas l'avoir suivi dans sa folie. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[4].message
+      value: "Je m'ennuie terriblement ici, sans lui\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[5].message
+      value: "Adelphe ? Oui, \xE7a signifie que nous sommes n\xE9s ensemble des m\xEAmes
+        parents. Vous ne dites pas \xE7a chez les grenouilles, n'est-ce pas ? Enfin\u2026
+        chez les tritons."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[6].message
+      value: "Ce qui lui est arriv\xE9 ? As-tu remarqu\xE9 que Solis\xE8de est d\xE9coup\xE9e
+        en deux parties distinctes ? Il y a bien longtemps, la lumi\xE8re du soleil
+        rouge, qui a ass\xE9ch\xE9 notre plan\xE8te, a commenc\xE9 \xE0 envo\xFBter
+        nos fr\xE8res et s\u0153urs les plus faibles. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[7].actorID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[7].message
+      value: "Ils se sont install\xE9s sur la face \xE9clair\xE9e par ce soleil afin
+        de pouvoir le contempler le plus souvent possible. Sa lumi\xE8re les a rendu
+        paresseux et ils se sont mis \xE0 d\xE9vorer le sol sous leurs pieds ! "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[8].message
+      value: "Ils ne parlaient plus que de vouloir partir sur Solimont, afin de se
+        rapprocher le plus possible du soleil qui les a d\xE9tourn\xE9s d'Omnio.
+        Il nous \xE9tait impossible de leur faire entendre raison."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[9].message
+      value: "Nos chefs ont alors pris une d\xE9cision. Ils ont mis au point un rituel
+        qui permettrait aux poissons atteints par la maladie de rejoindre Solimont.
+        C'est \xE0 ce moment-l\xE0 que j'ai perdu mon adelphe Okidoki. Ensuite, ils
+        ont interdit l'acc\xE8s \xE0 la face expos\xE9e au soleil rouge."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[0].message
+      value: Je t'ai dis de me laisser. Tu peux aller parler aux autres habitants,
+        tu sais ?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[0].message
+      value: "Alors tu pars pour Solimont\u2026 Je t\u2019en prie, si tu croises
+        Okidoki, dis lui que je pense \xE0 lui et que j\u2019aimerais qu\u2019il
+        me fasse juste un signe pour que je sache s\u2019il est en vie."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[1].message
+      value: "Il y a tr\xE8s longtemps, un myst\xE9rieux soleil rouge est apparu
+        dans le ciel d'Eaux Divines. Au d\xE9but, cela n'avait pas vraiment d'impact,
+        mais nos anc\xEAtres ont fini par remarquer que le niveau de l'eau commen\xE7ait
+        \xE0 baisser. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[2].message
+      value: "Leurs pri\xE8res \xE0 Omnio n'ont rien chang\xE9. Notre dieu semblait
+        absent. Les algues, qui \xE9taient notre source de nourriture, ont commenc\xE9
+        \xE0 manquer, et de nombreux poissons sont morts\u2026 "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[3].message
+      value: "Alors que la plan\xE8te \xE9tait pratiquement ass\xE9ch\xE9e, certains
+        poissons ont commenc\xE9 \xE0 muter, d\xE9veloppant des jambes et des poumons.
+        La plan\xE8te \xE9tant devenue d\xE9sertique, ils ont d\xFB la fuir en rejoignant
+        Solis\xE8de depuis le sommet du temple d'Omnio..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[4].message
+      value: "C'est tout ce que je sais sur l'Exode. Mais si tu veux en savoir plus
+        sur l'histoire de notre peuple, tu devrais aller voir Okaoka, il a toujours
+        des choses \xE0 raconter lui... Merci encore pour le puzzle !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[0].message
+      value: Ce puzzle est magnifique. Je vais pouvoir le contempler pendant au moins
+        10 ans ! Merci, Triton !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[1].message
+      value: "Pr\xE9parez-vous \xE0 courir, car une fois en place, nous ne tiendrons
+        pas longtemps. Alors foncez sans vous retourner et n'oubliez pas de retenir
+        votre respiration ! Bon courage, cher Triton..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[10].message
+      value: "Nous ignorons ce qu'ils sont devenus. Nous avons essay\xE9 de rentrer
+        en contact avec eux, mais nous n'avons eu aucune r\xE9ponse... Je reste malgr\xE9
+        tout persuad\xE9 qu\u2019Okidoki est encore en vie. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[11].message
+      value: "C'est ainsi que \xE7a fonctionne pour les adelphes, vous savez. Nous
+        sommes li\xE9s jusqu'\xE0 la mort."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[12].message
+      value: "C'est tout ce que je peux te dire \xE0 ce sujet. Maintenant, laisse-moi,
+        s'il te pla\xEEt. Je dois continuer \xE0 scruter Solimont \xE0 la recherche
+        d'un signe de lui..."
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+--- !u!4 &1776629406 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+  m_PrefabInstance: {fileID: 1776629405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1783763440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6269480732063410586, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
@@ -21188,6 +22428,22 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.19
   m_Center: {x: -0.0022255785, y: 0.0009929428, z: -0.08268559}
+--- !u!114 &1912900757 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+  m_PrefabInstance: {fileID: 235095669}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6577cbee6a630f428f6683e4f055d1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1912900762 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+  m_PrefabInstance: {fileID: 235095669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1920327339 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1969136964001321765, guid: 7b95ccdabbcb9f749b5d99fdbbc19163, type: 3}
@@ -21939,7 +23195,37 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1582cb1e225e08f44b84152508f495cc, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1188567141579439324, guid: 4b1d3ba9a83557148bbfee28a29ad1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1912900762}
+    - targetCorrespondingSourceObject: {fileID: 1188567141579439324, guid: 4b1d3ba9a83557148bbfee28a29ad1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 318156592}
+    - targetCorrespondingSourceObject: {fileID: 1188567141579439324, guid: 4b1d3ba9a83557148bbfee28a29ad1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 229769194}
+    - targetCorrespondingSourceObject: {fileID: 1188567141579439324, guid: 4b1d3ba9a83557148bbfee28a29ad1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1776629406}
+    - targetCorrespondingSourceObject: {fileID: 1188567141579439324, guid: 4b1d3ba9a83557148bbfee28a29ad1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2075387640}
+    - targetCorrespondingSourceObject: {fileID: 1188567141579439324, guid: 4b1d3ba9a83557148bbfee28a29ad1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 845313616}
+    - targetCorrespondingSourceObject: {fileID: 1188567141579439324, guid: 4b1d3ba9a83557148bbfee28a29ad1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 602767437}
+    - targetCorrespondingSourceObject: {fileID: 1188567141579439324, guid: 4b1d3ba9a83557148bbfee28a29ad1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 737982543}
+    - targetCorrespondingSourceObject: {fileID: 1188567141579439324, guid: 4b1d3ba9a83557148bbfee28a29ad1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 255757715}
+    - targetCorrespondingSourceObject: {fileID: 1188567141579439324, guid: 4b1d3ba9a83557148bbfee28a29ad1b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1744458305}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7578618298808587404, guid: 4b1d3ba9a83557148bbfee28a29ad1b5, type: 3}
       insertIndex: -1
@@ -22178,6 +23464,276 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.19
   m_Center: {x: -0.002227246, y: 0.0009953213, z: -0.082689404}
+--- !u!1001 &2075387639
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2046793439}
+    m_Modifications:
+    - target: {fileID: 1040951368927688421, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Name
+      value: NPC Coral
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7160589
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.17971288
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6702542
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.07564645
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -201.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -92.267
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 188.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.b
+      value: 0.07075471
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.g
+      value: 0.56245846
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676249916781423284, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[0]
+      value: Nepti
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[1]
+      value: Coral
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: actors.Array.data[2]
+      value: ' '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[0].actorID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[0].message
+      value: "H\xE9 Coral ! Regarde comme il est bizarre, ce poisson !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[1].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[1].message
+      value: J'pense pas qu'c'est un poisson, dis, t'es quoi, toi ?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[2].actorID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[2].message
+      value: Un triton ?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[3].message
+      value: C'est trop dingue !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[4].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[4].message
+      value: J'en ai jamais vu !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[5].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[5].message
+      value: "Nepti, tu penses \xE0 la m\xEAme chose que moi... ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[6].message
+      value: J'crois bien, ouais...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[7].actorID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[7].message
+      value: TU VEUX JOUER AVEC NOUS ???
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[8].message
+      value: Tu sais, on s'ennuie grave ici, et aucun adulte veut jouer avec nous...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[9].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[9].message
+      value: "On a invent\xE9 un jeu pour deux, mais on arrive jamais \xE0 se mettre
+        d'accord sur qui fait le soleil rouge..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[0].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesB.Array.data[0].message
+      value: "Oh non, d\xE9j\xE0 trouv\xE9, c'\xE9tait ma meilleure cachette en plus\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[0].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[0].message
+      value: "Bravo ! T'as r\xE9ussi \xE0 nous trouver, c'\xE9tait rapide, mais on
+        s'est trop amus\xE9, pas vrai Nepti ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[1].message
+      value: "Ouais ! J'suis s\xFBr qu'on aurait pu mieux s'cacher si on \xE9tait
+        sur Eaux Divines, Solis\xE8de est vraiment trop petite..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[2].actorID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[2].message
+      value: "En tout cas, merci d'avoir jou\xE9 avec nous !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[3].message
+      value: "Alors que la plan\xE8te \xE9tait pratiquement ass\xE9ch\xE9e, certains
+        poissons ont commenc\xE9 \xE0 muter, d\xE9veloppant des jambes et des poumons.
+        La plan\xE8te \xE9tant devenue d\xE9sertique, ils ont d\xFB la fuir en rejoignant
+        Solis\xE8de depuis le sommet du temple d'Omnio..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesC.Array.data[4].message
+      value: "C'est tout ce que je sais sur l'Exode. Mais si tu veux en savoir plus
+        sur l'histoire de notre peuple, tu devrais aller voir Okaoka, il a toujours
+        des choses \xE0 raconter lui... Merci encore pour le puzzle !"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[0].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[0].message
+      value: "J'suis fatigu\xE9... On peut aller dormir, Nepti ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesD.Array.data[1].message
+      value: "Ouais, j'arrive\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[10].message
+      value: 'On va t''expliquer : toi, tu fais le soleil rouge...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[11].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[11].message
+      value: ...et nous, on s'cache !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[12].actorID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: messagesA.Array.data[12].message
+      value: ET TU DOIS NOUS TROUVER !!!
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+--- !u!4 &2075387640 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+  m_PrefabInstance: {fileID: 2075387639}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2084002046 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3803646355375665878, guid: 7b95ccdabbcb9f749b5d99fdbbc19163, type: 3}
