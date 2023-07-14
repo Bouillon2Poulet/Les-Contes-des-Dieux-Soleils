@@ -36,8 +36,9 @@ public class OpenCosmoGuide : MonoBehaviour
                 if (CosmoGuideIsOpen)
                 {
                     nbOpenings++;
+                    FindAnyObjectByType<NPCEventsManager>().updateNPCPages();
                 }
-                Debug.Log("nombre d'ouverture du cosmoguide : " + nbOpenings);
+                //Debug.Log("nombre d'ouverture du cosmoguide : " + nbOpenings);
 
                 rawImage.texture = CosmoGuideIsOpen ? CosmoGuide : Background;
             }

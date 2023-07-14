@@ -122,14 +122,14 @@ public class PlayerStatus : MonoBehaviour
         // Void respawn (not in GA)
         if (!isAnimated && !gBody.inGravityArea && !hasJumpRespawnBeenInvoked)
         {
-            Debug.Log("invoke JR");
+            //Debug.Log("invoke JR");
             Invoke(nameof(jumpRespawn), timeBeforeJumpRespawn);
             hasJumpRespawnBeenInvoked = true;
         }
 
         if (hasJumpRespawnBeenInvoked && gBody.inGravityArea)
         {
-            Debug.Log("cancel invoke JR");
+            //Debug.Log("cancel invoke JR");
             CancelInvoke(nameof(jumpRespawn));
             hasJumpRespawnBeenInvoked = false;
         }

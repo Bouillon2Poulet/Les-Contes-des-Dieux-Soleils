@@ -20,7 +20,7 @@ public class PlanetNameDisplay : MonoBehaviour
         // Recherche tous les objets nommés "Planet" dans la scène
         planets = GameObject.FindGameObjectsWithTag("Planet");
         names = new GameObject[planets.Length]; // Initialise le tableau des noms avec la taille correspondante
-        Debug.Log(planets.Length);
+        //Debug.Log(planets.Length);
 
         // Crée un nouvel objet vide pour contenir les noms des planètes
         GameObject namesContainer = new GameObject("Names");

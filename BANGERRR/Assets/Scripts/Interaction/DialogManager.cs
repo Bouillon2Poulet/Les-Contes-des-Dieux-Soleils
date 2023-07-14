@@ -20,13 +20,13 @@ public class DialogManager : MonoBehaviour
     {
         if (!isActive)
         {
+            isActive = true;
             currentMessages = messages;
             currentActors = actors;
             activeMessageIndex = 0;
-            isActive = true;
             FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
 
-            Debug.Log("[DialogManager] Loaded message : " + messages.Length);
+            //Debug.Log("[DialogManager] Loaded message : " + messages.Length);
             DisplayMessage();
             backgroundBox.localScale = Vector3.one;
             if (messages.Length > 1)
@@ -72,10 +72,10 @@ public class DialogManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("[DialogManager] End of messages");
             isActive = false;
             FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             backgroundBox.localScale = Vector3.zero;
+            Debug.Log("[DialogManager] End of messages");
         }
     }
 
@@ -88,8 +88,13 @@ public class DialogManager : MonoBehaviour
     {
         if (isActive == true && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
-            NextMessage();
+            if (currentMessages != null)
+            {
+                NextMessage();
+            }
         }
+
+        //Debug.Log(currentMessages);
     }
 
 }

@@ -62,6 +62,7 @@ public class NPC : MonoBehaviour, IInteractable
             isPageARead = true;
         }
         FindAnyObjectByType<NPCEventsManager>().updateNPCPages();
+        //Debug.Log("updateNPCPages");
     }
 
     public void ShowBubble()

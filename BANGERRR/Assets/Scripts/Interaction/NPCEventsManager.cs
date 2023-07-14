@@ -12,6 +12,11 @@ public class NPCEventsManager : MonoBehaviour
     [SerializeField] public NPC Coral;
     [SerializeField] public NPC Nepti;
 
+    // Astrid
+    private int Astrid_nbOpenings = 0;
+    private bool Astrid_gotNbOpenings = false;
+    private bool AstridEnd = false;
+
     public void updateNPCPages() {
         // Nere
         if (Nere.isPageARead)
@@ -20,13 +25,23 @@ public class NPCEventsManager : MonoBehaviour
         }
 
         // Astrid
-        if (Astrid.isPageARead)
+        if (!AstridEnd)
         {
-            Astrid.pageB = true;
-        }
-        if (FindAnyObjectByType<OpenCosmoGuide>().nbOpenings > 0 && Astrid.isPageARead)
-        {
-            Astrid.pageC = true;
+            if (Astrid.isPageARead && !Astrid_gotNbOpenings)
+            {
+                Astrid.pageB = true;
+                Astrid_nbOpenings = FindAnyObjectByType<OpenCosmoGuide>().nbOpenings;
+                Astrid_gotNbOpenings = true;
+            }
+            if (FindAnyObjectByType<OpenCosmoGuide>().nbOpenings > Astrid_nbOpenings && Astrid.isPageARead)
+            {
+                Astrid.pageC = true;
+            }
+            if (Astrid.isPageCRead)
+            {
+                Astrid.pageD = true;
+                AstridEnd = true;
+            }
         }
     }
 }
