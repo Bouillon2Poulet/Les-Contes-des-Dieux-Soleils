@@ -10,8 +10,8 @@ public class Cosmoguide : MonoBehaviour, IInteractable
         if (!P.hasCosmoGuide)
         {
             P.giveCosmoguide();
-            string message = "Appuyez sur C pour découvrir l'univers.";
-            FindObjectOfType<DialogManager>().OpenMessage(message, "Cosmoguide");
+            string message = "Vous trouvez un CosmoGuide ! Appuyez sur C pour découvrir l'univers.";
+            FindObjectOfType<DialogManager>().OpenMessage(message, "Objet trouvé");
             enabled = false;
         }
     }

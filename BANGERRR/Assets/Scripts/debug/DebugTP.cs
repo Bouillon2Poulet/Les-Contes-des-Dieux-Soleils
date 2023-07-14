@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DebugTP : MonoBehaviour
 {
-    public Transform player;
+    public Rigidbody player;
     public KeyCode TPkey;
 
     private void teleport()
     {
-        player.transform.position = transform.position;
+        player.position = transform.position;
     }
 
     private void Update()

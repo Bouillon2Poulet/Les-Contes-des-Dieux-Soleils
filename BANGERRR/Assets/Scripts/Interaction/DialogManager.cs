@@ -74,6 +74,7 @@ public class DialogManager : MonoBehaviour
         {
             isActive = false;
             FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            FindAnyObjectByType<NPCEventsManager>().updateNPCPages();
             backgroundBox.localScale = Vector3.zero;
             Debug.Log("[DialogManager] End of messages");
         }

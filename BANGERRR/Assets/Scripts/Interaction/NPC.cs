@@ -61,8 +61,6 @@ public class NPC : MonoBehaviour, IInteractable
             FindObjectOfType<DialogManager>().OpenDialog(messagesA, actors);
             isPageARead = true;
         }
-        FindAnyObjectByType<NPCEventsManager>().updateNPCPages();
-        //Debug.Log("updateNPCPages");
     }
 
     public void ShowBubble()
