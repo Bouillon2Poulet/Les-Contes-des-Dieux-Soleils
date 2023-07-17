@@ -80,6 +80,14 @@ public class DialogManager : MonoBehaviour
         }
     }
 
+    public void ForceEnd()
+    {
+        isActive = false;
+        FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+        backgroundBox.localScale = Vector3.zero;
+        Debug.Log("[DialogManager] FORCED End of messages");
+    }
+
     private void Start()
     {
         backgroundBox.localScale = Vector3.zero;
@@ -98,4 +106,8 @@ public class DialogManager : MonoBehaviour
         //Debug.Log(currentMessages);
     }
 
+    public bool isItActive()
+    {
+        return isActive;
+    }
 }

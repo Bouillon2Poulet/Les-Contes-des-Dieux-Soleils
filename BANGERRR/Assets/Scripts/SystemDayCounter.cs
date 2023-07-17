@@ -3,7 +3,9 @@ using TMPro;
 
 public class SystemDayCounter : MonoBehaviour
 {
-    public float oneDayDurationInIRLSeconds = 86400f;
+    public float oneDayDurationInIRLSeconds = 600f;
+    private float pauseValue = 1048575f;
+    private float goingValue;
     public TextMeshProUGUI timeText;
 
     public float systemTime;
@@ -11,6 +13,11 @@ public class SystemDayCounter : MonoBehaviour
     public int hour;
 
     public float offset;
+
+    private void Awake()
+    {
+        goingValue = oneDayDurationInIRLSeconds;
+    }
 
     void Update()
     {
@@ -23,5 +30,25 @@ public class SystemDayCounter : MonoBehaviour
 
         string timeString = string.Format("Jour {0} - {1}h", dayCounter, hour);
         timeText.text = timeString;
+    }
+
+    private void updateSystemSpeed(float speed)
+    {
+        oneDayDurationInIRLSeconds = speed;
+        var ellispseScripts = FindObjectsByType<SimpleEllipseRotationTristan>(FindObjectsSortMode.None);
+        foreach (var script in ellispseScripts)
+        {
+            script.updateVitesseRadiale();
+        }
+    }
+
+    public void pauseSystem()
+    {
+        updateSystemSpeed(pauseValue);
+    }
+
+    public void resumeSystem()
+    {
+        updateSystemSpeed(goingValue);
     }
 }

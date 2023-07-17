@@ -43,4 +43,9 @@ public class SimpleEllipseRotationTristan : MonoBehaviour
         float z = transform.parent.position.z + semiMinorAxis * Mathf.Sin(currentAngle); // Calcul de la coordonnée z sur l'ellipse avec décalage de l'objet parent
         return new Vector3(x, 0f, z);
     }
+
+    public void updateVitesseRadiale()
+    {
+        vitesseRadiale = (speed * 2f * Mathf.PI) / GetComponentInParent<SystemDayCounter>().oneDayDurationInIRLSeconds;
+    }
 }

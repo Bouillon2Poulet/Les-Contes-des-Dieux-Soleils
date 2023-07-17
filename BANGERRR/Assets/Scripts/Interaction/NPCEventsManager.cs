@@ -128,4 +128,14 @@ public class NPCEventsManager : MonoBehaviour
             }
         }
     }
+
+    public void SolDeactivateNPCs()
+    {
+        Nere.gameObject.SetActive(false);
+        Astrid.gameObject.SetActive(false);
+        Isador.gameObject.SetActive(false);
+        Okaoka.gameObject.SetActive(false);
+        Coral.gameObject.SetActive(false);
+        Nepti.gameObject.SetActive(false);
+    }
 }
