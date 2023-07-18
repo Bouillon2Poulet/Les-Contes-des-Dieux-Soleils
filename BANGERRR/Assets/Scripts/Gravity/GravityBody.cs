@@ -6,6 +6,8 @@ using System.Linq;
 [RequireComponent(typeof(Rigidbody))]
 public class GravityBody : MonoBehaviour
 {
+    public float rotationSpeed = 3f;
+
     private Rigidbody _rigidbody;
     private PlayerStatus player;
 
@@ -84,7 +86,7 @@ public class GravityBody : MonoBehaviour
         _rigidbody.AddForce(GravityDirection * (GravityForce * Time.fixedDeltaTime), ForceMode.Acceleration);
 
         Quaternion upRotation = Quaternion.FromToRotation(transform.up, -GravityDirection);
-        Quaternion newRotation = Quaternion.Lerp(_rigidbody.rotation, upRotation * _rigidbody.rotation, Time.fixedDeltaTime * 3f);
+        Quaternion newRotation = Quaternion.Lerp(_rigidbody.rotation, upRotation * _rigidbody.rotation, Time.fixedDeltaTime * rotationSpeed);
         _rigidbody.MoveRotation(newRotation);
     }
 

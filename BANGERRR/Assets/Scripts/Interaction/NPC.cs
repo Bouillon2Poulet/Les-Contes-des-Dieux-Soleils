@@ -6,9 +6,10 @@ using UnityEngine;
 public class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField] public GameObject bubble;
-    [SerializeField] public string npcName;
+    //[SerializeField] public string npcName; // deprecated
     [SerializeField] public SpriteRenderer sprite;
-    
+    [SerializeField] private bool shouldLookAtTarget = true;
+
     [SerializeField] public string[] actors;
 
     [SerializeField] public Message[] messagesA;
@@ -83,7 +84,10 @@ public class NPC : MonoBehaviour, IInteractable
 
     private void FixedUpdate()
     {
-        sprite.transform.LookAt(lookAtTarget.transform.position, -gb.GravityDirection);
+        if (shouldLookAtTarget)
+        {
+            sprite.transform.LookAt(lookAtTarget.transform.position, -gb.GravityDirection);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

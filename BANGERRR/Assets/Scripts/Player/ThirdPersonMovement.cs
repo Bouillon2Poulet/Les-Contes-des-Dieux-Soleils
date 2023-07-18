@@ -82,7 +82,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
 
         /// Determines the rotation of the child object (called "orientation") of the player responsible for the orientation
-        orientation.rotation = viewDirection;
+        //orientation.rotation = viewDirection;
+        orientation.rotation = Quaternion.Lerp(orientation.rotation, viewDirection, rotationSpeed * Time.deltaTime);
 
         /// Determines the movement direction according to inputs and the orientation calculated above
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
