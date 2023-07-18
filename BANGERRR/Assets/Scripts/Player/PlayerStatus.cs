@@ -27,9 +27,12 @@ public class PlayerStatus : MonoBehaviour
     private Vector3 respawnPointPosition;
     private Quaternion respawnPointRotation;
 
+    [Header("Solimont")]
+    public GameObject rockOnHead;
+
     [Header("Jump Respawn")]
-    private bool hasJumpRespawnBeenInvoked;
     public float timeBeforeJumpRespawn = 22;
+    private bool hasJumpRespawnBeenInvoked;
 
     private GravityBody gBody;
 
@@ -171,5 +174,15 @@ public class PlayerStatus : MonoBehaviour
     public void giveCosmoguide()
     {
         hasCosmoGuide = true;
+    }
+
+    public void PutRockOnHead()
+    {
+        rockOnHead.SetActive(true);
+    }
+
+    public void RemoveRockOnHead()
+    {
+        rockOnHead.SetActive(false);
     }
 }

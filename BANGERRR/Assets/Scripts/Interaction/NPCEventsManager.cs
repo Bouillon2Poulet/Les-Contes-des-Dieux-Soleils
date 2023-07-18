@@ -30,7 +30,103 @@ public class NPCEventsManager : MonoBehaviour
     private bool NepalBack = false;
     private bool NepalEnd = false;
 
+
+    [Header("Solimont")]
+    public bool Soli_caillouRobbed = false;
+    public bool Soli_songSung = false;
+    public GameObject Soli_rocherWithFlegmardo;
+
+    [SerializeField] public NPC Peridorm1;
+    [SerializeField] public NPC Languix2;
+    private bool PerilangEnd = false;
+    [SerializeField] public NPC Endorsole3;
+    [SerializeField] public NPC Placidon4;
+    [SerializeField] public NPC Lethargio5;
+    [SerializeField] public NPC Flemu6;
+    [SerializeField] public NPC Somnoval7;
+    private bool FlemovalEnd = false;
+    [SerializeField] public NPC Hiberlus8;
+    [SerializeField] public NPC Inersun9;
+    private bool HibersunEnd = false;
+    [SerializeField] public NPC Flegmardo10;
+    private bool FlegmardoEnd = false;
+    [SerializeField] public NPC Paressept11;
+
     public void updateNPCPages() {
+        // Perilang
+        if (!PerilangEnd)
+        {
+            if (Peridorm1.isPageARead || Languix2.isPageARead)
+            {
+                Peridorm1.pageB = true;
+                Languix2.pageB = true;
+                PerilangEnd = true;
+            }
+        }
+        // Endorsole
+        if (Endorsole3.isPageARead && !Endorsole3.pageB)
+        {
+            Endorsole3.pageB = true;
+        }
+        // Placidon
+        if (Placidon4.isPageARead && !Placidon4.pageB)
+        {
+            Placidon4.pageB = true;
+        }
+        // Léthargio
+        if (Lethargio5.isPageARead && !Lethargio5.pageB)
+        {
+            Lethargio5.pageB = true;
+        }
+        // Flemoval
+        if (!FlemovalEnd)
+        {
+            if (Flemu6.isPageARead || Somnoval7.isPageARead)
+            {
+                Flemu6.pageB = true;
+                Somnoval7.pageB = true;
+                FlemovalEnd = true;
+            }
+        }
+        // Hibersun
+        if (!HibersunEnd)
+        {
+            if (Soli_caillouRobbed)
+            {
+                Hiberlus8.pageC = true;
+                Inersun9.pageC = true;
+                HibersunEnd = true;
+            }
+        }
+        // Flegmardo
+        if (!FlegmardoEnd)
+        {
+            if (Flegmardo10.isPageARead)
+            {
+                Flegmardo10.pageB = true;
+            }
+            if (Flegmardo10.isPageBRead)
+            {
+                Flegmardo10.pageC = true;
+            }
+            if (Soli_caillouRobbed && Flegmardo10.isPageBRead)
+            {
+                Flegmardo10.pageD = true;
+            }
+            if (Flegmardo10.isPageDRead)
+            {
+                FindAnyObjectByType<PlayerStatus>().RemoveRockOnHead();
+                Soli_rocherWithFlegmardo.SetActive(true);
+                Flegmardo10.pageE = true;
+                FlegmardoEnd = true;
+            }
+        }
+        // Paressept
+        if (Soli_songSung)
+        {
+            Paressept11.pageB = true;
+        }
+
         // Nere
         if (!NereEnd)
         {
@@ -48,7 +144,6 @@ public class NPCEventsManager : MonoBehaviour
                 NereEnd = true;
             }
         }
-
         // Astrid
         if (!AstridEnd)
         {
@@ -68,7 +163,6 @@ public class NPCEventsManager : MonoBehaviour
                 AstridEnd = true;
             }
         }
-
         // Isador
         if (!IsadorEnd)
         {
@@ -86,7 +180,6 @@ public class NPCEventsManager : MonoBehaviour
                 IsadorEnd = true;
             }
         }
-
         // Okaoka
         if (!OkaokaEnd)
         {
@@ -100,7 +193,6 @@ public class NPCEventsManager : MonoBehaviour
                 OkaokaEnd = true;
             }
         }
-
         // Nepal
         if (!NepalEnd)
         {
