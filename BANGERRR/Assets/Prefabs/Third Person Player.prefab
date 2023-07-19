@@ -416,7 +416,6 @@ GameObject:
   - component: {fileID: 7449339989410897210}
   - component: {fileID: 155668088485844893}
   - component: {fileID: 4260861985454432536}
-  - component: {fileID: 7777317052176745296}
   m_Layer: 0
   m_Name: Main Camera Helper
   m_TagString: Untagged
@@ -585,18 +584,6 @@ MonoBehaviour:
   m_DampingWhenOccluded: 0.2
   m_OptimalTargetDistance: 0
 --- !u!114 &4260861985454432536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4712037893589390514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0143470c23e5c334390961d61595ea55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7777317052176745296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1388,7 +1375,7 @@ Transform:
   - {fileID: 6570725431136239260}
   - {fileID: 447002692716256975}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4210171584932659940
 Rigidbody:
@@ -1482,6 +1469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4e0de1e8404954baedfd41f8230076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 3
 --- !u!114 &760190277892608660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1515,6 +1503,7 @@ MonoBehaviour:
   suffocationCountdown: 10
   initialBlinkInterval: 1
   blinkColor: {r: 1, g: 0, b: 0, a: 1}
+  rockOnHead: {fileID: 0}
   timeBeforeJumpRespawn: 22
   hasCosmoGuide: 0
 --- !u!1 &8489826763019323256

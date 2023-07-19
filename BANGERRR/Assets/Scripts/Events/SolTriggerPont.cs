@@ -41,7 +41,7 @@ public class SolTriggerPont : MonoBehaviour
             }
             if (interpolateAmount >= 1)
             {
-                stopAnimation();
+                StopAnimation();
             }
         }
     }
@@ -51,15 +51,17 @@ public class SolTriggerPont : MonoBehaviour
         startPos = playerRB.position;
         FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
         FindObjectOfType<ThirdPersonMovement>().blockPlayerGAFollow();
+        FindObjectOfType<ThirdPersonMovement>().UncapSpeed();
         FindObjectOfType<PlayerStatus>().blockSuffocation();
         FindObjectOfType<PlayerStatus>().animate();
         hasAnimationStarted = true;
     }
 
-    private void stopAnimation()
+    private void StopAnimation()
     {
         FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
         FindObjectOfType<ThirdPersonMovement>().unblockPlayerGAFollow();
+        FindObjectOfType<ThirdPersonMovement>().CapSpeed();
         FindObjectOfType<PlayerStatus>().unblockSuffocation();
         FindObjectOfType<PlayerStatus>().stopAnimate();
         hasAnimationStopped = true;

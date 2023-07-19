@@ -16,6 +16,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public float moveSpeed; /// default: 7
     public bool isListeningToMoveInputs = true;
     public bool isFollowingGA = true;
+    private bool isSpeedCaped = true;
 
     [Header("Drag")]
     public float playerHeight; /// mine: 1.25
@@ -104,7 +105,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
         /// SPEED CAP
         /// This function limits the velocity of the player
-        SpeedControl();
+        if (isSpeedCaped)
+        {
+            SpeedControl();
+        }
 
         /// JUMP
         if (Input.GetKey(jumpKey) && readyToJump && grounded && isListeningToMoveInputs)
@@ -232,10 +236,22 @@ public class ThirdPersonMovement : MonoBehaviour
     public void blockPlayerGAFollow()
     {
         isFollowingGA = false;
+        gravityBody.SetForceApplication(false);
     }
 
     public void unblockPlayerGAFollow()
     {
         isFollowingGA = true;
+        gravityBody.SetForceApplication(true);
+    }
+
+    public void UncapSpeed()
+    {
+        isSpeedCaped = false;
+    }
+
+    public void CapSpeed()
+    {
+        isSpeedCaped = true;
     }
 }

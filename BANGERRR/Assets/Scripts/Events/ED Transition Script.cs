@@ -20,32 +20,34 @@ public class EDTransitionScript : MonoBehaviour
     [SerializeField] private bool hasAnimationStarted = false;
     [SerializeField] private bool hasAnimationStopped = false;
 
+    private ThirdPersonMovement playerMovement;
+    private PlayerStatus playerStatus;
+
     private void Awake()
     {
         playerRB = player.GetComponent<Rigidbody>();
+        playerMovement = FindObjectOfType<ThirdPersonMovement>();
+        playerStatus = FindObjectOfType<PlayerStatus>();
     }
 
-    private void Start() // DEBUG - TO DELETE
-    {
-        Invoke("startAnimation", 2);
-    }
-
-    public void startAnimation()
+    public void StartAnimation()
     {
         startPos = player.transform.position;
-        FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
-        FindObjectOfType<ThirdPersonMovement>().blockPlayerGAFollow();
-        FindObjectOfType<PlayerStatus>().blockSuffocation();
-        FindObjectOfType<PlayerStatus>().animate();
+        playerMovement.blockPlayerMoveInputs();
+        playerMovement.blockPlayerGAFollow();
+        playerMovement.UncapSpeed();
+        playerStatus.blockSuffocation();
+        playerStatus.animate();
         hasAnimationStarted = true;
     }
 
-    private void stopAnimation()
+    private void StopAnimation()
     {
-        FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
-        FindObjectOfType<ThirdPersonMovement>().unblockPlayerGAFollow();
-        FindObjectOfType<PlayerStatus>().unblockSuffocation();
-        FindObjectOfType<PlayerStatus>().stopAnimate();
+        playerMovement.unblockPlayerMoveInputs();
+        playerMovement.unblockPlayerGAFollow();
+        playerMovement.CapSpeed();
+        playerStatus.unblockSuffocation();
+        playerStatus.stopAnimate();
         hasAnimationStopped = true;
     }
 
@@ -71,7 +73,7 @@ public class EDTransitionScript : MonoBehaviour
             }
             if (interpolateAmount >= 1)
             {
-                stopAnimation();
+                StopAnimation();
             }
         }
     }

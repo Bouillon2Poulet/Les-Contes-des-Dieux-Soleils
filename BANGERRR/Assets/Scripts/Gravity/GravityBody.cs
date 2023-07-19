@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+/// <summary>
+/// ATTENTION : RAPPEL
+/// LE GRAVITYBODY N'EST PAS QUE POUR LE JOUEUR
+/// </summary>
+
 [RequireComponent(typeof(Rigidbody))]
 public class GravityBody : MonoBehaviour
 {
     public float rotationSpeed = 3f;
 
     private Rigidbody _rigidbody;
-    private PlayerStatus player;
+
+    private bool isGravityForceApplied = true;
 
     private List<GravityArea> _gravityAreas;
 
@@ -68,11 +74,6 @@ public class GravityBody : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        player = FindAnyObjectByType<PlayerStatus>();
-    }
-
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -83,7 +84,10 @@ public class GravityBody : MonoBehaviour
 
     void FixedUpdate()
     {
-        _rigidbody.AddForce(GravityDirection * (GravityForce * Time.fixedDeltaTime), ForceMode.Acceleration);
+        if (isGravityForceApplied)
+        {
+            _rigidbody.AddForce(GravityDirection * (GravityForce * Time.fixedDeltaTime), ForceMode.Acceleration);
+        }
 
         Quaternion upRotation = Quaternion.FromToRotation(transform.up, -GravityDirection);
         Quaternion newRotation = Quaternion.Lerp(_rigidbody.rotation, upRotation * _rigidbody.rotation, Time.fixedDeltaTime * rotationSpeed);
@@ -98,5 +102,10 @@ public class GravityBody : MonoBehaviour
     public void RemoveGravityArea(GravityArea gravityArea)
     {
         _gravityAreas.Remove(gravityArea);
+    }
+
+    public void SetForceApplication(bool status)
+    {
+        isGravityForceApplied = status;
     }
 }
