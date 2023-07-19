@@ -13,11 +13,13 @@ public class pixel_effect : MonoBehaviour
     public int player_layer_id = 6;
     private object[] all_scene_objects;
     private List<GameObject> list_environment;
-    private List<MeshRenderer> list_environment_renderers;
+    private List<Renderer> list_environment_renderers;
+
+    private List<Material> list_environment_materials = new List<Material>();
 
 
     private List<GameObject> list_player;
-    private List<SpriteRenderer> list_player_renderers;
+    private List<Renderer> list_player_renderers;
 
 
 
@@ -49,10 +51,10 @@ public class pixel_effect : MonoBehaviour
         compute_list_environment_and_player();
         compute_original_mat();
 
-        white = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
-        white.SetColor("_BaseColor",Color.white);
-        black = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
-        black.SetColor("_BaseColor",Color.black);
+        white = new Material(Shader.Find("Shader Graphs/overide_shader"));
+        white.SetFloat("_is_white",1f);
+        black = new Material(Shader.Find("Shader Graphs/overide_shader"));
+        black.SetFloat("_is_white",0f);
 
         setup_cams();
 
@@ -82,19 +84,19 @@ public class pixel_effect : MonoBehaviour
     void compute_list_environment_and_player(){
         all_scene_objects =  GameObject.FindObjectsOfType<GameObject>();
         list_environment = new List<GameObject>();
-        list_environment_renderers = new List<MeshRenderer>();
+        list_environment_renderers = new List<Renderer>();
 
         list_player = new List<GameObject>();
-        list_player_renderers = new List<SpriteRenderer>();
+        list_player_renderers = new List<Renderer>();
         foreach(object o in all_scene_objects){
             GameObject go = (GameObject) o;
             if(go.layer == environment_layer_id) {
                 list_environment.Add(go);
-                list_environment_renderers.Add(go.GetComponent<MeshRenderer>());
+                list_environment_renderers.Add(go.GetComponent<Renderer>());
             }
             if(go.layer == player_layer_id) {
                 list_player.Add(go);
-                list_player_renderers.Add(go.GetComponent<SpriteRenderer>());
+                list_player_renderers.Add(go.GetComponent<Renderer>());
             }
         }
     }
@@ -106,12 +108,12 @@ public class pixel_effect : MonoBehaviour
 
 
         foreach(GameObject go_player in list_player){
-            list_original_mat_player.Add(go_player.GetComponent<SpriteRenderer>().material);
+            list_original_mat_player.Add(go_player.GetComponent<Renderer>().material);
         }
 
 
         foreach(GameObject go_env in list_environment){
-            list_original_mat_env.Add(go_env.GetComponent<MeshRenderer>().material);
+            list_original_mat_env.Add(go_env.GetComponent<Renderer>().material);
         }
     }
 
@@ -128,13 +130,23 @@ public class pixel_effect : MonoBehaviour
 
     void change_materials(){
         // for the player => set to full white
-        foreach(SpriteRenderer mr_player in list_player_renderers){
+        foreach(Renderer mr_player in list_player_renderers){
             mr_player.material = white;
+            if(mr_player.gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer spr))
+            {
+                mr_player.material.SetTexture("_optionnal_texture",spr.sprite.texture);
+                mr_player.material.SetFloat("_has_texture",1f);
+            }
         }
 
         // for the environment => set to full black
-        foreach(MeshRenderer mr_env in list_environment_renderers){
+        foreach(Renderer mr_env in list_environment_renderers){
             mr_env.material= black;
+            if(mr_env.gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer spr))
+            {
+                mr_env.material.SetTexture("_optionnal_texture",spr.sprite.texture);
+                mr_env.material.SetFloat("_has_texture",1f);
+            }
         }
     }
 
@@ -165,7 +177,7 @@ public class pixel_effect : MonoBehaviour
         // set the player masks for the player and the environment
         players_camera.cullingMask = (1<<player_layer_id);
         environment_camera.cullingMask = (1<<environment_layer_id);
-
+        mask_camera.cullingMask = (1<<player_layer_id) + (1<<environment_layer_id);
 
         // black background for the mask and the player only
         mask_camera.clearFlags = CameraClearFlags.SolidColor;

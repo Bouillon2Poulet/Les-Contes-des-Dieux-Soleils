@@ -68,6 +68,6 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _pixel_size: 95.01
+    - _pixel_size: 256
     m_Colors: []
   m_BuildTextureStacks: []
