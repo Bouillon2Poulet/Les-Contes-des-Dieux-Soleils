@@ -13,6 +13,8 @@ public class SystemDayCounter : MonoBehaviour
     public int hour;
 
     public float offset;
+    [Header("Debug")]
+    public bool ConstantSpeedUpdate = false;
 
     private void Awake()
     {
@@ -30,9 +32,15 @@ public class SystemDayCounter : MonoBehaviour
 
         string timeString = string.Format("Jour {0} - {1}h", dayCounter, hour);
         timeText.text = timeString;
+
+        if (ConstantSpeedUpdate)
+        {
+            goingValue = oneDayDurationInIRLSeconds;
+            UpdateSystemSpeed(goingValue);
+        }
     }
 
-    private void updateSystemSpeed(float speed)
+    private void UpdateSystemSpeed(float speed)
     {
         oneDayDurationInIRLSeconds = speed;
         var ellispseScripts = FindObjectsByType<SimpleEllipseRotationTristan>(FindObjectsSortMode.None);
@@ -44,11 +52,11 @@ public class SystemDayCounter : MonoBehaviour
 
     public void pauseSystem()
     {
-        updateSystemSpeed(pauseValue);
+        UpdateSystemSpeed(pauseValue);
     }
 
     public void resumeSystem()
     {
-        updateSystemSpeed(goingValue);
+        UpdateSystemSpeed(goingValue);
     }
 }
