@@ -7,6 +7,7 @@ public class SystemDayCounter : MonoBehaviour
     private float pauseValue = 1048575f;
     private float goingValue;
     public TextMeshProUGUI timeText;
+    public TextMeshProUGUI debugTime; // TO DELETE
 
     public float systemTime;
     private int dayCounter;
@@ -19,6 +20,9 @@ public class SystemDayCounter : MonoBehaviour
     private void Awake()
     {
         goingValue = oneDayDurationInIRLSeconds;
+        /// DEBUG ONLY, TO DELETE
+        /*goingValue = 60f;
+        UpdateSystemSpeed(goingValue);*/
     }
 
     void Update()
@@ -32,6 +36,7 @@ public class SystemDayCounter : MonoBehaviour
 
         string timeString = string.Format("Jour {0} - {1}h", dayCounter, hour);
         timeText.text = timeString;
+        debugTime.text = ""+ hour; // DEBUG - TO DELETE
 
         if (ConstantSpeedUpdate)
         {
