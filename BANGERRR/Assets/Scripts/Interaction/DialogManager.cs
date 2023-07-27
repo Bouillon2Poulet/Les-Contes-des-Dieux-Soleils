@@ -74,7 +74,7 @@ public class DialogManager : MonoBehaviour
         {
             isActive = false;
             FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
-            FindAnyObjectByType<NPCEventsManager>().updateNPCPages();
+            FindObjectOfType<NPCEventsManager>().updateNPCPages();
             backgroundBox.localScale = Vector3.zero;
             Debug.Log("[DialogManager] End of messages");
         }
@@ -83,7 +83,7 @@ public class DialogManager : MonoBehaviour
     public void ForceEnd()
     {
         isActive = false;
-        FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+        FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
         backgroundBox.localScale = Vector3.zero;
         Debug.Log("[DialogManager] FORCED End of messages");
     }

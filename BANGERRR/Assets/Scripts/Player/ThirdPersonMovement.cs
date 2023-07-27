@@ -31,7 +31,6 @@ public class ThirdPersonMovement : MonoBehaviour
     public float jumpCooldown; /// default: .25
     public float airMultiplier; /// default 0.4
     bool readyToJump;
-    public Vector3 lastJumpPosition;
 
     /// other variables
     private float horizontalInput;
@@ -115,7 +114,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             readyToJump = false;
             Jump();
-            lastJumpPosition = transform.position;
+            SaveLastJumpPosition();
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
@@ -210,6 +209,11 @@ public class ThirdPersonMovement : MonoBehaviour
         rb.velocity = velocityOnGravityPlane;
 
         rb.AddForce(-gravityBody.GravityDirection * jumpForce, ForceMode.Impulse);
+    }
+
+    public void SaveLastJumpPosition()
+    {
+        LastJumpPosition.instance.transform.position = rb.position;
     }
 
     private void ResetJump()

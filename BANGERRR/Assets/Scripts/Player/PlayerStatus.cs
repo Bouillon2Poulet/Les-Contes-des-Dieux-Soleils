@@ -80,9 +80,9 @@ public class PlayerStatus : MonoBehaviour
         transform.SetPositionAndRotation(respawnPointPosition, respawnPointRotation);
     }
 
-    public void jumpRespawn()
+    public void JumpRespawn()
     {
-        transform.position = FindObjectOfType<ThirdPersonMovement>().lastJumpPosition;
+        GetComponent<Rigidbody>().position = LastJumpPosition.instance.transform.position;
     }
 
     private void Awake()
@@ -126,14 +126,14 @@ public class PlayerStatus : MonoBehaviour
         if (!isAnimated && !gBody.inGravityArea && !hasJumpRespawnBeenInvoked)
         {
             //Debug.Log("invoke JR");
-            Invoke(nameof(jumpRespawn), timeBeforeJumpRespawn);
+            Invoke(nameof(JumpRespawn), timeBeforeJumpRespawn);
             hasJumpRespawnBeenInvoked = true;
         }
 
         if (hasJumpRespawnBeenInvoked && gBody.inGravityArea)
         {
             //Debug.Log("cancel invoke JR");
-            CancelInvoke(nameof(jumpRespawn));
+            CancelInvoke(nameof(JumpRespawn));
             hasJumpRespawnBeenInvoked = false;
         }
 

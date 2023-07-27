@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SolRituelStarter : MonoBehaviour
 {
@@ -25,19 +26,28 @@ public class SolRituelStarter : MonoBehaviour
         {
             if (ritualPhase == 1)
             {
-
+                Debug.Log("Jme kill");
+                transform.gameObject.SetActive(false);
             }
-        } else
+        } 
+        else
         {
             if (isPlayerIn)
             {
-                if (FindAnyObjectByType<isSolisedeAlignedWithSolimont>().Check())
+                if (FindObjectOfType<isSolisedeAlignedWithSolimont>().Check())
                 {
-                    Debug.Log("Starting the ritual");
-                    FindAnyObjectByType<FadeToBlack>().FadeInBlack(1f);
-                    Invoke(nameof(StartRitual), 1);
-                    hasStartedRitual = true;
-                    ritualPhase = 1;
+                    if (FindObjectOfType<NPCEventsManager>().Nere.isPageCRead)
+                    {
+                        Debug.Log("Starting the ritual");
+                        FindAnyObjectByType<FadeToBlack>().FadeInBlack(1f);
+                        Invoke(nameof(StartRitual), 1);
+                        hasStartedRitual = true;
+                        ritualPhase = 1;
+                    }
+                    else
+                    {
+                        Debug.Log("t'as pas encore tout fait mon reuf");
+                    }
                 }
             }
         }
@@ -45,18 +55,29 @@ public class SolRituelStarter : MonoBehaviour
 
     private void StartRitual()
     {
-        var dialogManager = FindAnyObjectByType<DialogManager>();
-        if (dialogManager.isItActive())
+        if (FindObjectOfType<DialogManager>().isItActive())
         {
-            dialogManager.ForceEnd();
+            FindObjectOfType<DialogManager>().ForceEnd();
         }
         player.position = TpPont.position; // TP Joueur
-        FindAnyObjectByType<FadeToBlack>().FadeOutBlack(1f); // Fade back
-        FindAnyObjectByType<SystemDayCounter>().pauseSystem(); // 
-        FindAnyObjectByType<NPCEventsManager>().SolDeactivateNPCs(); //
-        FindAnyObjectByType<NPCEventsManager>().Sol_ritualStarted = true;
+        FindObjectOfType<FadeToBlack>().FadeOutBlack(1f); // Fade back
+        FindObjectOfType<SystemDayCounter>().pauseSystem(); // 
+        FindObjectOfType<NPCEventsManager>().SolDeactivateNPCs(); //
+        FindObjectOfType<NPCEventsManager>().Sol_ritualStarted = true;
         LeVraiPont.SetActive(true);
         TriggerPont.SetActive(true);
+        Invoke(nameof(ShowRitualDialogs), 1);
+    }
+
+    private void ShowRitualDialogs()
+    {
+        NPCEventsManager NPCs = FindObjectOfType<NPCEventsManager>();
+        Message[] messagesOkaoka = NPCs.Okaoka.messagesC;
+        messagesOkaoka[0].actorID = 1;
+        Message[] messagesNere = NPCs.Nere.messagesD;
+        Message[] combinedMessages = messagesNere.Concat(messagesOkaoka).ToArray();
+        string[] actors = { "Nere", "Okaoka" };
+        FindObjectOfType<DialogManager>().OpenDialog(combinedMessages, actors);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolPuzzlePiece : MonoBehaviour, IInteractable
+public class SolPuzzlePiece : Note, IInteractable
 {
     public void Interact()
     {
@@ -13,7 +13,7 @@ public class SolPuzzlePiece : MonoBehaviour, IInteractable
             M.updateNPCPages();
             string message = "Vous avez trouvé une pièce de puzzle ! Elle est minuscule !";
             FindObjectOfType<DialogManager>().OpenMessage(message, "Objet trouvé");
-            enabled = false;
+            transform.gameObject.SetActive(false);
         }
     }
 

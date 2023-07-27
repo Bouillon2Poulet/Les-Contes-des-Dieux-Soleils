@@ -27,7 +27,13 @@ public abstract class GravityArea : MonoBehaviour
     {
         if (other.TryGetComponent(out GravityBody gravityBody))
         {
-            gravityBody.AddGravityArea(this); // à implémenter dans gravity body
+            gravityBody.AddGravityArea(this);
+        }
+
+        if (other.TryGetComponent(out ThirdPersonMovement player))
+        {
+            LastJumpPosition.instance.SetParentPlanet(transform);
+            player.SaveLastJumpPosition();
         }
     }
 
@@ -35,7 +41,7 @@ public abstract class GravityArea : MonoBehaviour
     {
         if (other.TryGetComponent(out GravityBody gravityBody))
         {
-            gravityBody.RemoveGravityArea(this); // à implémenter dans gravity body
+            gravityBody.RemoveGravityArea(this);
         }
     }
 

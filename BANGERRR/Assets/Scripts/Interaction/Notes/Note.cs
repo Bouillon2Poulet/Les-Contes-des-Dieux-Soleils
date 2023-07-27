@@ -11,31 +11,31 @@ public abstract class Note : MonoBehaviour
     private float angle = 0f;
 
     [Header("Up and Down")]
-    public float amplitude = .005f;
-    public float frequency = .05f;
+    public float amplitude = .1f;
+    public float frequency = .5f;
     private Vector3 startPos;
 
     private void FixedUpdate()
     {
-        IldeRotateNote();
-        IldeMoveNote();
+        IdleRotateNote();
+        IdleMoveNote();
     }
 
-    private void IldeRotateNote()
+    private void IdleRotateNote()
     {
         angle += Time.fixedDeltaTime * rotationSpeed;
         noteSprite.transform.localRotation = Quaternion.Euler(0f, angle, 0f);
     }
 
-    private void IldeMoveNote()
+    private void IdleMoveNote()
     {
         float verticalOffset = amplitude * Mathf.Sin(Time.time * 2 * Mathf.PI * frequency);
-        transform.localPosition = startPos + new Vector3(0f, verticalOffset, 0f);
+        noteSprite.transform.localPosition = startPos + new Vector3(0f, verticalOffset, 0f);
     }
 
     private void Awake()
     {
-        noteSprite = GetComponentInChildren<Transform>().gameObject;
-        startPos = transform.localPosition;
+        noteSprite = GetComponentInChildren<SpriteRenderer>().gameObject;
+        startPos = noteSprite.transform.localPosition;
     }
 }

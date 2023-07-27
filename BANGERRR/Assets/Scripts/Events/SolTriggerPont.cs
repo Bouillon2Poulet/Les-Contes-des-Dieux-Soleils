@@ -42,6 +42,8 @@ public class SolTriggerPont : MonoBehaviour
             if (interpolateAmount >= 1)
             {
                 StopAnimation();
+                FindAnyObjectByType<SystemDayCounter>().resumeSystem();
+                FindAnyObjectByType<SolRituelStarter>().LeVraiPont.SetActive(false);
             }
         }
     }
