@@ -37,6 +37,14 @@ public class ThirdPersonMovement : MonoBehaviour
     private float verticalInput;
     private Vector3 moveDirection;
 
+    [Header("Sounds")]
+    private AudioSource playerSource;
+    private int walkSoundsTimer = 50;
+
+    public AudioClip jumpSound;
+    public AudioClip rejumpSound;
+    public AudioClip[] walkSounds;
+
     [Header("Gravity Stuff")]
     //public Transform gravityAreaTransform; // this debug feature allows me to retrieve the current gravityArea the player is in
     private Vector3 GAPreviousPosition;
@@ -57,6 +65,8 @@ public class ThirdPersonMovement : MonoBehaviour
         GAPreviousRotationY = 0;
         GAFirstEntering = true;
         GAPreviousID = -1;
+
+        playerSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -65,13 +75,9 @@ public class ThirdPersonMovement : MonoBehaviour
         /// Checks what's under the player using a raycast to see if the player is on the ground.
         //grounded = Physics.Raycast(transform.position, gravityBody.GravityDirection, playerHeight * 0.5f + raycastMargin, groundMask);
         grounded = Physics.Raycast(transform.position, gravityBody.GravityDirection, out RaycastHit hit, playerHeight * 0.5f + raycastMargin);
+        grounded = grounded && (hit.collider.CompareTag("Ground") || hit.collider.CompareTag("Planet"));
 
-        grounded = grounded && (hit.collider.CompareTag("Ground") || hit.collider.CompareTag("Planet")) ? true : false;
-
-        //Debug.Log("grounded: " + grounded); // To know when player is grounded
-
-        /// ORIENTATION
-        /// Gets the inputs of the joystick or keys, horizontally and vertically separately, and put them in floats.
+        /// ORIENTATION - Gets the inputs of the joystick or keys, horizontally and vertically separately, and put them in floats.
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -80,30 +86,37 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 forwardDirection = cam.forward;
         Quaternion viewDirection = Quaternion.LookRotation(Vector3.ProjectOnPlane(forwardDirection, gravityDirection), -gravityDirection);
 
-
         /// Determines the rotation of the child object (called "orientation") of the player responsible for the orientation
-        //orientation.rotation = viewDirection;
         orientation.rotation = Quaternion.Lerp(orientation.rotation, viewDirection, rotationSpeed * Time.deltaTime);
 
         /// Determines the movement direction according to inputs and the orientation calculated above
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        /// If there are inputs, we change the rotation of the player's graphics
+        /// If there are inputs, we change the rotation of the player's graphics AND play walk sound
         if (moveDirection != Vector3.zero)
         {
             Quaternion correctRotation = Quaternion.LookRotation(moveDirection, -gravityDirection);
             playerGraphics.rotation = Quaternion.Lerp(playerGraphics.rotation, correctRotation, rotationSpeed * Time.deltaTime);
+
+            if (grounded)
+            {
+                walkSoundsTimer--;
+                if (walkSoundsTimer == 0)
+                {
+                    int randomOne = Random.Range(0, 8);
+                    playerSource.PlayOneShot(walkSounds[randomOne], .2f);
+                    walkSoundsTimer = 16;
+                }
+            }
         }
 
-        /// DRAG
-        /// Drag is applied on the rigidbody of the player only if they're an the ground
+        /// DRAG - Drag is applied on the rigidbody of the player only if they're an the ground
         if (grounded)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
 
-        /// SPEED CAP
-        /// This function limits the velocity of the player
+        /// SPEED CAP - This function limits the velocity of the player
         if (isSpeedCaped)
         {
             SpeedControl();
@@ -207,6 +220,8 @@ public class ThirdPersonMovement : MonoBehaviour
         /// Giving only the lateral velocity to the rb to cancel up and down velocity
         Vector3 velocityOnGravityPlane = Vector3.ProjectOnPlane(rb.velocity, gravityBody.GravityDirection);
         rb.velocity = velocityOnGravityPlane;
+
+        playerSource.PlayOneShot(jumpSound, .5f);
 
         rb.AddForce(-gravityBody.GravityDirection * jumpForce, ForceMode.Impulse);
     }
