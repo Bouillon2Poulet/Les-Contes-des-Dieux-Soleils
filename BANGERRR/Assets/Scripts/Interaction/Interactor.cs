@@ -11,6 +11,7 @@ interface IInteractable
 public class Interactor : MonoBehaviour
 {
     public KeyCode InteractionKey = KeyCode.E;
+    public float interactRange = 2f;
 
     void Update()
     {

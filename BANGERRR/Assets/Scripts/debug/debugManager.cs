@@ -8,13 +8,15 @@ public class debugManager : MonoBehaviour
 {
     public TextMeshProUGUI textOnCanvas;
     public Rigidbody player;
+    [Header("TPs")]
     [SerializeField] public Transform[] Triton;
     [SerializeField] public Transform[] EauxDivines;
     [SerializeField] public Transform[] Solisede;
     [SerializeField] public Transform[] Solimont;
     [SerializeField] public Transform[] Amphipolis;
 
-    private int currentPage = 0;
+    public int currentPage = 0;
+
     private int totalPage = 0;
     private List<Transform[]> pages;
     private KeyCode[] inputs;
@@ -34,7 +36,6 @@ public class debugManager : MonoBehaviour
         };
 
         totalPage = pages.Count;
-        currentPage = 0;
         UpdateUI();
 
         inputs = new KeyCode[] { KeyCode.Keypad1, KeyCode.Keypad2, KeyCode.Keypad3, KeyCode.Keypad4, KeyCode.Keypad5, KeyCode.Keypad6, KeyCode.Keypad7, KeyCode.Keypad8, KeyCode.Keypad9 };
