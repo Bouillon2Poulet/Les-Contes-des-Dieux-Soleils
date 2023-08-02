@@ -14,6 +14,7 @@ public class debugManager : MonoBehaviour
     [SerializeField] public Transform[] Solisede;
     [SerializeField] public Transform[] Solimont;
     [SerializeField] public Transform[] Amphipolis;
+    [SerializeField] public Transform[] Larme;
 
     public int currentPage = 0;
 
@@ -25,14 +26,15 @@ public class debugManager : MonoBehaviour
 
     private void Start()
     {
-        pageNames = new string[] { "Triton", "Eaux Divines", "Solisède", "Solimont", "Amphipolis" };
+        pageNames = new string[] { "Triton", "Eaux Divines", "Solisède", "Solimont", "Amphipolis", "Larme" };
         pages = new List<Transform[]>
         {
             Triton,
             EauxDivines,
             Solisede,
             Solimont,
-            Amphipolis
+            Amphipolis,
+            Larme
         };
 
         totalPage = pages.Count;

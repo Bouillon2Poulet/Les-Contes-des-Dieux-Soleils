@@ -21,6 +21,11 @@ public class LarmeToAmphipolis : MonoBehaviour
     private bool hasAnimationStopped = false;
     Quaternion rotationOffset = Quaternion.Euler(180f, 0f, 0f);
 
+    private bool isPlayerOnboard = false;
+    private bool larmeHasDefinitlyLanded = false;
+    public Transform futureParentOfLarme;
+    public GameObject LarmeGA;
+
     // debug
     bool debugCourbe = false;
     bool hasSpheresBeenCreated = false;
@@ -29,7 +34,7 @@ public class LarmeToAmphipolis : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (FindAnyObjectByType<SystemDayCounter>().hour == 1 && !hasAnimationStarted && !hasAnimationStopped) // BEGIN ANIMATION
+        if (FindAnyObjectByType<SystemDayCounter>().hour == 1 && !hasAnimationStarted && !hasAnimationStopped && !larmeHasDefinitlyLanded) // BEGIN ANIMATION
         {
             hasAnimationStarted = true;
         }
@@ -97,9 +102,15 @@ public class LarmeToAmphipolis : MonoBehaviour
             if (interpolateAmount > 2)
             {
                 hasAnimationStopped = true;
+                if (isPlayerOnboard)
+                {
+                    transform.SetParent(futureParentOfLarme);
+                    larmeHasDefinitlyLanded = true;
+                    Debug.Log("Larme has landed for good");
+                }
             }
         }
-        else if (FindAnyObjectByType<SystemDayCounter>().hour == 3) // RESET ANIMATION
+        else if (FindAnyObjectByType<SystemDayCounter>().hour == 17 && !larmeHasDefinitlyLanded) // RESET ANIMATION
         {
             interpolateAmount = 0f;
             hasAnimationStarted = false;
@@ -107,7 +118,14 @@ public class LarmeToAmphipolis : MonoBehaviour
         }
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerOnboard = true;
+            Debug.Log("Player is on board!");
+        }
+    }
 
     private Vector3 QuadraticLerp(Vector3 a, Vector3 b, Vector3 c, float t)
     {
