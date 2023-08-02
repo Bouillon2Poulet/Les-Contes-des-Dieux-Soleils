@@ -6,6 +6,7 @@ using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
+    public GameObject DialogBox;
     public TextMeshProUGUI npcNameText;
     public TextMeshProUGUI messageText;
     public RectTransform backgroundBox;
@@ -104,6 +105,11 @@ public class DialogManager : MonoBehaviour
         }
 
         //Debug.Log(currentMessages);
+    }
+
+    private void Awake()
+    {
+        DialogBox.SetActive(true);
     }
 
     public bool isItActive()

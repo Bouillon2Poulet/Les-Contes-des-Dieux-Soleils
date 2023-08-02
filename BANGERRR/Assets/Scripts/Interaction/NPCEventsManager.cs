@@ -53,6 +53,8 @@ public class NPCEventsManager : MonoBehaviour
     [SerializeField] public NPC Paressept11;
 
     public void updateNPCPages() {
+        AmpNPCManager.instance.updateNPCPages();
+
         // Perilang
         if (!PerilangEnd)
         {

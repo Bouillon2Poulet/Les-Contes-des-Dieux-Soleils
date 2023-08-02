@@ -43,6 +43,7 @@ public class AmpAscenseur : MonoBehaviour
             {
                 intGAs.SetActive(true);
                 intGAsHaveBeenActivated = true;
+                AmpNPCManager.instance.ToggleInteriorObjects(true);
                 playerMovement.gameObject.transform.SetParent(elevator);
             }
 
@@ -75,7 +76,6 @@ public class AmpAscenseur : MonoBehaviour
     }
 
     public static AmpAscenseur instance { get; private set; }
-
     private void Awake()
     {
         if (instance != null && instance != this)

@@ -6,7 +6,13 @@ public class AmpTriggerButton : MonoBehaviour, IInteractable
 {
     public GameObject bubble;
     private bool InteractionAvailable = true;
+    private float interactRange;
     private bool hasBeenTriggered = false;
+
+    private void Start()
+    {
+        interactRange = FindObjectOfType<Interactor>().interactRange;
+    }
 
     public void Interact()
     {
@@ -39,7 +45,7 @@ public class AmpTriggerButton : MonoBehaviour, IInteractable
 
     private bool CheckPlayer()
     {
-        Collider[] colliderArray = Physics.OverlapSphere(transform.position, 2f);
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
         foreach (Collider collider in colliderArray)
         {
             if (collider.CompareTag("Player"))
