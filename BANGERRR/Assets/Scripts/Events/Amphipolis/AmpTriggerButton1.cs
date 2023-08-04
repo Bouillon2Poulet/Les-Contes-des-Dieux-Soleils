@@ -9,6 +9,11 @@ public class AmpTriggerButton1 : MonoBehaviour, IInteractable
     private float interactRange;
     private bool hasBeenTriggered = false;
 
+    public GameObject MurInvisible;
+    public GameObject MurInvisible2;
+
+    public Animator SolFusee;
+
     private void Start()
     {
         interactRange = FindObjectOfType<Interactor>().interactRange;
@@ -26,7 +31,13 @@ public class AmpTriggerButton1 : MonoBehaviour, IInteractable
 
             // Lancer animation fusée et tt !!!
             Debug.Log("la fusée ça part !!");
-            
+            AmpAnimationFusee.instance.StartAnimation();
+
+            MurInvisible.SetActive(false);
+            MurInvisible2.SetActive(true);
+
+            SolFusee.SetTrigger("trigger");
+
             instance = null;
         }
     }
@@ -63,7 +74,6 @@ public class AmpTriggerButton1 : MonoBehaviour, IInteractable
     }
 
     public static AmpTriggerButton1 instance { get; private set; }
-
     private void Awake()
     {
         if (instance != null && instance != this)
