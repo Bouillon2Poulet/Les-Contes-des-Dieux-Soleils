@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmpTriggerButton : MonoBehaviour, IInteractable
+public class AmpTriggerButton1 : MonoBehaviour, IInteractable
 {
     public GameObject bubble;
     private bool InteractionAvailable = true;
@@ -24,8 +24,8 @@ public class AmpTriggerButton : MonoBehaviour, IInteractable
             ToggleBubble(false);
 
 
-            AmpAscenseur.instance.TakeElevatorDown();
-
+            // Lancer animation fusée et tt !!!
+            Debug.Log("la fusée ça part !!");
             
             instance = null;
         }
@@ -62,7 +62,7 @@ public class AmpTriggerButton : MonoBehaviour, IInteractable
         return transform;
     }
 
-    public static AmpTriggerButton instance { get; private set; }
+    public static AmpTriggerButton1 instance { get; private set; }
 
     private void Awake()
     {
