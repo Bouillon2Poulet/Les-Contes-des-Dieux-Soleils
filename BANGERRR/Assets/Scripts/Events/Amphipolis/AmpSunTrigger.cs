@@ -9,6 +9,7 @@ public class AmpSunTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AmpTriggerInFusee.instance.Kill();
+            Destroy(gameObject);
         }
     }
 }

@@ -37,6 +37,8 @@ public class AmpTriggerInFusee : MonoBehaviour
     private float goingSpeed = 0f;
     private bool goingIsMaxed = false;
 
+    public GameObject FuseeKiller;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (!hublotClosed)
@@ -106,6 +108,7 @@ public class AmpTriggerInFusee : MonoBehaviour
                 Debug.Log("fusee pointing sun");
                 startPointingTowardsSun = false;
                 GOFUSEE = true;
+                FuseeKiller.SetActive(true);
             }
         }
 

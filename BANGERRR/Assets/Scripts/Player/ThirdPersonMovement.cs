@@ -52,6 +52,9 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool GAFirstEntering;
     private int GAPreviousID;
 
+    [Header("JETPACK MODE")]
+    public bool JETPACKMODE;
+
 
     void Start()
     {
@@ -111,7 +114,7 @@ public class ThirdPersonMovement : MonoBehaviour
         }
 
         /// DRAG - Drag is applied on the rigidbody of the player only if they're an the ground
-        if (grounded)
+        if (grounded || JETPACKMODE)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
@@ -140,6 +143,24 @@ public class ThirdPersonMovement : MonoBehaviour
             if (isListeningToMoveInputs)
             {
                 MovePlayer();
+            }
+            if (JETPACKMODE)
+            {
+                Debug.Log("JETPACK");
+                // NULLIFY GRAVITY (A BIT)
+                rb.AddForce(-gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * .8f), ForceMode.Acceleration);
+
+                // JETPACK INPUTS
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    Debug.Log("UP!");
+                    rb.AddForce(-gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 3f), ForceMode.Force);
+                }
+                if (Input.GetKey(KeyCode.LeftControl))
+                {
+                    Debug.Log("DOWN!");
+                    rb.AddForce(gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 3f), ForceMode.Force);
+                }
             }
         }
         else
@@ -195,6 +216,10 @@ public class ThirdPersonMovement : MonoBehaviour
         if (grounded)
         {
             rb.AddForce(moveDirectionOnGravityPlane * moveSpeed * 10f, ForceMode.Force);
+        }
+        else if (JETPACKMODE)
+        {
+            rb.AddForce(moveDirectionOnGravityPlane * moveSpeed * 50f, ForceMode.Force);
         }
         else if (!grounded)
         {
