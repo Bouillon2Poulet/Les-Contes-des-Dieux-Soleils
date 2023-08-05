@@ -20,21 +20,22 @@ public class AmpTriggerButton : MonoBehaviour, IInteractable
         {
             Debug.Log("INTERACT");
             hasBeenTriggered = true;
-            AmpAscenseur.instance.TakeElevatorDown();
             InteractionAvailable = false;
-            AmpTriggerButton.instance = null;
+            ToggleBubble(false);
+
+
+            AmpAscenseur.instance.TakeElevatorDown();
+
+            
+            instance = null;
         }
     }
 
     private void Update()
     {
-        if (CheckPlayer() && InteractionAvailable)
+        if (InteractionAvailable)
         {
-            ToggleBubble(true);
-        }
-        else
-        {
-            ToggleBubble(false);
+            ToggleBubble(CheckPlayer());
         }
     }
 

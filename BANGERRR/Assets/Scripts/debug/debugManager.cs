@@ -8,6 +8,7 @@ public class debugManager : MonoBehaviour
 {
     public TextMeshProUGUI textOnCanvas;
     public Rigidbody player;
+    public ThirdPersonMovement movements;
     [Header("TPs")]
     [SerializeField] public Transform[] Triton;
     [SerializeField] public Transform[] EauxDivines;
@@ -75,6 +76,11 @@ public class debugManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.End))
         {
             ToggleView(!isShown);
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightControl))
+        {
+            movements.JETPACKMODE = !movements.JETPACKMODE;
         }
     }
 
