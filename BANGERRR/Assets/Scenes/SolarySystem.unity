@@ -11987,7 +11987,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 260478501158548600, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 260478501158548600, guid: 135ecefc52df9cd419f2e89fd663e7d6, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -28988,15 +28988,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7868750421937019282, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5648771
+      value: 0.56487703
       objectReference: {fileID: 0}
     - target: {fileID: 7868750421937019282, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.23254837
+      value: -0.23254839
       objectReference: {fileID: 0}
     - target: {fileID: 7868750421937019282, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.17575075
+      value: 0.17575073
       objectReference: {fileID: 0}
     - target: {fileID: 7963389816385231553, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -45929,8 +45929,8 @@ Transform:
   m_GameObject: {fileID: 1433412403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.059786, y: 1.059786, z: 1.059786}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1951767910}
   m_RootOrder: -1
@@ -48730,8 +48730,8 @@ Transform:
   m_GameObject: {fileID: 1567441176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.128193, y: 1.128193, z: 1.128193}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1951767910}
   m_RootOrder: -1

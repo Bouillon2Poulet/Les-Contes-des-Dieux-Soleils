@@ -146,19 +146,16 @@ public class ThirdPersonMovement : MonoBehaviour
             }
             if (JETPACKMODE)
             {
-                Debug.Log("JETPACK");
                 // NULLIFY GRAVITY (A BIT)
                 rb.AddForce(-gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * .8f), ForceMode.Acceleration);
 
                 // JETPACK INPUTS
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    Debug.Log("UP!");
                     rb.AddForce(-gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 3f), ForceMode.Force);
                 }
                 if (Input.GetKey(KeyCode.LeftControl))
                 {
-                    Debug.Log("DOWN!");
                     rb.AddForce(gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 3f), ForceMode.Force);
                 }
             }
