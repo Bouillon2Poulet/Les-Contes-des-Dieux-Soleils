@@ -4,51 +4,32 @@ using UnityEngine;
 
 public class MissileDestroy : MonoBehaviour
 {
-    // public GameObject target;
-    // public Prefab centreObject;
-    // public Prefab paupiereObject1;
-    // public Prefab paupiereObject2;
+    public bool invincible = true;
 
-    bool canBeDestroyed = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-        
     private void OnTriggerEnter(Collider other)
     {
-        if (canBeDestroyed)
+        if (!invincible)
         {
+            Debug.Log("Collision !");
             GameObject otherGameObject = other.gameObject;
             if (otherGameObject.name == "Centre")
             {
-                Debug.Log("Centre touché");
+                //Debug.Log("Centre touché");
+                Centre.instance.Hit();
                 Destroy(gameObject); // Détruire le GameObject spécifique
             }
             else if (otherGameObject.name == "Paupière_up" || otherGameObject.name == "Paupière_down")
             {
-                Debug.Log("Paupière touchée");
+                //Debug.Log("Paupière touchée");
+                Centre.instance.Hit();
                 Destroy(gameObject); // Détruire le GameObject spécifique
             }
-            else if (otherGameObject.name == "Target")
+            else if (otherGameObject.name == "Third Person Player")
             {
                 Debug.Log("Target touchée");
                 Destroy(gameObject); // Détruire le GameObject spécifique
             }
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        canBeDestroyed = true;
     }
 }
 

@@ -21,7 +21,7 @@ public class Blow : MonoBehaviour
     void Update()
     {
         // Check for left mouse button click to start the animation and instantiate the ParticleSystem
-        if (Input.GetMouseButtonDown(1) && !animationStarted)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !animationStarted)
         {
             animationStarted = true;
             timeStart = Time.time;

@@ -150,11 +150,13 @@ public class ThirdPersonMovement : MonoBehaviour
                 rb.AddForce(-gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * .8f), ForceMode.Acceleration);
 
                 // JETPACK INPUTS
-                if (Input.GetKey(KeyCode.LeftShift))
+                // UP
+                if (Input.GetKey(KeyCode.E))
                 {
                     rb.AddForce(-gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 3f), ForceMode.Force);
                 }
-                if (Input.GetKey(KeyCode.LeftControl))
+                // DOWN
+                if (Input.GetKey(KeyCode.Q))
                 {
                     rb.AddForce(gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 3f), ForceMode.Force);
                 }

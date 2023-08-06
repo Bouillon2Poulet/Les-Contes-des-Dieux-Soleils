@@ -6,37 +6,76 @@ public class Blink : MonoBehaviour
 {
     float initialAngleX;
     public float speed = 1f;
-    bool isClosing = true;
+    bool isClosing = false;
     public bool isUp;
     float maxAngle;
     float minAngle;
+    int sens;
 
-    // Start is called before the first frame update
+    private bool isBlinking = false;
+    private bool nextYouStop = false;
     void Start()
     {
         maxAngle = (isUp)? 25f : 360f-25f;
         minAngle = (isUp)? 360f : 0;
     }
 
-    // Update is called once per frame
+    public void OneTime()
+    {
+        if (!isBlinking)
+        {
+            isBlinking = true;
+            nextYouStop = false;
+        }
+    }
+
     void Update()
     {
-        int sens;
-        if(isUp)
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if(transform.localEulerAngles.x<minAngle && transform.localEulerAngles.x>minAngle-5f) isClosing = false;
-            if(transform.localEulerAngles.x>maxAngle && transform.localEulerAngles.x<maxAngle+5f) isClosing = true;
-            sens = (isClosing)? -1 : 1;
-        }
-        else
-        {
-            if(transform.localEulerAngles.x>minAngle && transform.localEulerAngles.x<minAngle+5f) isClosing = false;
-            if(transform.localEulerAngles.x<maxAngle && transform.localEulerAngles.x>maxAngle-5f) isClosing = true;
-            sens = (isClosing)? 1 : -1;
+            OneTime();
         }
 
-        float rotationAmount = sens * speed * Time.deltaTime;
-        transform.Rotate(rotationAmount, 0f, 0f);
-        // Debug.Log(transform.localEulerAngles.x);
+        if (isBlinking)
+        {
+            if (isUp)
+            {
+                if (transform.localEulerAngles.x > maxAngle && transform.localEulerAngles.x < maxAngle + 5f)
+                {
+                    if (nextYouStop)
+                    {
+                        isBlinking = false;
+                    }
+                    isClosing = true;
+                }
+                if (transform.localEulerAngles.x < minAngle && transform.localEulerAngles.x > minAngle - 5f)
+                {
+                    isClosing = false;
+                    nextYouStop = true;
+                }
+                sens = (isClosing) ? -1 : 1;
+            }
+            else
+            {
+                if (transform.localEulerAngles.x < maxAngle && transform.localEulerAngles.x > maxAngle - 5f)
+                {
+                    if (nextYouStop)
+                    {
+                        isBlinking = false;
+                    }
+                    isClosing = true;
+                }
+                if (transform.localEulerAngles.x > minAngle && transform.localEulerAngles.x < minAngle + 5f) 
+                {
+                    isClosing = false;
+                    nextYouStop = true;
+                }
+                sens = (isClosing) ? 1 : -1;
+            }
+
+            float rotationAmount = sens * speed * Time.deltaTime;
+            transform.Rotate(rotationAmount, 0f, 0f);
+            //Debug.Log(isClosing);
+        }
     }
 }

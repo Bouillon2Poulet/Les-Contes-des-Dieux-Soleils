@@ -21,7 +21,7 @@ public class Aspire : MonoBehaviour
     void Update()
     {
         // Check for left mouse button click to start the animation
-        if (Input.GetMouseButtonDown(0) && !animationStarted)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !animationStarted)
         {
             animationStarted = true;
             timeStart = Time.time;
