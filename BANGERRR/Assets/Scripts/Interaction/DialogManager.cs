@@ -7,6 +7,7 @@ using TMPro;
 public class DialogManager : MonoBehaviour
 {
     public GameObject DialogBox;
+    private CanvasGroup DialogBoxGroup;
     public TextMeshProUGUI npcNameText;
     public TextMeshProUGUI messageText;
     public RectTransform backgroundBox;
@@ -89,9 +90,45 @@ public class DialogManager : MonoBehaviour
         Debug.Log("[DialogManager] FORCED End of messages");
     }
 
+    //public IEnumerator EphemeralMessage(string name, string text)
+    public IEnumerator EphemeralMessage(string name, string text, float duration)
+    {
+        npcNameText.text = name;
+        messageText.text = text;
+
+        float fadingSpeed = .05f;
+        float fadingProgression = 0f;
+        backgroundBox.localScale = Vector3.one;
+        arrow.localScale = Vector3.zero;
+        Debug.Log("Start Ephemeral Message");
+
+        while (fadingProgression < 1f)
+        {
+            DialogBoxGroup.alpha = fadingProgression;
+            fadingProgression += fadingSpeed;
+            yield return null;
+        }
+        DialogBoxGroup.alpha = 1f;
+
+        yield return new WaitForSeconds(duration);
+
+        while (fadingProgression > 0f)
+        {
+            DialogBoxGroup.alpha = fadingProgression;
+            fadingProgression -= fadingSpeed;
+            yield return null;
+        }
+        DialogBoxGroup.alpha = 0f;
+
+        backgroundBox.localScale = Vector3.zero;
+        arrow.localScale = Vector3.one;
+        Debug.Log("End Ephemeral Message");
+    }
+
     private void Start()
     {
         backgroundBox.localScale = Vector3.zero;
+        DialogBoxGroup = backgroundBox.GetComponent<CanvasGroup>();
     }
 
     void Update()
@@ -103,7 +140,6 @@ public class DialogManager : MonoBehaviour
                 NextMessage();
             }
         }
-
         //Debug.Log(currentMessages);
     }
 
