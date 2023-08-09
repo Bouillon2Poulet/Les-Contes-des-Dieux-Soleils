@@ -107,6 +107,10 @@ public class LarmeToAmphipolis : MonoBehaviour
                     transform.SetParent(futureParentOfLarme);
                     larmeHasDefinitlyLanded = true;
                     Debug.Log("Larme has landed for good");
+                } 
+                else
+                {
+                    transform.position = new Vector3(5000f, 5000f, 5000f);
                 }
             }
         }

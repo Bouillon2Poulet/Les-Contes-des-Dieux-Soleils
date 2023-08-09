@@ -11,20 +11,31 @@ public class Aspire : MonoBehaviour
     private bool animationStarted = false;
     private float timeStart;
     private ParticleSystem currentParticleSystem; // La référence vers l'instance du ParticleSystem actuel
+    private bool triggered = false;
+    ThirdPersonMovement player;
 
     void Start()
     {
         initialScale = new Vector3(1f, 1f, 1f);
         timeOffset = Random.Range(0f, 2f * Mathf.PI); // Random offset for variety
+        player = FindObjectOfType<ThirdPersonMovement>();
+    }
+
+    public void Trigger()
+    {
+        triggered = true;
     }
 
     void Update()
     {
         // Check for left mouse button click to start the animation
-        if (Input.GetKeyDown(KeyCode.Alpha2) && !animationStarted)
+        if (triggered && !animationStarted)
         {
+            triggered = false;
             animationStarted = true;
             timeStart = Time.time;
+
+            player.JETPACKMODE = false;
 
             // Instancier le ParticleSystem et le stocker dans la variable currentParticleSystem
             currentParticleSystem = Instantiate(particleSystemPrefab, transform.position, Quaternion.identity);

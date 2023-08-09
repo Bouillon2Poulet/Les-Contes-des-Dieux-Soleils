@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class FadeToBlack : MonoBehaviour
 {
     public GameObject blackSquare;
+    public bool fading = false;
 
     public void FadeInBlack(float speed)
     {
@@ -18,6 +19,8 @@ public class FadeToBlack : MonoBehaviour
 
     public IEnumerator Fade(bool fadeToBlack = true, float fadeSpeed = 2)
     {
+        fading = true;
+
         Color objectColor = blackSquare.GetComponent<Image>().color;
         float fadeAmount;
 
@@ -44,6 +47,21 @@ public class FadeToBlack : MonoBehaviour
                 yield return null;
             }
         }
+
+        fading = false;
         yield break;
+    }
+
+    public static FadeToBlack instance { get; private set; }
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
     }
 }

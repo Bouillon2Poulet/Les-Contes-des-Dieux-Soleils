@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Blink : MonoBehaviour
 {
-    float initialAngleX;
     public float speed = 1f;
     bool isClosing = false;
     public bool isUp;
@@ -13,36 +12,31 @@ public class Blink : MonoBehaviour
     int sens;
 
     private bool isBlinking = false;
-    private bool nextYouStop = false;
+    private int nextYouStop = 0;
     void Start()
     {
-        maxAngle = (isUp)? 25f : 360f-25f;
-        minAngle = (isUp)? 360f : 0;
+        maxAngle = (isUp) ? 25f : 360f-25f;
+        minAngle = (isUp) ? 360f : 0;
     }
 
-    public void OneTime()
+    public void Trigger(int amount)
     {
         if (!isBlinking)
         {
             isBlinking = true;
-            nextYouStop = false;
+            nextYouStop = amount;
         }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            OneTime();
-        }
-
         if (isBlinking)
         {
             if (isUp)
             {
                 if (transform.localEulerAngles.x > maxAngle && transform.localEulerAngles.x < maxAngle + 5f)
                 {
-                    if (nextYouStop)
+                    if (nextYouStop <= 0)
                     {
                         isBlinking = false;
                     }
@@ -51,7 +45,7 @@ public class Blink : MonoBehaviour
                 if (transform.localEulerAngles.x < minAngle && transform.localEulerAngles.x > minAngle - 5f)
                 {
                     isClosing = false;
-                    nextYouStop = true;
+                    nextYouStop -= 1;
                 }
                 sens = (isClosing) ? -1 : 1;
             }
@@ -59,7 +53,7 @@ public class Blink : MonoBehaviour
             {
                 if (transform.localEulerAngles.x < maxAngle && transform.localEulerAngles.x > maxAngle - 5f)
                 {
-                    if (nextYouStop)
+                    if (nextYouStop <= 0)
                     {
                         isBlinking = false;
                     }
@@ -68,7 +62,7 @@ public class Blink : MonoBehaviour
                 if (transform.localEulerAngles.x > minAngle && transform.localEulerAngles.x < minAngle + 5f) 
                 {
                     isClosing = false;
-                    nextYouStop = true;
+                    nextYouStop -= 1;
                 }
                 sens = (isClosing) ? 1 : -1;
             }
@@ -77,5 +71,21 @@ public class Blink : MonoBehaviour
             transform.Rotate(rotationAmount, 0f, 0f);
             //Debug.Log(isClosing);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("touché !!");
+            nextYouStop = 0;
+            PlayerStatus.instance.HitBlink();
+            PhaseManager.instance.TriggerReset();
+        }
+    }
+
+    public bool IsBlinking()
+    {
+        return isBlinking;
     }
 }

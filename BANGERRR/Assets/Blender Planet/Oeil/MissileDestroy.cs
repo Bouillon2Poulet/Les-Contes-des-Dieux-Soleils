@@ -10,26 +10,38 @@ public class MissileDestroy : MonoBehaviour
     {
         if (!invincible)
         {
-            Debug.Log("Collision !");
+            //Debug.Log("Collision !");
             GameObject otherGameObject = other.gameObject;
             if (otherGameObject.name == "Centre")
             {
                 //Debug.Log("Centre touché");
                 Centre.instance.Hit();
-                Destroy(gameObject); // Détruire le GameObject spécifique
+                DestroyAllAndSelf();
+            }
+            else if (otherGameObject.name == "Third Person Player")
+            {
+                //Debug.Log("Target touchée");
+                PhaseManager.instance.hitByMissile = true;
+                DestroyAllAndSelf();
             }
             else if (otherGameObject.name == "Paupière_up" || otherGameObject.name == "Paupière_down")
             {
                 //Debug.Log("Paupière touchée");
                 Centre.instance.Hit();
-                Destroy(gameObject); // Détruire le GameObject spécifique
-            }
-            else if (otherGameObject.name == "Third Person Player")
-            {
-                Debug.Log("Target touchée");
-                Destroy(gameObject); // Détruire le GameObject spécifique
+                DestroyAllAndSelf();
             }
         }
+    }
+
+    private void DestroyAllAndSelf()
+    {
+        MissileDestroy[] missiles = FindObjectsByType<MissileDestroy>(FindObjectsSortMode.None);
+        foreach (MissileDestroy missile in missiles)
+        {
+            Destroy(missile.gameObject);
+        }
+
+        Destroy(gameObject);
     }
 }
 

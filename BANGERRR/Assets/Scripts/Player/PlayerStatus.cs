@@ -71,6 +71,19 @@ public class PlayerStatus : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
+    public void HitBlink()
+    {
+        StartCoroutine(HitBlinker());
+    }
+
+    private IEnumerator HitBlinker()
+    {
+        spriteRenderer.color = blinkColor;
+        yield return new WaitForSeconds(.5f);
+        spriteRenderer.color = originalColor;
+        Debug.Log("Hitblinked");
+    }
+
     private void DieAndRespawn()
     {
         Debug.Log("T'es mort");
@@ -84,9 +97,18 @@ public class PlayerStatus : MonoBehaviour
     {
         GetComponent<Rigidbody>().position = LastJumpPosition.instance.transform.position;
     }
-
+    public static PlayerStatus instance { get; private set; }
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+
         gBody = GetComponent<GravityBody>();
 
         originalColor = spriteRenderer.color;

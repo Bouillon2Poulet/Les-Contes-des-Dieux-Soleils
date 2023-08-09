@@ -201,6 +201,11 @@ public class ThirdPersonMovement : MonoBehaviour
         }
     }
 
+    public void TeleportPlayerTo(Vector3 position)
+    {
+        rb.position = position;
+    }
+
     private void MovePlayer()
     {
         /// Project the moveDirection vector onto the plane defined by the current gravity
@@ -248,6 +253,14 @@ public class ThirdPersonMovement : MonoBehaviour
         playerSource.PlayOneShot(jumpSound, .5f);
 
         rb.AddForce(-gravityBody.GravityDirection * jumpForce, ForceMode.Impulse);
+    }
+
+    public void Eject(float force)
+    {
+        Vector3 velocityOnGravityPlane = Vector3.ProjectOnPlane(rb.velocity, gravityBody.GravityDirection);
+        rb.velocity = velocityOnGravityPlane;
+
+        rb.AddForce(-gravityBody.GravityDirection * force, ForceMode.Impulse);
     }
 
     public void SaveLastJumpPosition()

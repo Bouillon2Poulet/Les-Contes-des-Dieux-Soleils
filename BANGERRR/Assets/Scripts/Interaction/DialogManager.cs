@@ -17,6 +17,7 @@ public class DialogManager : MonoBehaviour
     private string[] currentActors;
     private int activeMessageIndex = 0;
     public static bool isActive = false;
+    public bool ephemeralMessageGoing = false;
 
     public void OpenDialog(Message[] messages, string[] actors)
     {
@@ -93,6 +94,8 @@ public class DialogManager : MonoBehaviour
     //public IEnumerator EphemeralMessage(string name, string text)
     public IEnumerator EphemeralMessage(string name, string text, float duration)
     {
+        ephemeralMessageGoing = true;
+
         npcNameText.text = name;
         messageText.text = text;
 
@@ -100,7 +103,6 @@ public class DialogManager : MonoBehaviour
         float fadingProgression = 0f;
         backgroundBox.localScale = Vector3.one;
         arrow.localScale = Vector3.zero;
-        Debug.Log("Start Ephemeral Message");
 
         while (fadingProgression < 1f)
         {
@@ -122,7 +124,7 @@ public class DialogManager : MonoBehaviour
 
         backgroundBox.localScale = Vector3.zero;
         arrow.localScale = Vector3.one;
-        Debug.Log("End Ephemeral Message");
+        ephemeralMessageGoing = false;
     }
 
     private void Start()

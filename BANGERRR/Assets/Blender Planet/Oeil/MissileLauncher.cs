@@ -9,24 +9,24 @@ public class Missile : MonoBehaviour
     public List<GameObject> spawnTargets;
     public GameObject target;
     public float speed = 10f;
+    private bool triggered = false;
 
-    public Transform test_cube;
-    public Transform test_cube2;
+    public void Trigger()
+    {
+        triggered = true;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (triggered)
         {
-            Debug.Log("launch");
+            triggered = false;
 
             Vector3 closestSpawnerPosition = GetClosestSpawnerPosition();
 
             GameObject rocket = Instantiate(rocketPrefab, closestSpawnerPosition, rocketPrefab.transform.rotation);
 
             Vector3 closestSpawnTarget = GetClosestSpawnTarget();
-
-            test_cube.position = closestSpawnerPosition;
-            test_cube2.position = closestSpawnTarget;
 
             StartCoroutine(SendHoming(rocket, closestSpawnTarget));
         }

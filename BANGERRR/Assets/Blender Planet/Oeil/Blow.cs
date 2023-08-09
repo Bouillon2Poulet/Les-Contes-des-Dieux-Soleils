@@ -11,20 +11,33 @@ public class Blow : MonoBehaviour
     private bool animationStarted = false;
     private float timeStart;
     private ParticleSystem currentParticleSystem; // Référence au ParticleSystem instancié
+    private bool triggered = false;
+    ThirdPersonMovement player;
 
     void Start()
     {
         initialScale = new Vector3(1f, 1f, 1f);
         timeOffset = Random.Range(0f, 2f * Mathf.PI); // Random offset for variety
+        player = FindObjectOfType<ThirdPersonMovement>();
+    }
+
+    public void Trigger()
+    {
+        triggered = true;
     }
 
     void Update()
     {
         // Check for left mouse button click to start the animation and instantiate the ParticleSystem
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !animationStarted)
+        if (triggered && !animationStarted)
         {
+            triggered = false;
+
             animationStarted = true;
             timeStart = Time.time;
+
+            player.Eject(70f);
+            player.JETPACKMODE = true;
 
             // Instantiate the ParticleSystem and store the reference
             currentParticleSystem = Instantiate(particleSystemPrefab, transform.position, Quaternion.identity);
