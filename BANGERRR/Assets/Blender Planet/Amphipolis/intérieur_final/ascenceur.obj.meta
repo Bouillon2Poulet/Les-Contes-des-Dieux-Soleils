@@ -3,7 +3,12 @@ guid: b5e38a1c8f6ff2e4aa07589500402e24
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ascenceur_baked_final
+    second: {fileID: 2100000, guid: 72535847f4099614aa2854b023116aeb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

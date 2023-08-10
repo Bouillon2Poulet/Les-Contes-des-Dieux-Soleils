@@ -3,7 +3,12 @@ guid: c5aeb507d3952b944bd2df5a1866951b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ground_top_baked
+    second: {fileID: 2100000, guid: ff9727835889b18468ae5407cfbe4674, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

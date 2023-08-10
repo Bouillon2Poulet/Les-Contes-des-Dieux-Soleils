@@ -29,6 +29,11 @@ public class OpenCosmoGuide : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C) && playerStatus.hasCosmoGuide)
         {
             CosmoGuideIsOpen = !CosmoGuideIsOpen;
+            if (CosmoGuideIsOpen)
+                FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
+            else
+                FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+
             if (rawImage != null)
             {
                 // playerObject.SetActive(!CosmoGuideIsOpen);

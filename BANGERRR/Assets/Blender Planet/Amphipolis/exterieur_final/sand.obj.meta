@@ -3,7 +3,12 @@ guid: becb1633fb9ffcc42b6c5c2ded576a08
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sand_baked
+    second: {fileID: 2100000, guid: 8b86e3bc97dbae64e9112a830500a0a7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

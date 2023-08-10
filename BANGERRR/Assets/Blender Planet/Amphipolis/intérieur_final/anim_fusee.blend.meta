@@ -3,7 +3,47 @@ guid: 79a98e0d2477b6f41a6d6c0e967680a5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chair
+    second: {fileID: 2100000, guid: 86126d9fa9ed66d48871c99f4925da96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cushion
+    second: {fileID: 2100000, guid: cac6bab3700444a4fac7948ba89d1952, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base_fusee_petite_barriere_baked.001
+    second: {fileID: 2100000, guid: fd5208702c782e243947f775a667b1e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base_fusee_pince_baked
+    second: {fileID: 2100000, guid: d10149f557c6724468a6b2beddd5e0d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base_fusee_support_pince_baked
+    second: {fileID: 2100000, guid: afe8c8c0b22f6214d87e7fb9b99b673d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fusee_baked
+    second: {fileID: 2100000, guid: 4333c23e903e866448eeba63bf14d42f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "fus\xE9e_violet.001"
+    second: {fileID: 2100000, guid: 0e10ce1fe3a03e840bb27da12dd068c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "porte_fus\xE9e"
+    second: {fileID: 2100000, guid: 2a58c5b812d964e4a9909100d8731ea0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

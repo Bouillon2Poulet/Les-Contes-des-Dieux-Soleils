@@ -3,7 +3,12 @@ guid: 465510728fc82674ea5e239d8cb84814
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dortoir_baked
+    second: {fileID: 2100000, guid: ba94d7fcfdc3f264492ebee8b682ee60, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

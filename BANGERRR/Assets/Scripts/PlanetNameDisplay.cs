@@ -70,6 +70,15 @@ public class PlanetNameDisplay : MonoBehaviour
 
                 // Crée un texte à chaque coordonnée
                 names[i].GetComponentInChildren<TextMeshProUGUI>().transform.position = new Vector3(namePosOn2DScreen.x, namePosOn2DScreen.y, 0);
+
+                if (!planet.GetComponent<HasBeenDiscovered>().state)
+                {
+                    names[i].GetComponentInChildren<CanvasGroup>().alpha = 0f;
+                }
+                else
+                {
+                    names[i].GetComponentInChildren<CanvasGroup>().alpha = 1f;
+                }
             }
             i++;
         }

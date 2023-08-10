@@ -3,7 +3,12 @@ guid: d36f1aacd2affb64e83c5cf6cf0c6b12
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base_outside_wall_baked
+    second: {fileID: 2100000, guid: da60f8e41d8104b48a76586ecd201711, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
