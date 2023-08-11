@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class FadeToBlack : MonoBehaviour
 {
     public GameObject blackSquare;
+    public GameObject whiteSquare;
     public bool fading = false;
 
     public void FadeInBlack(float speed)
@@ -15,6 +16,15 @@ public class FadeToBlack : MonoBehaviour
     public void FadeOutBlack(float fadespeed)
     {
         StartCoroutine(Fade(false, fadespeed));
+    }
+
+    public void FadeInWhite(float speed)
+    {
+        StartCoroutine(FadeWhiteEdition(true, speed));
+    }
+    public void FadeOutWhite(float fadespeed)
+    {
+        StartCoroutine(FadeWhiteEdition(false, fadespeed));
     }
 
     public IEnumerator Fade(bool fadeToBlack = true, float fadeSpeed = 2)
@@ -50,6 +60,43 @@ public class FadeToBlack : MonoBehaviour
 
         fading = false;
         yield break;
+    }
+
+    public IEnumerator FadeWhiteEdition(bool fadeToBlack = true, float fadeSpeed = 2)
+    {
+        fading = true;
+        float fadeAmount;
+
+        if (fadeToBlack)
+        {
+            fadeAmount = 0f;
+            while (fadeAmount < 1)
+            {
+                fadeAmount += fadeSpeed * Time.deltaTime;
+                whiteSquare.GetComponent<CanvasGroup>().alpha = fadeAmount;
+                yield return null;
+            }
+            whiteSquare.GetComponent<CanvasGroup>().alpha = 1f;
+        }
+        else
+        {
+            fadeAmount = 1f;
+            while (fadeAmount > 0)
+            {
+                fadeAmount -= fadeSpeed * Time.deltaTime;
+                whiteSquare.GetComponent<CanvasGroup>().alpha = fadeAmount;
+                yield return null;
+            }
+            whiteSquare.GetComponent<CanvasGroup>().alpha = 0f;
+        }
+
+        fading = false;
+        yield break;
+    }
+
+    private void Start()
+    {
+        whiteSquare.GetComponent<CanvasGroup>().alpha = 0f;
     }
 
     public static FadeToBlack instance { get; private set; }

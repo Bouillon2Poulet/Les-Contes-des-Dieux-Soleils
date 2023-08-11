@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmpSunTrigger : MonoBehaviour
+public class AmpEyeActivator : MonoBehaviour
 {
-    public GameObject SUNLIGHT;
+    public GameObject Loeil;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            AmpTriggerInFusee.instance.Kill();
-            SUNLIGHT.SetActive(false);
-            Destroy(gameObject);
+            Loeil.SetActive(true);
         }
     }
 }

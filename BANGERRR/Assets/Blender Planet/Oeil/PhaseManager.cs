@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PhaseManager : MonoBehaviour
 {
@@ -26,16 +27,16 @@ public class PhaseManager : MonoBehaviour
         player = FindObjectOfType<ThirdPersonMovement>();
 
         //StartCoroutine(Phase0());
-        StartCoroutine(Phase0());
+        StartCoroutine(Phase4());
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             TriggerReset();
         }
-    }
+    }*/
 
     // Reset Events
     private IEnumerator Fade(bool fadeIn, float duration)
@@ -155,7 +156,7 @@ public class PhaseManager : MonoBehaviour
     {
         Debug.Log("Phase 0");
         yield return new WaitUntil(() => Centre.instance.playerTouched);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(6);
 
         yield return Blink(1, 2);
         yield return Talk("Qui ose pertuber mon sommeil ?!", 6, 2);
@@ -194,6 +195,9 @@ public class PhaseManager : MonoBehaviour
     {
         Debug.Log("Phase 4");
         Debug.Log("Fin");
+        yield return FadeToBlack.instance.FadeWhiteEdition(true, .15f);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(1);
         yield return null;
     }
 
