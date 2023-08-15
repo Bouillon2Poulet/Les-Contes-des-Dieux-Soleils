@@ -3,7 +3,12 @@ guid: a793264f3da4dc945b01676e88147103
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Carrara_Marble
+    second: {fileID: 2100000, guid: dd784d27b609c1841b499b5eb7a41dfc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -19,6 +19,14 @@ public class DialogManager : MonoBehaviour
     public static bool isActive = false;
     public bool ephemeralMessageGoing = false;
 
+    bool isTyping = false;
+    char previousLetter = ' ';
+    CanvasGroup arrowOpacity;
+    [Header("Typing")] public float wordSpeed = .012f;
+
+    Vector3 normalDialogBoxScale;
+    Vector3 hiddenDialogBoxScale;
+
     public void OpenDialog(Message[] messages, string[] actors)
     {
         if (!isActive)
@@ -30,12 +38,14 @@ public class DialogManager : MonoBehaviour
             FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
 
             //Debug.Log("[DialogManager] Loaded message : " + messages.Length);
-            DisplayMessage();
-            backgroundBox.localScale = Vector3.one;
+            backgroundBox.localScale = normalDialogBoxScale;
+            StartCoroutine(DisplayMessage());
+            arrowOpacity.alpha = 0;
             if (messages.Length > 1)
             {
                 arrow.localScale = Vector3.one;
-            } else
+            }
+            else
             {
                 arrow.localScale = Vector3.zero;
             }
@@ -54,31 +64,61 @@ public class DialogManager : MonoBehaviour
         OpenDialog(messages, actors);
     }
 
-    void DisplayMessage()
+    IEnumerator DisplayMessage()
     {
+        isTyping = true;
+        messageText.text = "";
+
         Message messageToDisplay = currentMessages[activeMessageIndex];
-        messageText.text = messageToDisplay.message;
+        //messageText.text = messageToDisplay.message;
         npcNameText.text = currentActors[messageToDisplay.actorID];
+
+        foreach(char letter in messageToDisplay.message.ToCharArray())
+        {
+            if (previousLetter == '.')
+            {
+                if (letter != '.')
+                    yield return new WaitForSeconds(.25f);
+                else
+                    yield return new WaitForSeconds(.5f);
+            }
+            else if (previousLetter == '?' || previousLetter == '!')
+            {
+                if (letter != '!' && letter != '?')
+                    yield return new WaitForSeconds(.2f);
+            }
+            else if (previousLetter == ',' || previousLetter == ':')
+                yield return new WaitForSeconds(.1f);
+
+            messageText.text += letter;
+            previousLetter = letter;
+            yield return new WaitForSeconds(wordSpeed);
+        }
+
+        previousLetter = ' ';
+        arrowOpacity.alpha = 1;
+        isTyping = false;
     }
 
     public void NextMessage()
     {
         activeMessageIndex++;
+        arrowOpacity.alpha = 0;
 
         if (activeMessageIndex < currentMessages.Length)
         {
             if (activeMessageIndex == currentMessages.Length-1)
             {
-                arrow.localScale = Vector3.zero;
+                arrow.localScale = hiddenDialogBoxScale;
             }
-            DisplayMessage();
+            StartCoroutine(DisplayMessage());
         }
         else
         {
             isActive = false;
             FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             FindObjectOfType<NPCEventsManager>().updateNPCPages();
-            backgroundBox.localScale = Vector3.zero;
+            backgroundBox.localScale = hiddenDialogBoxScale;
             Debug.Log("[DialogManager] End of messages");
         }
     }
@@ -87,7 +127,7 @@ public class DialogManager : MonoBehaviour
     {
         isActive = false;
         FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
-        backgroundBox.localScale = Vector3.zero;
+        backgroundBox.localScale = hiddenDialogBoxScale;
         Debug.Log("[DialogManager] FORCED End of messages");
     }
 
@@ -129,15 +169,20 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
-        backgroundBox.localScale = Vector3.zero;
+        normalDialogBoxScale = backgroundBox.localScale;
+        hiddenDialogBoxScale = Vector3.zero;
+
+        backgroundBox.localScale = hiddenDialogBoxScale;
         DialogBoxGroup = backgroundBox.GetComponent<CanvasGroup>();
+        arrowOpacity = arrow.gameObject.GetComponent<CanvasGroup>();
+
     }
 
     void Update()
     {
         if (isActive == true && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
-            if (currentMessages != null)
+            if (currentMessages != null && !isTyping)
             {
                 NextMessage();
             }

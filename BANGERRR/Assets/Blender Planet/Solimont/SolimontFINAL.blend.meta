@@ -3,7 +3,22 @@ guid: bbaff0a7a65e7cf47b83dc40cc6c69e9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Carrara Marble
+    second: {fileID: 2100000, guid: 430be09e0532caa458031e961a096e0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Carrara Marble.002
+    second: {fileID: 2100000, guid: f8267bd53d56eb144b0df07150533378, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RockBaked
+    second: {fileID: 2100000, guid: 721d23b2f5ebc1a42bb9fcbb8228e688, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

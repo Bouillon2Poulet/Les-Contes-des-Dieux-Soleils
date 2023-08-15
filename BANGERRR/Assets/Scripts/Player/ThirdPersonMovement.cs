@@ -10,6 +10,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform cam;
     private Rigidbody rb;
     private GravityBody gravityBody;
+    public Animator animator;
 
     [Header("Player Variables")]
     public float rotationSpeed; /// default: 7
@@ -83,6 +84,9 @@ public class ThirdPersonMovement : MonoBehaviour
         /// ORIENTATION - Gets the inputs of the joystick or keys, horizontally and vertically separately, and put them in floats.
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("Horizontal", horizontalInput);
+        animator.SetFloat("Vertical", verticalInput);
 
         /// Calculates the direction in which the player if facing
         Vector3 gravityDirection = gravityBody.GravityDirection;

@@ -8,6 +8,8 @@ public class SoliLight : MonoBehaviour
     
     private Color solimontColor;
 
+    bool currentlyLerping = false;
+
     void Start()
     {
         solimontColor = gameObject.GetComponent<Light>().color;
@@ -15,7 +17,7 @@ public class SoliLight : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Larme")
+        if (other.name == "Larme" && !currentlyLerping)
         {
             StartCoroutine(LerpColor(solimontColor, larmeColor));
         }
@@ -23,7 +25,7 @@ public class SoliLight : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == "Larme")
+        if (other.name == "Larme" && !currentlyLerping)
         {
             StartCoroutine(LerpColor(larmeColor, solimontColor));
         }
@@ -31,6 +33,8 @@ public class SoliLight : MonoBehaviour
 
     private IEnumerator LerpColor(Color startColor, Color endColor)
     {
+        currentlyLerping = true;
+
         float fadingProgression = 0f;
         float fadingSpeed = .02f;
 
@@ -42,5 +46,7 @@ public class SoliLight : MonoBehaviour
             gameObject.GetComponent<Light>().color = lerpedColor;
             yield return null;
         }
+
+        currentlyLerping = false;
     }
 }

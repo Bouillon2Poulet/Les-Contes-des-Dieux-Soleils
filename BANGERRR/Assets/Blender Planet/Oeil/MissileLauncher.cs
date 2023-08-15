@@ -79,7 +79,7 @@ public class Missile : MonoBehaviour
         Transform Targeter = rocket.transform.GetChild(0);
         Targeter.SetParent(null);
 
-        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+        Transform player = GameObject.Find("Third Person Player").transform;
 
         bool timerEnded = false;
 

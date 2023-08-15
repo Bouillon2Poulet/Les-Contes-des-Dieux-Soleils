@@ -27,7 +27,7 @@ public class PhaseManager : MonoBehaviour
         player = FindObjectOfType<ThirdPersonMovement>();
 
         //StartCoroutine(Phase0());
-        StartCoroutine(Phase4());
+        StartCoroutine(Phase0());
     }
 
     /*private void Update()

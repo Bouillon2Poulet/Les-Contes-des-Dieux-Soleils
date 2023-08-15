@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-guid: c4502ff644c0ad649ae1a2e66e3af701
+guid: 4081dd6e64e0fe74ab477986c168e003
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - texture_mask: {fileID: 8400000, guid: 0b85546414829fa4aaca82c5111ad48f, type: 2}
-  - texture_players: {fileID: 8400000, guid: b296a05a91e63154fadf074ef96e98c6, type: 2}
-  - texture_environment: {fileID: 8400000, guid: ac0ec26d9a50db049859771b1f6f4f92, type: 2}
-  - texture_all: {fileID: 8400000, guid: 43d3ce29d9fb1c84e9f2eceef538d711, type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

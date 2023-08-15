@@ -40,10 +40,11 @@ public class pixel_effect : MonoBehaviour
 
     public RenderTexture texture_all;
 
-
     // public Material pixel_effect_material;
 
     // private quad_drawer drawer;
+
+    [ExecuteAlways]
 
 
     void Start()
@@ -90,11 +91,11 @@ public class pixel_effect : MonoBehaviour
         list_player_renderers = new List<Renderer>();
         foreach(object o in all_scene_objects){
             GameObject go = (GameObject) o;
-            if(go.layer == environment_layer_id) {
+            if(go.layer == environment_layer_id && go.GetComponent<Renderer>() != null) {
                 list_environment.Add(go);
                 list_environment_renderers.Add(go.GetComponent<Renderer>());
             }
-            if(go.layer == player_layer_id) {
+            else if(go.layer == player_layer_id && go.GetComponent<Renderer>() != null) {
                 list_player.Add(go);
                 list_player_renderers.Add(go.GetComponent<Renderer>());
             }
@@ -108,17 +109,20 @@ public class pixel_effect : MonoBehaviour
 
 
         foreach(GameObject go_player in list_player){
+            //if (go_player.GetComponent<Renderer>() != null)
             list_original_mat_player.Add(go_player.GetComponent<Renderer>().material);
         }
 
 
         foreach(GameObject go_env in list_environment){
+            //if (go_env.GetComponent<Renderer>() != null)
             list_original_mat_env.Add(go_env.GetComponent<Renderer>().material);
         }
     }
 
     void reset_materials(){
         for(int i = 0; i<list_original_mat_player.Count; i++){
+
             list_player_renderers[i].material = list_original_mat_player[i];
         }
 
@@ -129,6 +133,7 @@ public class pixel_effect : MonoBehaviour
 
 
     void change_materials(){
+        Debug.Log("changement");
         // for the player => set to full white
         foreach(Renderer mr_player in list_player_renderers){
             mr_player.material = white;
@@ -140,14 +145,14 @@ public class pixel_effect : MonoBehaviour
         }
 
         // for the environment => set to full black
-        foreach(Renderer mr_env in list_environment_renderers){
-            mr_env.material= black;
-            if(mr_env.gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer spr))
-            {
-                mr_env.material.SetTexture("_optionnal_texture",spr.sprite.texture);
-                mr_env.material.SetFloat("_has_texture",1f);
-            }
-        }
+        // foreach(Renderer mr_env in list_environment_renderers){
+        //     mr_env.material= black;
+        //     if(mr_env.gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer spr))
+        //     {
+        //         mr_env.material.SetTexture("_optionnal_texture",spr.sprite.texture);
+        //         mr_env.material.SetFloat("_has_texture",1f);
+        //     }
+        // }
     }
 
 
@@ -165,6 +170,11 @@ public class pixel_effect : MonoBehaviour
         environment_camera.CopyFrom(Camera.main);
         all_camera.CopyFrom(Camera.main);
 
+        // set the depth
+        players_camera.depthTextureMode = DepthTextureMode.Depth;
+        environment_camera.depthTextureMode = DepthTextureMode.Depth;
+
+
         // Set the target textures
         mask_camera.targetTexture = texture_mask;
         players_camera.targetTexture = texture_players;
@@ -180,11 +190,13 @@ public class pixel_effect : MonoBehaviour
         mask_camera.cullingMask = (1<<player_layer_id) + (1<<environment_layer_id);
 
         // black background for the mask and the player only
-        mask_camera.clearFlags = CameraClearFlags.SolidColor;
-        mask_camera.backgroundColor = Color.black;
+        mask_camera.clearFlags = CameraClearFlags.Depth;
+        // mask_camera.backgroundColor = Color.white;    
 
         players_camera.clearFlags = CameraClearFlags.SolidColor;
         players_camera.backgroundColor = Color.black;
+        players_camera.depthTextureMode = DepthTextureMode.Depth;
+        
 
 
         // set them as children
@@ -199,6 +211,7 @@ public class pixel_effect : MonoBehaviour
     {
         if (camera == mask_camera)
         {
+            Debug.Log("avant rendu de la mask camera");
             // Actions to perform before rendering mask_camera
             change_materials();
         }

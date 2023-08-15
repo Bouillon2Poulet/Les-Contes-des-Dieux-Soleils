@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -14,3 +14,4 @@ public class PixelatedCameraEditor : Editor
         if (DrawDefaultInspector() || pc.CheckScreenResize()) pc.Init();
     }
 }
+*/

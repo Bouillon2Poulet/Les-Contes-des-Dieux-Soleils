@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlanetTag : MonoBehaviour
 {
+    static GameObject ui;
     static Image image;
     static CanvasGroup canvasGroup;
 
@@ -17,15 +18,18 @@ public class PlanetTag : MonoBehaviour
     [SerializeField] GameObject[] toActivate;
     [SerializeField] GameObject[] toDeactivate;
 
+    private bool isSolisede;
+
     private void Start()
     {
         if (image == null)
         {
-            GameObject ui = GameObject.FindGameObjectWithTag("PlanetTag");
+            ui = GameObject.FindGameObjectWithTag("PlanetTag");
             image = ui.GetComponent<Image>();
             canvasGroup = ui.GetComponent<CanvasGroup>();
         }
 
+        ui.SetActive(false);
         canvasGroup.alpha = 0f;
     }
 
@@ -35,8 +39,11 @@ public class PlanetTag : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
+                Debug.Log("PT");
                 hasBeenTriggered = true;
                 planet.GetComponent<HasBeenDiscovered>().state = true;
+                if (isSolisede)
+                    PlayerStatus.instance.LooseBubble();
                 // activate objects 
                 // desactivate objects 
                 StartCoroutine(ShowTag());
@@ -48,6 +55,7 @@ public class PlanetTag : MonoBehaviour
     {
         image.sprite = sprite;
         canvasGroup.alpha = 0f;
+        ui.SetActive(true);
 
         float fadingSpeed = .025f;
         float fadingProgression = 0f;
@@ -69,5 +77,7 @@ public class PlanetTag : MonoBehaviour
             yield return null;
         }
         canvasGroup.alpha = 0f;
+
+        ui.SetActive(false);
     }
 }
