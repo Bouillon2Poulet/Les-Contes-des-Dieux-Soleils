@@ -21,7 +21,12 @@ public class DialogManager : MonoBehaviour
     bool isTyping = false;
     char previousLetter = ' ';
     CanvasGroup arrowOpacity;
-    [Header("Typing")] public float wordSpeed = .012f;
+    [Header("Typing")]
+    public float wordBaseSpeed = .012f;
+    public float wordSpeedDivider = 10f;
+
+    float wordSpeed;
+    float wordSpeedFast;
 
     Vector3 normalDialogBoxScale;
     Vector3 hiddenDialogBoxScale;
@@ -115,24 +120,26 @@ public class DialogManager : MonoBehaviour
 
         foreach(char letter in messageToDisplay.message.ToCharArray())
         {
+            Debug.Log(wordSpeed);
             if (previousLetter == '.')
             {
                 if (letter != '.')
-                    yield return new WaitForSeconds(.25f);
+                    yield return new WaitForSeconds(wordSpeed * 20f);
                 else
-                    yield return new WaitForSeconds(.5f);
+                    yield return new WaitForSeconds(wordSpeed * 40f);
             }
             else if (previousLetter == '?' || previousLetter == '!')
             {
                 if (letter != '!' && letter != '?')
-                    yield return new WaitForSeconds(.2f);
+                    yield return new WaitForSeconds(wordSpeed * 15f);
             }
             else if (previousLetter == ',' || previousLetter == ':')
-                yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(wordSpeed * 10f);
 
             messageText.text += letter;
             previousLetter = letter;
-            yield return new WaitForSeconds(wordSpeed);
+            if (wordSpeed != wordSpeedFast)
+                yield return new WaitForSeconds(wordSpeed);
         }
 
         previousLetter = ' ';
@@ -219,6 +226,9 @@ public class DialogManager : MonoBehaviour
         normalDialogBoxScale = Neutre.GetComponent<RectTransform>().localScale;
         hiddenDialogBoxScale = Vector3.zero;
 
+        wordSpeed = wordBaseSpeed;
+        wordSpeedFast = wordBaseSpeed / wordSpeedDivider;
+
         foreach (Transform child in SkinFolder.transform)
         {
             child.GetComponent<RectTransform>().localScale = hiddenDialogBoxScale;
@@ -235,6 +245,13 @@ public class DialogManager : MonoBehaviour
             {
                 NextMessage();
             }
+
+            wordSpeed = wordSpeedFast;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
+        {
+            wordSpeed = wordBaseSpeed;
         }
     }
 

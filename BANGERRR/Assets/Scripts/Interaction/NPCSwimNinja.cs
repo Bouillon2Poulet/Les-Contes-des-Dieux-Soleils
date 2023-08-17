@@ -39,7 +39,7 @@ public class NPCSwimNinja : MonoBehaviour, IInteractable
 
     public void DoPageD()
     {
-        FindObjectOfType<DialogManager>().OpenDialog(messagesD, actors);
+        FindObjectOfType<DialogManager>().OpenDialog(messagesD, actors, "Amphipolis");
         isPageDRead = true;
         pageE = true;
         waitingToDismountFirstTime = true;
@@ -55,14 +55,14 @@ public class NPCSwimNinja : MonoBehaviour, IInteractable
         {
             if (pageE && messagesE.Length > 0)
             {
-                FindObjectOfType<DialogManager>().OpenDialog(messagesE, actors);
+                FindObjectOfType<DialogManager>().OpenDialog(messagesE, actors, "Amphipolis");
                 isPageERead = true;
                 waitingToMountFull = true;
             }
             else if (pageC && messagesC.Length > 0)
             {
                 AmpSwimNinjaEvents.instance.FlipNinja();
-                FindObjectOfType<DialogManager>().OpenDialog(messagesC, actors);
+                FindObjectOfType<DialogManager>().OpenDialog(messagesC, actors, "Amphipolis");
                 isPageCRead = true;
                 pageD = true;
                 isInteractionAllowed = false;
@@ -70,13 +70,13 @@ public class NPCSwimNinja : MonoBehaviour, IInteractable
             }
             else if (pageB && messagesB.Length > 0)
             {
-                FindObjectOfType<DialogManager>().OpenDialog(messagesB, actors);
+                FindObjectOfType<DialogManager>().OpenDialog(messagesB, actors, "Amphipolis");
                 isPageBRead = true;
                 pageC = true;
             }
             else if (messagesA.Length > 0)
             {
-                FindObjectOfType<DialogManager>().OpenDialog(messagesA, actors);
+                FindObjectOfType<DialogManager>().OpenDialog(messagesA, actors, "Amphipolis");
                 isPageARead = true;
                 pageB = true;
             }

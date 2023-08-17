@@ -197,6 +197,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -241,9 +245,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.3859863
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -608,6 +620,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -664,9 +680,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.6010132
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -3564,6 +3588,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3608,9 +3636,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -1.8190002
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -4037,7 +4073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 211036711}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: animPointAside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10389,6 +10425,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -10433,9 +10473,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.699997
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -13201,7 +13249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 618029906}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: animPointUp2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15133,7 +15181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 714861050}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: animPointMounted
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26517,6 +26565,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -26573,9 +26625,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -9.498993
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -26827,7 +26887,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ephemeralMessageGoing: 0
-  wordSpeed: 0.02
+  wordBaseSpeed: 0.012
+  wordSpeedDivider: 10
   SkinFolder: {fileID: 187223969}
   Neutre: {fileID: 187223967}
   Fin: {fileID: 187223968}
@@ -28880,19 +28941,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2653169651963188867, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99954563
+      value: 0.9995456
       objectReference: {fileID: 0}
     - target: {fileID: 2653169651963188867, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.030143693
+      value: 0.030143768
       objectReference: {fileID: 0}
     - target: {fileID: 2653169651963188867, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000011920929
+      value: -0.00000013411045
       objectReference: {fileID: 0}
     - target: {fileID: 2653169651963188867, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000029802322
+      value: 0.000000059604645
       objectReference: {fileID: 0}
     - target: {fileID: 2857208575092847374, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: system
@@ -28920,15 +28981,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3134223380135175182, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1792078
+      value: 0.17920782
       objectReference: {fileID: 0}
     - target: {fileID: 3134223380135175182, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.28545102
+      value: -0.285451
       objectReference: {fileID: 0}
     - target: {fileID: 3134223380135175182, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.05903251
+      value: 0.059032492
       objectReference: {fileID: 0}
     - target: {fileID: 3553672823986214839, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_IsActive
@@ -28956,11 +29017,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3697823082102751619, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.28688222
+      value: -0.2868822
       objectReference: {fileID: 0}
     - target: {fileID: 3697823082102751619, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.051630367
+      value: 0.05163043
       objectReference: {fileID: 0}
     - target: {fileID: 4656791956309118099, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -29036,11 +29097,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7868750421937019282, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.23254898
+      value: -0.23254915
       objectReference: {fileID: 0}
     - target: {fileID: 7868750421937019282, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.1757506
+      value: 0.17575075
       objectReference: {fileID: 0}
     - target: {fileID: 8315912326976688644, guid: 49bd369e47f1d5d4d9060bc1993cea2e, type: 3}
       propertyPath: m_Name
@@ -31295,6 +31356,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -31351,9 +31416,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -9.817993
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -34234,6 +34307,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -34290,9 +34367,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -6.3029785
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -35524,6 +35609,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC Sip-O-Matic
       objectReference: {fileID: 0}
+    - target: {fileID: 1040951368927688421, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052804646767666348, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -35633,6 +35726,10 @@ PrefabInstance:
       value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: skin
+      value: Amphipolis
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: actors.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -35716,6 +35813,10 @@ PrefabInstance:
     - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: messagesB.Array.data[0].message
       value: "Gla\xE7ons en cours de pr\xE9paration ! Hehe"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697906329938191672, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36867,6 +36968,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -36911,9 +37016,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.13699341
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -37927,6 +38040,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -37983,9 +38100,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 4.3150024
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -43986,7 +44111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1329449057}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: animPointUp1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50891,6 +51016,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -50947,9 +51076,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -4.6870117
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -52053,6 +52190,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC Soletude
       objectReference: {fileID: 0}
+    - target: {fileID: 1040951368927688421, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052804646767666348, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2516864183520044138, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -52132,6 +52277,10 @@ PrefabInstance:
     - target: {fileID: 4232328535702181526, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: skin
+      value: Amphipolis
       objectReference: {fileID: 0}
     - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: actors.Array.size
@@ -52231,6 +52380,10 @@ PrefabInstance:
     - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: messagesC.Array.data[0].message
       value: "Bip boup\u2026 bip boup\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697906329938191672, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -53160,7 +53313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1759747401}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: animPointPlayerPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54763,6 +54916,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -54823,9 +54980,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -58185,6 +58350,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -58241,9 +58410,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.08502197
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -86398,7 +86575,7 @@ GameObject:
   - component: {fileID: 134386275900682533}
   - component: {fileID: 7827056531860884884}
   - component: {fileID: 7827056531860884885}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: NPC SwimNinja
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87184,7 +87361,7 @@ GameObject:
   - component: {fileID: 9213006793225815278}
   - component: {fileID: 5628966064643103967}
   - component: {fileID: 7740846054182336549}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "Paupi\xE8re_down"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87360,6 +87537,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1319804883}
     m_Modifications:
+    - target: {fileID: 433137551050218542, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4884105038223256648, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -87416,9 +87597,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.8529968
       objectReference: {fileID: 0}
+    - target: {fileID: 5713368809979638970, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_Name
       value: NPC Lezard (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7761278443559222929, guid: c1fca5fe20584ba46879f393a139338c, type: 3}
       propertyPath: m_TagString
@@ -89359,7 +89548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4232328536046955255}
   - component: {fileID: 2676249916438222549}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: NPCSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99444,7 +99633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 703483453081096079}
   - component: {fileID: 7525585090957400121}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: NPCBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104959,7 +105148,7 @@ GameObject:
   - component: {fileID: 5443884685106301764}
   - component: {fileID: 1268633194481159885}
   - component: {fileID: 6672486985960486742}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "Paupi\xE8re_up"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

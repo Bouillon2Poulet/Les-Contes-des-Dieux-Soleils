@@ -78,8 +78,8 @@ public class pixel_effect : MonoBehaviour
     {
         compute_list_environment_and_player();
         compute_original_mat();
-        Debug.Log(list_original_mat_player.Count + "nb de mat");
-        Debug.Log(list_player.Count + "nb de players");
+        //Debug.Log(list_original_mat_player.Count + "nb de mat");
+        //Debug.Log(list_player.Count + "nb de players");
     }
 
     void compute_list_environment_and_player(){
@@ -133,7 +133,7 @@ public class pixel_effect : MonoBehaviour
 
 
     void change_materials(){
-        Debug.Log("changement");
+        //Debug.Log("changement");
         // for the player => set to full white
         foreach(Renderer mr_player in list_player_renderers){
             mr_player.material = white;
@@ -211,7 +211,7 @@ public class pixel_effect : MonoBehaviour
     {
         if (camera == mask_camera)
         {
-            Debug.Log("avant rendu de la mask camera");
+            //Debug.Log("avant rendu de la mask camera");
             // Actions to perform before rendering mask_camera
             change_materials();
         }
