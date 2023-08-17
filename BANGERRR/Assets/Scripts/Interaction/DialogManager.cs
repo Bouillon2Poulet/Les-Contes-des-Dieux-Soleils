@@ -6,12 +6,11 @@ using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
-    public GameObject DialogBox;
     private CanvasGroup DialogBoxGroup;
-    public TextMeshProUGUI npcNameText;
-    public TextMeshProUGUI messageText;
-    public RectTransform backgroundBox;
-    public RectTransform arrow;
+    private TextMeshProUGUI npcNameText;
+    private TextMeshProUGUI messageText;
+    private RectTransform backgroundBox;
+    private RectTransform arrow;
 
     private Message[] currentMessages;
     private string[] currentActors;
@@ -27,8 +26,49 @@ public class DialogManager : MonoBehaviour
     Vector3 normalDialogBoxScale;
     Vector3 hiddenDialogBoxScale;
 
+    [Header("Dialog Skins")]
+    public GameObject SkinFolder;
+    public GameObject Neutre;
+    public GameObject Fin;
+    public GameObject Oeil;
+    public GameObject Amphipolis;
+    public GameObject SoleilRouge;
+    public GameObject Solimont;
+    public GameObject Solisede;
+
+    private void InitSkin(string skinName)
+    {
+        GameObject currentSkin = Neutre;
+        if (skinName == "Fin")
+            currentSkin = Fin;
+        else if (skinName == "Oeil")
+            currentSkin = Oeil;
+        else if (skinName == "Amphipolis")
+            currentSkin = Amphipolis;
+        else if (skinName == "SoleilRouge")
+            currentSkin = SoleilRouge;
+        else if (skinName == "Solimont")
+            currentSkin = Solimont;
+        else if (skinName == "Solisede")
+            currentSkin = Solisede;
+
+        DialogBoxGroup = currentSkin.GetComponent<CanvasGroup>();
+        npcNameText = currentSkin.transform.Find("Name").GetComponent<TextMeshProUGUI>();
+        messageText = currentSkin.transform.Find("Message").GetComponent<TextMeshProUGUI>();
+        backgroundBox = currentSkin.GetComponent<RectTransform>();
+        arrow = currentSkin.transform.Find("Arrow").GetComponent<RectTransform>();
+        arrowOpacity = currentSkin.transform.Find("Arrow").GetComponent<CanvasGroup>();
+    }
+
     public void OpenDialog(Message[] messages, string[] actors)
     {
+        OpenDialog(messages, actors, "null");
+    }
+
+    public void OpenDialog(Message[] messages, string[] actors, string skin)
+    {
+        InitSkin(skin);
+
         if (!isActive)
         {
             isActive = true;
@@ -134,6 +174,8 @@ public class DialogManager : MonoBehaviour
     //public IEnumerator EphemeralMessage(string name, string text)
     public IEnumerator EphemeralMessage(string name, string text, float duration)
     {
+        InitSkin("Oeil");
+
         ephemeralMessageGoing = true;
 
         npcNameText.text = name;
@@ -167,15 +209,22 @@ public class DialogManager : MonoBehaviour
         ephemeralMessageGoing = false;
     }
 
+    private void Awake()
+    {
+        SkinFolder.SetActive(true);
+    }
+
     private void Start()
     {
-        normalDialogBoxScale = backgroundBox.localScale;
+        normalDialogBoxScale = Neutre.GetComponent<RectTransform>().localScale;
         hiddenDialogBoxScale = Vector3.zero;
 
-        backgroundBox.localScale = hiddenDialogBoxScale;
-        DialogBoxGroup = backgroundBox.GetComponent<CanvasGroup>();
-        arrowOpacity = arrow.gameObject.GetComponent<CanvasGroup>();
+        foreach (Transform child in SkinFolder.transform)
+        {
+            child.GetComponent<RectTransform>().localScale = hiddenDialogBoxScale;
+        }
 
+        InitSkin("none");
     }
 
     void Update()
@@ -187,12 +236,6 @@ public class DialogManager : MonoBehaviour
                 NextMessage();
             }
         }
-        //Debug.Log(currentMessages);
-    }
-
-    private void Awake()
-    {
-        DialogBox.SetActive(true);
     }
 
     public bool isItActive()

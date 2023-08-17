@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, IInteractable
 {
+    public string skin = "null";
+
     [SerializeField] public GameObject bubble;
     //[SerializeField] public string npcName; // deprecated
     [SerializeField] public SpriteRenderer sprite;
@@ -39,27 +41,27 @@ public class NPC : MonoBehaviour, IInteractable
     {
         if (pageE && messagesE.Length > 0)
         {
-            FindObjectOfType<DialogManager>().OpenDialog(messagesE, actors);
+            FindObjectOfType<DialogManager>().OpenDialog(messagesE, actors, skin);
             isPageERead = true;
         }
         else if (pageD && messagesD.Length > 0)
         {
-            FindObjectOfType<DialogManager>().OpenDialog(messagesD, actors);
+            FindObjectOfType<DialogManager>().OpenDialog(messagesD, actors, skin);
             isPageDRead = true;
         }
         else if (pageC && messagesC.Length > 0)
         {
-            FindObjectOfType<DialogManager>().OpenDialog(messagesC, actors);
+            FindObjectOfType<DialogManager>().OpenDialog(messagesC, actors, skin);
             isPageCRead = true;
         }
         else if (pageB && messagesB.Length > 0)
         {
-            FindObjectOfType<DialogManager>().OpenDialog(messagesB, actors);
+            FindObjectOfType<DialogManager>().OpenDialog(messagesB, actors, skin);
             isPageBRead = true;
         }
         else if (messagesA.Length > 0)
         {
-            FindObjectOfType<DialogManager>().OpenDialog(messagesA, actors);
+            FindObjectOfType<DialogManager>().OpenDialog(messagesA, actors, skin);
             isPageARead = true;
         }
     }
