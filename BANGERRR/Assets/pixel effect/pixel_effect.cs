@@ -9,7 +9,8 @@ using UnityEngine.Rendering.Universal;
 public class pixel_effect : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int environment_layer_id = 7;
+    public int environment_layer_id = 3;
+    public int fusee_layer_id = 8;
     public int player_layer_id = 6;
     private object[] all_scene_objects;
     private List<GameObject> list_environment;
@@ -91,13 +92,18 @@ public class pixel_effect : MonoBehaviour
         list_player_renderers = new List<Renderer>();
         foreach(object o in all_scene_objects){
             GameObject go = (GameObject) o;
-            if(go.layer == environment_layer_id && go.GetComponent<Renderer>() != null) {
-                list_environment.Add(go);
-                list_environment_renderers.Add(go.GetComponent<Renderer>());
+            if(go.layer == environment_layer_id || go.layer == fusee_layer_id) {
+                if(go.TryGetComponent<Renderer>(out Renderer renderer)){
+                    list_environment.Add(go);
+                    list_environment_renderers.Add(renderer);
+                }
             }
-            else if(go.layer == player_layer_id && go.GetComponent<Renderer>() != null) {
-                list_player.Add(go);
-                list_player_renderers.Add(go.GetComponent<Renderer>());
+            else if(go.layer == player_layer_id) {
+                if (go.TryGetComponent<Renderer>(out Renderer renderer))
+                {
+                    list_player.Add(go);
+                    list_player_renderers.Add(go.GetComponent<Renderer>());
+                }
             }
         }
     }
@@ -109,13 +115,11 @@ public class pixel_effect : MonoBehaviour
 
 
         foreach(GameObject go_player in list_player){
-            //if (go_player.GetComponent<Renderer>() != null)
             list_original_mat_player.Add(go_player.GetComponent<Renderer>().material);
         }
 
 
         foreach(GameObject go_env in list_environment){
-            //if (go_env.GetComponent<Renderer>() != null)
             list_original_mat_env.Add(go_env.GetComponent<Renderer>().material);
         }
     }
@@ -144,13 +148,19 @@ public class pixel_effect : MonoBehaviour
             }
         }
 
-        // for the environment => set to full black
+        // // for the environment => set to full black
         // foreach(Renderer mr_env in list_environment_renderers){
+        //     float alpha = mr_env.material.color.a;
         //     mr_env.material= black;
         //     if(mr_env.gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer spr))
         //     {
         //         mr_env.material.SetTexture("_optionnal_texture",spr.sprite.texture);
         //         mr_env.material.SetFloat("_has_texture",1f);
+                
+        //     }
+        //     else {
+
+        //         mr_env.material.SetFloat("_optionnal_alpha_value",alpha);
         //     }
         // }
     }
@@ -186,7 +196,7 @@ public class pixel_effect : MonoBehaviour
 
         // set the player masks for the player and the environment
         players_camera.cullingMask = (1<<player_layer_id);
-        environment_camera.cullingMask = (1<<environment_layer_id);
+        environment_camera.cullingMask = (1<<environment_layer_id) + (1<<fusee_layer_id);
         mask_camera.cullingMask = (1<<player_layer_id) + (1<<environment_layer_id);
 
         // black background for the mask and the player only
@@ -194,7 +204,7 @@ public class pixel_effect : MonoBehaviour
         // mask_camera.backgroundColor = Color.white;    
 
         players_camera.clearFlags = CameraClearFlags.SolidColor;
-        players_camera.backgroundColor = Color.black;
+        players_camera.backgroundColor = new Color (0,0,0,0);
         players_camera.depthTextureMode = DepthTextureMode.Depth;
         
 

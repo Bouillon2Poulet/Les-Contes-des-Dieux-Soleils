@@ -178,17 +178,23 @@ public class DialogManager : MonoBehaviour
         Debug.Log("[DialogManager] FORCED End of messages");
     }
 
-    //public IEnumerator EphemeralMessage(string name, string text)
+
     public IEnumerator EphemeralMessage(string name, string text, float duration)
     {
-        InitSkin("Oeil");
+        StartCoroutine(EphemeralMessage(name, text, duration, "Oeil"));
+        yield return null;
+    }
+
+    public IEnumerator EphemeralMessage(string name, string text, float duration, string skin)
+    {
+        InitSkin(skin);
 
         ephemeralMessageGoing = true;
 
         npcNameText.text = name;
         messageText.text = text;
 
-        float fadingSpeed = .05f;
+        float fadingSpeed = .08f;
         float fadingProgression = 0f;
         backgroundBox.localScale = Vector3.one;
         arrow.localScale = Vector3.zero;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ImitateRotation : MonoBehaviour
 {
     public GameObject target;
-    public float speed = 1.0f;
+    public float speed = 2.0f;
 
     // Update is called once per frame
     void Update()

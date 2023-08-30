@@ -7,6 +7,7 @@ public class AmpTriggerInFusee : MonoBehaviour
     private bool hublotClosed = false;
 
     public GameObject fusee_body;
+    public GameObject fusee_couvercle;
 
     public Transform base_fusee_pince;
     public Transform anim_fusee;
@@ -39,6 +40,9 @@ public class AmpTriggerInFusee : MonoBehaviour
 
     public GameObject FuseeKiller;
 
+    private bool jetpackMessageSent = false;
+    readonly string jetpackLine = "Vous trouvez un jetpack dans la fusée ! Il est inscrit dessus 'A pour descendre, E pour monter'. Qu'est-ce que ça peut bien vouloir dire...";
+
     private void OnCollisionEnter(Collision collision)
     {
         if (!hublotClosed)
@@ -50,8 +54,9 @@ public class AmpTriggerInFusee : MonoBehaviour
                 Debug.Log("Jpars dans ma fusée hoooo hoooo");
                 AmpAnimationFusee.instance.CloseHublot();
 
-                gameObject.layer = 0;
-                fusee_body.layer = 0;
+                gameObject.layer = 8;
+                fusee_body.layer = 8;
+                fusee_couvercle.layer = 8;
 
                 base_fusee_pince.SetParent(anim_fusee);
 
@@ -72,10 +77,16 @@ public class AmpTriggerInFusee : MonoBehaviour
         fuseeDirector.position = fusee_body.transform.position;
         if (isDescending)
         {
-            Debug.Log(System.Math.Round(animationProgress,1));
+            //Debug.Log(System.Math.Round(animationProgress,1));
             fusee_body.transform.position = Vector3.Lerp(StartPos.position, EndPos.position, animationProgress);
 
             animationProgress += .001f;
+
+            if (animationProgress >= .4f && !jetpackMessageSent)
+            {
+                jetpackMessageSent = true;
+                StartCoroutine(FindObjectOfType<DialogManager>().EphemeralMessage("Objet", jetpackLine, 12f, "Amphipolis"));
+            }
 
             if (animationProgress >= .5f)
             {
@@ -114,7 +125,7 @@ public class AmpTriggerInFusee : MonoBehaviour
 
         if (GOFUSEE)
         {
-            Debug.Log("GOING!!!");
+            //Debug.Log("GOING!!!");
             fusee_body.transform.rotation = fuseeDirector.rotation;
             fusee_body.transform.Translate(-transform.right * Time.fixedDeltaTime * goingSpeed);
             if (!goingIsMaxed)

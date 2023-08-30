@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Centre : MonoBehaviour
 {
-    MeshRenderer meshRenderer;
+    public MeshRenderer meshRenderer;
     Color origColor;
     readonly float flashTime = .25f;
     Material mat;
@@ -15,8 +15,6 @@ public class Centre : MonoBehaviour
 
     private void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
-
         mat = meshRenderer.materials[1];
         mat.EnableKeyword("_EmissionColor");
 

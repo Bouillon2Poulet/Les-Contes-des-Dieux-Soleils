@@ -163,9 +163,10 @@ public class PlayerStatus : MonoBehaviour
         if (gBody.AreaShader != null)
         {
             spriteRenderer.material.shader = gBody.AreaShader;
-        } else
+        }
+        else
         {
-            spriteRenderer.material.shader = Shader.Find("Universal Render Pipeline/Lit");
+            spriteRenderer.material.shader = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
         }
     }
 

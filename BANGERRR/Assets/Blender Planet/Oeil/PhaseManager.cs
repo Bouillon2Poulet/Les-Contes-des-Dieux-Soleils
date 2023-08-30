@@ -26,8 +26,37 @@ public class PhaseManager : MonoBehaviour
         dialog = FindObjectOfType<DialogManager>();
         player = FindObjectOfType<ThirdPersonMovement>();
 
+        CentreMat = CentreRenderer.materials[2];
+        paupiereUpMat = PaupiereUp.material;
+        paupiereDownMat = PaupiereDown.material;
+        CentreMat.EnableKeyword("_EmissionColor");
+        paupiereUpMat.EnableKeyword("_EmissionColor");
+        paupiereDownMat.EnableKeyword("_EmissionColor");
+
         //StartCoroutine(Phase0());
         StartCoroutine(Phase0());
+    }
+
+    public Renderer PaupiereUp;
+    public Renderer PaupiereDown;
+    public Renderer CentreRenderer;
+    public float hueRotationSpeed = 200.0f;
+
+    private float hueValue = 0.0f;
+    private Material paupiereUpMat;
+    private Material paupiereDownMat;
+    private Material CentreMat;
+    private readonly float[] hueSpeeds = { 200f, 300f, 548f, 1096f, 4770f };
+
+
+    void Update()
+    {
+        hueValue = (hueValue + hueRotationSpeed * Time.deltaTime) % 360.0f;
+
+        Color newColor = Color.HSVToRGB(hueValue / 360.0f, 1.0f, 1.0f);
+        CentreMat.SetColor("_EmissionColor", newColor);
+        paupiereUpMat.SetColor("_EmissionColor", newColor);
+        paupiereDownMat.SetColor("_EmissionColor", newColor);
     }
 
     /*private void Update()
@@ -157,6 +186,7 @@ public class PhaseManager : MonoBehaviour
         Debug.Log("Phase 0");
         yield return new WaitUntil(() => Centre.instance.playerTouched);
         yield return new WaitForSeconds(6);
+        hueRotationSpeed = hueSpeeds[0];
 
         yield return Blink(1, 2);
         yield return Talk("Qui ose pertuber mon sommeil ?!", 6, 2);
@@ -166,6 +196,8 @@ public class PhaseManager : MonoBehaviour
     private IEnumerator Phase1()
     {
         Debug.Log("Phase 1");
+        hueRotationSpeed = hueSpeeds[1];
+
         yield return Blink(1, .5f);
         yield return Laser(3, 1);
         yield return Blow(1, 10, 1);
@@ -175,6 +207,8 @@ public class PhaseManager : MonoBehaviour
     private IEnumerator Phase2()
     {
         Debug.Log("Phase 2");
+        hueRotationSpeed = hueSpeeds[2];
+
         yield return Blink(2, .4f);
         yield return Laser(6, .8f);
         yield return Blow(2, 8, 2);
@@ -184,6 +218,8 @@ public class PhaseManager : MonoBehaviour
     private IEnumerator Phase3()
     {
         Debug.Log("Phase 3");
+        hueRotationSpeed = hueSpeeds[3];
+
         yield return Blink(3, .3f);
         yield return Laser(12, .7f);
         yield return Blow(3, 7, 3);
@@ -194,6 +230,8 @@ public class PhaseManager : MonoBehaviour
     private IEnumerator Phase4()
     {
         Debug.Log("Phase 4");
+        hueRotationSpeed = hueSpeeds[4];
+
         Debug.Log("Fin");
         yield return FadeToBlack.instance.FadeWhiteEdition(true, .15f);
         yield return new WaitForSeconds(1f);
