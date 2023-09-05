@@ -6,13 +6,17 @@ public class LarmeToAmphipolis : MonoBehaviour
 {
     public Transform LAC1;
     public Transform LAS2;
+    public Transform LAS2far;
     public Transform LAS3;
+    public Transform LAS3far;
     //public Transform LAC4; // Should be center between 3 and 5
     private Vector3 Midpoint;
     public Transform LAT5;
     public Transform LAT6;
     public Transform LAA7;
     public Transform larmeTarget;
+
+    bool farMode = false;
 
     [SerializeField] private float animationSpeed;
     private float interpolateAmount;
@@ -27,14 +31,14 @@ public class LarmeToAmphipolis : MonoBehaviour
     public GameObject LarmeGA;
 
     // debug
-    bool debugCourbe = false;
+    readonly bool debugCourbe = false;
     bool hasSpheresBeenCreated = false;
     List<GameObject> spheresList;
     bool hasPositionsOnCurveBeenLogged = false;
 
     private void FixedUpdate()
     {
-        if (FindAnyObjectByType<SystemDayCounter>().hour == 1 && !hasAnimationStarted && !hasAnimationStopped && !larmeHasDefinitlyLanded) // BEGIN ANIMATION
+        if (CheckBeginHour() && !hasAnimationStarted && !hasAnimationStopped && !larmeHasDefinitlyLanded) // BEGIN ANIMATION
         {
             hasAnimationStarted = true;
         }
@@ -73,7 +77,7 @@ public class LarmeToAmphipolis : MonoBehaviour
                         float total = spheresList.Count;
                         float positionOnCurve = (index / total) * 2;
                         if (positionOnCurve < 1)
-                            spheresList[i].transform.position = CubicLerp(LAC1.position, LAS2.position, LAS3.position, Midpoint, positionOnCurve % 1f);
+                            spheresList[i].transform.position = CubicLerp(LAC1.position, LAS2far.position, LAS3far.position, Midpoint, positionOnCurve % 1f);
                         else
                             spheresList[i].transform.position = CubicLerp(Midpoint, LAT5.position, LAT6.position, LAA7.position, positionOnCurve % 1f);
                         if (!hasPositionsOnCurveBeenLogged) Debug.Log(positionOnCurve);
@@ -90,8 +94,16 @@ public class LarmeToAmphipolis : MonoBehaviour
             }
             else
             {
-                transform.position = CubicLerp(LAC1.position, LAS2.position, LAS3.position, Midpoint, animationProgress);
-                larmeTarget.position = CubicLerp(LAC1.position, LAS2.position, LAS3.position, Midpoint, animationProgress + .001f);
+                if (farMode)
+                {
+                    transform.position = CubicLerp(LAC1.position, LAS2far.position, LAS3far.position, Midpoint, animationProgress);
+                    larmeTarget.position = CubicLerp(LAC1.position, LAS2far.position, LAS3far.position, Midpoint, animationProgress + .001f);
+                }
+                else
+                {
+                    transform.position = CubicLerp(LAC1.position, LAS2.position, LAS3.position, Midpoint, animationProgress);
+                    larmeTarget.position = CubicLerp(LAC1.position, LAS2.position, LAS3.position, Midpoint, animationProgress + .001f);
+                }
             }
             interpolateAmount += Time.fixedDeltaTime * animationSpeed;
             animationProgress = interpolateAmount % 1f;
@@ -114,12 +126,53 @@ public class LarmeToAmphipolis : MonoBehaviour
                 }
             }
         }
-        else if (FindAnyObjectByType<SystemDayCounter>().hour == 17 && !larmeHasDefinitlyLanded) // RESET ANIMATION
+        else if (CheckEndHour() && !larmeHasDefinitlyLanded) // RESET ANIMATION
         {
             interpolateAmount = 0f;
             hasAnimationStarted = false;
             hasAnimationStopped = false;
         }
+    }
+
+    private bool CheckBeginHour()
+    {
+        if (FindAnyObjectByType<SystemDayCounter>().hour == 1)
+        {
+            farMode = false;
+            return true;
+        }
+        else if (FindAnyObjectByType<SystemDayCounter>().minutes == 450)
+        {
+            farMode = true;
+            return true;
+        }
+        else if (FindAnyObjectByType<SystemDayCounter>().hour == 13)
+        {
+            farMode = false;
+            return true;
+        }
+        else if (FindAnyObjectByType<SystemDayCounter>().minutes == 1210)
+        {
+            farMode = true;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+        /*return (FindAnyObjectByType<SystemDayCounter>().hour == 1
+            || FindAnyObjectByType<SystemDayCounter>().minutes == 450
+            || FindAnyObjectByType<SystemDayCounter>().hour == 13
+            || FindAnyObjectByType<SystemDayCounter>().minutes == 1170);*/
+    }
+
+    private bool CheckEndHour()
+    {
+        return (FindAnyObjectByType<SystemDayCounter>().hour == 6
+            || FindAnyObjectByType<SystemDayCounter>().minutes == 750
+            || FindAnyObjectByType<SystemDayCounter>().hour == 19
+            || FindAnyObjectByType<SystemDayCounter>().minutes == 55);
     }
 
     private void OnTriggerEnter(Collider other)

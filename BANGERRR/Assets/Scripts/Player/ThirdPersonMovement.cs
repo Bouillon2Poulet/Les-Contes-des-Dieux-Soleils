@@ -85,8 +85,11 @@ public class ThirdPersonMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        animator.SetFloat("Horizontal", horizontalInput);
-        animator.SetFloat("Vertical", verticalInput);
+        if (isListeningToMoveInputs)
+        {
+            animator.SetFloat("Horizontal", horizontalInput);
+            animator.SetFloat("Vertical", verticalInput);
+        }
 
         /// Calculates the direction in which the player if facing
         Vector3 gravityDirection = gravityBody.GravityDirection;

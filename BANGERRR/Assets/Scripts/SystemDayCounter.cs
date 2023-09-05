@@ -8,10 +8,12 @@ public class SystemDayCounter : MonoBehaviour
     private float goingValue;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI debugTime; // TO DELETE
+    public TextMeshProUGUI debugTimeMin; // TO DELETE
 
     public float systemTime;
     private int dayCounter;
     public int hour;
+    public int minutes;
 
     public float offset;
     [Header("Debug")]
@@ -32,11 +34,12 @@ public class SystemDayCounter : MonoBehaviour
         systemTime = ((appTime  + offset) * convertFactor) % 86400;
         dayCounter = (int)((appTime) * convertFactor) / 86400;
         hour = (int)(systemTime / 3600f);
-        float seconds = systemTime - (hour * 60f);
+        minutes = (int)(systemTime / 60f);
 
         string timeString = string.Format("Jour {0} - {1}h", dayCounter, hour);
         timeText.text = timeString;
         debugTime.text = ""+ hour; // DEBUG - TO DELETE
+        debugTimeMin.text = "" + minutes; // DEBUG - TO DELETE
 
         if (ConstantSpeedUpdate)
         {
