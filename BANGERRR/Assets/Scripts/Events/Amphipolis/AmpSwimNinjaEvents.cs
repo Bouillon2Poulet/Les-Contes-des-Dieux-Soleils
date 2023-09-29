@@ -37,6 +37,8 @@ public class AmpSwimNinjaEvents : MonoBehaviour
     private float NinjaProgression;
     private float NinjaSpeed = .25f;
 
+    public PointingTowards amphipolisRotationScript;
+
     private void Start()
     {
         playerMovement = FindObjectOfType<ThirdPersonMovement>();
@@ -45,6 +47,7 @@ public class AmpSwimNinjaEvents : MonoBehaviour
 
     public void MountPlayer()
     {
+        amphipolisRotationScript.pointingTowards = null;
         ToggleBubble(false);
         playerMovement.blockPlayerMoveInputs();
         playerMovement.blockPlayerGAFollow();
@@ -157,6 +160,11 @@ public class AmpSwimNinjaEvents : MonoBehaviour
             }
         }
     }
+
+    /*public void ForceMountPosition()
+    {
+        playerRb.position = animPointMounted.position;
+    }*/
 
     private float angle = 0f;
     private bool isFlipping = false;

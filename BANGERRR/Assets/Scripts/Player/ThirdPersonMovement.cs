@@ -22,7 +22,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Drag")]
     public float playerHeight; /// mine: 1.25
     public LayerMask groundMask;
-    public float raycastMargin = 0.2f; /// default: .2
+    [Range(-.5f, .5f)] public float raycastMargin = .2f; /// default: .2
     bool grounded;
     public float groundDrag; /// default: 5
 
@@ -56,6 +56,8 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("JETPACK MODE")]
     public bool JETPACKMODE;
 
+    GameObject sphere;
+    bool canCheckIfGrounded = true;
 
     void Start()
     {
@@ -71,25 +73,35 @@ public class ThirdPersonMovement : MonoBehaviour
         GAPreviousID = -1;
 
         playerSource = GetComponent<AudioSource>();
+
+        // DEBUG TO DELETE
+        /*sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.transform.SetParent(rb.transform);
+        sphere.transform.localScale = new Vector3(.25f, .25f, .25f);
+        sphere.transform.localPosition = new Vector3(0f, 0f, 0f);
+        sphere.transform.SetParent(null);
+        sphere.GetComponent<SphereCollider>().isTrigger = true;*/
     }
 
     void Update()
     {
+        //DEBUG TO DELETE
+        /*Vector3 ppp = new Vector3(0f, -(playerHeight * 0.5f + raycastMargin), 0f);
+        sphere.transform.position = rb.transform.TransformPoint(ppp);*/
+
+
         /// GROUND CHECK
         /// Checks what's under the player using a raycast to see if the player is on the ground.
         //grounded = Physics.Raycast(transform.position, gravityBody.GravityDirection, playerHeight * 0.5f + raycastMargin, groundMask);
         grounded = Physics.Raycast(transform.position, gravityBody.GravityDirection, out RaycastHit hit, playerHeight * 0.5f + raycastMargin);
         grounded = grounded && (hit.collider.CompareTag("Ground") || hit.collider.CompareTag("Planet"));
 
+
         /// ORIENTATION - Gets the inputs of the joystick or keys, horizontally and vertically separately, and put them in floats.
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (isListeningToMoveInputs)
-        {
-            animator.SetFloat("Horizontal", horizontalInput);
-            animator.SetFloat("Vertical", verticalInput);
-        }
+        IndicateDirectionToAnimator();
 
         /// Calculates the direction in which the player if facing
         Vector3 gravityDirection = gravityBody.GravityDirection;
@@ -136,6 +148,8 @@ public class ThirdPersonMovement : MonoBehaviour
         if (Input.GetKey(jumpKey) && readyToJump && grounded && isListeningToMoveInputs)
         {
             readyToJump = false;
+            animator.SetBool("Jumping", true);
+            canCheckIfGrounded = false;
             Jump();
             SaveLastJumpPosition();
             Invoke(nameof(ResetJump), jumpCooldown);
@@ -144,6 +158,19 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (canCheckIfGrounded)
+        {
+            if (grounded)
+            {
+                animator.SetBool("Jumping", false);
+                animator.SetBool("Inair", false);
+            }
+            else
+            {
+                animator.SetBool("Inair", true);
+            }
+        }
+
         if (gravityBody.GravityTransform != null && isFollowingGA)
         {
             FollowGravityArea();
@@ -278,6 +305,47 @@ public class ThirdPersonMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+        canCheckIfGrounded = true;
+    }
+
+    private void IndicateDirectionToAnimator()
+    {
+        if (isListeningToMoveInputs)
+        {
+            animator.SetBool("GoingBack", false);
+            animator.SetBool("GoingRight", false);
+            animator.SetBool("GoingFace", false);
+            animator.SetBool("GoingLeft", false);
+
+            if (verticalInput > .01f)
+            {
+                animator.SetBool("GoingBack", true);
+                animator.SetBool("GoingRight", false);
+                animator.SetBool("GoingFace", false);
+                animator.SetBool("GoingLeft", false);
+            }
+            else if (verticalInput < -.01f)
+            {
+                animator.SetBool("GoingBack", false);
+                animator.SetBool("GoingRight", false);
+                animator.SetBool("GoingFace", true);
+                animator.SetBool("GoingLeft", false);
+            }
+            else if (horizontalInput > .01f)
+            {
+                animator.SetBool("GoingBack", false);
+                animator.SetBool("GoingRight", true);
+                animator.SetBool("GoingFace", false);
+                animator.SetBool("GoingLeft", false);
+            }
+            else if (horizontalInput < .01f)
+            {
+                animator.SetBool("GoingBack", false);
+                animator.SetBool("GoingRight", false);
+                animator.SetBool("GoingFace", false);
+                animator.SetBool("GoingLeft", true);
+            }
+        }
     }
 
     private void LockAndHideCursor()

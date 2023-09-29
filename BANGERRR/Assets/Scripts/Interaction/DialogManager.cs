@@ -120,7 +120,7 @@ public class DialogManager : MonoBehaviour
 
         foreach(char letter in messageToDisplay.message.ToCharArray())
         {
-            Debug.Log(wordSpeed);
+            //Debug.Log(wordSpeed);
             if (previousLetter == '.')
             {
                 if (letter != '.')

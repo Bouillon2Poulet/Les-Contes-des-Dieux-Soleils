@@ -114,6 +114,7 @@ public class NPCSwimNinja : MonoBehaviour, IInteractable
 
         if (waitingToDismountFirstTime)
         {
+            /*AmpSwimNinjaEvents.instance.ForceMountPosition();*/
             if (!FindObjectOfType<DialogManager>().isItActive())
             {
                 waitingToDismountFirstTime = false;
