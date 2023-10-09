@@ -39,7 +39,7 @@ public class PlanetTag : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                Debug.Log("PT");
+                //Debug.Log("PT");
                 hasBeenTriggered = true;
                 planet.GetComponent<HasBeenDiscovered>().state = true;
                 if (isSolisede)

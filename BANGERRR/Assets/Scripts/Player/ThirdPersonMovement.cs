@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -89,7 +89,6 @@ public class ThirdPersonMovement : MonoBehaviour
         /*Vector3 ppp = new Vector3(0f, -(playerHeight * 0.5f + raycastMargin), 0f);
         sphere.transform.position = rb.transform.TransformPoint(ppp);*/
 
-
         /// GROUND CHECK
         /// Checks what's under the player using a raycast to see if the player is on the ground.
         //grounded = Physics.Raycast(transform.position, gravityBody.GravityDirection, playerHeight * 0.5f + raycastMargin, groundMask);
@@ -149,6 +148,8 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             readyToJump = false;
             animator.SetBool("Jumping", true);
+            animator.SetBool("Inair", false);
+            //Debug.Log("JUMP!!");
             canCheckIfGrounded = false;
             Jump();
             SaveLastJumpPosition();
@@ -164,10 +165,13 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 animator.SetBool("Jumping", false);
                 animator.SetBool("Inair", false);
+                //Debug.Log("NO JUMP, ONGROUND");
             }
             else
             {
                 animator.SetBool("Inair", true);
+                animator.SetBool("Jumping", false);
+                //Debug.Log("INAIR");
             }
         }
 
@@ -200,6 +204,8 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             GAFirstEntering = true;
         }
+
+        //Debug.Log(myDirection);
     }
 
     private void FollowGravityArea()
@@ -308,14 +314,13 @@ public class ThirdPersonMovement : MonoBehaviour
         canCheckIfGrounded = true;
     }
 
+    char myDirection = '.';
+
     private void IndicateDirectionToAnimator()
     {
         if (isListeningToMoveInputs)
         {
-            animator.SetBool("GoingBack", false);
-            animator.SetBool("GoingRight", false);
-            animator.SetBool("GoingFace", false);
-            animator.SetBool("GoingLeft", false);
+            animator.SetBool("Walking", false);
 
             if (verticalInput > .01f)
             {
@@ -323,27 +328,35 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("GoingRight", false);
                 animator.SetBool("GoingFace", false);
                 animator.SetBool("GoingLeft", false);
+                myDirection = '↑';
+                animator.SetBool("Walking", true);
             }
             else if (verticalInput < -.01f)
             {
+                animator.SetBool("GoingFace", true);
                 animator.SetBool("GoingBack", false);
                 animator.SetBool("GoingRight", false);
-                animator.SetBool("GoingFace", true);
                 animator.SetBool("GoingLeft", false);
+                myDirection = '↓';
+                animator.SetBool("Walking", true);
             }
             else if (horizontalInput > .01f)
             {
-                animator.SetBool("GoingBack", false);
                 animator.SetBool("GoingRight", true);
+                animator.SetBool("GoingBack", false);
                 animator.SetBool("GoingFace", false);
                 animator.SetBool("GoingLeft", false);
+                myDirection = '→';
+                animator.SetBool("Walking", true);
             }
-            else if (horizontalInput < .01f)
+            else if (horizontalInput < -.01f)
             {
+                animator.SetBool("GoingLeft", true);
                 animator.SetBool("GoingBack", false);
                 animator.SetBool("GoingRight", false);
                 animator.SetBool("GoingFace", false);
-                animator.SetBool("GoingLeft", true);
+                myDirection = '←';
+                animator.SetBool("Walking", true);
             }
         }
     }

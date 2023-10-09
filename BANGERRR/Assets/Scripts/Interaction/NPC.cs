@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour, IInteractable
     //[SerializeField] public string npcName; // deprecated
     [SerializeField] public SpriteRenderer sprite;
     [SerializeField] private bool shouldLookAtTarget = true;
+    [SerializeField] private Vector3 lookAtOffset;
 
     [SerializeField] public string[] actors;
 
@@ -84,14 +85,40 @@ public class NPC : MonoBehaviour, IInteractable
         HideBubble();
     }
 
+    [SerializeField] private bool DebugLog = false;
+    GameObject S;
+    private void Awake()
+    {
+        //S = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        //S.SetActive(false);
+    }
     private void FixedUpdate()
     {
         if (shouldLookAtTarget)
         {
-            sprite.transform.LookAt(lookAtTarget.transform.position, -gb.GravityDirection);
+            Vector3 upDirection = gb.GravityDirection;
+            //Vector3 upDirection = GetComponent<Rigidbody>().transform.up.normalized * -1;
+            Vector3 targetPosition = lookAtTarget.transform.position;
+
+            // old old
+            //sprite.transform.LookAt(lookAtTarget.transform.position, -gb.GravityDirection);
+
+            // works but sometimes upside down
+            if (DebugLog)
+            {
+                //Debug.Log(Vector3.ProjectOnPlane(targetPosition, upDirection));
+                S.SetActive(true);
+                S.transform.position = Vector3.ProjectOnPlane(targetPosition, upDirection);
+            }
+
+            sprite.transform.LookAt(Vector3.ProjectOnPlane(targetPosition, -upDirection), upDirection);
+            //sprite.transform.Rotate(new Vector3(270f, 0f, 0f));
+            sprite.transform.Rotate(new Vector3(90f, 90f, -90f));
+
+            //sprite.transform.Rotate(lookAtOffset);
+            // Enfin une ROTATION VERS LE JOUEUR SANS CHANGER LA ROTATION Y DU PNJ qui fonctione ??????
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out ThirdPersonMovement player) && messagesA.Length > 0)

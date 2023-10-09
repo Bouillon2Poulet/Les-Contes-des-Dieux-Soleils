@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7685401112307520566}
   - component: {fileID: 6036903002981122102}
-  m_Layer: 10
+  - component: {fileID: 2633565153061248412}
+  m_Layer: 6
   m_Name: NPCSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 433137551050218542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5066357304644533524}
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 26412d5f956dbec499f7a25eace8352e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20606613ad0d40e4fbd660f356d2d016, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,6 +86,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2633565153061248412
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433137551050218542}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 530f73f923facd540aa029dfc908dd1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5713368809979638970
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5066357304644533524}
   - component: {fileID: 8359335907161068619}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: NPCBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,8 +132,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5713368809979638970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.65, y: 1.468, z: -0.02}
-  m_LocalScale: {x: 0.49928573, y: 0.48, z: 0.49922195}
+  m_LocalPosition: {x: -0.716, y: 0.586, z: -0.02}
+  m_LocalScale: {x: 0.91, y: 0.8748498, z: 0.9098838}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7685401112307520566}
@@ -158,7 +180,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5a4078bbf30938b48954b2263dad6248, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f2aba5f145ac5e4ba62398b9d2811d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -183,6 +205,7 @@ GameObject:
   - component: {fileID: 5020381508427325298}
   - component: {fileID: 586534721004054663}
   - component: {fileID: 3113110411366008238}
+  - component: {fileID: 7772089975143585579}
   m_Layer: 10
   m_Name: NPC Lezard
   m_TagString: Untagged
@@ -218,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6577cbee6a630f428f6683e4f055d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skin: 
   bubble: {fileID: 5713368809979638970}
   sprite: {fileID: 6036903002981122102}
   shouldLookAtTarget: 0
@@ -256,7 +280,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.66
+  m_Radius: 2.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &5020381508427325298
 BoxCollider:
@@ -277,8 +301,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.23, y: 1.95, z: 0.45}
-  m_Center: {x: 0, y: 0.28, z: 0}
+  m_Size: {x: 3.58, y: 1.36, z: 0.11}
+  m_Center: {x: 0, y: 0.18, z: 0}
 --- !u!54 &586534721004054663
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -319,3 +343,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 3
+--- !u!114 &7772089975143585579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7761278443559222929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d654d20a2ea30044abf3bf31a2ab447a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

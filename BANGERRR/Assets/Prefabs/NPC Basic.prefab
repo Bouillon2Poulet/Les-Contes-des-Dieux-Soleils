@@ -30,12 +30,12 @@ Transform:
   m_GameObject: {fileID: 1040951368927688421}
   m_LocalRotation: {x: 0.036869094, y: -0.35081777, z: -0.06938921, w: 0.9331413}
   m_LocalPosition: {x: -278.17, y: 68.29, z: 226.1}
-  m_LocalScale: {x: 2.2905, y: 2.2905, z: 2.2905}
+  m_LocalScale: {x: 1.1441262, y: 1.1441262, z: 1.144126}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4232328535702181526}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 1.153, y: -41.298, z: -8.94}
 --- !u!136 &4387601551852949046
 CapsuleCollider:
@@ -57,7 +57,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1.25
+  m_Height: 1.82
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &5965341579879554783
@@ -133,21 +133,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6577cbee6a630f428f6683e4f055d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skin: 
+  skin: Solisede
   bubble: {fileID: 5697906329938191672}
   sprite: {fileID: 2676249916781423284}
   shouldLookAtTarget: 1
-  actors: []
-  messagesA: []
+  actors:
+  - Astrid
+  messagesA:
+  - actorID: 0
+    message: "Une Grenouille ?! Enfin, vous leur ressemblez\u2026 Par Omnio, dites-moi
+      que je r\xEAve ! Votre existence rel\xE8ve de la l\xE9gende ! C'est un honneur
+      de faire votre connaissance ! Qu'est-ce qui vous am\xE8ne sur notre petite
+      plan\xE8te ?"
+  - actorID: 0
+    message: "Hmmm... Vous cherchez \xE0 rentrer chez vous, je comprends... Nous
+      sommes semblables, vous et moi. Bien que je sois n\xE9e ici, sur Solis\xE8de,
+      je r\xEAve de rejoindre la plan\xE8te d'origine des Poissons, Eaux Divines..."
+  - actorID: 0
+    message: "Quoi ?! Vous avez pu visiter Eaux Divines ?! Je vous en prie, racontez-moi
+      tout en d\xE9tail ! Ses paysages sont-ils aussi somptueux que dans les livres
+      du vieux N\xE9r\xE9 ?"
+  - actorID: 0
+    message: Ah...
+  - actorID: 0
+    message: Hmm...
+  - actorID: 0
+    message: "Je vois, merci pour votre franchise... En effet, j'\xE9tais na\xEFve
+      de penser que notre plan\xE8te pouvait retrouver sa gloire d'antan..."
+  - actorID: 0
+    message: "Ah oui, j'oubliais que tu ne connais rien de cette histoire. Tu devrais
+      t'adresser \xE0 mon amour, Isador, elle est l\xE0-bas en train de faire le
+      puzzle. Elle en sait bien plus que moi sur l'histoire de notre peuple. "
+  - actorID: 0
+    message: "Moi, ma sp\xE9cialit\xE9, c'est la science et l'astrologie ! D'ailleurs,
+      \xE0 ce propos, ce serait un honneur de te pr\xE9senter ma derni\xE8re invention
+      : un cadran solaire !"
+  - actorID: 0
+    message: "On a parfois tendance \xE0 perdre la notion du temps ici, alors je
+      me suis dit que cela pourrait \xEAtre utile !"
+  - actorID: 0
+    message: "Merci ! Le probl\xE8me, vois-tu, c'est que j'ai besoin de le calibrer
+      ! Tu n'aurais pas l'heure par hasard ?"
   isPageARead: 0
   pageB: 0
-  messagesB: []
+  messagesB:
+  - actorID: 0
+    message: "Si tu pouvais me donner l\u2019heure, je pourrais enfin calibrer mon
+      cadran solaire ! Je compte sur toi."
   isPageBRead: 0
   pageC: 0
-  messagesC: []
+  messagesC:
+  - actorID: 0
+    message: Quelle incroyable relique ! Merci infiniment pour ton aide, Triton.
+      Tu peux compter sur moi si tu as besoin de quoi que ce soit !
   isPageCRead: 0
   pageD: 0
-  messagesD: []
+  messagesD:
+  - actorID: 0
+    message: "Tu vois l'ombre qui bouge ? Cela veut dire que le cadran fonctionne
+      parfaitement, et c'est gr\xE2ce \xE0 toi ! Encore merci, Triton."
   isPageDRead: 0
   pageE: 0
   messagesE: []
@@ -177,15 +221,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052804646767666348}
-  m_LocalRotation: {x: 0, y: -0.8249557, z: 0, w: 0.56519747}
-  m_LocalPosition: {x: -0.104, y: 1.138, z: 0.268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.293, y: 0.722, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 703483452352590830}
   m_Father: {fileID: 2516864183520044138}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -111.168, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2676249916781423284
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -228,7 +272,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1917379621, guid: fa933a7da708c9d4d88def1f671bab95, type: 3}
-  m_Color: {r: 1, g: 0.9462788, b: 0.8066038, a: 1}
+  m_Color: {r: 0.8156396, g: 0.48126557, b: 0.9716981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -269,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 703483452352590830}
   - component: {fileID: 7525585091434194008}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: NPCBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}

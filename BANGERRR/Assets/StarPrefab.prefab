@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5826941311104115996}
   - component: {fileID: 8649826517834718294}
   - component: {fileID: 5273681365259909314}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 1002710871122199535}
   - component: {fileID: 7711748150306317390}
   - component: {fileID: 7482233241147265543}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StarPrefab
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -7,13 +7,12 @@ public class EndManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FadeToBlack.instance.whiteSquare.GetComponent<CanvasGroup>().alpha = 1f;
-
-        StartCoroutine(TheEnd());
+        //StartCoroutine(TheEnd());
     }
 
     IEnumerator TheEnd()
     {
+        FadeToBlack.instance.whiteSquare.GetComponent<CanvasGroup>().alpha = 1f;
         yield return new WaitForSeconds(2f);
         yield return FadeToBlack.instance.FadeWhiteEdition(false, .1f);
         yield return new WaitForSeconds(3f);
