@@ -23,9 +23,10 @@ public class PlayerStatus : MonoBehaviour
     private Sprite withBubbleSprite;
     private Sprite originalSprite;
 
-    // Bubble Respawn
-    private Vector3 respawnPointPosition;
-    private Quaternion respawnPointRotation;
+    [Header("Bubble Respawn")]
+    public Transform bubbleRespawnTransform;
+    //private Vector3 respawnPointPosition;
+    //private Quaternion respawnPointRotation;
 
     [Header("Solimont")]
     public GameObject rockOnHead;
@@ -41,7 +42,8 @@ public class PlayerStatus : MonoBehaviour
     public void WearBubble()
     {
         Debug.Log("Joueur porte une bulle");
-        transform.GetPositionAndRotation(out respawnPointPosition, out respawnPointRotation);
+        //transform.GetPositionAndRotation(out respawnPointPosition, out respawnPointRotation);
+        bubbleRespawnTransform.SetPositionAndRotation(transform.position, transform.rotation);
         hasBubbleOn = true;
         spriteRenderer.sprite = withBubbleSprite;
         StopBlinking();
@@ -90,7 +92,8 @@ public class PlayerStatus : MonoBehaviour
         isDead = true;
         // Va falloir animer une transition plus sympa ici
         isDead = false;
-        transform.SetPositionAndRotation(respawnPointPosition, respawnPointRotation);
+        //transform.SetPositionAndRotation(respawnPointPosition, respawnPointRotation);
+        transform.SetPositionAndRotation(bubbleRespawnTransform.position, bubbleRespawnTransform.rotation);
     }
 
     public void JumpRespawn()
@@ -114,15 +117,24 @@ public class PlayerStatus : MonoBehaviour
         originalColor = spriteRenderer.color;
         withBubbleSprite = Resources.Load<Sprite>("Player_with_bubble");
         originalSprite = spriteRenderer.sprite;
-
-        transform.GetPositionAndRotation(out respawnPointPosition, out respawnPointRotation);
     }
 
     private void FixedUpdate()
     {
-        // Suffocation Logic (in GA)
-        if (!gBody.IsBreathable && !hasBubbleOn && !isDead && canSuffocate && gBody.inGravityArea)
+        // Changement de Shader
+        if (gBody.AreaShader != null)
         {
+            spriteRenderer.material.shader = gBody.AreaShader;
+        }
+        else
+        {
+            spriteRenderer.material.shader = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
+        }
+
+        // Suffocation Logic (in GA)
+        //if (true)
+        if (!gBody.IsBreathable && !hasBubbleOn && !isDead && canSuffocate && gBody.inGravityArea)
+            {
             if (!isBlinking)
             {
                 isBlinking = true;
@@ -157,16 +169,6 @@ public class PlayerStatus : MonoBehaviour
             //Debug.Log("cancel invoke JR");
             CancelInvoke(nameof(JumpRespawn));
             hasJumpRespawnBeenInvoked = false;
-        }
-
-        // Changement de Shader
-        if (gBody.AreaShader != null)
-        {
-            spriteRenderer.material.shader = gBody.AreaShader;
-        }
-        else
-        {
-            spriteRenderer.material.shader = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
         }
     }
 

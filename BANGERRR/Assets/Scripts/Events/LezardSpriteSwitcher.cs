@@ -5,28 +5,41 @@ using UnityEngine;
 public class LezardSpriteSwitcher : MonoBehaviour
 {
     private Animator animator;
+    private bool hasDialog = true;
 
     private void Awake()
     {
         animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("Awake", false);
+
+        // ne marche pas encore
+        if (this.GetComponent<NPC>().messagesA.Length == 0)
+        {
+            hasDialog = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (hasDialog)
         {
-            animator.SetBool("Awake", true);
-            //Debug.Log("Awaking Lezard");
+            if (other.CompareTag("Player"))
+            {
+                animator.SetBool("Awake", true);
+                    //Debug.Log("Awaking Lezard");
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (hasDialog)
         {
-            animator.SetBool("Awake", false);
-            //Debug.Log("Lezard goes back to sleep");
+            if (other.CompareTag("Player"))
+            {
+                animator.SetBool("Awake", false);
+                //Debug.Log("Lezard goes back to sleep");
+            }
         }
     }
 }

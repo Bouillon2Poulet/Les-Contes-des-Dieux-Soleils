@@ -97,13 +97,21 @@ public class NPC : MonoBehaviour, IInteractable
         if (shouldLookAtTarget)
         {
             Vector3 upDirection = gb.GravityDirection;
-            //Vector3 upDirection = GetComponent<Rigidbody>().transform.up.normalized * -1;
             Vector3 targetPosition = lookAtTarget.transform.position;
+
+            Vector3 forwardDirection = targetPosition - sprite.transform.position;
+            Vector3 forwardProjected = Vector3.ProjectOnPlane(forwardDirection, upDirection);
+            Quaternion targetRotation = Quaternion.LookRotation(forwardProjected, -upDirection);
+            sprite.transform.rotation = targetRotation;
+
+            /* // Old code just to remember the good times
+            //Vector3 upDirection = GetComponent<Rigidbody>().transform.up.normalized * -1;
 
             // old old
             //sprite.transform.LookAt(lookAtTarget.transform.position, -gb.GravityDirection);
 
             // works but sometimes upside down
+            
             if (DebugLog)
             {
                 //Debug.Log(Vector3.ProjectOnPlane(targetPosition, upDirection));
@@ -111,12 +119,12 @@ public class NPC : MonoBehaviour, IInteractable
                 S.transform.position = Vector3.ProjectOnPlane(targetPosition, upDirection);
             }
 
-            sprite.transform.LookAt(Vector3.ProjectOnPlane(targetPosition, -upDirection), upDirection);
+            //sprite.transform.LookAt(Vector3.ProjectOnPlane(targetPosition, -upDirection), upDirection);
             //sprite.transform.Rotate(new Vector3(270f, 0f, 0f));
-            sprite.transform.Rotate(new Vector3(90f, 90f, -90f));
+            //sprite.transform.Rotate(new Vector3(90f, 90f, -90f));
 
             //sprite.transform.Rotate(lookAtOffset);
-            // Enfin une ROTATION VERS LE JOUEUR SANS CHANGER LA ROTATION Y DU PNJ qui fonctione ??????
+            */
         }
     }
     private void OnTriggerEnter(Collider other)

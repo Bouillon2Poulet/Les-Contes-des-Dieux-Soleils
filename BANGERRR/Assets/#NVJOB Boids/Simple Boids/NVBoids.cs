@@ -145,31 +145,31 @@ public class NVBoids : MonoBehaviour
         }
 
 
-    Vector3 AdjustPositionToIntersection(Vector3 position, float radiusMin, float radiusMax)
-    {
-        Vector3 center = Vector3.zero; // Centre commun des deux sphères (peut être ajusté si nécessaire)
-
-        // Calcule la direction du centre de la position donnée
-        Vector3 directionToCenter = center - position;
-
-        // Calcule la distance du centre de la position donnée
-        float distanceToCenter = directionToCenter.magnitude;
-
-        // Si la distance est plus grande que le rayonMAX, applique une force vers le centre
-        if (distanceToCenter > radiusMax)
+        /*Vector3 AdjustPositionToIntersection(Vector3 position, float radiusMin, float radiusMax)
         {
-            float force = Mathf.Log(distanceToCenter / radiusMax) * 0.5f; // Ajuste la force selon le besoin
-            position += directionToCenter.normalized * force;
-        }
-        // Si la distance est plus petite que le rayonMIN, applique une force vers le centre
-        else if (distanceToCenter < radiusMin)
-        {
-            float force = Mathf.Log(radiusMin / distanceToCenter) * 0.5f; // Ajuste la force selon le besoin
-            position += directionToCenter.normalized * force;
-        }
+            Vector3 center = Vector3.zero; // Centre commun des deux sphères (peut être ajusté si nécessaire)
 
-        return position;
-    }
+            // Calcule la direction du centre de la position donnée
+            Vector3 directionToCenter = center - position;
+
+            // Calcule la distance du centre de la position donnée
+            float distanceToCenter = directionToCenter.magnitude;
+
+            // Si la distance est plus grande que le rayonMAX, applique une force vers le centre
+            if (distanceToCenter > radiusMax)
+            {
+                float force = Mathf.Log(distanceToCenter / radiusMax) * 0.5f; // Ajuste la force selon le besoin
+                position += directionToCenter.normalized * force;
+            }
+            // Si la distance est plus petite que le rayonMIN, applique une force vers le centre
+            else if (distanceToCenter < radiusMin)
+            {
+                float force = Mathf.Log(radiusMin / distanceToCenter) * 0.5f; // Ajuste la force selon le besoin
+                position += directionToCenter.normalized * force;
+            }
+
+            return position;
+        }*/
 
         //--------------
     }

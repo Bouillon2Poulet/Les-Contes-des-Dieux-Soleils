@@ -314,7 +314,7 @@ public class ThirdPersonMovement : MonoBehaviour
         canCheckIfGrounded = true;
     }
 
-    char myDirection = '.';
+    //char myDirection = '.';
 
     private void IndicateDirectionToAnimator()
     {
@@ -328,7 +328,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("GoingRight", false);
                 animator.SetBool("GoingFace", false);
                 animator.SetBool("GoingLeft", false);
-                myDirection = '↑';
+                //myDirection = '↑';
                 animator.SetBool("Walking", true);
             }
             else if (verticalInput < -.01f)
@@ -337,7 +337,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("GoingBack", false);
                 animator.SetBool("GoingRight", false);
                 animator.SetBool("GoingLeft", false);
-                myDirection = '↓';
+                //myDirection = '↓';
                 animator.SetBool("Walking", true);
             }
             else if (horizontalInput > .01f)
@@ -346,7 +346,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("GoingBack", false);
                 animator.SetBool("GoingFace", false);
                 animator.SetBool("GoingLeft", false);
-                myDirection = '→';
+                //myDirection = '→';
                 animator.SetBool("Walking", true);
             }
             else if (horizontalInput < -.01f)
@@ -355,7 +355,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("GoingBack", false);
                 animator.SetBool("GoingRight", false);
                 animator.SetBool("GoingFace", false);
-                myDirection = '←';
+                //myDirection = '←';
                 animator.SetBool("Walking", true);
             }
         }
