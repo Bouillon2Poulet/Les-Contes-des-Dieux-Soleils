@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// aka PlanetProgressController
+/// </summary>
 public class PlanetTag : MonoBehaviour
 {
     static GameObject ui;
@@ -41,14 +45,33 @@ public class PlanetTag : MonoBehaviour
             {
                 //Debug.Log("PT");
                 hasBeenTriggered = true;
-                planet.GetComponent<HasBeenDiscovered>().state = true;
                 if (isSolisede)
                     PlayerStatus.instance.LooseBubble();
-                // activate objects 
-                // desactivate objects 
                 StartCoroutine(ShowTag());
             }
         }
+    }
+
+    public void DiscoverPlanet()
+    {
+        //Debug.Log("Discovering " + planet.name);
+        planet.GetComponent<HasBeenDiscovered>().state = true;
+    }
+
+    public void DeactivateObjects()
+    {
+        foreach (GameObject o in toDeactivate)
+        {
+            o.SetActive(false);
+        };
+    }
+
+    public void ActivateObjects()
+    {
+        foreach (GameObject o in toActivate)
+        {
+            o.SetActive(true);
+        };
     }
 
     private IEnumerator ShowTag()

@@ -36,11 +36,6 @@ public class EDPlateformeEvent : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         if (isAscending)

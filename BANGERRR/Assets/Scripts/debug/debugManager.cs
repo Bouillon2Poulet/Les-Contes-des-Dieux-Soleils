@@ -44,6 +44,10 @@ public class debugManager : MonoBehaviour
         UpdateUI();
 
         inputs = new KeyCode[] { KeyCode.Keypad1, KeyCode.Keypad2, KeyCode.Keypad3, KeyCode.Keypad4, KeyCode.Keypad5, KeyCode.Keypad6, KeyCode.Keypad7, KeyCode.Keypad8, KeyCode.Keypad9 };
+
+        /// Exemple de variable globale
+        // GlobalVariables.Set("test", 1);
+        // Debug.Log(GlobalVariables.Get<int>("test"));
     }
 
     private void Update()
