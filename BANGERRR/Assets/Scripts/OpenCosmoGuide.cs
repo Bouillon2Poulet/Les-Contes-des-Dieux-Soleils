@@ -26,7 +26,7 @@ public class OpenCosmoGuide : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && playerStatus.hasCosmoGuide)
+        if (Input.GetKeyDown(KeyCode.C) && playerStatus.hasCosmoGuide && !DialogManager.isActive && !playerStatus.isAnimated)
         {
             CosmoGuideIsOpen = !CosmoGuideIsOpen;
             if (CosmoGuideIsOpen)
@@ -47,6 +47,20 @@ public class OpenCosmoGuide : MonoBehaviour
 
                 rawImage.texture = CosmoGuideIsOpen ? CosmoGuide : Background;
             }
+        }
+    }
+
+    public static OpenCosmoGuide instance { get; private set; }
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
         }
     }
 }

@@ -97,8 +97,10 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void OpenMessage(string text, string name)
+    public void OpenMessage(string text, string name, string skin)
     {
+        InitSkin(skin);
+
         Message uniqueMessage = new Message
         {
             message = text,
@@ -106,7 +108,7 @@ public class DialogManager : MonoBehaviour
         };
         Message[] messages = { uniqueMessage };
         string[] actors = { name };
-        OpenDialog(messages, actors);
+        OpenDialog(messages, actors, skin);
     }
 
     IEnumerator DisplayMessage()
@@ -222,11 +224,6 @@ public class DialogManager : MonoBehaviour
         ephemeralMessageGoing = false;
     }
 
-    private void Awake()
-    {
-        SkinFolder.SetActive(true);
-    }
-
     private void Start()
     {
         normalDialogBoxScale = Neutre.GetComponent<RectTransform>().localScale;
@@ -265,4 +262,19 @@ public class DialogManager : MonoBehaviour
     {
         return isActive;
     }
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+
+        SkinFolder.SetActive(true);
+    }
+    public static DialogManager instance { get; private set; }
 }

@@ -85,13 +85,6 @@ public class NPC : MonoBehaviour, IInteractable
         HideBubble();
     }
 
-    [SerializeField] private bool DebugLog = false;
-    GameObject S;
-    private void Awake()
-    {
-        //S = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        //S.SetActive(false);
-    }
     private void FixedUpdate()
     {
         if (shouldLookAtTarget)
@@ -111,14 +104,6 @@ public class NPC : MonoBehaviour, IInteractable
             //sprite.transform.LookAt(lookAtTarget.transform.position, -gb.GravityDirection);
 
             // works but sometimes upside down
-            
-            if (DebugLog)
-            {
-                //Debug.Log(Vector3.ProjectOnPlane(targetPosition, upDirection));
-                S.SetActive(true);
-                S.transform.position = Vector3.ProjectOnPlane(targetPosition, upDirection);
-            }
-
             //sprite.transform.LookAt(Vector3.ProjectOnPlane(targetPosition, -upDirection), upDirection);
             //sprite.transform.Rotate(new Vector3(270f, 0f, 0f));
             //sprite.transform.Rotate(new Vector3(90f, 90f, -90f));

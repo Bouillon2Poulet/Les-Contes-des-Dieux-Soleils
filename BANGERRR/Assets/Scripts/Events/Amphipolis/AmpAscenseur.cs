@@ -42,6 +42,7 @@ public class AmpAscenseur : MonoBehaviour
             if (!intGAsHaveBeenActivated)
             {
                 intGAs.SetActive(true);
+                AmpSoleilRougeDialogue.instance.gameObject.SetActive(false);
                 intGAsHaveBeenActivated = true;
                 AmpNPCManager.instance.ToggleInteriorObjects(true);
                 playerMovement.gameObject.transform.SetParent(elevator);

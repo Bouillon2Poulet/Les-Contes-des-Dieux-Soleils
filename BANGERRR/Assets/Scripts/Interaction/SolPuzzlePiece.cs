@@ -12,7 +12,7 @@ public class SolPuzzlePiece : Note, IInteractable
             M.Isador_PuzzlePieceFound = true;
             M.updateNPCPages();
             string message = "Vous avez trouvé une pièce de puzzle ! Elle est minuscule !";
-            FindObjectOfType<DialogManager>().OpenMessage(message, "Objet trouvé");
+            FindObjectOfType<DialogManager>().OpenMessage(message, "Objet trouvé", "Solisede");
             transform.gameObject.SetActive(false);
         }
     }
