@@ -55,8 +55,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.25
+  m_Radius: 0.35
+  m_Height: 1.27
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &995884406964209277
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4e0de1e8404954baedfd41f8230076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 3
 --- !u!114 &7182172964840857665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1919470578559330398}
   - component: {fileID: 19659238635642574}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: FleurbulleSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,14 +137,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2187936831246621918}
-  m_LocalRotation: {x: 0.0000000037252894, y: 0.000000029802315, z: -0.11108782, w: 0.9938106}
-  m_LocalPosition: {x: 0.05, y: 0.133, z: 0.001}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: -0.052, z: 0}
+  m_LocalScale: {x: 1.4473649, y: 1.4473649, z: 1.4473649}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5107032332401874281}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -12.756}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &19659238635642574
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -185,7 +186,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: acb6f5a7a3400c240b718dd662bb2b93, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eef4e59f6eb8fba4ab530b4ae21e8738, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

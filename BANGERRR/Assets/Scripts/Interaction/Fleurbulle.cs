@@ -26,7 +26,13 @@ public class Fleurbulle : MonoBehaviour, IInteractable
 
     private void FixedUpdate()
     {
-        spriteRenderer.transform.LookAt(lookAtTarget.transform.position, -gb.GravityDirection);
+        Vector3 upDirection = gb.GravityDirection;
+        Vector3 targetPosition = lookAtTarget.transform.position;
+
+        Vector3 forwardDirection = targetPosition - spriteRenderer.transform.position;
+        Vector3 forwardProjected = Vector3.ProjectOnPlane(forwardDirection, upDirection);
+        Quaternion targetRotation = Quaternion.LookRotation(forwardProjected, -upDirection);
+        spriteRenderer.transform.rotation = targetRotation;
     }
 
     public void Interact()

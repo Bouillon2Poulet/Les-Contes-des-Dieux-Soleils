@@ -20,11 +20,9 @@ public class PlayerStatus : MonoBehaviour
     private bool isBlinking;
     private float blinkTimer;
 
-    private Sprite withBubbleSprite;
-    private Sprite originalSprite;
-
     [Header("Bubble Respawn")]
     public Transform bubbleRespawnTransform;
+    public GameObject Bulle;
     //private Vector3 respawnPointPosition;
     //private Quaternion respawnPointRotation;
 
@@ -44,16 +42,16 @@ public class PlayerStatus : MonoBehaviour
         Debug.Log("Joueur porte une bulle");
         //transform.GetPositionAndRotation(out respawnPointPosition, out respawnPointRotation);
         bubbleRespawnTransform.SetPositionAndRotation(transform.position, transform.rotation);
+        Bulle.SetActive(true);
         hasBubbleOn = true;
-        spriteRenderer.sprite = withBubbleSprite;
         StopBlinking();
     }
 
     public void LooseBubble()
     {
         Debug.Log("Joueur perd sa bulle");
+        Bulle.SetActive(false);
         hasBubbleOn = false;
-        spriteRenderer.sprite = originalSprite;
         FindAnyObjectByType<FleurbulleManager>().resetFleurbulles();
     }
 
@@ -115,8 +113,6 @@ public class PlayerStatus : MonoBehaviour
         gBody = GetComponent<GravityBody>();
 
         originalColor = spriteRenderer.color;
-        withBubbleSprite = Resources.Load<Sprite>("Player_with_bubble");
-        originalSprite = spriteRenderer.sprite;
     }
 
     private void FixedUpdate()

@@ -17,7 +17,7 @@ public class TritonLongueVue : MonoBehaviour, IInteractable
     private bool larmeAnimationHasStarted = false;
     private float animationProgress = -1f;
     public float animationSpeed = .001f;
-    public bool animationCanStart;
+    public bool animationCanStart = true;
 
     public void Interact()
     {
@@ -25,7 +25,7 @@ public class TritonLongueVue : MonoBehaviour, IInteractable
         {
             StartLarmeAnimation();
         } 
-        else
+        else if (!larmeAnimationHasStarted)
         {
             BasicInteractTelescope();
         }
@@ -83,6 +83,15 @@ public class TritonLongueVue : MonoBehaviour, IInteractable
     {
         playerMovement = FindAnyObjectByType<ThirdPersonMovement>();
         larme.SetActive(false);
+    }
+
+    [Header("Bubble stuff")]
+    public GameObject bubble;
+    public Rigidbody player;
+
+    private void Update()
+    {
+        bubble.SetActive(Vector3.Distance(player.transform.position, transform.position) < GlobalVariables.Get<float>("interactRange") + 1);
     }
 
     public Transform GetTransform()

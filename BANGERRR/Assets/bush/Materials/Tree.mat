@@ -155,8 +155,8 @@ Material:
     - _TwoSided: 2
     - _UVSec: 0
     - _WindQuality: 0
-    - _Wind_Speed: 0.5
-    - _Wind_Strength: 0.3
+    - _Wind_Speed: 0.1
+    - _Wind_Strength: 0.1
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
