@@ -5463,8 +5463,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: messagesD.Array.data[0].message
-      value: Ce puzzle est magnifique. Je vais pouvoir le contempler pendant au moins
-        10 ans ! Merci, Triton !
+      value: "Ce puzzle est magnifique et\u2026 tr\xE8s glauque \xE0 la fois. Je
+        ne sais pas vraiment pourquoi\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 5600767557153570628, guid: e897796f2f0ae49489f6fccb0fcc7216, type: 3}
       propertyPath: messagesD.Array.data[1].message
@@ -41301,8 +41301,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.38
-  m_Height: 1.17
+  m_Radius: 0.62
+  m_Height: 1.41
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!64 &1385830984

@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class SolPuzzlePiece : Note, IInteractable
 {
+    [Header("Bubble stuff")]
+    public GameObject bubble;
+    private float interactRange;
+    public Rigidbody player;
+
+    private void Update()
+    {
+        bubble.SetActive(Vector3.Distance(player.transform.position, transform.position) < GlobalVariables.Get<float>("interactRange") + 1);
+    }
+
     public void Interact()
     {
         NPCEventsManager M = FindObjectOfType<NPCEventsManager>();
