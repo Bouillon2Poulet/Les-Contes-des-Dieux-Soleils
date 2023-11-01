@@ -149,6 +149,5 @@ public class ChapterSelectionManager : MonoBehaviour
                 }
             }
         }
-
     }
 }

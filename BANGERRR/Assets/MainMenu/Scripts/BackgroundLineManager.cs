@@ -11,7 +11,8 @@ public class BackgroundLineManager : MonoBehaviour
     public GameObject RightLine;
     public GameObject LeftLine;
     public GameObject BackgroundCanvas;
-    private LinkedList<GameObject> Lines;
+    public LinkedList<GameObject> Lines;
+    private float FirstLineFadeInEffect = 0;
     // Start is called before the first frame update
 
     void Start()
@@ -19,7 +20,7 @@ public class BackgroundLineManager : MonoBehaviour
         Lines = new LinkedList<GameObject>();
         Lines.AddFirst(Instantiate(LeftLine, BackgroundCanvas.transform));
         Lines.Last().GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
-        Lines.Last().SetActive(true);
+        Lines.Last().GetComponent<UnityEngine.UI.Image>().color = Color.black;
     }
 
     // Update is called once per frame
@@ -75,5 +76,15 @@ public class BackgroundLineManager : MonoBehaviour
             Lines.ElementAt(i).GetComponent<RectTransform>().localPosition = new Vector3(PosX, 0, 0);
         }
 
+    }
+
+    public void setActiveFirstLine()
+    {
+        if (Lines.Count() == 1)
+        {
+            Lines.Last().SetActive(true);
+            FirstLineFadeInEffect += 0.05f;
+            Lines.Last().GetComponent<UnityEngine.UI.Image>().color = new Color(FirstLineFadeInEffect, FirstLineFadeInEffect, FirstLineFadeInEffect);
+        }
     }
 }
