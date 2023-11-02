@@ -23,12 +23,6 @@ public class BackgroundLineManager : MonoBehaviour
         Lines.Last().GetComponent<UnityEngine.UI.Image>().color = Color.black;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void createLine(int cameraIsMoving, int currentPlanetIndex)
     {
         if (Lines.Count() >= 2)

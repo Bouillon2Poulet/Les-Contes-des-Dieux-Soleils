@@ -6,17 +6,19 @@ public class LezardSpriteSwitcher : MonoBehaviour
 {
     private Animator animator;
     private bool hasDialog = true;
+    private GameObject particleSystemObject;
 
     private void Awake()
     {
         animator = transform.GetChild(0).GetComponent<Animator>();
         animator.SetBool("Awake", false);
 
-        // ne marche pas encore
         if (this.GetComponent<NPC>().messagesA.Length == 0)
         {
             hasDialog = false;
         }
+
+        particleSystemObject = GetComponentInChildren<ParticleSystem>().gameObject;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,7 +28,8 @@ public class LezardSpriteSwitcher : MonoBehaviour
             if (other.CompareTag("Player"))
             {
                 animator.SetBool("Awake", true);
-                    //Debug.Log("Awaking Lezard");
+                particleSystemObject.SetActive(false);
+                //Debug.Log("Awaking Lezard");
             }
         }
     }
@@ -38,6 +41,7 @@ public class LezardSpriteSwitcher : MonoBehaviour
             if (other.CompareTag("Player"))
             {
                 animator.SetBool("Awake", false);
+                particleSystemObject.SetActive(true);
                 //Debug.Log("Lezard goes back to sleep");
             }
         }

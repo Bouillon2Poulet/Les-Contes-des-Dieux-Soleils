@@ -48,6 +48,7 @@ public class PlanetTag : MonoBehaviour
                 if (isSolisede)
                     PlayerStatus.instance.LooseBubble();
                 StartCoroutine(ShowTag());
+                //ChapterManager.newChapterDiscovered();
             }
         }
     }

@@ -187,10 +187,18 @@ public class PlayerStatus : MonoBehaviour
     public void hideSprite()
     {
         spriteRenderer.enabled = false;
+        if (hasBubbleOn)
+        {
+            Bulle.SetActive(false);
+        }
     }
     public void showSprite()
     {
         spriteRenderer.enabled = true;
+        if (hasBubbleOn)
+        {
+            Bulle.SetActive(true);
+        }
     }
     public void giveCosmoguide()
     {

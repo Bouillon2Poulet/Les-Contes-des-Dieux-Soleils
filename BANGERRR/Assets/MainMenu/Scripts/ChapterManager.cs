@@ -52,6 +52,8 @@ static class ChapterManager
     {
         saveObject.currentChapter++;
         saveObject.maxChapterDiscovered++;
+        var json = JsonUtility.ToJson(saveObject);
+        File.WriteAllText(pathToSaveFileJSON, json);
     }
 
     public static void getSaveFileJSONData()

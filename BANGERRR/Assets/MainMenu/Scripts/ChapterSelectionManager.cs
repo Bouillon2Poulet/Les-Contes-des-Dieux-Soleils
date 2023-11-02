@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using UnityEngine.SceneManagement;
 
 public class ChapterSelectionManager : MonoBehaviour
 {
@@ -9,7 +9,6 @@ public class ChapterSelectionManager : MonoBehaviour
     public GameObject EDPrefab;
     public GameObject SolisedePrefab;
     public GameObject SolimontPrefab;
-    public GameObject LarmePrefab;
     public GameObject AmphipolisPrefab;
     public GameObject OeilPrefab;
     public GameObject CentreUniversPrefab;
@@ -44,13 +43,14 @@ public class ChapterSelectionManager : MonoBehaviour
             Instantiate(EDPrefab),
             Instantiate(SolisedePrefab),
             Instantiate(SolimontPrefab),
-            Instantiate(LarmePrefab),
             Instantiate(AmphipolisPrefab),
             Instantiate(OeilPrefab),
             Instantiate(CentreUniversPrefab)
         };
 
         ChaptersTitles = new List<GameObject>();
+
+        //PlanetsPrefabs[0].transform.localScale = new Vector3(.64f, .64f, .64f);
 
         int i = 0;
         foreach (GameObject planet in PlanetsPrefabs)
@@ -72,6 +72,8 @@ public class ChapterSelectionManager : MonoBehaviour
             ChaptersTitles.Last().GetComponent<RectTransform>().localPosition = new Vector3((((i * OffSet)) * 100), 350, 0);
             ChaptersTitles.Last().SetActive(false);
             i++;
+
+            // set layer pour le pixeleffect
         }
     }
 
@@ -107,6 +109,15 @@ public class ChapterSelectionManager : MonoBehaviour
                     currentPlanetIndex--;
                     cameraIsMoving = -1;
                     GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
+                }
+                else if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    ChapterManager.currentChapterIndex = (int)currentPlanetIndex;
+                    //SceneManager.SetActiveScene(GetComponent<MainMenuManager>().SolarySystemScene);
+                    Debug.Log(currentPlanetIndex);
+
+                    GlobalVariables.Set("planetIndex", ChapterManager.currentChapterIndex);
+                    SceneManager.LoadScene(0);
                 }
             }
             else

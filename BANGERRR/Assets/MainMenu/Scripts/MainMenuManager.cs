@@ -39,7 +39,8 @@ public class MainMenuManager : MonoBehaviour
         }
         else //NEW GAME
         {
-            SceneManager.SetActiveScene(SolarySystemScene);
+            GlobalVariables.Set("planetIndex", 0);
+            SceneManager.LoadScene(0);
         }
     }
 }

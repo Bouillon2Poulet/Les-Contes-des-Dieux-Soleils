@@ -32,9 +32,9 @@ public class MainSceneLoadManager : MonoBehaviour
         Starts = new Transform[] { TritonStart, EdStart , SolisedeStart, SolimontStart, AmpStart, OeilStart };
         Tags = new PlanetTag[] { TritonTag, EdTag , SolisedeTag, SolimontTag, AmpTag, OeilTag };
 
-        //int index = GlobalVariables.Get<int>("planetIndex");
-        int index = 0;
-        Debug.Log("Forcefully starting with index " + index);
+        int index = GlobalVariables.Get<int>("planetIndex");
+        //int index = 0;
+        //Debug.Log("Forcefully starting with index " + index);
 
         // Solisède et après
         // [X] Donner le Cosmoguide
