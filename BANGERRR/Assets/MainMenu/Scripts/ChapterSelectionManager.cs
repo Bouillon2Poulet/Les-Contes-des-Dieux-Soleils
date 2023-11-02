@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using UnityEngine.SceneManagement;
 
 public class ChapterSelectionManager : MonoBehaviour
 {
@@ -107,6 +107,11 @@ public class ChapterSelectionManager : MonoBehaviour
                     currentPlanetIndex--;
                     cameraIsMoving = -1;
                     GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
+                }
+                else if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    ChapterManager.currentChapterIndex = (int)currentPlanetIndex;
+                    SceneManager.SetActiveScene(GetComponent<MainMenuManager>().SolarySystemScene);
                 }
             }
             else
