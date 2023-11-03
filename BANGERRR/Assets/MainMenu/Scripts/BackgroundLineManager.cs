@@ -45,10 +45,10 @@ public class BackgroundLineManager : MonoBehaviour
             Lines.AddLast(Instantiate(MiddleLine, BackgroundCanvas.transform));
         }
 
-        for (int i = 0; i < Lines.Count(); i++)
+        /*for (int i = 0; i < Lines.Count(); i++)
         {
             Debug.Log(Lines.ElementAt(i).name);
-        }
+        }*/
 
         Lines.Last().GetComponent<RectTransform>().localPosition = new Vector3(cameraIsMoving * 1920, 0, 0);
         Lines.Last().SetActive(true);
@@ -63,8 +63,8 @@ public class BackgroundLineManager : MonoBehaviour
         // Debug.Log("Cam:" + cameraAdvancementPercentage);
         for (int i = 0; i < Lines.Count(); i++)
         {
-            Debug.Log(Lines.ElementAt(i).name);
-            Debug.Log(i * 1920 * cameraIsMoving + "/" + cameraAdvancementPercentage * 1920 * -cameraIsMoving);
+            //Debug.Log(Lines.ElementAt(i).name);
+            //Debug.Log(i * 1920 * cameraIsMoving + "/" + cameraAdvancementPercentage * 1920 * -cameraIsMoving);
             float PosX = i * 1920 * cameraIsMoving + cameraAdvancementPercentage * 1920 * -cameraIsMoving;
             // Debug.Log("PosX " + PosX);
             Lines.ElementAt(i).GetComponent<RectTransform>().localPosition = new Vector3(PosX, 0, 0);

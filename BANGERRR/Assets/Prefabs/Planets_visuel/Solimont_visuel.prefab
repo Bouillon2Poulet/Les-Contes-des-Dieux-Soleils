@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4284443969246531903}
   - component: {fileID: 5966479237599954453}
   - component: {fileID: 1060665789613640856}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rocher
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6118799961492211867}
   - component: {fileID: 4024594700417363698}
   - component: {fileID: 1267760583811948134}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tunnel
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 3649076576595949018}
   - component: {fileID: 8349505675346523068}
   - component: {fileID: 542052861381390214}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8307292133010675848}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Solimont_visuel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 8890164931287503104}
   - component: {fileID: 1255234603676400614}
   - component: {fileID: 6219992529274588229}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: red light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

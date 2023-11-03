@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8969732535162137911}
   - component: {fileID: 1095448766088993057}
   - component: {fileID: 7369765211106045934}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: nouveau centre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8005389184125401287}
   - component: {fileID: 8331450086462978483}
   - component: {fileID: 5990243137216377001}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: nouvelle up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 873764033699845244}
   - component: {fileID: 6613873718042939350}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Oeil_visuel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 8679858864705444407}
   - component: {fileID: 6432971607342244711}
   - component: {fileID: 4838056483318931450}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: nouvelle down
   m_TagString: Untagged
   m_Icon: {fileID: 0}

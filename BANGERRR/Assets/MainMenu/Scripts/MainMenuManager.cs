@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 
 public class MainMenuManager : MonoBehaviour
@@ -14,6 +16,19 @@ public class MainMenuManager : MonoBehaviour
     {
         ChapterManager.getSaveFileJSONData();
         Debug.Log("MAINMENU : " + ChapterManager.maxChapterIndexDiscoveredByPlayer);
+    }
+
+    private void Start()
+    {
+        StartCoroutine(nameof(MakeMainCameraWork));
+    }
+
+    private IEnumerator MakeMainCameraWork()
+    {
+        yield return new WaitForSeconds(.5f);
+        mainCamera.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        mainCamera.SetActive(true);
     }
 
     // Update is called once per frame

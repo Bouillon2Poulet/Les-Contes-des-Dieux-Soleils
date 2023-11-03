@@ -50,7 +50,7 @@ public class ChapterSelectionManager : MonoBehaviour
 
         ChaptersTitles = new List<GameObject>();
 
-        float[] PrefabResizes = new float[] { 1.2f, 0.53f, 0.51f, 10.5f, 17.8f, 6.84f, 1.61f };
+        float[] PrefabResizes = new float[] { 1.15f, 0.53f, 0.51f, 10.5f, 17.8f, 6.84f, 1.61f };
 
         for (int j = 0; j < PlanetsPrefabs.Count; j++)
         {
@@ -78,8 +78,6 @@ public class ChapterSelectionManager : MonoBehaviour
             ChaptersTitles.Last().GetComponent<RectTransform>().localPosition = new Vector3((((i * OffSet)) * 100), 350, 0);
             ChaptersTitles.Last().SetActive(false);
             i++;
-
-            // set layer pour le pixeleffect
         }
     }
 
