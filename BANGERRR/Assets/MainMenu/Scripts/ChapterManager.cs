@@ -15,7 +15,6 @@ static class ChapterManager
         eaux_divine,
         solisède,
         solimont,
-        larme,
         amphipolis,
         oeil,
         fin,

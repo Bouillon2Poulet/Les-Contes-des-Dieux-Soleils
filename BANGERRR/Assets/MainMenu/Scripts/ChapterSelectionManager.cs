@@ -50,7 +50,13 @@ public class ChapterSelectionManager : MonoBehaviour
 
         ChaptersTitles = new List<GameObject>();
 
-        //PlanetsPrefabs[0].transform.localScale = new Vector3(.64f, .64f, .64f);
+        float[] PrefabResizes = new float[] { 1.2f, 0.53f, 0.51f, 10.5f, 17.8f, 6.84f, 1.61f };
+
+        for (int j = 0; j < PlanetsPrefabs.Count; j++)
+        {
+            float size = PrefabResizes[j];
+            PlanetsPrefabs[j].transform.localScale = new Vector3(size, size, size);
+        }
 
         int i = 0;
         foreach (GameObject planet in PlanetsPrefabs)

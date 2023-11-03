@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8969732535162137911}
   - component: {fileID: 1095448766088993057}
   - component: {fileID: 7369765211106045934}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: nouveau centre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8005389184125401287}
   - component: {fileID: 8331450086462978483}
   - component: {fileID: 5990243137216377001}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: nouvelle up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,8 +193,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573705791693472153}
-  m_LocalRotation: {x: 0.62524265, y: -0, z: -0, w: 0.78043044}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.0005083343, y: 0.6885197, z: -0.00048261104, w: 0.72521734}
+  m_LocalPosition: {x: -2.1935127, y: 1.5605917, z: -2.7434733}
   m_LocalScale: {x: 21.519108, y: 21.519112, z: 21.519112}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -203,7 +203,7 @@ Transform:
   - {fileID: 8679858864705444407}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 77.4, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.08, y: 87.026, z: 0}
 --- !u!114 &6613873718042939350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 8679858864705444407}
   - component: {fileID: 6432971607342244711}
   - component: {fileID: 4838056483318931450}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: nouvelle down
   m_TagString: Untagged
   m_Icon: {fileID: 0}

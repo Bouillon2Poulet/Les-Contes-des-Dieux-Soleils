@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4284443969246531903}
   - component: {fileID: 5966479237599954453}
   - component: {fileID: 1060665789613640856}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Rocher
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6118799961492211867}
   - component: {fileID: 4024594700417363698}
   - component: {fileID: 1267760583811948134}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Tunnel
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 3649076576595949018}
   - component: {fileID: 8349505675346523068}
   - component: {fileID: 542052861381390214}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -272,8 +272,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6988488008307245762}
-  m_LocalRotation: {x: -0.7041153, y: 0.064974576, z: 0.064974576, w: 0.7041153}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.808456, y: 0.20708385, z: -0.21895652, w: -0.50554246}
+  m_LocalPosition: {x: 4.8890495, y: -3.6882396, z: 14.677236}
   m_LocalScale: {x: 76.84378, y: 76.84378, z: 76.84378}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -283,7 +283,7 @@ Transform:
   - {fileID: 6118799961492211867}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 270, y: 80.481, z: 10.544006}
+  m_LocalEulerAnglesHint: {x: 114.756, y: -20.208984, z: 15.720001}
 --- !u!1 &8904176827064085092
 GameObject:
   m_ObjectHideFlags: 0
