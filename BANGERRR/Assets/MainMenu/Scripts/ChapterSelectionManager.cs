@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ChapterSelectionManager : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class ChapterSelectionManager : MonoBehaviour
     public Font font;
     public bool TitlesAreActive = false;
     private int cameraIsMoving = 0; //0 = no movement, 1 = right, -1 = left
+
+    public Image JouerBtnFromSelection;
+    public Color hideColor;
+    public Color showColor;
 
     // Start is called before the first frame update
     void Start()
@@ -102,26 +107,21 @@ public class ChapterSelectionManager : MonoBehaviour
             }
             if (cameraIsMoving == 0)
             {
+                JouerBtnFromSelection.color = showColor;
                 if (Input.GetKeyDown(KeyCode.RightArrow) && currentPlanetIndex != (int)ChapterManager.saveObject.maxChapterDiscovered)
                 {
                     currentPlanetIndex++;
                     cameraIsMoving = 1;
                     GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
+
+                    JouerBtnFromSelection.color = hideColor;
                 }
                 else if (Input.GetKeyDown(KeyCode.LeftArrow) && currentPlanetIndex != 0)
                 {
                     currentPlanetIndex--;
                     cameraIsMoving = -1;
                     GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
-                }
-                else if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    ChapterManager.currentChapterIndex = (int)currentPlanetIndex;
-                    //SceneManager.SetActiveScene(GetComponent<MainMenuManager>().SolarySystemScene);
-                    Debug.Log(currentPlanetIndex);
-
-                    GlobalVariables.Set("planetIndex", ChapterManager.currentChapterIndex);
-                    SceneManager.LoadScene(0);
+                    JouerBtnFromSelection.color = hideColor;
                 }
             }
             else
@@ -162,6 +162,26 @@ public class ChapterSelectionManager : MonoBehaviour
                     float colorValue = Mathf.Lerp(0, 100, 980 / 980 - Mathf.Abs(newPos.x / TitleFadeSpeed));
                     ChaptersTitles[i].GetComponent<UnityEngine.UI.Text>().color = new Color(colorValue, colorValue, colorValue, 1);
                 }
+            }
+        }
+    }
+
+    public void StartFromSelection()
+    {
+        if (cameraIsMoving == 0 && GetComponent<MainMenuManager>().step == 1)
+        {
+            ChapterManager.currentChapterIndex = (int)currentPlanetIndex;
+            //SceneManager.SetActiveScene(GetComponent<MainMenuManager>().SolarySystemScene);
+            Debug.Log("Launching on chapter " + currentPlanetIndex);
+
+            GlobalVariables.Set("planetIndex", ChapterManager.currentChapterIndex);
+            if (ChapterManager.currentChapterIndex < 6)
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                SceneManager.LoadScene(1);
             }
         }
     }

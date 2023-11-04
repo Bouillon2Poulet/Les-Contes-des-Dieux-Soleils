@@ -476,8 +476,10 @@ GameObject:
   - component: {fileID: 230870933}
   - component: {fileID: 230870932}
   - component: {fileID: 230870931}
+  - component: {fileID: 230870935}
+  - component: {fileID: 230870936}
   m_Layer: 3
-  m_Name: Plane (1)
+  m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -570,6 +572,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &230870935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230870930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326122e57df6b8b4ca32aabd8f412dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planet: {fileID: 230870930}
+  sprite: {fileID: 21300000, guid: 59cf15172aee8af42b0a51db7a7babe7, type: 3}
+  toActivate: []
+  toDeactivate: []
+--- !u!114 &230870936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230870930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a1a37bd7c292d44b1008919447aa00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
 --- !u!1 &275756797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +1031,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -1202,6 +1233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98a5e8d5a3197b4badd6f6f0631c41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fin: {fileID: 230870935}
 --- !u!114 &1650072506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1715,19 +1747,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274549741897583894, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9494956
+      value: 0.94949555
       objectReference: {fileID: 0}
     - target: {fileID: 4274549741897583894, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11615128
+      value: 0.11615129
       objectReference: {fileID: 0}
     - target: {fileID: 4274549741897583894, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.28875196
+      value: -0.288752
       objectReference: {fileID: 0}
     - target: {fileID: 4274549741897583894, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.039866474
+      value: 0.039866466
       objectReference: {fileID: 0}
     - target: {fileID: 5349065290650347368, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_IsActive
@@ -1739,15 +1771,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6789092308699582145, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.028436154
+      value: -0.028436163
       objectReference: {fileID: 0}
     - target: {fileID: 6789092308699582145, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.29146144
+      value: -0.29146147
       objectReference: {fileID: 0}
     - target: {fileID: 6789092308699582145, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.004156161
+      value: -0.004156171
       objectReference: {fileID: 0}
     - target: {fileID: 6842288759729053146, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_Orbits.Array.data[0].m_Height
@@ -1783,15 +1815,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7871082697970528010, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.16146536
+      value: -0.16146535
       objectReference: {fileID: 0}
     - target: {fileID: 7871082697970528010, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000032895226
+      value: -0.000000032708265
       objectReference: {fileID: 0}
     - target: {fileID: 7871082697970528010, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000005382061
+      value: -0.000000005351471
       objectReference: {fileID: 0}
     - target: {fileID: 8023520459186915798, guid: 26446a13cd44bd44a9a4db48103d3f3d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4315,6 +4347,8 @@ MonoBehaviour:
   suffocationCountdown: 10
   initialBlinkInterval: 1
   blinkColor: {r: 1, g: 0, b: 0, a: 1}
+  bubbleRespawnTransform: {fileID: 0}
+  Bulle: {fileID: 0}
   rockOnHead: {fileID: 3553672823203224771}
   timeBeforeJumpRespawn: 22
   hasCosmoGuide: 1

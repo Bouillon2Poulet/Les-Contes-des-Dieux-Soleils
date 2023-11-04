@@ -25,9 +25,9 @@ public class MainMenuManager : MonoBehaviour
 
     private IEnumerator MakeMainCameraWork()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.2f);
         mainCamera.SetActive(false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.2f);
         mainCamera.SetActive(true);
     }
 
@@ -38,7 +38,6 @@ public class MainMenuManager : MonoBehaviour
         {
             GetComponentInChildren<BackgroundLineManager>().setActiveFirstLine();
         }
-
     }
 
     public void displayChapterSelectionOrLaunchGame()

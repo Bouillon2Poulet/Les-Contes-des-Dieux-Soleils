@@ -13,13 +13,14 @@ public class BackgroundLineManager : MonoBehaviour
     public GameObject BackgroundCanvas;
     public LinkedList<GameObject> Lines;
     private float FirstLineFadeInEffect = 0;
-    // Start is called before the first frame update
+
+    public float lineHeight = 380f;
 
     void Start()
     {
         Lines = new LinkedList<GameObject>();
         Lines.AddFirst(Instantiate(LeftLine, BackgroundCanvas.transform));
-        Lines.Last().GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+        Lines.Last().GetComponent<RectTransform>().localPosition = new Vector3(0, lineHeight, 0);
         Lines.Last().GetComponent<UnityEngine.UI.Image>().color = Color.black;
     }
 
@@ -27,7 +28,7 @@ public class BackgroundLineManager : MonoBehaviour
     {
         if (Lines.Count() >= 2)
         {
-            Debug.Log("Destroy + AddLast");
+            //Debug.Log("Destroy + AddLast");
             Destroy(Lines.First());
             Lines.RemoveFirst();
         }
@@ -50,7 +51,7 @@ public class BackgroundLineManager : MonoBehaviour
             Debug.Log(Lines.ElementAt(i).name);
         }*/
 
-        Lines.Last().GetComponent<RectTransform>().localPosition = new Vector3(cameraIsMoving * 1920, 0, 0);
+        Lines.Last().GetComponent<RectTransform>().localPosition = new Vector3(cameraIsMoving * 1920, lineHeight, 0);
         Lines.Last().SetActive(true);
     }
 
@@ -67,7 +68,7 @@ public class BackgroundLineManager : MonoBehaviour
             //Debug.Log(i * 1920 * cameraIsMoving + "/" + cameraAdvancementPercentage * 1920 * -cameraIsMoving);
             float PosX = i * 1920 * cameraIsMoving + cameraAdvancementPercentage * 1920 * -cameraIsMoving;
             // Debug.Log("PosX " + PosX);
-            Lines.ElementAt(i).GetComponent<RectTransform>().localPosition = new Vector3(PosX, 0, 0);
+            Lines.ElementAt(i).GetComponent<RectTransform>().localPosition = new Vector3(PosX, lineHeight, 0);
         }
 
     }

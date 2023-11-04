@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class EndManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public PlanetTag fin;
+
+    private void Awake()
+    {
+        if (ChapterManager.maxChapterIndexDiscoveredByPlayer == 6)
+        {
+            fin.DiscoverPlanet();
+        }
+    }
+
     void Start()
     {
         //StartCoroutine(TheEnd());

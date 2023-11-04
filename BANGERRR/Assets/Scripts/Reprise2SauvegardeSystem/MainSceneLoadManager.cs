@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainSceneLoadManager : MonoBehaviour
 {
+    public GameObject mainCamera;
     public Rigidbody player;
     public GameObject Larme;
     public GameObject FakeLarme;
@@ -26,6 +27,7 @@ public class MainSceneLoadManager : MonoBehaviour
 
     Transform[] Starts;
     PlanetTag[] Tags;
+
 
     void Awake()
     {
@@ -73,5 +75,18 @@ public class MainSceneLoadManager : MonoBehaviour
             Tags[index].DiscoverPlanet();
             index--;
         }
+    }
+
+    private void Start()
+    {
+        StartCoroutine(nameof(MakeMainCameraWork));
+    }
+
+    private IEnumerator MakeMainCameraWork()
+    {
+        yield return new WaitForSeconds(.2f);
+        mainCamera.SetActive(false);
+        yield return new WaitForSeconds(.2f);
+        mainCamera.SetActive(true);
     }
 }

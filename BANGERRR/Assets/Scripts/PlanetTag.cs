@@ -16,6 +16,7 @@ public class PlanetTag : MonoBehaviour
     static readonly float tagOnScreenSeconds = 6f;
 
     bool hasBeenTriggered = false;
+    bool hasShownTag = false;
 
     [SerializeField] GameObject planet;
     [SerializeField] Sprite sprite;
@@ -43,19 +44,32 @@ public class PlanetTag : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                //Debug.Log("PT");
                 hasBeenTriggered = true;
+
                 if (isSolisede)
                     PlayerStatus.instance.LooseBubble();
+
+                DiscoverPlanet();
+
+                ChapterManager.NewChapterDiscovered();
+                ChapterManager.SaveProgression();
+            }
+        }
+
+        if (!hasShownTag)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
                 StartCoroutine(ShowTag());
-                //ChapterManager.newChapterDiscovered();
+                hasShownTag = true;
             }
         }
     }
 
     public void DiscoverPlanet()
     {
-        //Debug.Log("Discovering " + planet.name);
+        hasBeenTriggered = true;
+        Debug.Log("Discovering " + planet.name);
         planet.GetComponent<HasBeenDiscovered>().state = true;
     }
 

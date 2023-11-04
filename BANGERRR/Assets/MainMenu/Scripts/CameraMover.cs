@@ -8,6 +8,9 @@ public class CameraMover : MonoBehaviour
     private Vector3 initialPosition;
     public bool canMove = false;
 
+    private bool hasReachedFinalPosition = false;
+    public GameObject jouerBtnFromSelection;
+
     private void Start()
     {
         initialPosition = transform.position;
@@ -15,7 +18,7 @@ public class CameraMover : MonoBehaviour
 
     private void Update()
     {
-        if (canMove && GetComponentInParent<MainMenuManager>().step == 0)
+        if (canMove && GetComponentInParent<MainMenuManager>().step == 0 && !hasReachedFinalPosition)
         {
             elapsedTime += Time.deltaTime;
 
@@ -26,9 +29,12 @@ public class CameraMover : MonoBehaviour
             }
             else
             {
-                // Arriver à la destination après 5 secondes
+                hasReachedFinalPosition = true;
+
                 transform.position = destination.position;
                 GetComponentInParent<MainMenuManager>().step = 1;
+
+                jouerBtnFromSelection.SetActive(true);
             }
         }
     }

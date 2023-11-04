@@ -47,10 +47,17 @@ static class ChapterManager
 
         Debug.Log("Save file created and saved at: " + pathToSaveFileJSON);
     }
-    public static void newChapterDiscovered()
+
+    public static void NewChapterDiscovered()
     {
         saveObject.currentChapter++;
         saveObject.maxChapterDiscovered++;
+        Debug.Log("New chapter discovered: " + saveObject.maxChapterDiscovered);
+    }
+
+    public static void SaveProgression()
+    {
+        Debug.Log("Progression saved to file");
         var json = JsonUtility.ToJson(saveObject);
         File.WriteAllText(pathToSaveFileJSON, json);
     }

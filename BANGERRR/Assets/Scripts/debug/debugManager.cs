@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class debugManager : MonoBehaviour
 {
@@ -87,6 +88,11 @@ public class debugManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
             movements.JETPACKMODE = !movements.JETPACKMODE;
+        }
+
+        if (Input.GetKeyDown(KeyCode.KeypadMultiply))
+        {
+            SceneManager.LoadScene(1);
         }
     }
 
