@@ -16,9 +16,19 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O) && !PlayerStatus.instance.isAnimated && !DialogManager.instance.isItActive())
         {
-            GetComponent<Canvas>().enabled = !GetComponent<Canvas>().enabled;
-            PlayerStatus.instance.GameMenuCursor(GetComponent<Canvas>().enabled);
-            OptionsUI.SetActive(!GetComponent<Canvas>().enabled);
+            bool newState = !GetComponent<Canvas>().enabled;
+
+            // Activate or deactivate canvas
+            GetComponent<Canvas>().enabled = newState;
+
+            // Cursor management
+            PlayerStatus.instance.GameMenuCursor(newState);
+
+            // Change the interaction icon
+            KeyInteractionManager.instance.ChangeMenuIcon(newState);
+
+            // Hide the options just in case
+            OptionsUI.SetActive(false);
         }
     }
 }

@@ -61,6 +61,8 @@ public class Fleurbulle : MonoBehaviour, IInteractable
         Debug.Log("Fleurbulle" + GetInstanceID() + " donne sa bulle à joueur");
         isBubbleAvailable = false;
         spriteRenderer.sprite = emptySprite;
+        GetComponent<InteractionBubble>().TurnOff();
+        KeyInteractionManager.instance.ToggleActionIcon(1, false);
     }
 
     public void retrieveBubble()
@@ -68,6 +70,7 @@ public class Fleurbulle : MonoBehaviour, IInteractable
         Debug.Log("Fleurbulle" + GetInstanceID() + " récup sa bulle");
         isBubbleAvailable = true;
         spriteRenderer.sprite = originalSprite;
+        GetComponent<InteractionBubble>().TurnOn();
     }
 
     public Transform GetTransform()

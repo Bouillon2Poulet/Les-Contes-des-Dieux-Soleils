@@ -117,6 +117,7 @@ public class NPC : MonoBehaviour, IInteractable
         if (other.TryGetComponent(out ThirdPersonMovement player) && messagesA.Length > 0)
         {
             ShowBubble();
+            KeyInteractionManager.instance.ToggleActionIcon(2, true);
         }
     }
 
@@ -125,6 +126,7 @@ public class NPC : MonoBehaviour, IInteractable
         if (other.TryGetComponent(out ThirdPersonMovement player))
         {
             HideBubble();
+            KeyInteractionManager.instance.ToggleActionIcon(2, false);
         }
     }
 

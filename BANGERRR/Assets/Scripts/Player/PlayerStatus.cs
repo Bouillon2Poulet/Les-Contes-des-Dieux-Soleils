@@ -203,6 +203,7 @@ public class PlayerStatus : MonoBehaviour
     public void giveCosmoguide()
     {
         hasCosmoGuide = true;
+        KeyInteractionManager.instance.ActivateCosmoguideIcon();
     }
 
     public void PutRockOnHead()
@@ -215,9 +216,9 @@ public class PlayerStatus : MonoBehaviour
         rockOnHead.SetActive(false);
     }
 
-    public void GameMenuCursor(bool state)
+    public void GameMenuCursor(bool inMenu)
     {
-        if (state)
+        if (inMenu)
         {
             Debug.Log("IN game menu");
             FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();

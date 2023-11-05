@@ -27,7 +27,9 @@ public class Miroir : MonoBehaviour, IInteractable
             FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
             FindObjectOfType<MainCameraManager>().blockMovement();
             FindObjectOfType<PlayerStatus>().hideSprite();
-        } else
+            GetComponent<InteractionBubble>().ToggleBubble(false);
+        }
+        else
         {
             miroirCam.Priority = 0;
             FindObjectOfType<PlayerStatus>().showSprite();
@@ -51,5 +53,6 @@ public class Miroir : MonoBehaviour, IInteractable
         hasFocus = false;
         FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
         FindObjectOfType<MainCameraManager>().unblockMovement();
+        GetComponent<InteractionBubble>().ToggleBubble(true);
     }
 }

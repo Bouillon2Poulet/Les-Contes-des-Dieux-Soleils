@@ -20,10 +20,10 @@ public class AmpSwimNinjaEvents : MonoBehaviour
     public Transform animPointUp2;
     public Transform animPointAside;
     public Transform playerPos;
-    private bool isPlayerMounting = false;
+    public bool isPlayerMounting = false;
     private float mountAnimProgress;
     private float mountAnimSpeed = .5f;
-    private bool isPlayerDismounting = false;
+    public bool isPlayerDismounting = false;
     private float dismountAnimProgress;
     private float dismountAnimSpeed = .5f;
 
@@ -109,6 +109,7 @@ public class AmpSwimNinjaEvents : MonoBehaviour
             if (dismountAnimProgress >= 1)
             {
                 isPlayerDismounting = false;
+                FindObjectOfType<NPCSwimNinja>().ShowBubble();
                 playerMovement.unblockPlayerMoveInputs();
                 playerMovement.unblockPlayerGAFollow();
                 playerMovement.CapSpeed();

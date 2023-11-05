@@ -86,11 +86,13 @@ public class NPCSwimNinja : MonoBehaviour, IInteractable
     public void ShowBubble()
     {
         bubble.transform.localScale = Vector3.one * initialBubbleSize;
+        KeyInteractionManager.instance.ToggleActionIcon(2, true);
     }
 
     public void HideBubble()
     {
         bubble.transform.localScale = Vector3.zero;
+        KeyInteractionManager.instance.ToggleActionIcon(2, false);
     }
 
     private void Start()
@@ -108,6 +110,7 @@ public class NPCSwimNinja : MonoBehaviour, IInteractable
             if (!FindObjectOfType<DialogManager>().isItActive())
             {
                 waitingToMountFirstTime = false;
+                HideBubble();
                 AmpSwimNinjaEvents.instance.MountPlayerFirstTime();
             }
         }
@@ -127,6 +130,7 @@ public class NPCSwimNinja : MonoBehaviour, IInteractable
             if (!FindObjectOfType<DialogManager>().isItActive())
             {
                 waitingToMountFull = false;
+                HideBubble();
                 AmpSwimNinjaEvents.instance.MountPlayerFull();
                 isInteractionAllowed = false;
             }
@@ -140,7 +144,7 @@ public class NPCSwimNinja : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ThirdPersonMovement player) && messagesA.Length > 0)
+        if (other.CompareTag("Player") && messagesA.Length > 0)
         {
             ShowBubble();
         }
@@ -148,7 +152,7 @@ public class NPCSwimNinja : MonoBehaviour, IInteractable
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out ThirdPersonMovement player))
+        if (other.CompareTag("Player"))
         {
             HideBubble();
         }

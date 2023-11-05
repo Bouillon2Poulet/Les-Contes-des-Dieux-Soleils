@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class SolPuzzlePiece : Note, IInteractable
 {
-    [Header("Bubble stuff")]
-    public GameObject bubble;
-    private float interactRange;
-    public Rigidbody player;
-
-    private void Update()
-    {
-        bubble.SetActive(Vector3.Distance(player.transform.position, transform.position) < GlobalVariables.Get<float>("interactRange") + 1);
-    }
-
     public void Interact()
     {
         NPCEventsManager M = FindObjectOfType<NPCEventsManager>();
@@ -23,6 +13,7 @@ public class SolPuzzlePiece : Note, IInteractable
             M.updateNPCPages();
             string message = "Vous avez trouvé une pièce de puzzle ! Elle est minuscule !";
             FindObjectOfType<DialogManager>().OpenMessage(message, "Objet trouvé", "Solisede");
+            GetComponent<InteractionBubble>().TurnOff();
             transform.gameObject.SetActive(false);
         }
     }

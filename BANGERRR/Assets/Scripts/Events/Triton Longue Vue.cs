@@ -24,6 +24,7 @@ public class TritonLongueVue : MonoBehaviour, IInteractable
         if (!larmeAnimationHasStarted && animationCanStart)
         {
             StartLarmeAnimation();
+            GetComponent<InteractionBubble>().ToggleActionIcon(false);
         } 
         else if (!larmeAnimationHasStarted)
         {
@@ -83,15 +84,6 @@ public class TritonLongueVue : MonoBehaviour, IInteractable
     {
         playerMovement = FindAnyObjectByType<ThirdPersonMovement>();
         larme.SetActive(false);
-    }
-
-    [Header("Bubble stuff")]
-    public GameObject bubble;
-    public Rigidbody player;
-
-    private void Update()
-    {
-        bubble.SetActive(Vector3.Distance(player.transform.position, transform.position) < GlobalVariables.Get<float>("interactRange") + 1);
     }
 
     public Transform GetTransform()
