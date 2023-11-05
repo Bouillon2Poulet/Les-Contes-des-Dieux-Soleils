@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EndManager : MonoBehaviour
 {
+    public GameObject mainCamera;
+
     public PlanetTag fin;
 
     private void Awake()
@@ -12,10 +14,12 @@ public class EndManager : MonoBehaviour
         {
             fin.DiscoverPlanet();
         }
+        ChapterManager.currentChapterIndex = 6;
     }
 
     void Start()
     {
+        StartCoroutine(nameof(MakeMainCameraWork));
         //StartCoroutine(TheEnd());
     }
 
@@ -26,5 +30,13 @@ public class EndManager : MonoBehaviour
         yield return FadeToBlack.instance.FadeWhiteEdition(false, .1f);
         yield return new WaitForSeconds(3f);
         yield return FindObjectOfType<DialogManager>().EphemeralMessage(" ", "The end", 20f);
+    }
+
+    private IEnumerator MakeMainCameraWork()
+    {
+        yield return new WaitForSeconds(.2f);
+        mainCamera.SetActive(false);
+        yield return new WaitForSeconds(.2f);
+        mainCamera.SetActive(true);
     }
 }

@@ -50,13 +50,15 @@ static class ChapterManager
 
     public static void NewChapterDiscovered()
     {
-        saveObject.currentChapter++;
-        saveObject.maxChapterDiscovered++;
-        Debug.Log("New chapter discovered: " + saveObject.maxChapterDiscovered);
+        maxChapterIndexDiscoveredByPlayer++;
+        Debug.Log("New chapter discovered: " + maxChapterIndexDiscoveredByPlayer);
+        SaveProgression();
     }
 
     public static void SaveProgression()
     {
+        saveObject.currentChapter = (Chapter)currentChapterIndex;
+        saveObject.maxChapterDiscovered = (Chapter)maxChapterIndexDiscoveredByPlayer;
         Debug.Log("Progression saved to file");
         var json = JsonUtility.ToJson(saveObject);
         File.WriteAllText(pathToSaveFileJSON, json);

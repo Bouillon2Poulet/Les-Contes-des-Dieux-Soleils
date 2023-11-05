@@ -139,7 +139,7 @@ public class PlayerStatus : MonoBehaviour
             }
 
             blinkTimer += Time.deltaTime;
-            Debug.Log("Jpeux pas respirer");
+            //Debug.Log("Jpeux pas respirer");
 
             if (blinkTimer >= suffocationCountdown)
             {

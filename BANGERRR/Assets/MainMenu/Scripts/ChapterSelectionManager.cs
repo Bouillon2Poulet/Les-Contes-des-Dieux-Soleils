@@ -172,7 +172,8 @@ public class ChapterSelectionManager : MonoBehaviour
         {
             ChapterManager.currentChapterIndex = (int)currentPlanetIndex;
             //SceneManager.SetActiveScene(GetComponent<MainMenuManager>().SolarySystemScene);
-            Debug.Log("Launching on chapter " + currentPlanetIndex);
+
+            Debug.Log("Launching on chapter " + ChapterManager.currentChapterIndex);
 
             GlobalVariables.Set("planetIndex", ChapterManager.currentChapterIndex);
             if (ChapterManager.currentChapterIndex < 6)

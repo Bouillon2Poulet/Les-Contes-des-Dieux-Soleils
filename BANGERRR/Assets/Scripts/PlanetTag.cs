@@ -49,10 +49,18 @@ public class PlanetTag : MonoBehaviour
                 if (isSolisede)
                     PlayerStatus.instance.LooseBubble();
 
-                DiscoverPlanet();
+                ChapterManager.currentChapterIndex++;
 
-                ChapterManager.NewChapterDiscovered();
-                ChapterManager.SaveProgression();
+                if (ChapterManager.currentChapterIndex > ChapterManager.maxChapterIndexDiscoveredByPlayer)
+                {
+                    Debug.Log("Completely new Chapter discovered !");
+                    ChapterManager.NewChapterDiscovered();
+                }
+                else
+                {
+                    Debug.Log("Next chapter but I already knew it");
+                    DiscoverPlanet();
+                }
             }
         }
 
@@ -62,6 +70,7 @@ public class PlanetTag : MonoBehaviour
             {
                 StartCoroutine(ShowTag());
                 hasShownTag = true;
+                Debug.Log("ChapterManager.currentChapterIndex : " + ChapterManager.currentChapterIndex);
             }
         }
     }
@@ -69,7 +78,8 @@ public class PlanetTag : MonoBehaviour
     public void DiscoverPlanet()
     {
         hasBeenTriggered = true;
-        Debug.Log("Discovering " + planet.name);
+        Debug.Log("Adding " + sprite.name + " on the Cosmoguide");
+
         planet.GetComponent<HasBeenDiscovered>().state = true;
     }
 
