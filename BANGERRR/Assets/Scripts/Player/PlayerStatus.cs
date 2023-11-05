@@ -214,4 +214,24 @@ public class PlayerStatus : MonoBehaviour
     {
         rockOnHead.SetActive(false);
     }
+
+    public void GameMenuCursor(bool state)
+    {
+        if (state)
+        {
+            Debug.Log("IN game menu");
+            FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
+            FindObjectOfType<MainCameraManager>().blockMovement();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Debug.Log("OUT game menu");
+            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            FindObjectOfType<MainCameraManager>().unblockMovement();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
 }

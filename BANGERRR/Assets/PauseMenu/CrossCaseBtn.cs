@@ -3,10 +3,9 @@ using UnityEngine.EventSystems;
 
 public class CrossCaseBtn : MonoBehaviour, IPointerClickHandler
 {
-
     public GameObject Cross;
     private bool isActive = false;
-    //Detect if a click occurs
+
     public void Start()
     {
         Cross.SetActive(isActive);
@@ -18,6 +17,7 @@ public class CrossCaseBtn : MonoBehaviour, IPointerClickHandler
         {
             isActive = !isActive;
             Cross.SetActive(isActive);
+            Debug.Log("Dialogues rapides : " + isActive);
         }
     }
 }
