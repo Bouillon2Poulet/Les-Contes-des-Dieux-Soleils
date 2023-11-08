@@ -249,13 +249,18 @@ public class DialogManager : MonoBehaviour
                 NextMessage();
             }
 
-            wordSpeed = wordSpeedFast;
+            //wordSpeed = wordSpeedFast;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
+        /*if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
             wordSpeed = wordBaseSpeed;
-        }
+        }*/
+    }
+
+    public void DialoguesRapides(bool state)
+    {
+        wordSpeed = (state) ? wordSpeedFast : wordBaseSpeed;
     }
 
     public bool isItActive()

@@ -17,6 +17,7 @@ public class CrossCaseBtn : MonoBehaviour, IPointerClickHandler
         {
             isActive = !isActive;
             Cross.SetActive(isActive);
+            DialogManager.instance.DialoguesRapides(isActive);
             Debug.Log("Dialogues rapides : " + isActive);
         }
     }

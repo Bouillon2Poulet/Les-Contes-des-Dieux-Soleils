@@ -35,10 +35,13 @@ public class ChapterSelectionManager : MonoBehaviour
     public Font font;
     public bool TitlesAreActive = false;
     private int cameraIsMoving = 0; //0 = no movement, 1 = right, -1 = left
+    public GameObject titleBackground;
 
     public Image JouerBtnFromSelection;
     public Color hideColor;
     public Color showColor;
+
+    readonly string[] ChapterNames = { "Triton", "Eaux Divines", "Solisède", "Solimont", "Amphipolis", "Oeil", "Omnio" };
 
     // Start is called before the first frame update
     void Start()
@@ -73,12 +76,12 @@ public class ChapterSelectionManager : MonoBehaviour
             ChaptersTitles.Add(new GameObject());
             ChaptersTitles.Last().name = ((ChapterManager.Chapter)i).ToString() + "_title";
             ChaptersTitles.Last().AddComponent<UnityEngine.UI.Text>();
-            ChaptersTitles.Last().GetComponent<UnityEngine.UI.Text>().text = "Chapitre " + i + " " + ((ChapterManager.Chapter)i).ToString();
+            ChaptersTitles.Last().GetComponent<UnityEngine.UI.Text>().text = "Chapitre " + i + " " + ChapterNames[i];
             ChaptersTitles.Last().GetComponent<UnityEngine.UI.Text>().font = font;
             ChaptersTitles.Last().GetComponent<UnityEngine.UI.Text>().fontSize = 60;
             ChaptersTitles.Last().GetComponent<UnityEngine.UI.Text>().alignment = TextAnchor.MiddleCenter;
 
-            ChaptersTitles.Last().GetComponent<RectTransform>().sizeDelta = new Vector2(400, 180);
+            ChaptersTitles.Last().GetComponent<RectTransform>().sizeDelta = new Vector2(450, 180);
             ChaptersTitles.Last().transform.SetParent(UICanvas.transform);
             ChaptersTitles.Last().GetComponent<RectTransform>().localPosition = new Vector3((((i * OffSet)) * 100), 350, 0);
             ChaptersTitles.Last().SetActive(false);
@@ -108,6 +111,7 @@ public class ChapterSelectionManager : MonoBehaviour
             if (cameraIsMoving == 0)
             {
                 JouerBtnFromSelection.color = showColor;
+                //titleBackground.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.RightArrow) && currentPlanetIndex != (int)ChapterManager.saveObject.maxChapterDiscovered)
                 {
                     currentPlanetIndex++;
@@ -115,6 +119,7 @@ public class ChapterSelectionManager : MonoBehaviour
                     GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
 
                     JouerBtnFromSelection.color = hideColor;
+                    //titleBackground.SetActive(false);
                 }
                 else if (Input.GetKeyDown(KeyCode.LeftArrow) && currentPlanetIndex != 0)
                 {
@@ -122,6 +127,7 @@ public class ChapterSelectionManager : MonoBehaviour
                     cameraIsMoving = -1;
                     GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
                     JouerBtnFromSelection.color = hideColor;
+                    //titleBackground.SetActive(false);
                 }
             }
             else

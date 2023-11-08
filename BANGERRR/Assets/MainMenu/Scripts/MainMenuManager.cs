@@ -11,6 +11,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject mainCamera;
     public int step = 0; //0 menu, 1-> chapter selection
 
+    public GameObject QuitterButton;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -48,6 +50,7 @@ public class MainMenuManager : MonoBehaviour
         {
             GameObject.Find("Game_Logo").SetActive(false);
             GameObject.Find("Start_Btn").SetActive(false);
+            QuitterButton.SetActive(false);
 
             mainCamera.GetComponent<CameraMover>().canMove = true;
         }
