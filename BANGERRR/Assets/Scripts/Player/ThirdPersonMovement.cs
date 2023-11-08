@@ -55,6 +55,20 @@ public class ThirdPersonMovement : MonoBehaviour
 
     [Header("JETPACK MODE")]
     public bool JETPACKMODE;
+    [SerializeField] GameObject Jetpack_left;
+    [SerializeField] GameObject Jetpack_right;
+    [SerializeField] GameObject Jetpack_front;
+    [SerializeField] GameObject Jetpack_back;
+    [SerializeField] public ParticleSystem[] pSys;
+    private ParticleSystem.EmissionModule pSysEmMod;
+
+    [Header("Bulle Jetpack")]
+    public static bool wearingBulleJetpack = false;
+    [SerializeField] GameObject BulleJetpack;
+    [SerializeField] GameObject BulleJetpackSide;
+
+    private enum Direction { right, left, front, back, };
+    Direction facing;
 
     GameObject sphere;
     bool canCheckIfGrounded = true;
@@ -71,6 +85,13 @@ public class ThirdPersonMovement : MonoBehaviour
         GAPreviousRotationY = 0;
         GAFirstEntering = true;
         GAPreviousID = -1;
+
+        foreach (ParticleSystem psys in pSys)
+        {
+            psys.Play();
+            ToggleEmission(psys, false);
+        }
+
 
         playerSource = GetComponent<AudioSource>();
 
@@ -159,6 +180,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (wearingBulleJetpack)
+        {
+            BulleJetpack.SetActive(facing == Direction.front || facing == Direction.back);
+            BulleJetpackSide.SetActive(facing == Direction.right || facing == Direction.left);
+        }
+
         if (canCheckIfGrounded)
         {
             if (grounded)
@@ -185,27 +212,51 @@ public class ThirdPersonMovement : MonoBehaviour
             if (JETPACKMODE)
             {
                 // NULLIFY GRAVITY (A BIT)
-                rb.AddForce(-gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * .8f), ForceMode.Acceleration);
+                rb.AddForce(-gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * .2f), ForceMode.Acceleration);
 
                 // JETPACK INPUTS
                 // UP
                 if (Input.GetKey(KeyCode.E))
                 {
-                    rb.AddForce(-gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 3f), ForceMode.Force);
+                    rb.AddForce(-gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 1.8f), ForceMode.Force);
+
+                    ToggleEmission(pSys[0], facing == Direction.left);
+                    ToggleEmission(pSys[1], facing == Direction.right);
+                    ToggleEmission(pSys[2], facing == Direction.front || facing == Direction.back);
+                    ToggleEmission(pSys[3], facing == Direction.front || facing == Direction.back);
                 }
+                else
+                {
+                    foreach(ParticleSystem psys in pSys)
+                    {
+                        ToggleEmission(psys, false);
+                    }
+                    Debug.Log("NOT GOING UP");
+                }
+
                 // DOWN
                 if (Input.GetKey(KeyCode.Q))
                 {
                     rb.AddForce(gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 3f), ForceMode.Force);
                 }
+
+                Jetpack_left.SetActive(facing == Direction.left);
+                Jetpack_right.SetActive(facing == Direction.right);
+                Jetpack_front.SetActive(facing == Direction.front);
+                Jetpack_back.SetActive(facing == Direction.back);
+            }
+            else
+            {
+                Jetpack_left.SetActive(false);
+                Jetpack_right.SetActive(false);
+                Jetpack_front.SetActive(false);
+                Jetpack_back.SetActive(false);
             }
         }
         else
         {
             GAFirstEntering = true;
         }
-
-        //Debug.Log(myDirection);
     }
 
     private void FollowGravityArea()
@@ -328,7 +379,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("GoingRight", false);
                 animator.SetBool("GoingFace", false);
                 animator.SetBool("GoingLeft", false);
-                //myDirection = '↑';
+                facing = Direction.back;
                 animator.SetBool("Walking", true);
             }
             else if (verticalInput < -.01f)
@@ -337,7 +388,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("GoingBack", false);
                 animator.SetBool("GoingRight", false);
                 animator.SetBool("GoingLeft", false);
-                //myDirection = '↓';
+                facing = Direction.front;
                 animator.SetBool("Walking", true);
             }
             else if (horizontalInput > .01f)
@@ -346,7 +397,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("GoingBack", false);
                 animator.SetBool("GoingFace", false);
                 animator.SetBool("GoingLeft", false);
-                //myDirection = '→';
+                facing = Direction.right;
                 animator.SetBool("Walking", true);
             }
             else if (horizontalInput < -.01f)
@@ -355,7 +406,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("GoingBack", false);
                 animator.SetBool("GoingRight", false);
                 animator.SetBool("GoingFace", false);
-                //myDirection = '←';
+                facing = Direction.left;
                 animator.SetBool("Walking", true);
             }
         }
@@ -397,5 +448,16 @@ public class ThirdPersonMovement : MonoBehaviour
     public void CapSpeed()
     {
         isSpeedCaped = true;
+    }
+
+    public void ToggleEmission(ParticleSystem pSys, bool state)
+    {
+        var em = pSys.emission;
+        em.enabled = state;
+    }
+
+    public static void ToggleBulleJetpack(bool state)
+    {
+        wearingBulleJetpack = state;
     }
 }

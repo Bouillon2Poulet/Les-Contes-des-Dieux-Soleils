@@ -12,6 +12,7 @@ public class AmpSunTrigger : MonoBehaviour
         {
             AmpTriggerInFusee.instance.Kill();
             SUNLIGHT.SetActive(false);
+            ThirdPersonMovement.ToggleBulleJetpack(true);
             Destroy(gameObject);
         }
     }

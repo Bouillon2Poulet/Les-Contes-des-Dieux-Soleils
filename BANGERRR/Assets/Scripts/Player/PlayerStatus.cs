@@ -35,6 +35,7 @@ public class PlayerStatus : MonoBehaviour
 
     private GravityBody gBody;
 
+    [Header("Cosmoguide")]
     public bool hasCosmoGuide = false;
 
     public void WearBubble()
