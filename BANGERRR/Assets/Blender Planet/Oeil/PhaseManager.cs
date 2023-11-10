@@ -34,7 +34,7 @@ public class PhaseManager : MonoBehaviour
         paupiereDownMat.EnableKeyword("_EmissionColor");
 
         //StartCoroutine(Phase0());
-        StartCoroutine(Phase0());
+        StartCoroutine(Phase4());
     }
 
     public Renderer PaupiereUp;

@@ -20,7 +20,7 @@ public class EndManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(nameof(MakeMainCameraWork));
-        //StartCoroutine(TheEnd());
+        StartCoroutine(TheEnd());
     }
 
     IEnumerator TheEnd()
