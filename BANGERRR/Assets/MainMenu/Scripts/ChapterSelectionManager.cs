@@ -41,7 +41,10 @@ public class ChapterSelectionManager : MonoBehaviour
     public Color hideColor;
     public Color showColor;
 
-    readonly string[] ChapterNames = { "Triton", "Eaux Divines", "Solisède", "Solimont", "Amphipolis", "Oeil", "Omnio" };
+    public GameObject ArrowRight;
+    public GameObject ArrowLeft;
+
+    readonly string[] ChapterNames = { "Triton", "Eaux Divines", "Solisï¿½de", "Solimont", "Amphipolis", "Oeil", "Omnio" };
 
     // Start is called before the first frame update
     void Start()
@@ -106,29 +109,27 @@ public class ChapterSelectionManager : MonoBehaviour
                     RightLine.SetActive(true);
                     LeftLine.SetActive(true);
                     TitlesAreActive = true;
+                    ArrowRight.SetActive(true);
+                    ArrowLeft.SetActive(true);
                 }
             }
             if (cameraIsMoving == 0)
             {
+                if (currentPlanetIndex == 0)
+                {
+                    ArrowLeft.SetActive(false);
+                }
+                else if (currentPlanetIndex == (int)ChapterManager.saveObject.maxChapterDiscovered)
+                {
+                    ArrowRight.SetActive(false);
+                }
+                else
+                {
+                    ArrowLeft.SetActive(true);
+                    ArrowRight.SetActive(true);
+                }
                 JouerBtnFromSelection.color = showColor;
                 //titleBackground.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.RightArrow) && currentPlanetIndex != (int)ChapterManager.saveObject.maxChapterDiscovered)
-                {
-                    currentPlanetIndex++;
-                    cameraIsMoving = 1;
-                    GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
-
-                    JouerBtnFromSelection.color = hideColor;
-                    //titleBackground.SetActive(false);
-                }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow) && currentPlanetIndex != 0)
-                {
-                    currentPlanetIndex--;
-                    cameraIsMoving = -1;
-                    GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
-                    JouerBtnFromSelection.color = hideColor;
-                    //titleBackground.SetActive(false);
-                }
             }
             else
             {
@@ -191,5 +192,23 @@ public class ChapterSelectionManager : MonoBehaviour
                 SceneManager.LoadScene(1);
             }
         }
+    }
+
+    public void moveRight()
+    {
+        currentPlanetIndex++;
+        cameraIsMoving = 1;
+        GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
+
+        JouerBtnFromSelection.color = hideColor;
+    }
+
+
+    public void moveLeft()
+    {
+        currentPlanetIndex--;
+        cameraIsMoving = -1;
+        GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
+        JouerBtnFromSelection.color = hideColor;
     }
 }
