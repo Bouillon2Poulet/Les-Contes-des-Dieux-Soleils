@@ -196,19 +196,24 @@ public class ChapterSelectionManager : MonoBehaviour
 
     public void moveRight()
     {
-        currentPlanetIndex++;
-        cameraIsMoving = 1;
-        GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
-
-        JouerBtnFromSelection.color = hideColor;
+        if (cameraIsMoving == 0)
+        {
+            currentPlanetIndex++;
+            cameraIsMoving = 1;
+            GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
+            JouerBtnFromSelection.color = hideColor;
+        }
     }
 
 
     public void moveLeft()
     {
-        currentPlanetIndex--;
-        cameraIsMoving = -1;
-        GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
-        JouerBtnFromSelection.color = hideColor;
+        if (cameraIsMoving == 0)
+        {
+            currentPlanetIndex--;
+            cameraIsMoving = -1;
+            GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
+            JouerBtnFromSelection.color = hideColor;
+        }
     }
 }

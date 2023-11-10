@@ -19,9 +19,12 @@ public class SystemDayCounter : MonoBehaviour
     [Header("Debug")]
     public bool ConstantSpeedUpdate = false;
 
+    private float TimeAtWhichTheSceneStarted;
+
     private void Awake()
     {
         goingValue = oneDayDurationInIRLSeconds;
+        TimeAtWhichTheSceneStarted = Time.time;
         /// DEBUG ONLY, TO DELETE
         /*goingValue = 60f;
         UpdateSystemSpeed(goingValue);*/
@@ -29,7 +32,7 @@ public class SystemDayCounter : MonoBehaviour
 
     void Update()
     {
-        float appTime = Time.time;
+        float appTime = Time.time - TimeAtWhichTheSceneStarted;
         float convertFactor = 86400f / oneDayDurationInIRLSeconds;
         systemTime = ((appTime  + offset) * convertFactor) % 86400;
         dayCounter = (int)((appTime) * convertFactor) / 86400;
