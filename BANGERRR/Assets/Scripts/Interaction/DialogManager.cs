@@ -17,6 +17,7 @@ public class DialogManager : MonoBehaviour
     private int activeMessageIndex = 0;
     public static bool isActive = false;
     public bool ephemeralMessageGoing = false;
+    [SerializeField] private bool updatesNPCPages = true;
 
     bool isTyping = false;
     char previousLetter = ' ';
@@ -68,6 +69,21 @@ public class DialogManager : MonoBehaviour
     public void OpenDialog(Message[] messages, string[] actors)
     {
         OpenDialog(messages, actors, "null");
+    }
+
+    public void OpenMonologue(string[] phrases, string actor, string skin)
+    {
+        string[] actors = new string[] { actor };
+        Message[] messages = new Message[phrases.Length];
+        for (int i = 0; i < phrases.Length; i++)
+        {
+            Message newMessage = new Message {
+                actorID = 0,
+                message = phrases[i]
+            };
+            messages[i] = newMessage;
+        }
+        OpenDialog(messages, actors, skin);
     }
 
     public void OpenDialog(Message[] messages, string[] actors, string skin)
@@ -166,7 +182,10 @@ public class DialogManager : MonoBehaviour
         {
             isActive = false;
             FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
-            FindObjectOfType<NPCEventsManager>().updateNPCPages();
+            if (updatesNPCPages)
+            {
+                FindObjectOfType<NPCEventsManager>().updateNPCPages();
+            }
             backgroundBox.localScale = hiddenDialogBoxScale;
             Debug.Log("[DialogManager] End of messages");
         }
@@ -242,7 +261,7 @@ public class DialogManager : MonoBehaviour
 
     void Update()
     {
-        if (isActive == true && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
+        if (isActive == true && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
         {
             if (currentMessages != null && !isTyping)
             {

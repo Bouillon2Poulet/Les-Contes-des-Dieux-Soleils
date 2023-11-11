@@ -410,6 +410,10 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("Walking", true);
             }
         }
+        else
+        {
+            animator.SetBool("Walking", false);
+        }
     }
 
     private void LockAndHideCursor()
@@ -421,6 +425,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public void blockPlayerMoveInputs()
     {
         isListeningToMoveInputs = false;
+        animator.SetBool("Jumping", false);
+        animator.SetBool("Inair", false);
     }
 
     public void unblockPlayerMoveInputs()

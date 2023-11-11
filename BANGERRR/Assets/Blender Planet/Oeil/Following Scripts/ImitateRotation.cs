@@ -7,7 +7,6 @@ public class ImitateRotation : MonoBehaviour
     public GameObject target;
     public float speed = 2.0f;
 
-    // Update is called once per frame
     void Update()
     {
         if (target != null)
