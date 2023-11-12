@@ -23,6 +23,11 @@ public class PlayerStatus : MonoBehaviour
     [Header("Bubble Respawn")]
     public Transform bubbleRespawnTransform;
     public GameObject Bulle;
+    public Sprite BulleSprite;
+    public Sprite BulleGoing1;
+    public Sprite BulleGoing2;
+    public Sprite BulleGoing3;
+    public Sprite BulleEmpty;
     //private Vector3 respawnPointPosition;
     //private Quaternion respawnPointRotation;
 
@@ -43,7 +48,7 @@ public class PlayerStatus : MonoBehaviour
         Debug.Log("Joueur porte une bulle");
         //transform.GetPositionAndRotation(out respawnPointPosition, out respawnPointRotation);
         bubbleRespawnTransform.SetPositionAndRotation(transform.position, transform.rotation);
-        Bulle.SetActive(true);
+        Bulle.GetComponent<SpriteRenderer>().sprite = BulleSprite;
         hasBubbleOn = true;
         StopBlinking();
     }
@@ -51,9 +56,20 @@ public class PlayerStatus : MonoBehaviour
     public void LooseBubble()
     {
         Debug.Log("Joueur perd sa bulle");
-        Bulle.SetActive(false);
+        StartCoroutine(nameof(BulleGoingAnimation));
         hasBubbleOn = false;
         FindAnyObjectByType<FleurbulleManager>().resetFleurbulles();
+    }
+
+    IEnumerator BulleGoingAnimation()
+    {
+        Bulle.GetComponent<SpriteRenderer>().sprite = BulleGoing1;
+        yield return new WaitForSeconds(.05f);
+        Bulle.GetComponent<SpriteRenderer>().sprite = BulleGoing2;
+        yield return new WaitForSeconds(.05f);
+        Bulle.GetComponent<SpriteRenderer>().sprite = BulleGoing3;
+        yield return new WaitForSeconds(.05f);
+        Bulle.GetComponent<SpriteRenderer>().sprite = BulleEmpty;
     }
 
     private void ToggleSpriteColor()
@@ -230,7 +246,10 @@ public class PlayerStatus : MonoBehaviour
         else
         {
             Debug.Log("OUT game menu");
-            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            if (!DialogManager.instance.isItActive())
+            {
+                FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            }
             FindObjectOfType<MainCameraManager>().unblockMovement();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
