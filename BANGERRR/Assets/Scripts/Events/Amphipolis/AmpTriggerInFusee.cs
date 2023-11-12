@@ -41,7 +41,7 @@ public class AmpTriggerInFusee : MonoBehaviour
     public GameObject FuseeKiller;
 
     private bool jetpackMessageSent = false;
-    readonly string jetpackLine = "Vous trouvez un jetpack dans la fusée ! Il est inscrit dessus 'A pour descendre, E pour monter'. Qu'est-ce que ça peut bien vouloir dire...";
+    readonly string jetpackLine = "[!] RÉSERVÉ AU PERSONNEL QUALIFIÉ [!]<br>CONTRÔLES: [A] et [E]<br>[!] RISQUES D’EXPLOSION [!]<br>[!]ACTIVATION AUTOMATIQUE[!]";
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -85,7 +85,7 @@ public class AmpTriggerInFusee : MonoBehaviour
             if (animationProgress >= .4f && !jetpackMessageSent)
             {
                 jetpackMessageSent = true;
-                StartCoroutine(FindObjectOfType<DialogManager>().EphemeralMessage("Objet", jetpackLine, 12f, "Amphipolis"));
+                StartCoroutine(FindObjectOfType<DialogManager>().EphemeralMessage("Jetpack", jetpackLine, 12f, "Amphipolis"));
             }
 
             if (animationProgress >= .5f)

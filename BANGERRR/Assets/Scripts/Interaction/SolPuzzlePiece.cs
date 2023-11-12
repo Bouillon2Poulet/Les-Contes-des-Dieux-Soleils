@@ -11,8 +11,8 @@ public class SolPuzzlePiece : Note, IInteractable
         {
             M.Isador_PuzzlePieceFound = true;
             M.updateNPCPages();
-            string message = "Vous avez trouvé une pièce de puzzle ! Elle est minuscule !";
-            FindObjectOfType<DialogManager>().OpenMessage(message, "Objet trouvé", "Solisede");
+            string message = "La voilà ! Elle est minuscule…";
+            FindObjectOfType<DialogManager>().OpenMessage(message, "Pièce de puzzle", "Solisede");
             GetComponent<InteractionBubble>().TurnOff();
             transform.gameObject.SetActive(false);
         }

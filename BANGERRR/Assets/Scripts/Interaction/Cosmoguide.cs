@@ -10,8 +10,8 @@ public class Cosmoguide : Note, IInteractable
         if (!P.hasCosmoGuide)
         {
             P.giveCosmoguide();
-            string message = "Vous trouvez un CosmoGuide ! Appuyez sur C pour découvrir l'univers.";
-            FindObjectOfType<DialogManager>().OpenMessage(message, "Objet trouvé", "Neutre");
+            string message = "Un bien étrange artéfact… Ses secrets semblent avoir réussi à affronter l’épreuve du temps. ";
+            FindObjectOfType<DialogManager>().OpenMessage(message, "Cosmoguide", "Neutre");
             GetComponent<InteractionBubble>().ToggleActionIcon(false);
             transform.gameObject.SetActive(false);
         }
