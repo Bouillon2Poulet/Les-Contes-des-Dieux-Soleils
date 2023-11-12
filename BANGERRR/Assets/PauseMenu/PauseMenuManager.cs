@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class PauseMenuManager : MonoBehaviour
 {
     public GameObject OptionsUI;
-    static Canvas PauseCanvas;
+    public static Canvas PauseCanvas;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class PauseMenuManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O) && !PlayerStatus.instance.isAnimated && !DialogManager.instance.isItActive())
+        if (Input.GetKeyDown(KeyCode.O) && !PlayerStatus.instance.isAnimated)
         {
             Switch();
 

@@ -15,7 +15,7 @@ public class Interactor : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(InteractionKey))
+        if (Input.GetKeyDown(InteractionKey) && !PauseMenuManager.PauseCanvas.enabled)
         {
             //Debug.Log("InteractionKey pressed");
             List<IInteractable> interactables = new List<IInteractable>();

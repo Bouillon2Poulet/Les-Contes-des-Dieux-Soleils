@@ -33,9 +33,10 @@ public abstract class Note : MonoBehaviour
         noteSprite.transform.localPosition = startPos + new Vector3(0f, verticalOffset, 0f);
     }
 
-    private void Awake()
+    private void Start()
     {
         noteSprite = GetComponentInChildren<SpriteRenderer>().gameObject;
+
         startPos = noteSprite.transform.localPosition;
     }
 }
