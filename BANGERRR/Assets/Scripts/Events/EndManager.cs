@@ -2,26 +2,31 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class EndManager : MonoBehaviour
 {
     public GameObject mainCamera;
+    public CinemachineVirtualCamera amphiCamera;
 
     public PlanetTag fin;
 
     [SerializeField] bool playingTheEnd = true;
 
     public Canvas ChoixCanvas;
-    private Func<bool> DialogManagerFinished;
     public GameObject Laser;
     public FollowingTargetMore Oeil;
     public GameObject NouvelleCible;
+    public GameObject NormalCible;
+    public Animator AmphiAnimator;
+    public Animator OmnioAnimator;
+    public Animator Credits;
 
     public static int choice = 0;
+    public static bool HasEnded = false;
 
     private void Awake()
     {
-        DialogManagerFinished = () => !DialogManager.instance.isItActive();
         if (ChapterManager.maxChapterIndexDiscoveredByPlayer == 6)
         {
             fin.DiscoverPlanet();
@@ -32,6 +37,7 @@ public class EndManager : MonoBehaviour
     void Start()
     {
         ChoixCanvas.enabled = false;
+        ThirdPersonMovement.ToggleBulleJetpack(false);
 
         StartCoroutine(nameof(MakeMainCameraWork));
         if (playingTheEnd)
@@ -43,36 +49,105 @@ public class EndManager : MonoBehaviour
     IEnumerator TheEnd()
     {
         Debug.Log("The End Coroutine");
-        //yield return FadeToBlack.instance.FadeWhiteEdition(false, .1f);
-        yield return new WaitForSeconds(.2f);
 
-        DialogManager.instance.OpenMonologue(debugPhrases, "Omnio", "Fin");
+        /// FADE OUT BLANC
+        yield return FadeToBlack.instance.FadeWhiteEdition(false, .1f);
+        yield return new WaitForSeconds(6f);
+        
+        /// Monologue de début
+        /// Joueur libre
+        DialogManager.instance.OpenMonologue(Monologue, "Omnio", "Fin");
         FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+        yield return new WaitUntil(() => !DialogManager.instance.isItActive());
 
-        yield return new WaitUntil(DialogManagerFinished);
+        /// Présentation du choix
+        /// GUI
         ChoixCanvas.enabled = true;
         PlayerStatus.instance.GameMenuCursor(true);
-
         yield return new WaitUntil(() => ChoixCanvas.enabled == false);
-        Oeil.target = NouvelleCible;
-        yield return new WaitForSeconds(6f);
-        Laser.SetActive(true);
+        PlayerStatus.instance.GameMenuCursor(false);
 
+        /// Choix 1 - Destruction Soleil Rouge
+        if (choice == 1)
+        {
+            /// Réaction d'Omnio
+            /// Joueur libre
+            DialogManager.instance.OpenMonologue(ApresChoix1, "Omnio", "Fin");
+            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            yield return new WaitUntil(() => !DialogManager.instance.isItActive());
+
+            /// Animation destruction
+            ///     Tir de laser d'Omnio
+            ///     * si possible faire que la cam du joueur regarde Omnio
+            Oeil.target = NouvelleCible;
+            yield return new WaitForSeconds(6f);
+            Laser.SetActive(true);
+            yield return new WaitForSeconds(3f);
+
+            ///     Switch sur l'animation
+            yield return FadeToBlack.instance.Fade(true, .2f);
+            amphiCamera.Priority = 100;
+            AmphiAnimator.SetTrigger("go");
+            yield return FadeToBlack.instance.Fade(false, .5f);
+
+            ///     Bruit de l'impact
+            ///     * yet to be implemented
+            yield return new WaitUntil(() => AmphiAnimScript.laserHasHitSoleilRouge);
+            Debug.Log("Laser Hit");
+            Oeil.target = NormalCible;
+            Laser.SetActive(false);
+            yield return new WaitUntil(() => AmphiAnimScript.finito);
+
+            /// Retour sur Omnio
+            yield return FadeToBlack.instance.Fade(true, .5f);
+            amphiCamera.Priority = 0;
+            yield return FadeToBlack.instance.Fade(false, .2f);
+
+            /// Dernière tirade d'Omnio
+            /// Joueur libre
+            DialogManager.instance.OpenMonologue(ApresChoix1ApresAnimation, "Omnio", "Fin");
+            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            yield return new WaitUntil(() => !DialogManager.instance.isItActive());
+
+            /// Fin de la fin
+            HasEnded = true;
+        }
+        else
+        {
+            /// Réaction d'Omnio
+            /// Joueur libre
+            DialogManager.instance.OpenMonologue(ApresChoix2, "Omnio", "Fin");
+            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            yield return new WaitUntil(() => !DialogManager.instance.isItActive());
+
+            /// Fin de la fin
+            HasEnded = true;
+        }
+
+        /// Omnio Out
+        yield return FadeToBlack.instance.FadeWhiteEdition(true, 20f);
+        OmnioAnimator.SetBool("OmnioOut", true);
+        yield return FadeToBlack.instance.FadeWhiteEdition(false, 2f);
+
+        Debug.Log("HasEnded = " + HasEnded);
+
+        /// Credits
+        Credits.SetTrigger("go");
+        
         yield return null;
     }
 
     private IEnumerator MakeMainCameraWork()
     {
         Debug.Log("Make Main Camera Work");
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForEndOfFrame();
         mainCamera.SetActive(false);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForEndOfFrame();
         mainCamera.SetActive(true);
     }
 
     private string[] debugPhrases =
     {
-        "Quelle détermination…",
         "Devrais-je extirper le Soleil Rouge de l'existence, délivrant l'univers de sa maudite lueur, au risque d'annihiler les lézards en même temps ?",
         "Ou bien devrions-nous laisser le destin guider les événements, puisque c'est lui qui t'a conduit jusqu'ici ?"
     };
@@ -103,5 +178,31 @@ public class EndManager : MonoBehaviour
         "Mais maintenant que tu es là, Grenouille, pourrais-tu m'aider à rectifier mes errements passés ?",
         "Devrais-je extirper le Soleil Rouge de l'existence, délivrant l'univers de sa maudite lueur, au risque d'annihiler les lézards en même temps ?",
         "Ou bien devrions-nous laisser le destin guider les événements, puisque c'est lui qui t'a conduit jusqu'ici ?"
+    };
+
+    private string[] ApresChoix1 = 
+    {
+        "Si tel est ton choix, je vais le détruire. Contemple le pouvoir d’un vrai dieu face à cet imposture.",
+        "Adieu lézards."
+    };
+
+    private string[] ApresChoix1ApresAnimation =
+    {
+        "Merci infiniment, Grenouille. Tu sembles être un dieu plus que prometteur, me voilà rassuré.", 
+        "J’aimerais te demander un dernier service, si tu le veux bien.",
+        "Pourrais-tu prendre ma place, mon enfant ? J'ai créé beaucoup trop de malheur dans cet univers. J'aimerais maintenant aspirer à retrouver la paix que j'ai perdue jadis.",
+        "Tu t'en sortiras parfaitement, ne doute pas de toi. Tu as eu le courage et la force de venir jusqu'ici, tu seras un Dieu parfait.",
+        "Chéris cet univers qui t'a vu naître, et tout se passera bien.",
+        "Adieu, mon ami. Merci…"
+    };
+
+    private string[] ApresChoix2 =
+    {
+        "Tu préfères ne rien faire ? Je comprend, ce peuple a déja beaucoup souffert. Laissons lui le repos qu’il mérite.",
+        "J’aimerais néanmoins te demander un dernier service, si tu le veux bien.",
+        "Pourrais-tu prendre ma place, mon enfant ? J'ai créé beaucoup trop de malheur dans cet univers. J'aimerais maintenant aspirer à retrouver la paix que j'ai perdue jadis.",
+        "Tu t'en sortiras parfaitement, ne doute pas de toi. Tu as eu le courage et la force de venir jusqu'ici, tu seras un Dieu parfait.",
+        "Chéris cet univers qui t'a vu naître, et tout se passera bien.",
+        "Adieu, mon ami."
     };
 }

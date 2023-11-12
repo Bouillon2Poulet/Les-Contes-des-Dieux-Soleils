@@ -96,7 +96,7 @@ public class FadeToBlack : MonoBehaviour
 
     private void Start()
     {
-        whiteSquare.GetComponent<CanvasGroup>().alpha = 0f;
+        //whiteSquare.GetComponent<CanvasGroup>().alpha = 0f;
     }
 
     public static FadeToBlack instance { get; private set; }
