@@ -96,7 +96,7 @@ public class DialogManager : MonoBehaviour
             currentMessages = messages;
             currentActors = actors;
             activeMessageIndex = 0;
-            FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
+            FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
 
             //Debug.Log("[DialogManager] Loaded message : " + messages.Length);
             backgroundBox.localScale = normalDialogBoxScale;
@@ -181,10 +181,10 @@ public class DialogManager : MonoBehaviour
         else
         {
             isActive = false;
-            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             if (updatesNPCPages)
             {
-                FindObjectOfType<NPCEventsManager>().updateNPCPages();
+                FindAnyObjectByType<NPCEventsManager>().updateNPCPages();
             }
             backgroundBox.localScale = hiddenDialogBoxScale;
             Debug.Log("[DialogManager] End of messages");
@@ -194,7 +194,7 @@ public class DialogManager : MonoBehaviour
     public void ForceEnd()
     {
         isActive = false;
-        FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+        FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
         backgroundBox.localScale = hiddenDialogBoxScale;
         Debug.Log("[DialogManager] FORCED End of messages");
     }

@@ -44,7 +44,7 @@ public class ChapterSelectionManager : MonoBehaviour
     public GameObject ArrowRight;
     public GameObject ArrowLeft;
 
-    readonly string[] ChapterNames = { "Triton", "Eaux Divines", "Solis�de", "Solimont", "Amphipolis", "Oeil", "Omnio" };
+    readonly string[] ChapterNames = { "Triton", "Eaux Divines", "Solisède", "Solimont", "Amphipolis", "Oeil", "Omnio" };
 
     // Start is called before the first frame update
     void Start()

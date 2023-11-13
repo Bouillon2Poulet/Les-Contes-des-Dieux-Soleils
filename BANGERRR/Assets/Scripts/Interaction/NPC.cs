@@ -42,27 +42,27 @@ public class NPC : MonoBehaviour, IInteractable
     {
         if (pageE && messagesE.Length > 0)
         {
-            FindObjectOfType<DialogManager>().OpenDialog(messagesE, actors, skin);
+            FindAnyObjectByType<DialogManager>().OpenDialog(messagesE, actors, skin);
             isPageERead = true;
         }
         else if (pageD && messagesD.Length > 0)
         {
-            FindObjectOfType<DialogManager>().OpenDialog(messagesD, actors, skin);
+            FindAnyObjectByType<DialogManager>().OpenDialog(messagesD, actors, skin);
             isPageDRead = true;
         }
         else if (pageC && messagesC.Length > 0)
         {
-            FindObjectOfType<DialogManager>().OpenDialog(messagesC, actors, skin);
+            FindAnyObjectByType<DialogManager>().OpenDialog(messagesC, actors, skin);
             isPageCRead = true;
         }
         else if (pageB && messagesB.Length > 0)
         {
-            FindObjectOfType<DialogManager>().OpenDialog(messagesB, actors, skin);
+            FindAnyObjectByType<DialogManager>().OpenDialog(messagesB, actors, skin);
             isPageBRead = true;
         }
         else if (messagesA.Length > 0)
         {
-            FindObjectOfType<DialogManager>().OpenDialog(messagesA, actors, skin);
+            FindAnyObjectByType<DialogManager>().OpenDialog(messagesA, actors, skin);
             isPageARead = true;
         }
     }

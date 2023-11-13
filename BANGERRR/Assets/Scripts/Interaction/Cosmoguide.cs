@@ -6,12 +6,11 @@ public class Cosmoguide : Note, IInteractable
 {
     public void Interact()
     {
-        PlayerStatus P = FindObjectOfType<PlayerStatus>();
-        if (!P.hasCosmoGuide)
+        if (!PlayerStatus.instance.hasCosmoGuide)
         {
-            P.giveCosmoguide();
+            PlayerStatus.instance.giveCosmoguide();
             string message = "Un bien étrange artéfact… Ses secrets semblent avoir réussi à affronter l’épreuve du temps. ";
-            FindObjectOfType<DialogManager>().OpenMessage(message, "Cosmoguide", "Neutre");
+            DialogManager.instance.OpenMessage(message, "Cosmoguide", "Neutre");
             GetComponent<InteractionBubble>().ToggleActionIcon(false);
             transform.gameObject.SetActive(false);
         }

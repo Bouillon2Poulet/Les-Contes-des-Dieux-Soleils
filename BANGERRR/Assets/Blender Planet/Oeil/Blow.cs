@@ -18,7 +18,7 @@ public class Blow : MonoBehaviour
     {
         initialScale = new Vector3(1f, 1f, 1f);
         timeOffset = Random.Range(0f, 2f * Mathf.PI); // Random offset for variety
-        player = FindObjectOfType<ThirdPersonMovement>();
+        player = FindAnyObjectByType<ThirdPersonMovement>();
     }
 
     public void Trigger()

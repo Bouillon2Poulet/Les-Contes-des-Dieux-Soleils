@@ -41,7 +41,7 @@ public class AmpSwimNinjaEvents : MonoBehaviour
 
     private void Start()
     {
-        playerMovement = FindObjectOfType<ThirdPersonMovement>();
+        playerMovement = FindAnyObjectByType<ThirdPersonMovement>();
         SwimNinjaT = transform;
     }
 
@@ -109,7 +109,7 @@ public class AmpSwimNinjaEvents : MonoBehaviour
             if (dismountAnimProgress >= 1)
             {
                 isPlayerDismounting = false;
-                FindObjectOfType<NPCSwimNinja>().ShowBubble();
+                FindAnyObjectByType<NPCSwimNinja>().ShowBubble();
                 playerMovement.unblockPlayerMoveInputs();
                 playerMovement.unblockPlayerGAFollow();
                 playerMovement.CapSpeed();
@@ -132,7 +132,7 @@ public class AmpSwimNinjaEvents : MonoBehaviour
                 }
                 else if (firstTime)
                 {
-                    FindObjectOfType<NPCSwimNinja>().DoPageD();
+                    FindAnyObjectByType<NPCSwimNinja>().DoPageD();
                 }
             }
         }
@@ -146,7 +146,7 @@ public class AmpSwimNinjaEvents : MonoBehaviour
                 ToggleBubble(true);
                 SwimNinjaT.gameObject.GetComponent<GravityBody>().SetForceApplication(true);
                 full = false;
-                FindObjectOfType<NPCSwimNinja>().isInteractionAllowed = true;
+                FindAnyObjectByType<NPCSwimNinja>().isInteractionAllowed = true;
                 Debug.Log("Ninja Descended");
             }
         }

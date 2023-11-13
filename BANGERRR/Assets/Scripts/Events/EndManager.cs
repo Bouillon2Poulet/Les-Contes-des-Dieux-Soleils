@@ -57,7 +57,7 @@ public class EndManager : MonoBehaviour
         /// Monologue de début
         /// Joueur libre
         DialogManager.instance.OpenMonologue(Monologue, "Omnio", "Fin");
-        FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+        FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
         yield return new WaitUntil(() => !DialogManager.instance.isItActive());
 
         /// Présentation du choix
@@ -73,7 +73,7 @@ public class EndManager : MonoBehaviour
             /// Réaction d'Omnio
             /// Joueur libre
             DialogManager.instance.OpenMonologue(ApresChoix1, "Omnio", "Fin");
-            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             yield return new WaitUntil(() => !DialogManager.instance.isItActive());
 
             /// Animation destruction
@@ -106,7 +106,7 @@ public class EndManager : MonoBehaviour
             /// Dernière tirade d'Omnio
             /// Joueur libre
             DialogManager.instance.OpenMonologue(ApresChoix1ApresAnimation, "Omnio", "Fin");
-            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             yield return new WaitUntil(() => !DialogManager.instance.isItActive());
 
             /// Fin de la fin
@@ -117,7 +117,7 @@ public class EndManager : MonoBehaviour
             /// Réaction d'Omnio
             /// Joueur libre
             DialogManager.instance.OpenMonologue(ApresChoix2, "Omnio", "Fin");
-            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             yield return new WaitUntil(() => !DialogManager.instance.isItActive());
 
             /// Fin de la fin

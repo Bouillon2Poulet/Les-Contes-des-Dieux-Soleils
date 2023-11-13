@@ -20,13 +20,13 @@ public class NoteSolimont : Note, IInteractable
                 FindAnyObjectByType<NPCEventsManager>().Soli_songSung = true;
                 beenSung = true;
                 murInvisible.SetActive(false);
-                FindObjectOfType<DialogManager>().OpenMessage("*Chanson*", "DEBUG", "Solimont");
+                DialogManager.instance.OpenMessage("*Chanson*", "DEBUG", "Solimont");
                 GetComponent<InteractionBubble>().TurnOff();
                 transform.gameObject.SetActive(false);
             }
             else
             {
-                FindObjectOfType<DialogManager>().OpenMessage("Ne touche pas à ça !", "Flegmardo", "Solimont");
+                DialogManager.instance.OpenMessage("Ne touche pas à ça !", "Flegmardo", "Solimont");
             }
         }
     }

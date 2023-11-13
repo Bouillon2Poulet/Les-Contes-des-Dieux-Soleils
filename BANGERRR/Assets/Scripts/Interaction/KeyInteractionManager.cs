@@ -80,7 +80,7 @@ public class KeyInteractionManager : MonoBehaviour
 
     public void UpdateSlots()
     {
-        Debug.Log("Updating key interaction slots");
+        //Debug.Log("Updating key interaction slots");
         Queue.Clear();
         foreach (GameObject slot in Slots)
         {
@@ -107,9 +107,9 @@ public class KeyInteractionManager : MonoBehaviour
         UpdateSlots();
     }
 
-    public void ActivateCosmoguideIcon()
+    public void ToggleCosmoguideIcon(bool state)
     {
-        CosmoguideIcon.activated = true;
+        CosmoguideIcon.activated = state;
         UpdateSlots();
     }
 

@@ -23,7 +23,7 @@ public class PlanetTag : MonoBehaviour
     [SerializeField] GameObject[] toActivate;
     [SerializeField] GameObject[] toDeactivate;
 
-    private bool isSolisede;
+    public bool isSolisede = false;
 
     private void Start()
     {
@@ -47,7 +47,9 @@ public class PlanetTag : MonoBehaviour
                 hasBeenTriggered = true;
 
                 if (isSolisede)
-                    PlayerStatus.instance.LooseBubble();
+                {
+                    PlayerStatus.instance.Bulle.SetActive(false);
+                }
 
                 ChapterManager.currentChapterIndex++;
 

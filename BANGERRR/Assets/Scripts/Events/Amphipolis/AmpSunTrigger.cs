@@ -13,6 +13,11 @@ public class AmpSunTrigger : MonoBehaviour
             AmpTriggerInFusee.instance.Kill();
             SUNLIGHT.SetActive(false);
             ThirdPersonMovement.ToggleBulleJetpack(true);
+            if (OpenCosmoGuide.instance.CosmoGuideIsOpen)
+            {
+                OpenCosmoGuide.instance.ForceCloseCosmoguide();
+            }
+            PlayerStatus.instance.TakeCosmoguideBack();
             Destroy(gameObject);
         }
     }

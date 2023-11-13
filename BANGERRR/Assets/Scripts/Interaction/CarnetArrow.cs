@@ -10,7 +10,7 @@ public class CarnetArrow : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        carnet = FindObjectOfType<Carnet>();
+        carnet = FindAnyObjectByType<Carnet>();
     }
 
     public void OnPointerClick(PointerEventData eventData)

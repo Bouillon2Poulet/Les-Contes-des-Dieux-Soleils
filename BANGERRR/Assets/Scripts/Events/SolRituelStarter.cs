@@ -34,9 +34,9 @@ public class SolRituelStarter : MonoBehaviour
         {
             if (isPlayerIn)
             {
-                if (FindObjectOfType<isSolisedeAlignedWithSolimont>().Check())
+                if (FindAnyObjectByType<isSolisedeAlignedWithSolimont>().Check())
                 {
-                    if (FindObjectOfType<NPCEventsManager>().Nere.isPageCRead)
+                    if (FindAnyObjectByType<NPCEventsManager>().Nere.isPageCRead)
                     {
                         Debug.Log("Starting the ritual");
                         FindAnyObjectByType<FadeToBlack>().FadeInBlack(1f);
@@ -55,15 +55,15 @@ public class SolRituelStarter : MonoBehaviour
 
     private void StartRitual()
     {
-        if (FindObjectOfType<DialogManager>().isItActive())
+        if (FindAnyObjectByType<DialogManager>().isItActive())
         {
-            FindObjectOfType<DialogManager>().ForceEnd();
+            FindAnyObjectByType<DialogManager>().ForceEnd();
         }
         player.position = TpPont.position; // TP Joueur
-        FindObjectOfType<FadeToBlack>().FadeOutBlack(1f); // Fade back
-        FindObjectOfType<SystemDayCounter>().pauseSystem(); // 
-        FindObjectOfType<NPCEventsManager>().SolDeactivateNPCs(); //
-        FindObjectOfType<NPCEventsManager>().Sol_ritualStarted = true;
+        FindAnyObjectByType<FadeToBlack>().FadeOutBlack(1f); // Fade back
+        FindAnyObjectByType<SystemDayCounter>().pauseSystem(); // 
+        FindAnyObjectByType<NPCEventsManager>().SolDeactivateNPCs(); //
+        FindAnyObjectByType<NPCEventsManager>().Sol_ritualStarted = true;
         LeVraiPont.SetActive(true);
         TriggerPont.SetActive(true);
         Invoke(nameof(ShowRitualDialogs), 1);
@@ -71,18 +71,18 @@ public class SolRituelStarter : MonoBehaviour
 
     private void ShowRitualDialogs()
     {
-        NPCEventsManager NPCs = FindObjectOfType<NPCEventsManager>();
+        NPCEventsManager NPCs = FindAnyObjectByType<NPCEventsManager>();
         Message[] messagesOkaoka = NPCs.Okaoka.messagesC;
         messagesOkaoka[0].actorID = 1;
         Message[] messagesNere = NPCs.Nere.messagesD;
         Message[] combinedMessages = messagesNere.Concat(messagesOkaoka).ToArray();
         string[] actors = { "Nere", "Okaoka" };
-        FindObjectOfType<DialogManager>().OpenDialog(combinedMessages, actors);
+        FindAnyObjectByType<DialogManager>().OpenDialog(combinedMessages, actors, "Solisède");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             isPlayerIn = true;
         }
@@ -90,7 +90,7 @@ public class SolRituelStarter : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             isPlayerIn = false;
         }

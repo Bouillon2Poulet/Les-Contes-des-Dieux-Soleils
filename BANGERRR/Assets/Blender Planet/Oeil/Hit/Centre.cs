@@ -20,7 +20,7 @@ public class Centre : MonoBehaviour
 
         origColor = Color.white;
 
-        aspire = FindObjectOfType<Aspire>();
+        aspire = FindAnyObjectByType<Aspire>();
     }
 
     public void Hit()

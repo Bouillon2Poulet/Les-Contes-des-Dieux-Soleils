@@ -202,16 +202,14 @@ public class NPCEventsManager : MonoBehaviour
             {
                 Nepti.pageB = true;
                 Coral.pageB = true;
-                FindAnyObjectByType<SolCoralTP>().Teleport();
-                FindAnyObjectByType<SolNeptiTP>().Teleport();
+                StartCoroutine(NepalCache(true));
                 NepalCached = true;
             }
             if (Nepti.isPageBRead && Coral.isPageBRead && !NepalBack)
             {
-                FindAnyObjectByType<SolCoralTPback>().Teleport();
-                FindAnyObjectByType<SolNeptiTPback>().Teleport();
                 Nepti.pageC = true;
                 Coral.pageC = true;
+                StartCoroutine(NepalCache(false));
                 NepalBack = true;
             }
             if ((Nepti.isPageCRead || Coral.isPageCRead) && NepalBack)
@@ -221,6 +219,30 @@ public class NPCEventsManager : MonoBehaviour
                 NepalEnd = true;
             }
         }
+    }
+
+    IEnumerator NepalCache(bool first)
+    {
+        FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
+        FindAnyObjectByType<MainCameraManager>().blockMovement();
+
+        yield return FadeToBlack.instance.Fade(true, 1);
+
+        if (first)
+        {
+            FindAnyObjectByType<SolCoralTP>().Teleport();
+            FindAnyObjectByType<SolNeptiTP>().Teleport();
+        }
+        else
+        {
+            FindAnyObjectByType<SolCoralTPback>().Teleport();
+            FindAnyObjectByType<SolNeptiTPback>().Teleport();
+        }
+
+        yield return FadeToBlack.instance.Fade(false, 1);
+
+        FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+        FindAnyObjectByType<MainCameraManager>().unblockMovement();
     }
 
     public void SolDeactivateNPCs()

@@ -73,7 +73,7 @@ public class AmpAscenseur : MonoBehaviour
 
     private void Start()
     {
-        playerMovement = FindObjectOfType<ThirdPersonMovement>();
+        playerMovement = FindAnyObjectByType<ThirdPersonMovement>();
     }
 
     public static AmpAscenseur instance { get; private set; }

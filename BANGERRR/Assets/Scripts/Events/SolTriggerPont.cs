@@ -51,27 +51,27 @@ public class SolTriggerPont : MonoBehaviour
     private void StartSolAnimation()
     {
         startPos = playerRB.position;
-        FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
-        FindObjectOfType<ThirdPersonMovement>().blockPlayerGAFollow();
-        FindObjectOfType<ThirdPersonMovement>().UncapSpeed();
-        FindObjectOfType<PlayerStatus>().blockSuffocation();
-        FindObjectOfType<PlayerStatus>().animate();
+        FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
+        FindAnyObjectByType<ThirdPersonMovement>().blockPlayerGAFollow();
+        FindAnyObjectByType<ThirdPersonMovement>().UncapSpeed();
+        FindAnyObjectByType<PlayerStatus>().blockSuffocation();
+        FindAnyObjectByType<PlayerStatus>().animate();
         hasAnimationStarted = true;
     }
 
     private void StopAnimation()
     {
-        FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
-        FindObjectOfType<ThirdPersonMovement>().unblockPlayerGAFollow();
-        FindObjectOfType<ThirdPersonMovement>().CapSpeed();
-        FindObjectOfType<PlayerStatus>().unblockSuffocation();
-        FindObjectOfType<PlayerStatus>().stopAnimate();
+        FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+        FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerGAFollow();
+        FindAnyObjectByType<ThirdPersonMovement>().CapSpeed();
+        FindAnyObjectByType<PlayerStatus>().unblockSuffocation();
+        FindAnyObjectByType<PlayerStatus>().stopAnimate();
         hasAnimationStopped = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             isPlayerIn = true;
             Debug.Log("Saut du pont !");
@@ -80,7 +80,7 @@ public class SolTriggerPont : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             isPlayerIn = false;
         }

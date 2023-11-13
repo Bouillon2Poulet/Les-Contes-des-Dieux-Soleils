@@ -68,11 +68,11 @@ public class Carnet : MonoBehaviour, IInteractable
 
         if (newState)
         {
-            FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
+            FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
         }
         else
         {
-            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
         }
 
     }

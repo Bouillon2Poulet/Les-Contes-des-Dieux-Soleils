@@ -220,7 +220,13 @@ public class PlayerStatus : MonoBehaviour
     public void giveCosmoguide()
     {
         hasCosmoGuide = true;
-        KeyInteractionManager.instance.ActivateCosmoguideIcon();
+        KeyInteractionManager.instance.ToggleCosmoguideIcon(true);
+    }
+
+    public void TakeCosmoguideBack()
+    {
+        hasCosmoGuide = false;
+        KeyInteractionManager.instance.ToggleCosmoguideIcon(false);
     }
 
     public void PutRockOnHead()
@@ -238,8 +244,8 @@ public class PlayerStatus : MonoBehaviour
         if (inMenu)
         {
             Debug.Log("IN game menu");
-            FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
-            FindObjectOfType<MainCameraManager>().blockMovement();
+            FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
+            FindAnyObjectByType<MainCameraManager>().blockMovement();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -248,9 +254,9 @@ public class PlayerStatus : MonoBehaviour
             Debug.Log("OUT game menu");
             if (!DialogManager.instance.isItActive())
             {
-                FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+                FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             }
-            FindObjectOfType<MainCameraManager>().unblockMovement();
+            FindAnyObjectByType<MainCameraManager>().unblockMovement();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }

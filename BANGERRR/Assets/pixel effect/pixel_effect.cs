@@ -84,7 +84,7 @@ public class pixel_effect : MonoBehaviour
     }
 
     void compute_list_environment_and_player(){
-        all_scene_objects =  GameObject.FindObjectsOfType<GameObject>();
+        all_scene_objects =  GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         list_environment = new List<GameObject>();
         list_environment_renderers = new List<Renderer>();
 

@@ -19,12 +19,12 @@ public class PhaseManager : MonoBehaviour
 
     private void Start()
     {
-        blow = FindObjectOfType<Blow>();
-        aspire = FindObjectOfType<Aspire>();
-        missileLauncher = FindObjectOfType<Missile>();
-        laser = FindObjectOfType<LineInstantiator>();
-        dialog = FindObjectOfType<DialogManager>();
-        player = FindObjectOfType<ThirdPersonMovement>();
+        blow = FindAnyObjectByType<Blow>();
+        aspire = FindAnyObjectByType<Aspire>();
+        missileLauncher = FindAnyObjectByType<Missile>();
+        laser = FindAnyObjectByType<LineInstantiator>();
+        dialog = FindAnyObjectByType<DialogManager>();
+        player = FindAnyObjectByType<ThirdPersonMovement>();
 
         CentreMat = CentreRenderer.materials[2];
         paupiereUpMat = PaupiereUp.material;
@@ -33,8 +33,8 @@ public class PhaseManager : MonoBehaviour
         paupiereUpMat.EnableKeyword("_EmissionColor");
         paupiereDownMat.EnableKeyword("_EmissionColor");
 
-        //StartCoroutine(Phase0());
-        StartCoroutine(Phase4());
+        StartCoroutine(Phase0());
+        //StartCoroutine(Phase4());
     }
 
     public Renderer PaupiereUp;

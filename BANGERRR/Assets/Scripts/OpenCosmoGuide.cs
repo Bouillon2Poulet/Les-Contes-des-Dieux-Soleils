@@ -30,9 +30,9 @@ public class OpenCosmoGuide : MonoBehaviour
         {
             CosmoGuideIsOpen = !CosmoGuideIsOpen;
             if (CosmoGuideIsOpen)
-                FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
+                FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
             else
-                FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+                FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
 
             if (rawImage != null)
             {
@@ -47,6 +47,17 @@ public class OpenCosmoGuide : MonoBehaviour
 
                 rawImage.texture = CosmoGuideIsOpen ? CosmoGuide : Background;
             }
+        }
+    }
+
+    public void ForceCloseCosmoguide()
+    {
+        CosmoGuideIsOpen = !CosmoGuideIsOpen;
+        FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+        if (rawImage != null)
+        {
+            timeObject.SetActive(CosmoGuideIsOpen);
+            rawImage.texture = CosmoGuideIsOpen ? CosmoGuide : Background;
         }
     }
 

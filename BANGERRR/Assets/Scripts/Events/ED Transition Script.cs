@@ -26,8 +26,8 @@ public class EDTransitionScript : MonoBehaviour
     private void Awake()
     {
         playerRB = player.GetComponent<Rigidbody>();
-        playerMovement = FindObjectOfType<ThirdPersonMovement>();
-        playerStatus = FindObjectOfType<PlayerStatus>();
+        playerMovement = FindAnyObjectByType<ThirdPersonMovement>();
+        playerStatus = FindAnyObjectByType<PlayerStatus>();
     }
 
     public void StartAnimation()

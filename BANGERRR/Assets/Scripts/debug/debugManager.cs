@@ -77,7 +77,7 @@ public class debugManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Home))
         {
-            FindObjectOfType<PlayerStatus>().JumpRespawn();
+            PlayerStatus.instance.JumpRespawn();
         }
 
         if (Input.GetKeyDown(KeyCode.End))

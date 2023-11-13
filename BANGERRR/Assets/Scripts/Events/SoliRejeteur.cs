@@ -60,7 +60,7 @@ public class SoliRejeteur : MonoBehaviour
     public void TriggerRejection()
     {
         rejectionTriggered = true;
-        FindObjectOfType<DialogManager>().OpenDialog(text.messagesB, text.actors);
+        FindAnyObjectByType<DialogManager>().OpenDialog(text.messagesB, text.actors, "Solimont");
         Debug.Log("REJECTION TRIGGERED!");
     }
 

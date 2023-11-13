@@ -21,7 +21,7 @@ public class InteractionBubble : MonoBehaviour
 
     private void Start()
     {
-        player = FindObjectOfType<PlayerStatus>().GetComponent<Rigidbody>();
+        player = PlayerStatus.instance.GetComponent<Rigidbody>();
     }
 
     private void Update()

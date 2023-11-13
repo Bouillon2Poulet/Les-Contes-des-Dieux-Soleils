@@ -52,11 +52,11 @@ public class PaperNPC : MonoBehaviour, IInteractable
         PlayerStatus.instance.isAnimated = newState;
         if (newState)
         {
-            FindObjectOfType<ThirdPersonMovement>().blockPlayerMoveInputs();
+            FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
         }
         else
         {
-            FindObjectOfType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
         }
     }
 
