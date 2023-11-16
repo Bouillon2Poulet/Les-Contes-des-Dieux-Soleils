@@ -141,7 +141,7 @@ public class PlayerStatus : MonoBehaviour
         }
         else
         {
-            spriteRenderer.material.shader = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
+            spriteRenderer.material.shader = Shader.Find("Sprites/Default");
         }
 
         // Suffocation Logic (in GA)

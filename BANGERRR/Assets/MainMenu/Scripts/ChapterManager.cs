@@ -7,8 +7,6 @@ static class ChapterManager
     public static int currentChapterIndex = 0;
     public static int maxChapterIndexDiscoveredByPlayer = 0;
 
-    private static string pathToSaveFileJSON = Application.dataPath + "/Save/savefile.json";
-
     public enum Chapter
     {
         triton,
@@ -26,26 +24,12 @@ static class ChapterManager
     {
         public Chapter currentChapter;
         public Chapter maxChapterDiscovered;
-        public bool newGame;
     }
 
-    public static SaveObject saveObject;
-
-    public static void initSaveFileJSON()
+    public static void InitPlayerPrefs()
     {
-        // Initialize the saveObject
-        saveObject = new SaveObject();
-        saveObject.newGame = true;
-        saveObject.currentChapter = Chapter.triton;
-        saveObject.maxChapterDiscovered = Chapter.triton;
-
-        // Convert the saveObject to JSON
-        var json = JsonUtility.ToJson(saveObject);
-
-        // Save the JSON to a file
-        File.WriteAllText(pathToSaveFileJSON, json);
-
-        Debug.Log("Save file created and saved at: " + pathToSaveFileJSON);
+        PlayerPrefs.SetInt("currentChapter", (int)Chapter.triton);
+        PlayerPrefs.SetInt("maxChapterDiscovered", (int)Chapter.triton);
     }
 
     public static void NewChapterDiscovered()
@@ -57,32 +41,22 @@ static class ChapterManager
 
     public static void SaveProgression()
     {
-        saveObject.currentChapter = (Chapter)currentChapterIndex;
-        saveObject.maxChapterDiscovered = (Chapter)maxChapterIndexDiscoveredByPlayer;
-        Debug.Log("Progression saved to file");
-        var json = JsonUtility.ToJson(saveObject);
-        File.WriteAllText(pathToSaveFileJSON, json);
+        PlayerPrefs.SetInt("currentChapter", currentChapterIndex);
+        PlayerPrefs.SetInt("maxChapterDiscovered", maxChapterIndexDiscoveredByPlayer);
     }
 
-    public static void getSaveFileJSONData()
+    public static void GetSave()
     {
-        if (File.Exists(pathToSaveFileJSON))
-        {
-            Debug.Log("FileExist!");
-            // Lire le contenu du fichier JSON
-            string json = File.ReadAllText(pathToSaveFileJSON);
+        currentChapterIndex = PlayerPrefs.GetInt("currentChapter");
+        maxChapterIndexDiscoveredByPlayer = PlayerPrefs.GetInt("maxChapterDiscovered");
+    }
 
-            // Convertir le JSON en objet SaveObject
-            saveObject = JsonUtility.FromJson<SaveObject>(json);
+    public static void ResetProgression()
+    {
+        PlayerPrefs.SetInt("0", (int)Chapter.triton);
+        PlayerPrefs.SetInt("0", (int)Chapter.triton);
 
-            // Mettre à jour les variables appropriées
-            currentChapterIndex = (int)saveObject.currentChapter;
-            maxChapterIndexDiscoveredByPlayer = (int)saveObject.maxChapterDiscovered;
-        }
-        else
-        {
-            // Si le fichier n'existe pas, initialisez-le
-            initSaveFileJSON();
-        }
+        currentChapterIndex = 0;
+        maxChapterIndexDiscoveredByPlayer = 0;
     }
 }

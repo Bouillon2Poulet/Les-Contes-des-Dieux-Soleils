@@ -11,6 +11,7 @@ public class JouerBtnFromSelection : MonoBehaviour, IPointerClickHandler
         //Use this to tell when the user left-clicks on the Button
         if (pointerEventData.button == PointerEventData.InputButton.Left)
         {
+            AudioManager.instance.Play("click");
             chapterSelectionManager.StartFromSelection();
         }
     }

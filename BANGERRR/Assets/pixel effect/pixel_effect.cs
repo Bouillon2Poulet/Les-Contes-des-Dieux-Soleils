@@ -12,14 +12,11 @@ public class pixel_effect : MonoBehaviour
     public int environment_layer_id = 3;
     public int fusee_layer_id = 8;
     public int player_layer_id = 6;
-    private object[] all_scene_objects;
-    private List<GameObject> list_environment;
+    private Renderer[] all_scene_renderers;
     private List<Renderer> list_environment_renderers;
 
-    private List<Material> list_environment_materials = new List<Material>();
+    private List<Material> list_environment_materials;
 
-
-    private List<GameObject> list_player;
     private List<Renderer> list_player_renderers;
 
 
@@ -45,32 +42,41 @@ public class pixel_effect : MonoBehaviour
 
     // private quad_drawer drawer;
 
+    public Shader overide_shader;
+
     [ExecuteAlways]
 
 
     void Start()
     {
-        compute_list_environment_and_player();
-        compute_original_mat();
-
-        white = new Material(Shader.Find("Shader Graphs/overide_shader"));
-        white.SetFloat("_is_white",1f);
-        black = new Material(Shader.Find("Shader Graphs/overide_shader"));
-        black.SetFloat("_is_white",0f);
-
-        setup_cams();
-
-
         RenderPipelineManager.beginCameraRendering += OnPreRenderCallback;
         RenderPipelineManager.endCameraRendering += OnPostRenderCallback;
 
+        list_environment_materials = new List<Material>();
+        list_environment_renderers = new List<Renderer>();
+        list_player_renderers = new List<Renderer>();
+        list_original_mat_player = new List<Material>();
+        list_original_mat_env = new List<Material>();
 
+        white = new Material(overide_shader);
+        white.SetFloat("_is_white", 1f);
+        black = new Material(overide_shader);
+        black.SetFloat("_is_white", 0f);
+
+        setup_cams();
+
+        compute_list_environment_and_player();
+        compute_original_mat();
     }
 
     void OnDestroy()
     {
         RenderPipelineManager.beginCameraRendering -= OnPreRenderCallback;
         RenderPipelineManager.endCameraRendering -= OnPostRenderCallback;
+        list_environment_renderers.Clear();
+        list_player_renderers.Clear();
+        list_original_mat_player.Clear();
+        list_original_mat_env.Clear();
     }
 
 
@@ -79,48 +85,40 @@ public class pixel_effect : MonoBehaviour
     {
         compute_list_environment_and_player();
         compute_original_mat();
-        //Debug.Log(list_original_mat_player.Count + "nb de mat");
-        //Debug.Log(list_player.Count + "nb de players");
     }
 
     void compute_list_environment_and_player(){
-        all_scene_objects =  GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
-        list_environment = new List<GameObject>();
-        list_environment_renderers = new List<Renderer>();
+        all_scene_renderers = FindObjectsByType<Renderer>(FindObjectsSortMode.None);
 
-        list_player = new List<GameObject>();
-        list_player_renderers = new List<Renderer>();
-        foreach(object o in all_scene_objects){
-            GameObject go = (GameObject) o;
-            if(go.layer == environment_layer_id || go.layer == fusee_layer_id) {
-                if(go.TryGetComponent<Renderer>(out Renderer renderer)){
-                    list_environment.Add(go);
-                    list_environment_renderers.Add(renderer);
-                }
+        list_environment_renderers.Clear();
+
+        list_player_renderers.Clear();
+
+        foreach (Renderer r in all_scene_renderers)
+        {
+            if(r.gameObject.layer == environment_layer_id || r.gameObject.layer == fusee_layer_id)
+            {
+                list_environment_renderers.Add(r);
             }
-            else if(go.layer == player_layer_id) {
-                if (go.TryGetComponent<Renderer>(out Renderer renderer))
-                {
-                    list_player.Add(go);
-                    list_player_renderers.Add(go.GetComponent<Renderer>());
-                }
+            else if(r.gameObject.layer == player_layer_id)
+            {
+                list_player_renderers.Add(r);
             }
         }
     }
 
-
     void compute_original_mat(){
-        list_original_mat_player = new List<Material>();
-        list_original_mat_env = new List<Material>();
+        list_original_mat_player.Clear();
+        list_original_mat_env.Clear();
 
 
-        foreach(GameObject go_player in list_player){
-            list_original_mat_player.Add(go_player.GetComponent<Renderer>().material);
+        foreach (Renderer r in list_player_renderers){
+            list_original_mat_player.Add(r.material);
         }
 
 
-        foreach(GameObject go_env in list_environment){
-            list_original_mat_env.Add(go_env.GetComponent<Renderer>().material);
+        foreach(Renderer r in list_environment_renderers){
+            list_original_mat_env.Add(r.material);
         }
     }
 
@@ -130,7 +128,7 @@ public class pixel_effect : MonoBehaviour
             list_player_renderers[i].material = list_original_mat_player[i];
         }
 
-        for(int i = 0; i<list_environment.Count; i++){
+        for(int i = 0; i<list_environment_renderers.Count; i++){
             list_environment_renderers[i].material = list_original_mat_env[i];
         }
     }
@@ -141,30 +139,13 @@ public class pixel_effect : MonoBehaviour
         // for the player => set to full white
         foreach(Renderer mr_player in list_player_renderers){
             mr_player.material = white;
-            if(mr_player.gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer spr))
+            if(mr_player.gameObject.TryGetComponent(out SpriteRenderer spr))
             {
                 mr_player.material.SetTexture("_optionnal_texture",spr.sprite.texture);
                 mr_player.material.SetFloat("_has_texture",1f);
             }
         }
-
-        // // for the environment => set to full black
-        // foreach(Renderer mr_env in list_environment_renderers){
-        //     float alpha = mr_env.material.color.a;
-        //     mr_env.material= black;
-        //     if(mr_env.gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer spr))
-        //     {
-        //         mr_env.material.SetTexture("_optionnal_texture",spr.sprite.texture);
-        //         mr_env.material.SetFloat("_has_texture",1f);
-                
-        //     }
-        //     else {
-
-        //         mr_env.material.SetFloat("_optionnal_alpha_value",alpha);
-        //     }
-        // }
     }
-
 
     void setup_cams()
     {

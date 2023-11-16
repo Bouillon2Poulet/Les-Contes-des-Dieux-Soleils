@@ -9,9 +9,11 @@ public class QUITTERbtn : MonoBehaviour, IPointerClickHandler
         //Use this to tell when the user left-clicks on the Button
         if (pointerEventData.button == PointerEventData.InputButton.Left)
         {
+            AudioManager.instance.Play("click");
+            AudioManager.instance.StopAllMusic();
             //TODO Remettre la scene du menu principal
             Debug.Log("Quitter");
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(0);
         }
     }
 }

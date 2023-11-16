@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5641240549267958815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6521453934718034334}
+  - component: {fileID: 8814307582596089389}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6521453934718034334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641240549267958815}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1001.72437, y: 489.11542, z: -408.92844}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8814307582596089389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641240549267958815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c23c83e8c32fc48aa968e954310d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - name: theme
+    clip: {fileID: 8300000, guid: 97f5589ab76c26d4d8a792871e15a898, type: 3}
+    music: 1
+    loop: 1
+    volume: 0.793
+    source: {fileID: 0}
+  - name: click
+    clip: {fileID: 8300000, guid: fbe3b50754b7e644da1d7ab80f76de21, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.309
+    source: {fileID: 0}
+  - name: openpause
+    clip: {fileID: 8300000, guid: 84d1d48facf307842b81cc6d1a07975b, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.25
+    source: {fileID: 0}
+  - name: ed
+    clip: {fileID: 8300000, guid: e58222b563d90904b8804f5418bf6bb4, type: 3}
+    music: 1
+    loop: 1
+    volume: 0.8
+    source: {fileID: 0}
+  - name: solisede
+    clip: {fileID: 8300000, guid: f4e417fd4f73c824cbbd69b6991fe327, type: 3}
+    music: 1
+    loop: 1
+    volume: 0.834
+    source: {fileID: 0}
+  - name: rituel
+    clip: {fileID: 8300000, guid: 3cc3f8c02a6050b46a7e42c3d5244db0, type: 3}
+    music: 1
+    loop: 1
+    volume: 0.834
+    source: {fileID: 0}
+  - name: solimont
+    clip: {fileID: 8300000, guid: d60ba60eee6bfcd4ab6a769c61cc4659, type: 3}
+    music: 1
+    loop: 1
+    volume: 0.829
+    source: {fileID: 0}
+  - name: amphipolis
+    clip: {fileID: 8300000, guid: 08321e82e3b8133449ebe1d0ff043bbf, type: 3}
+    music: 1
+    loop: 1
+    volume: 0.823
+    source: {fileID: 0}
+  - name: voyage
+    clip: {fileID: 8300000, guid: 4fe186f658e5a094f84c8a8c28e8b939, type: 3}
+    music: 1
+    loop: 0
+    volume: 0.806
+    source: {fileID: 0}
+  - name: fight
+    clip: {fileID: 8300000, guid: aba1ed2ee076333418b67d4249ae4fb7, type: 3}
+    music: 1
+    loop: 1
+    volume: 0.84
+    source: {fileID: 0}
+  - name: mk
+    clip: {fileID: 8300000, guid: a858de526e8f0854d9b9247846d0314c, type: 3}
+    music: 1
+    loop: 1
+    volume: 0.4
+    source: {fileID: 0}
+  - name: debug
+    clip: {fileID: 8300000, guid: 25750322a10793f42a70ae0de01394ca, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.3
+    source: {fileID: 0}
+  MusicGroup: {fileID: -8758951673081790777, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}
+  FxGroup: {fileID: 149494303244688294, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}

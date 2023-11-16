@@ -25,7 +25,9 @@ public class debugManager : MonoBehaviour
     private List<Transform[]> pages;
     private KeyCode[] inputs;
     private string[] pageNames;
-    private bool isShown = true;
+    private bool isShown = false;
+
+    public GameObject arpenteur;
 
     private void Start()
     {
@@ -53,22 +55,45 @@ public class debugManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            AudioManager.instance.Play("debug");
+            if (arpenteur.activeSelf)
+            {
+                arpenteur.SetActive(false);
+                arpenteur.GetComponent<Arpenteur>().cam.Priority = 0;
+                FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            }
+            else
+            {
+                arpenteur.SetActive(true);
+                arpenteur.GetComponent<Arpenteur>().cam.Priority = 1000;
+                FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
+            }
+        }
+
         for (int i = 0; i < totalPage; i++)
         {
             if (Input.GetKeyDown(inputs[i]))
             {
-                Teleport(pages[currentPage][i]);
+                if (i >= 0 && i < pages[currentPage].Length)
+                {
+                    AudioManager.instance.Play("debug");
+                    Teleport(pages[currentPage][i]);
+                }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.PageUp))
+        if (Input.GetKeyDown(KeyCode.F2))
         {
+            AudioManager.instance.Play("debug");
             currentPage++;
             currentPage %= totalPage;
             UpdateUI();
         }
-        if (Input.GetKeyDown(KeyCode.PageDown))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
+            AudioManager.instance.Play("debug");
             currentPage--;
             if (currentPage == -1)
                 currentPage = totalPage - 1;
@@ -78,21 +103,25 @@ public class debugManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Home))
         {
             PlayerStatus.instance.JumpRespawn();
+            AudioManager.instance.Play("debug");
         }
 
-        if (Input.GetKeyDown(KeyCode.End))
+        if (Input.GetKeyDown(KeyCode.F3))
         {
+            AudioManager.instance.Play("debug");
             ToggleView(!isShown);
         }
 
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
+            AudioManager.instance.Play("debug");
             movements.JETPACKMODE = !movements.JETPACKMODE;
         }
 
         if (Input.GetKeyDown(KeyCode.KeypadMultiply))
         {
-            SceneManager.LoadScene(1);
+            AudioManager.instance.Play("debug");
+            SceneManager.LoadScene(2);
         }
     }
 
@@ -103,7 +132,7 @@ public class debugManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        textOnCanvas.text = pageNames[currentPage];
+        textOnCanvas.text = "TP Page: " + pageNames[currentPage];
     }
 
     private void ToggleView(bool toggle)

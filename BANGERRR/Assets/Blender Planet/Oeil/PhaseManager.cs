@@ -235,7 +235,7 @@ public class PhaseManager : MonoBehaviour
         Debug.Log("Fin");
         yield return FadeToBlack.instance.FadeWhiteEdition(true, .15f);
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         yield return null;
     }
 

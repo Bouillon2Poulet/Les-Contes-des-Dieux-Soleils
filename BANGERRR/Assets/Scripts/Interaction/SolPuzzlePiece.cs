@@ -11,10 +11,12 @@ public class SolPuzzlePiece : Note, IInteractable
         {
             M.Isador_PuzzlePieceFound = true;
             M.updateNPCPages();
-            string message = "La voilà ! Elle est minuscule…";
-            DialogManager.instance.OpenMessage(message, "Pièce de puzzle", "Solisede");
+
+            DialogManager.instance.OpenMessage("La voilà ! Elle est minuscule…", "Pièce de puzzle", "Solisede");
+            
             GetComponent<InteractionBubble>().TurnOff();
-            transform.gameObject.SetActive(false);
+            
+            gameObject.SetActive(false);
         }
     }
 

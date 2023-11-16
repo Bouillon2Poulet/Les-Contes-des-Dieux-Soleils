@@ -16,29 +16,38 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        ChapterManager.getSaveFileJSONData();
+        ChapterManager.GetSave();
         Debug.Log("MAINMENU : " + ChapterManager.maxChapterIndexDiscoveredByPlayer);
     }
 
     private void Start()
     {
         StartCoroutine(nameof(MakeMainCameraWork));
+        AudioManager.instance.FadeIn("theme", 240);
     }
 
     private IEnumerator MakeMainCameraWork()
     {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.1f);
         mainCamera.SetActive(false);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.1f);
         mainCamera.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (step == 1)
         {
-            GetComponentInChildren<BackgroundLineManager>().setActiveFirstLine();
+            //GetComponentInChildren<BackgroundLineManager>().setActiveFirstLine();
+        }
+        */
+
+        if (Input.GetKeyDown(KeyCode.R) && Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift))
+        {
+            AudioManager.instance.Play("debug");
+            ChapterManager.ResetProgression();
         }
     }
 
@@ -57,7 +66,7 @@ public class MainMenuManager : MonoBehaviour
         else //NEW GAME
         {
             GlobalVariables.Set("planetIndex", 0);
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }

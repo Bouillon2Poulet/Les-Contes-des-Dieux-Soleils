@@ -12,6 +12,7 @@ public class CrossCaseBtn : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData pointerEventData)
     {
+        AudioManager.instance.Play("click");
         //Use this to tell when the user left-clicks on the Button
         if (pointerEventData.button == PointerEventData.InputButton.Left)
         {

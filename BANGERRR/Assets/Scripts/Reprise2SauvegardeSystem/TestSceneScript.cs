@@ -11,6 +11,6 @@ public class TestSceneScript : MonoBehaviour
     {
         GlobalVariables.Set("planetIndex", planetIndexFromSave);
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

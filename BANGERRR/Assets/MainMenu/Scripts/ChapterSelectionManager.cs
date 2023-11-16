@@ -118,9 +118,11 @@ public class ChapterSelectionManager : MonoBehaviour
                 if (currentPlanetIndex == 0)
                 {
                     ArrowLeft.SetActive(false);
+                    ArrowRight.SetActive(true);
                 }
-                else if (currentPlanetIndex == (int)ChapterManager.saveObject.maxChapterDiscovered)
+                else if (currentPlanetIndex == ChapterManager.maxChapterIndexDiscoveredByPlayer)
                 {
+                    ArrowLeft.SetActive(true);
                     ArrowRight.SetActive(false);
                 }
                 else
@@ -133,7 +135,7 @@ public class ChapterSelectionManager : MonoBehaviour
             }
             else
             {
-                GetComponentInChildren<BackgroundLineManager>().moveLines(PlanetsCamera.transform.position.x, OffSet, cameraIsMoving);
+                //GetComponentInChildren<BackgroundLineManager>().moveLines(PlanetsCamera.transform.position.x, OffSet, cameraIsMoving);
 
                 PlanetsCamera.transform.Translate(new Vector3(cameraIsMoving * Time.deltaTime * cameraSpeed, 0, 0));
 
@@ -183,13 +185,17 @@ public class ChapterSelectionManager : MonoBehaviour
             Debug.Log("Launching on chapter " + ChapterManager.currentChapterIndex);
 
             GlobalVariables.Set("planetIndex", ChapterManager.currentChapterIndex);
+            if (ChapterManager.currentChapterIndex > 0)
+            {
+                AudioManager.instance.FadeOut("theme", 120);
+            }
             if (ChapterManager.currentChapterIndex < 6)
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
             }
             else
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
             }
         }
     }
@@ -200,7 +206,7 @@ public class ChapterSelectionManager : MonoBehaviour
         {
             currentPlanetIndex++;
             cameraIsMoving = 1;
-            GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
+            //GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
             JouerBtnFromSelection.color = hideColor;
         }
     }
@@ -212,7 +218,7 @@ public class ChapterSelectionManager : MonoBehaviour
         {
             currentPlanetIndex--;
             cameraIsMoving = -1;
-            GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
+            //GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
             JouerBtnFromSelection.color = hideColor;
         }
     }

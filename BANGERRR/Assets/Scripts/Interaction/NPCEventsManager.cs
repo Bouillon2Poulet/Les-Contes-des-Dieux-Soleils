@@ -23,6 +23,8 @@ public class NPCEventsManager : MonoBehaviour
     // Isador
     public bool Isador_PuzzlePieceFound = false;
     private bool IsadorEnd = false;
+    public SpriteRenderer lePuzzle;
+    public Sprite puzzleFull;
     // Okaoka
     private bool OkaokaEnd = false;
     // Nepal
@@ -178,6 +180,7 @@ public class NPCEventsManager : MonoBehaviour
             }
             if (Isador.isPageCRead)
             {
+                lePuzzle.sprite = puzzleFull;
                 Isador.pageD = true;
                 IsadorEnd = true;
             }

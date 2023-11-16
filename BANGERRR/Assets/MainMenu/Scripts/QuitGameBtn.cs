@@ -11,6 +11,7 @@ public class QuitGameBtn : MonoBehaviour, IPointerClickHandler
         if (pointerEventData.button == PointerEventData.InputButton.Left)
         {
             Debug.Log("Quitting Application");
+            AudioManager.instance.Play("click");
             Application.Quit();
         }
     }
