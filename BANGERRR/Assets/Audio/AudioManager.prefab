@@ -117,5 +117,53 @@ MonoBehaviour:
     loop: 0
     volume: 0.3
     source: {fileID: 0}
+  - name: walk1
+    clip: {fileID: 8300000, guid: 4e209ba569c4b504290208290d30737b, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.1
+    source: {fileID: 0}
+  - name: walk2
+    clip: {fileID: 8300000, guid: ff66e8bb4ec752349834300998d0ed0a, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.1
+    source: {fileID: 0}
+  - name: walk3
+    clip: {fileID: 8300000, guid: 5e22f96eb39d90e4d95b9847d7491b6e, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.1
+    source: {fileID: 0}
+  - name: walk4
+    clip: {fileID: 8300000, guid: 365f5881fbcbb8f4899be149a03a5e82, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.1
+    source: {fileID: 0}
+  - name: walk5
+    clip: {fileID: 8300000, guid: 37f9fcf5ceb901646ba10c7bb7897aab, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.1
+    source: {fileID: 0}
+  - name: walk6
+    clip: {fileID: 8300000, guid: bca5a1d656005694782011345c38106f, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.1
+    source: {fileID: 0}
+  - name: walk7
+    clip: {fileID: 8300000, guid: ff3f625e0bf5a784e996b09a5c4cd452, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.1
+    source: {fileID: 0}
+  - name: walk8
+    clip: {fileID: 8300000, guid: f0bddf215fcaaad4ebdbb817291418c7, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.1
+    source: {fileID: 0}
   MusicGroup: {fileID: -8758951673081790777, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}
   FxGroup: {fileID: 149494303244688294, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}

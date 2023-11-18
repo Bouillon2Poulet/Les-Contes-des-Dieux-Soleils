@@ -24256,7 +24256,8 @@ PrefabInstance:
       propertyPath: m_Lens.FarClipPlane
       value: 5000
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7621967610047082622, guid: eed0fc1507d3a3f469e75c9a55162521, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

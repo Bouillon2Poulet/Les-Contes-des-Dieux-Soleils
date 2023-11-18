@@ -39,12 +39,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private Vector3 moveDirection;
 
     [Header("Sounds")]
-    private AudioSource playerSource;
     private int walkSoundsTimer = 50;
-
-    public AudioClip jumpSound;
-    public AudioClip rejumpSound;
-    public AudioClip[] walkSounds;
 
     [Header("Gravity Stuff")]
     //public Transform gravityAreaTransform; // this debug feature allows me to retrieve the current gravityArea the player is in
@@ -92,9 +87,6 @@ public class ThirdPersonMovement : MonoBehaviour
             ToggleEmission(psys, false);
         }
 
-
-        playerSource = GetComponent<AudioSource>();
-
         // DEBUG TO DELETE
         /*sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.SetParent(rb.transform);
@@ -134,22 +126,11 @@ public class ThirdPersonMovement : MonoBehaviour
         /// Determines the movement direction according to inputs and the orientation calculated above
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        /// If there are inputs, we change the rotation of the player's graphics AND play walk sound
+        /// If there are inputs, we change the rotation of the player's graphics
         if (moveDirection != Vector3.zero)
         {
             Quaternion correctRotation = Quaternion.LookRotation(moveDirection, -gravityDirection);
             playerGraphics.rotation = Quaternion.Lerp(playerGraphics.rotation, correctRotation, rotationSpeed * Time.deltaTime);
-
-            if (grounded)
-            {
-                walkSoundsTimer--;
-                if (walkSoundsTimer == 0)
-                {
-                    int randomOne = Random.Range(0, 8);
-                    playerSource.PlayOneShot(walkSounds[randomOne], .2f);
-                    walkSoundsTimer = 16;
-                }
-            }
         }
 
         /// DRAG - Drag is applied on the rigidbody of the player only if they're an the ground
@@ -311,6 +292,21 @@ public class ThirdPersonMovement : MonoBehaviour
         if (grounded)
         {
             rb.AddForce(moveDirectionOnGravityPlane * moveSpeed * 10f, ForceMode.Force);
+
+            // WALK SOUND
+            if (moveDirectionOnGravityPlane.sqrMagnitude > 0.98)
+            {
+                walkSoundsTimer--;
+                if (walkSoundsTimer == 0)
+                {
+                    AudioManager.instance.Play("walk" + Random.Range(1, 8));
+                    walkSoundsTimer = 24;
+                }
+            }
+            else
+            {
+                walkSoundsTimer = 1;
+            }
         }
         else if (JETPACKMODE)
         {
@@ -319,6 +315,7 @@ public class ThirdPersonMovement : MonoBehaviour
         else if (!grounded)
         {
             rb.AddForce(moveDirectionOnGravityPlane * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            walkSoundsTimer = 1;
         }
     }
 
@@ -341,7 +338,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 velocityOnGravityPlane = Vector3.ProjectOnPlane(rb.velocity, gravityBody.GravityDirection);
         rb.velocity = velocityOnGravityPlane;
 
-        playerSource.PlayOneShot(jumpSound, .5f);
+        AudioManager.instance.Play("Jump");
 
         rb.AddForce(-gravityBody.GravityDirection * jumpForce, ForceMode.Impulse);
     }

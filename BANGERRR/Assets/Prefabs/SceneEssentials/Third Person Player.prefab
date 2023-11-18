@@ -760,7 +760,6 @@ GameObject:
   - component: {fileID: 5539369750811048884}
   - component: {fileID: 826479586549114442}
   - component: {fileID: 3055331675928967284}
-  - component: {fileID: 558805802132514311}
   m_Layer: 0
   m_Name: Third Person Player
   m_TagString: Player
@@ -786,7 +785,7 @@ Transform:
   - {fileID: 7473861268685856644}
   - {fileID: 8843761038743033906}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -5.63, y: 825.51, z: -1.167}
 --- !u!54 &4279517703941809637
 Rigidbody:
@@ -870,15 +869,6 @@ MonoBehaviour:
   airMultiplier: 0.4
   jumpSound: {fileID: 8300000, guid: 2096e33d9fc7fa44ab9c91cfbb8b13e6, type: 3}
   rejumpSound: {fileID: 8300000, guid: d1c17a41649b2ba4cb8eeb2de3a024d0, type: 3}
-  walkSounds:
-  - {fileID: 8300000, guid: 4e209ba569c4b504290208290d30737b, type: 3}
-  - {fileID: 8300000, guid: ff66e8bb4ec752349834300998d0ed0a, type: 3}
-  - {fileID: 8300000, guid: 5e22f96eb39d90e4d95b9847d7491b6e, type: 3}
-  - {fileID: 8300000, guid: 365f5881fbcbb8f4899be149a03a5e82, type: 3}
-  - {fileID: 8300000, guid: 37f9fcf5ceb901646ba10c7bb7897aab, type: 3}
-  - {fileID: 8300000, guid: bca5a1d656005694782011345c38106f, type: 3}
-  - {fileID: 8300000, guid: ff3f625e0bf5a784e996b09a5c4cd452, type: 3}
-  - {fileID: 8300000, guid: f0bddf215fcaaad4ebdbb817291418c7, type: 3}
   JETPACKMODE: 0
   Jetpack_left: {fileID: 27704712213780184}
   Jetpack_right: {fileID: 6307444645917406748}
@@ -940,105 +930,14 @@ MonoBehaviour:
   blinkColor: {r: 1, g: 0, b: 0, a: 1}
   bubbleRespawnTransform: {fileID: 0}
   Bulle: {fileID: 1533527546007128973}
+  BulleSprite: {fileID: 0}
+  BulleGoing1: {fileID: 0}
+  BulleGoing2: {fileID: 0}
+  BulleGoing3: {fileID: 0}
+  BulleEmpty: {fileID: 0}
   rockOnHead: {fileID: 3637060778573577806}
   timeBeforeJumpRespawn: 22
   hasCosmoGuide: 0
---- !u!82 &558805802132514311
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2716816407768125445}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 22.516556
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &3007739784672141718
 GameObject:
   m_ObjectHideFlags: 0
@@ -21085,6 +20984,7 @@ MonoBehaviour:
   texture_players: {fileID: 8400000, guid: b8739b984c0c6bb4c9566a91f7a1988a, type: 2}
   texture_environment: {fileID: 8400000, guid: eb642770839ceda4cae12ad7d50de95e, type: 2}
   texture_all: {fileID: 8400000, guid: cbbed0ab658798d4ea0c1dfd4a921f75, type: 2}
+  overide_shader: {fileID: 0}
 --- !u!1 &6260053601693173920
 GameObject:
   m_ObjectHideFlags: 0
