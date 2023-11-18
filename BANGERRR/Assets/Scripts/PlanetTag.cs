@@ -63,6 +63,8 @@ public class PlanetTag : MonoBehaviour
                     Debug.Log("Next chapter but I already knew it");
                     DiscoverPlanet();
                 }
+
+                DiscoverPlanet();
             }
         }
 

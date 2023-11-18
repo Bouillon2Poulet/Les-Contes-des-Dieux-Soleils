@@ -66,7 +66,7 @@ public class MainMenuManager : MonoBehaviour
         else //NEW GAME
         {
             GlobalVariables.Set("planetIndex", 0);
-            SceneManager.LoadScene(1);
+            LoadSceneManager.instance.LoadScene(1, true);
         }
     }
 }

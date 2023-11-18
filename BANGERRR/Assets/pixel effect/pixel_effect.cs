@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using System;
 
 
-// [ExecuteAlways]
 public class pixel_effect : MonoBehaviour
 {
-    // Start is called before the first frame update
     public int environment_layer_id = 3;
     public int fusee_layer_id = 8;
     public int player_layer_id = 6;
-    private Renderer[] all_scene_renderers;
+    private List<Renderer> all_scene_renderers;
     private List<Renderer> list_environment_renderers;
 
     private List<Material> list_environment_materials;
@@ -44,14 +43,12 @@ public class pixel_effect : MonoBehaviour
 
     public Shader overide_shader;
 
-    [ExecuteAlways]
-
-
     void Start()
     {
         RenderPipelineManager.beginCameraRendering += OnPreRenderCallback;
         RenderPipelineManager.endCameraRendering += OnPostRenderCallback;
 
+        all_scene_renderers = new List<Renderer>();
         list_environment_materials = new List<Material>();
         list_environment_renderers = new List<Renderer>();
         list_player_renderers = new List<Renderer>();
@@ -88,7 +85,8 @@ public class pixel_effect : MonoBehaviour
     }
 
     void compute_list_environment_and_player(){
-        all_scene_renderers = FindObjectsByType<Renderer>(FindObjectsSortMode.None);
+        all_scene_renderers.Clear();
+        all_scene_renderers.AddRange(FindObjectsByType<Renderer>(FindObjectsSortMode.None));
 
         list_environment_renderers.Clear();
 
@@ -145,6 +143,7 @@ public class pixel_effect : MonoBehaviour
                 mr_player.material.SetFloat("_has_texture",1f);
             }
         }
+        Resources.UnloadUnusedAssets();
     }
 
     void setup_cams()

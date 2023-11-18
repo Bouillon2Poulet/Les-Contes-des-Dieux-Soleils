@@ -121,7 +121,7 @@ public class debugManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.KeypadMultiply))
         {
             AudioManager.instance.Play("debug");
-            SceneManager.LoadScene(2);
+            LoadSceneManager.instance.LoadScene(2, true);
         }
     }
 

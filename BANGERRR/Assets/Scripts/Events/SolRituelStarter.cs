@@ -55,9 +55,9 @@ public class SolRituelStarter : MonoBehaviour
 
     private void StartRitual()
     {
-        if (FindAnyObjectByType<DialogManager>().isItActive())
+        if (DialogManager.instance.isItActive())
         {
-            FindAnyObjectByType<DialogManager>().ForceEnd();
+            DialogManager.instance.ForceEnd();
         }
         player.position = TpPont.position; // TP Joueur
         FindAnyObjectByType<FadeToBlack>().FadeOutBlack(1f); // Fade back
@@ -77,7 +77,7 @@ public class SolRituelStarter : MonoBehaviour
         Message[] messagesNere = NPCs.Nere.messagesD;
         Message[] combinedMessages = messagesNere.Concat(messagesOkaoka).ToArray();
         string[] actors = { "Nere", "Okaoka" };
-        FindAnyObjectByType<DialogManager>().OpenDialog(combinedMessages, actors, "Solisède");
+        DialogManager.instance.OpenDialog(combinedMessages, actors, "Solisede");
     }
 
     private void OnTriggerEnter(Collider other)

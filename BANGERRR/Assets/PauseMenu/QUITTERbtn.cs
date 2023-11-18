@@ -13,7 +13,7 @@ public class QUITTERbtn : MonoBehaviour, IPointerClickHandler
             AudioManager.instance.StopAllMusic();
             //TODO Remettre la scene du menu principal
             Debug.Log("Quitter");
-            SceneManager.LoadScene(0);
+            LoadSceneManager.instance.LoadScene(0, true);
         }
     }
 }

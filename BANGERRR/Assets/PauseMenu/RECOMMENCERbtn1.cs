@@ -13,14 +13,8 @@ public class RECOMMENCERbtn : MonoBehaviour, IPointerClickHandler
             //TODO Recommencer le chapitre
             Debug.Log("Recommencer");
             GlobalVariables.Set("planetIndex", ChapterManager.currentChapterIndex);
-            if (ChapterManager.currentChapterIndex < 6)
-            {
-                SceneManager.LoadScene(1);
-            }
-            else
-            {
-                SceneManager.LoadScene(2);
-            }
+
+            LoadSceneManager.instance.LoadScene(SceneManager.GetActiveScene().buildIndex, true);
         }
     }
 }

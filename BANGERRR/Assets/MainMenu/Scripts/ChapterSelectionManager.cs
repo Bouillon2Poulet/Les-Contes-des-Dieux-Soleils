@@ -191,11 +191,11 @@ public class ChapterSelectionManager : MonoBehaviour
             }
             if (ChapterManager.currentChapterIndex < 6)
             {
-                SceneManager.LoadScene(1);
+                LoadSceneManager.instance.LoadScene(1, true);
             }
             else
             {
-                SceneManager.LoadScene(2);
+                LoadSceneManager.instance.LoadScene(2, true);
             }
         }
     }
