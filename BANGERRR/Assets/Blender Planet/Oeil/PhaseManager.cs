@@ -97,8 +97,6 @@ public class PhaseManager : MonoBehaviour
         Centre.instance.playerTouched = false;
         yield return Fade(false, 1f);
 
-        AudioManager.instance.FadeIn("fight", 60);
-
         StartCoroutine(Phase0());
         //StartCoroutine(PhaseTest());
     }
@@ -193,6 +191,7 @@ public class PhaseManager : MonoBehaviour
 
         yield return Blink(1, 2);
         yield return Talk("Qui ose perturber mon sommeil ?!", 6, 2);
+        AudioManager.instance.FadeIn("fight", 200);
         yield return Talk("Crains ma colère...", 4, 2);
         StartCoroutine(Phase1());
     }
@@ -234,6 +233,7 @@ public class PhaseManager : MonoBehaviour
     {
         Debug.Log("Phase 4");
         hueRotationSpeed = hueSpeeds[4];
+        AudioManager.instance.FadeOut("fight", 140);
 
         Debug.Log("Fin");
         yield return FadeToBlack.instance.FadeWhiteEdition(true, .15f);
