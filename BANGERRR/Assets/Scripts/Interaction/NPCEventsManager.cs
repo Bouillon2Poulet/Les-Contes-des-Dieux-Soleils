@@ -120,6 +120,7 @@ public class NPCEventsManager : MonoBehaviour
             if (Flegmardo10.isPageDRead)
             {
                 FindAnyObjectByType<PlayerStatus>().RemoveRockOnHead();
+                AudioManager.instance.Play("rock");
                 Soli_rocherWithFlegmardo.SetActive(true);
                 Flegmardo10.pageE = true;
                 FlegmardoEnd = true;

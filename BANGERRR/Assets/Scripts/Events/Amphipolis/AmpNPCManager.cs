@@ -18,6 +18,7 @@ public class AmpNPCManager : MonoBehaviour
         {
             if (Sip.isPageARead)
             {
+                PlayerStatus.instance.ToggleBouteille(true);
                 Sip.pageB = true;
                 SipEnd = true;
             }

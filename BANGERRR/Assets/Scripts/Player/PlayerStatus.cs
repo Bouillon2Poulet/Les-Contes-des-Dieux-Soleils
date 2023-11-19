@@ -43,6 +43,16 @@ public class PlayerStatus : MonoBehaviour
     [Header("Cosmoguide")]
     public bool hasCosmoGuide = false;
 
+    [Header("Amphipolis")]
+    public bool hasBouteille = false;
+    public GameObject Bouteille;
+
+    public void ToggleBouteille(bool state)
+    {
+        hasBouteille = state;
+        Bouteille.SetActive(state);
+    }
+
     public void WearBubble()
     {
         Debug.Log("Joueur porte une bulle");

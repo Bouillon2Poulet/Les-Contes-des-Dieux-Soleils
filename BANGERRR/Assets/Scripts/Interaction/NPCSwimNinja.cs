@@ -59,8 +59,9 @@ public class NPCSwimNinja : MonoBehaviour, IInteractable
                 isPageERead = true;
                 waitingToMountFull = true;
             }
-            else if (pageC && messagesC.Length > 0)
+            else if (pageC && messagesC.Length > 0 && PlayerStatus.instance.hasBouteille)
             {
+                PlayerStatus.instance.ToggleBouteille(false);
                 AmpSwimNinjaEvents.instance.FlipNinja();
                 DialogManager.instance.OpenDialog(messagesC, actors, "Amphipolis");
                 isPageCRead = true;
@@ -68,7 +69,7 @@ public class NPCSwimNinja : MonoBehaviour, IInteractable
                 isInteractionAllowed = false;
                 waitingToMountFirstTime = true;
             }
-            else if (pageB && messagesB.Length > 0)
+            else if (pageB && messagesB.Length > 0 && PlayerStatus.instance.hasBouteille)
             {
                 DialogManager.instance.OpenDialog(messagesB, actors, "Amphipolis");
                 isPageBRead = true;
