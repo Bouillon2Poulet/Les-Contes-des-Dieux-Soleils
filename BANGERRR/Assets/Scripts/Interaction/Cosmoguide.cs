@@ -8,6 +8,7 @@ public class Cosmoguide : Note, IInteractable
     {
         if (!PlayerStatus.instance.hasCosmoGuide)
         {
+            AudioManager.instance.Play("pickup");
             PlayerStatus.instance.giveCosmoguide();
             string message = "Un bien étrange artéfact… Ses secrets semblent avoir réussi à affronter l’épreuve du temps. ";
             DialogManager.instance.OpenMessage(message, "Cosmoguide", "Neutre");

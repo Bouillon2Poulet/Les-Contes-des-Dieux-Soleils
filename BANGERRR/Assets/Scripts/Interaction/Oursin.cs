@@ -9,6 +9,7 @@ public class Oursin : MonoBehaviour
         if (other.TryGetComponent(out PlayerStatus player) && player.hasBubbleOn)
         {
             player.LooseBubble();
+            AudioManager.instance.Play("bullepete");
         }
     }
 }

@@ -24,11 +24,27 @@ public class AmpAnimationFusee : MonoBehaviour
     public void CloseHublot()
     {
         Animator.SetTrigger("fermerHublot");
+        AudioManager.instance.Play("closehublot");
     }
 
     public void KillAnimator()
     {
         Animator.enabled = false;
+    }
+
+    public void PinceSound()
+    {
+        AudioManager.instance.Play("pince");
+    }
+
+    public void DescenteSound()
+    {
+        AudioManager.instance.Play("hydraulicdown");
+    }
+
+    public void OpenHublot()
+    {
+        AudioManager.instance.Play("openhublot");
     }
 
     public static AmpAnimationFusee instance { get; private set; }

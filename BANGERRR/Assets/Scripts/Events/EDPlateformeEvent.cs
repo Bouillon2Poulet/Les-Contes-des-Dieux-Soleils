@@ -20,6 +20,7 @@ public class EDPlateformeEvent : MonoBehaviour
         if (!isAscending && !isDescending && !atTop && atBottom)
         {
             isAscending = true;
+            AudioManager.instance.FadeIn("concreteloop", 20);
             atBottom = false;
             platformTime = 0f;
             FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
@@ -31,6 +32,8 @@ public class EDPlateformeEvent : MonoBehaviour
         if (!isAscending && !isDescending && !atBottom && atTop)
         {
             isDescending = true;
+            AudioManager.instance.Play("concreteloop");
+            AudioManager.instance.FadeOut("concreteloop", 120);
             atTop = false;
             platformTime = 0f;
         }
@@ -45,6 +48,7 @@ public class EDPlateformeEvent : MonoBehaviour
             if (platformTime >= 1)
             {
                 isAscending = false;
+                AudioManager.instance.Stop("concreteloop");
                 atTop = true;
                 FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             }
@@ -56,6 +60,7 @@ public class EDPlateformeEvent : MonoBehaviour
             if (platformTime >= 1)
             {
                 isDescending = false;
+                AudioManager.instance.Stop("concreteloop");
                 atBottom = true;
             }
         }

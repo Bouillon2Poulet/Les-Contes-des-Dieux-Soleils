@@ -9,6 +9,7 @@ public class SolPuzzlePiece : Note, IInteractable
         NPCEventsManager M = FindAnyObjectByType<NPCEventsManager>();
         if (!M.Isador_PuzzlePieceFound)
         {
+            AudioManager.instance.Play("pickup");
             M.Isador_PuzzlePieceFound = true;
             M.updateNPCPages();
 

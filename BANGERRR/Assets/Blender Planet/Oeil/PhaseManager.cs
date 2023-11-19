@@ -84,6 +84,7 @@ public class PhaseManager : MonoBehaviour
     }
     private IEnumerator ResetPlayer()
     {
+        AudioManager.instance.FadeOut("fight", 60);
         yield return Fade(true, 1f);
 
         player.TeleportPlayerTo(new Vector3(-86f, -21f, -86f));
@@ -95,6 +96,8 @@ public class PhaseManager : MonoBehaviour
         player.JETPACKMODE = false;
         Centre.instance.playerTouched = false;
         yield return Fade(false, 1f);
+
+        AudioManager.instance.FadeIn("fight", 60);
 
         StartCoroutine(Phase0());
         //StartCoroutine(PhaseTest());
@@ -189,7 +192,7 @@ public class PhaseManager : MonoBehaviour
         hueRotationSpeed = hueSpeeds[0];
 
         yield return Blink(1, 2);
-        yield return Talk("Qui ose pertuber mon sommeil ?!", 6, 2);
+        yield return Talk("Qui ose perturber mon sommeil ?!", 6, 2);
         yield return Talk("Crains ma colère...", 4, 2);
         StartCoroutine(Phase1());
     }

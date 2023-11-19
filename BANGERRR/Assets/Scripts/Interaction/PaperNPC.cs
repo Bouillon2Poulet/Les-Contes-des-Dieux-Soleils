@@ -46,6 +46,7 @@ public class PaperNPC : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        AudioManager.instance.Play("paper");
         bool newState = !Paper.activeSelf;
         Paper.SetActive(newState);
         PlayerStatus.instance.GameMenuCursor(newState);

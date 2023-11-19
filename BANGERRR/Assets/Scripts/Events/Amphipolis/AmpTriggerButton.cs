@@ -9,6 +9,7 @@ public class AmpTriggerButton : MonoBehaviour, IInteractable
         Debug.Log("INTERACT");
         GetComponent<InteractionBubble>().TurnOff();
 
+        AudioManager.instance.Play("button");
         AmpAscenseur.instance.TakeElevatorDown();
 
         Destroy(this);

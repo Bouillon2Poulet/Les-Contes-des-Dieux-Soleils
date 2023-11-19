@@ -17,6 +17,7 @@ public class Miroir : MonoBehaviour, IInteractable
         {
             hasBeenTriggered = true;
             Debug.Log("Opening Mirror Eye " + GetInstanceID());
+            AudioManager.instance.Play("concrete");
             Animator.SetTrigger("TriggerOpenEyelid");
         }
 

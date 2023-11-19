@@ -55,6 +55,8 @@ public class AmpAscenseur : MonoBehaviour
             if (elevatorProgression >= 1)
             {
                 elevatorIsDown = true;
+                AudioManager.instance.Stop("elevatorloop");
+                AudioManager.instance.Play("elevatordone");
                 playerMovement.unblockPlayerMoveInputs();
                 playerMovement.gameObject.transform.SetParent(null);
             }
@@ -63,12 +65,14 @@ public class AmpAscenseur : MonoBehaviour
 
     public void OpenTheDoor()
     {
+        AudioManager.instance.Play("hydraulicdown");
         openTheDoor = true;
     }
 
     public void TakeElevatorDown()
     {
         takeElevatorDown = true;
+        AudioManager.instance.Play("elevatorloop");
     }
 
     private void Start()

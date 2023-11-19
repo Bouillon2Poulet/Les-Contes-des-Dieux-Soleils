@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8814307582596089389
 MonoBehaviour:
@@ -164,6 +164,144 @@ MonoBehaviour:
     music: 0
     loop: 0
     volume: 0.1
+    source: {fileID: 0}
+  - name: jump1
+    clip: {fileID: 8300000, guid: a0d58e985a9822d4aa1528e84679302b, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.5
+    source: {fileID: 0}
+  - name: jump2
+    clip: {fileID: 8300000, guid: 4df42e152e9b11d46b814d7a6e336c56, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.5
+    source: {fileID: 0}
+  - name: jump3
+    clip: {fileID: 8300000, guid: 4232382f1edfb524c8646709a86edd77, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.5
+    source: {fileID: 0}
+  - name: jump4
+    clip: {fileID: 8300000, guid: 06ab2b75260c9b84d890555cf4719972, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.5
+    source: {fileID: 0}
+  - name: jump5
+    clip: {fileID: 8300000, guid: 2ffc12b05befff644a7d0ee7c014d98d, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.5
+    source: {fileID: 0}
+  - name: scope
+    clip: {fileID: 8300000, guid: 1baae499af307fd43aebbd83c64788dc, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.3
+    source: {fileID: 0}
+  - name: pickup
+    clip: {fileID: 8300000, guid: 64cb0b3a350340b42a02ddcb0fac34a1, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: c2u
+    clip: {fileID: 8300000, guid: 6857056e031ac8f40823d204150db962, type: 3}
+    music: 1
+    loop: 1
+    volume: 0.8
+    source: {fileID: 0}
+  - name: bulle
+    clip: {fileID: 8300000, guid: fdd3174afab186743aa4e0c453605373, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: bullepete
+    clip: {fileID: 8300000, guid: e80377ff754514f4985ac45976c52ace, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: concrete
+    clip: {fileID: 8300000, guid: a84e3333e7a26714a920f9f5da2d981f, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.6
+    source: {fileID: 0}
+  - name: concreteloop
+    clip: {fileID: 8300000, guid: 828c06a7e84fbf5438cce65c78887d71, type: 3}
+    music: 0
+    loop: 1
+    volume: 0.6
+    source: {fileID: 0}
+  - name: chant
+    clip: {fileID: 8300000, guid: 05c7e5d04da8bdb4c93d1ab417939527, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.9
+    source: {fileID: 0}
+  - name: paper
+    clip: {fileID: 8300000, guid: f4fae1f9be08a65499f4da1e3c17807e, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: hydraulicdown
+    clip: {fileID: 8300000, guid: b966a39f94147dd4787806d3709af15f, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: button
+    clip: {fileID: 8300000, guid: 825d4d84c8ce5e04a9fb6beb146ec3fa, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: elevatorloop
+    clip: {fileID: 8300000, guid: 8dd3a183f9aa24742b7e1f42909e8b09, type: 3}
+    music: 0
+    loop: 1
+    volume: 0.7
+    source: {fileID: 0}
+  - name: elevatordone
+    clip: {fileID: 8300000, guid: 653000101db97444f86b39320872daeb, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.7
+    source: {fileID: 0}
+  - name: pince
+    clip: {fileID: 8300000, guid: 03148727df9cb4344b3e96b063b05681, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.7
+    source: {fileID: 0}
+  - name: openhublot
+    clip: {fileID: 8300000, guid: ffe237a6f5285f348a38797032c4b503, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.7
+    source: {fileID: 0}
+  - name: closehublot
+    clip: {fileID: 8300000, guid: bc4568206ae80634f892543bef0dc290, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.7
+    source: {fileID: 0}
+  - name: thruster
+    clip: {fileID: 8300000, guid: e25a152e3fdf10840b1759eb3bcbba8e, type: 3}
+    music: 0
+    loop: 1
+    volume: 0.7
+    source: {fileID: 0}
+  - name: swim
+    clip: {fileID: 8300000, guid: 978daf3585c0285469f80226bb60203c, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.5
     source: {fileID: 0}
   MusicGroup: {fileID: -8758951673081790777, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}
   FxGroup: {fileID: 149494303244688294, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}

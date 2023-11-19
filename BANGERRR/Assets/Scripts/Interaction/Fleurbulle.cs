@@ -44,6 +44,7 @@ public class Fleurbulle : MonoBehaviour, IInteractable
             {
                 player.WearBubble();
                 giveBubble();
+                AudioManager.instance.Play("bulle");
             }
             else
             {

@@ -11,16 +11,16 @@ public class NoteSolimont : Note, IInteractable
 
     public void Interact()
     {
-        Debug.Log("Salut c'est la note de Solimont !");
         if (!beenSung)
         {
             if (Flegmardo.isPageDRead)
             {
                 // Fonction Chanter()
+                AudioManager.instance.Play("chant");
                 FindAnyObjectByType<NPCEventsManager>().Soli_songSung = true;
                 beenSung = true;
                 murInvisible.SetActive(false);
-                DialogManager.instance.OpenMessage("*Chanson*", "DEBUG", "Solimont");
+                ///DialogManager.instance.OpenMessage("*Chanson*", "DEBUG", "Solimont");
                 GetComponent<InteractionBubble>().TurnOff();
                 transform.gameObject.SetActive(false);
             }

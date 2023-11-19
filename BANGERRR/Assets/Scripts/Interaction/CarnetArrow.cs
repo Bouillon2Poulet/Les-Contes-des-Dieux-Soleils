@@ -16,6 +16,8 @@ public class CarnetArrow : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Click");
+        AudioManager.instance.Play("paper");
+
         if (isLeftArrow)
         {
             carnet.PreviousPage();

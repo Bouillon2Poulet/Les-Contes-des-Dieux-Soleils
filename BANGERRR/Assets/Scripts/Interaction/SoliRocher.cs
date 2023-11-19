@@ -17,6 +17,7 @@ public class SoliRocher : MonoBehaviour, IInteractable
     private void Pick()
     {
         pickedByPlayer = true;
+        AudioManager.instance.Play("rock");
         GetComponent<InteractionBubble>().TurnOff();
         FindAnyObjectByType<NPCEventsManager>().Soli_caillouRobbed = true;
         FindAnyObjectByType<SoliRejeteur>().gameObject.SetActive(false);

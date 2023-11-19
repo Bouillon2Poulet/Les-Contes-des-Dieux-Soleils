@@ -25,6 +25,7 @@ public class TritonLongueVue : MonoBehaviour, IInteractable
         {
             StartLarmeAnimation();
             GetComponent<InteractionBubble>().ToggleActionIcon(false);
+            AudioManager.instance.Play("scope");
         } 
         else if (!larmeAnimationHasStarted)
         {

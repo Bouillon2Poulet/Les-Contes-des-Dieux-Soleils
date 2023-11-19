@@ -39,7 +39,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private Vector3 moveDirection;
 
     [Header("Sounds")]
-    private int walkSoundsTimer = 50;
+    private int walkSoundsTimer = 1;
 
     [Header("Gravity Stuff")]
     //public Transform gravityAreaTransform; // this debug feature allows me to retrieve the current gravityArea the player is in
@@ -300,7 +300,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 if (walkSoundsTimer == 0)
                 {
                     AudioManager.instance.Play("walk" + Random.Range(1, 8));
-                    walkSoundsTimer = 24;
+                    walkSoundsTimer = 21;
                 }
             }
             else
@@ -338,7 +338,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 velocityOnGravityPlane = Vector3.ProjectOnPlane(rb.velocity, gravityBody.GravityDirection);
         rb.velocity = velocityOnGravityPlane;
 
-        AudioManager.instance.Play("Jump");
+        AudioManager.instance.Play("jump" + Random.Range(1, 6));
 
         rb.AddForce(-gravityBody.GravityDirection * jumpForce, ForceMode.Impulse);
     }

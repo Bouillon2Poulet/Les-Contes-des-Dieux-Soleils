@@ -12,6 +12,7 @@ public class AmpTriggerButton1 : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("INTERACT");
+        AudioManager.instance.Play("button");
         GetComponent<InteractionBubble>().TurnOff();
 
         // Lancer animation fusée et tt !!!

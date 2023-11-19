@@ -61,6 +61,7 @@ public class Carnet : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        AudioManager.instance.Play("paper");
         bool newState = !CarnetBox.activeSelf;
         CarnetBox.SetActive(newState);
         PlayerStatus.instance.GameMenuCursor(newState);
@@ -94,7 +95,7 @@ public class Carnet : MonoBehaviour, IInteractable
     public void UpdatePageTexts()
     {
         Debug.Log("UpdatePageTexts");
-        page %= 4;
+        page = Mathf.Abs(page % 4);
         JourText.text = jours[page];
         CorpsText.text = texts[page];
     }

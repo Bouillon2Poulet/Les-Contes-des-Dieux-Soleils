@@ -256,6 +256,8 @@ public class DialogManager : MonoBehaviour
             child.GetComponent<RectTransform>().localScale = hiddenDialogBoxScale;
         }
 
+        isActive = false;
+
         InitSkin("none");
     }
 

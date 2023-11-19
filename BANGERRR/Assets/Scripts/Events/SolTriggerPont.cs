@@ -24,6 +24,7 @@ public class SolTriggerPont : MonoBehaviour
         if (isPlayerIn && !hasJumped)
         {
             StartSolAnimation();
+            AudioManager.instance.FadeOut("rituel", 50);
             hasJumped = true;
         }
         if (!hasAnimationStopped)

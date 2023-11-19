@@ -27,7 +27,7 @@ public class SolRituelStarter : MonoBehaviour
             if (ritualPhase == 1)
             {
                 Debug.Log("Jme kill");
-                transform.gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
         } 
         else
@@ -39,14 +39,14 @@ public class SolRituelStarter : MonoBehaviour
                     if (FindAnyObjectByType<NPCEventsManager>().Nere.isPageCRead)
                     {
                         Debug.Log("Starting the ritual");
-                        FindAnyObjectByType<FadeToBlack>().FadeInBlack(1f);
+                        FadeToBlack.instance.Fade(true, .5f);
                         Invoke(nameof(StartRitual), 1);
+
+                        AudioManager.instance.FadeOut("solisede", 50);
+                        AudioManager.instance.FadeIn("rituel", 50);
+
                         hasStartedRitual = true;
                         ritualPhase = 1;
-                    }
-                    else
-                    {
-                        Debug.Log("t'as pas encore tout fait mon reuf");
                     }
                 }
             }
@@ -60,7 +60,8 @@ public class SolRituelStarter : MonoBehaviour
             DialogManager.instance.ForceEnd();
         }
         player.position = TpPont.position; // TP Joueur
-        FindAnyObjectByType<FadeToBlack>().FadeOutBlack(1f); // Fade back
+        player.rotation = TpPont.rotation;
+        FadeToBlack.instance.Fade(false, .5f);
         FindAnyObjectByType<SystemDayCounter>().pauseSystem(); // 
         FindAnyObjectByType<NPCEventsManager>().SolDeactivateNPCs(); //
         FindAnyObjectByType<NPCEventsManager>().Sol_ritualStarted = true;

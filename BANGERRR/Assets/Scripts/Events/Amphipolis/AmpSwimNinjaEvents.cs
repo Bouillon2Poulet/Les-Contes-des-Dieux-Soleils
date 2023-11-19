@@ -54,6 +54,7 @@ public class AmpSwimNinjaEvents : MonoBehaviour
         playerMovement.UncapSpeed();
         playerPos.position = playerRb.position;
         mountAnimProgress = 0;
+        AudioManager.instance.Play("swim");
         isPlayerMounting = true;
     }
 

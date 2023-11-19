@@ -85,6 +85,7 @@ public class AmpTriggerInFusee : MonoBehaviour
             if (animationProgress >= .4f && !jetpackMessageSent)
             {
                 jetpackMessageSent = true;
+                AudioManager.instance.Play("paper");
                 StartCoroutine(DialogManager.instance.EphemeralMessage("Jetpack", jetpackLine, 12f, "Amphipolis"));
             }
 
@@ -102,6 +103,7 @@ public class AmpTriggerInFusee : MonoBehaviour
             if (animationProgress >= 1)
             {
                 isDescending = false;
+                AudioManager.instance.Stop("elevatorloop");
                 Debug.Log("Fusee down B)");
                 fusee_body.transform.SetParent(null);
             }
@@ -119,6 +121,8 @@ public class AmpTriggerInFusee : MonoBehaviour
                 Debug.Log("fusee pointing sun");
                 startPointingTowardsSun = false;
                 GOFUSEE = true;
+                AudioManager.instance.FadeIn("thruster", 360);
+                StartFuseeParticles();
                 FuseeKiller.SetActive(true);
             }
         }
@@ -147,15 +151,54 @@ public class AmpTriggerInFusee : MonoBehaviour
         capuchon.SetActive(false);
         MurInvisible2.SetActive(false);
 
+        AudioManager.instance.Play("elevatorloop");
+
         isDescending = true;
     }
 
     public void Kill()
     {
         Debug.Log("KILL FUSEE");
+        AudioManager.instance.Stop("thruster");
         fusee_body.SetActive(false);
 
         instance = null;
+    }
+
+    [SerializeField] public ParticleSystem[] pSys;
+
+    private void Start()
+    {
+        goingIsMaxed = false;
+        initRotationSet = false;
+        startPointingTowardsSun = false;
+        rotationProgress = 0f;
+
+        GOFUSEE = false;
+        goingSpeed = 0f;
+        goingIsMaxed = false;
+        isDescending = false;
+        animationProgress = 0f;
+
+        foreach (ParticleSystem psys in pSys)
+        {
+            psys.Play();
+            ToggleEmission(psys, false);
+        }
+    }
+
+    public void StartFuseeParticles()
+    {
+        foreach (ParticleSystem psys in pSys)
+        {
+            ToggleEmission(psys, true);
+        }
+    }
+
+    public void ToggleEmission(ParticleSystem pSys, bool state)
+    {
+        var em = pSys.emission;
+        em.enabled = state;
     }
 
     public static AmpTriggerInFusee instance { get; private set; }
