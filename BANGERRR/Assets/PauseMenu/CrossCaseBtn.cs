@@ -8,8 +8,10 @@ public class CrossCaseBtn : MonoBehaviour, IPointerClickHandler
 
     public void Start()
     {
-        Cross.SetActive(isActive);
+        Cross.SetActive(PlayerPrefs.GetInt("dialoguesRapides") == 1);
+        DialogManager.instance.DialoguesRapides(PlayerPrefs.GetInt("dialoguesRapides") == 1);
     }
+
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         AudioManager.instance.Play("click");
@@ -19,7 +21,9 @@ public class CrossCaseBtn : MonoBehaviour, IPointerClickHandler
             isActive = !isActive;
             Cross.SetActive(isActive);
             DialogManager.instance.DialoguesRapides(isActive);
-            Debug.Log("Dialogues rapides : " + isActive);
+            PlayerPrefs.SetInt("dialoguesRapides", isActive ? 1 : 0);
+            //Debug.Log("Dialogues rapides : " + isActive);
+            //Debug.Log("Dialogues rapides : " + (PlayerPrefs.GetInt("dialoguesRapides") == 1));
         }
     }
 }

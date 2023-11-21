@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
 {
@@ -11,10 +12,21 @@ public class PauseMenuManager : MonoBehaviour
 
     public AudioMixer audioMixer;
 
+    public Slider musicSlider;
+    public Slider fxSlider;
+
     void Start()
     {
         PauseCanvas = GetComponent<Canvas>();
         PauseCanvas.enabled = false;
+
+        float PlayerMusicVolume = PlayerPrefs.GetFloat("musicVolume");
+        musicSlider.value = PlayerMusicVolume;
+        audioMixer.SetFloat("musicVolume", Mathf.Log10(PlayerMusicVolume) * 20);
+
+        float PlayerFxVolume = PlayerPrefs.GetFloat("fxVolume");
+        fxSlider.value = PlayerFxVolume;
+        audioMixer.SetFloat("fxVolume", Mathf.Log10(PlayerFxVolume) * 20);
     }
 
     void Update()
@@ -45,10 +57,14 @@ public class PauseMenuManager : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         audioMixer.SetFloat("musicVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("musicVolume", volume);
+        //Debug.Log("musicVolume : " + (PlayerPrefs.GetFloat("musicVolume")));
     }
 
     public void SetFxVolume(float volume)
     {
         audioMixer.SetFloat("fxVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("fxVolume", volume);
+        //Debug.Log("fxVolume : " + (PlayerPrefs.GetFloat("fxVolume")));
     }
 }

@@ -13,11 +13,13 @@ public class MainMenuManager : MonoBehaviour
 
     public GameObject QuitterButton;
 
-    // Start is called before the first frame update
+    public GameObject RedSquare;
+
     void Awake()
     {
         ChapterManager.GetSave();
         Debug.Log("MAINMENU : " + ChapterManager.maxChapterIndexDiscoveredByPlayer);
+        RedSquare.SetActive(false);
     }
 
     private void Start()
@@ -46,8 +48,11 @@ public class MainMenuManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift))
         {
+            RedSquare.SetActive(true);
             AudioManager.instance.Play("debug");
             ChapterManager.ResetProgression();
+            PlayerPrefs.DeleteAll();
+            ChapterManager.InitPlayerPrefs();
         }
     }
 

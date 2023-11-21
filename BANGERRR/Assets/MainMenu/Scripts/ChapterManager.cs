@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Audio;
 
 static class ChapterManager
 {
@@ -26,12 +27,6 @@ static class ChapterManager
         public Chapter maxChapterDiscovered;
     }
 
-    public static void InitPlayerPrefs()
-    {
-        PlayerPrefs.SetInt("currentChapter", (int)Chapter.triton);
-        PlayerPrefs.SetInt("maxChapterDiscovered", (int)Chapter.triton);
-    }
-
     public static void NewChapterDiscovered()
     {
         maxChapterIndexDiscoveredByPlayer++;
@@ -47,8 +42,21 @@ static class ChapterManager
 
     public static void GetSave()
     {
+        if (!PlayerPrefs.HasKey("currentChapter"))
+        {
+            InitPlayerPrefs();
+        }
         currentChapterIndex = PlayerPrefs.GetInt("currentChapter");
         maxChapterIndexDiscoveredByPlayer = PlayerPrefs.GetInt("maxChapterDiscovered");
+    }
+
+    public static void InitPlayerPrefs()
+    {
+        PlayerPrefs.SetInt("currentChapter", (int)Chapter.triton);
+        PlayerPrefs.SetInt("maxChapterDiscovered", (int)Chapter.triton);
+        PlayerPrefs.SetFloat("musicVolume", 1);
+        PlayerPrefs.SetFloat("fxVolume", 1);
+        PlayerPrefs.SetInt("dialoguesRapides", 0);
     }
 
     public static void ResetProgression()
