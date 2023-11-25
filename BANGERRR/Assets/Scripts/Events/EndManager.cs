@@ -56,7 +56,7 @@ public class EndManager : MonoBehaviour
         
         /// Monologue de début
         /// Joueur libre
-        DialogManager.instance.OpenMonologue(Monologue, "Omnio", "Fin");
+        DialogManager.instance.OpenMonologue(Monologue, engMonologue, "Omnio", "Fin");
         FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
         yield return new WaitUntil(() => !DialogManager.instance.isItActive());
 
@@ -72,7 +72,7 @@ public class EndManager : MonoBehaviour
         {
             /// Réaction d'Omnio
             /// Joueur libre
-            DialogManager.instance.OpenMonologue(ApresChoix1, "Omnio", "Fin");
+            DialogManager.instance.OpenMonologue(ApresChoix1, engApresChoix1, "Omnio", "Fin");
             FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             yield return new WaitUntil(() => !DialogManager.instance.isItActive());
 
@@ -105,7 +105,7 @@ public class EndManager : MonoBehaviour
 
             /// Dernière tirade d'Omnio
             /// Joueur libre
-            DialogManager.instance.OpenMonologue(ApresChoix1ApresAnimation, "Omnio", "Fin");
+            DialogManager.instance.OpenMonologue(ApresChoix1ApresAnimation, engApresChoix1ApresAnimation, "Omnio", "Fin");
             FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             yield return new WaitUntil(() => !DialogManager.instance.isItActive());
 
@@ -116,7 +116,7 @@ public class EndManager : MonoBehaviour
         {
             /// Réaction d'Omnio
             /// Joueur libre
-            DialogManager.instance.OpenMonologue(ApresChoix2, "Omnio", "Fin");
+            DialogManager.instance.OpenMonologue(ApresChoix2, engApresChoix2, "Omnio", "Fin");
             FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             yield return new WaitUntil(() => !DialogManager.instance.isItActive());
 
@@ -176,14 +176,14 @@ public class EndManager : MonoBehaviour
         "Pourtant, il semble que les âmes de Solimont ne soient plus que des ombres d'elles-mêmes, victimes de ce maudit Soleil Rouge. Devrais-je réduire cette étoile en néant ?",
         "Ils périront sans sa lumière, dis-tu ? Je suis las de ce pouvoir, arbitre de vies et de trépas pour les êtres que j'ai créés. L'énergie me manque pour une telle décision.", 
         "Mais maintenant que tu es là, Grenouille, pourrais-tu m'aider à rectifier mes errements passés ?",
-        "Devrais-je extirper le Soleil Rouge de l'existence, délivrant l'univers de sa maudite lueur, au risque d'annihiler les lézards en même temps ?",
+        "Devrais-je extirper le Soleil Rouge de l'existence, délivrant l'univers de sa maudite lueur, au risque d'annihiler les Lézards en même temps ?",
         "Ou bien devrions-nous laisser le destin guider les événements, puisque c'est lui qui t'a conduit jusqu'ici ?"
     };
 
     private string[] ApresChoix1 = 
     {
         "Si tel est ton choix, je vais le détruire. Contemple le pouvoir d’un vrai dieu face à cet imposture.",
-        "Adieu lézards."
+        "Adieu, Lézards."
     };
 
     private string[] ApresChoix1ApresAnimation =
@@ -204,5 +204,61 @@ public class EndManager : MonoBehaviour
         "Tu t'en sortiras parfaitement, ne doute pas de toi. Tu as eu le courage et la force de venir jusqu'ici, tu seras un Dieu parfait.",
         "Chéris cet univers qui t'a vu naître, et tout se passera bien.",
         "Adieu, mon ami."
+    };
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// ENGLISH 
+
+    private string[] engMonologue = {
+        "Such determination...",
+        "So, it's you who has pulled me from the abyss of despair. I thank you, my child.",
+        "An eternity has passed since I contemplated my universe. I had forgotten how dazzling the life I've woven can be.",
+        "So, here you are, a frog, perhaps the ultimate heir of your people... Despite some differences that distinguish you from your ancestors.",
+        "Know this, I once disowned them. Lost in their pursuit of progress, the members of your race turned away from me. Consumed by anger, I gave in to the unthinkable.",
+        "The twists of time cannot undo it; your people forged an artificial god they lost control of, and I refused my help. I averted my gaze, abandoning them to their grim fate.",
+        "What a downfall for a god like me. When I finally found the strength to grant my forgiveness to the Frogs, it was already too late.",
+        "The surface of Amphipolis had emptied, giving way to these automatons corrupted by the brilliance of the scarlet god.",
+        "Even the Fishes, who had always shown me respect, had succumbed. I did nothing to save them. Oh, my children, grant me your forgiveness.",
+        "So, I wept, letting my tears threaten to engulf the universe. I wanted to swallow my own creation, erase my failure... For how many ages had I not gazed upon the stars' light?",
+        "And here you are, having undertaken a long journey to reach me. Where do you truly come from?",
+        "Planet Triton? Thus, you have named this humble plot of land? This fills me with joy, knowing that finally someone inhabits it.",
+        "My roots in you are becoming clearer, my child. However, tell me, what is your quest here?",
+        "A comet struck your planet and since then, you've been striving to find your home? Don't tell me that...",
+        "What a pitiful divine incarnation I have become. I neglected my own universe, the cosmic symphony is now in chaos. It is my pain that guided you here, but alas, I can no longer assist you.",
+        "You crossed the sun, the sacred boundary, and you have been of immeasurable help to me. However, now you are trapped in this dimension, just like me. I beg you to please accept my humble apologies, Frog.",
+        "Now, we are the deities of a deserted universe, condemned to contemplate the extent of my failure.",
+        "What?!",
+        "Life endures in a land called Solimont, as well as on its satellite, Solisède?!",
+        "I understand. Some Fishes have survived. What a delight.",
+        "Yet, it seems the souls of Solimont are but shadows of themselves, victims of that cursed Red Sun. Should I reduce that star to nothingness?",
+        "They will perish without its light, you say? I am weary of this power, arbiter of lives and deaths for the beings I created. I lack the energy for such a decision.",
+        "But now that you are here, Frog, could you help me rectify my past mistakes?",
+        "Should I extract the Red Sun from existence, freeing the universe from its accursed glow, risking the annihilation of the Lizards in the process?",
+        "Or should we let destiny guide events, since it led you here?"
+    };
+
+
+    private string[] engApresChoix1 = {
+        "If that is your choice, I will destroy it. Witness the power of a true god against this impostor.",
+        "Farewell, Lizards."
+    };
+
+    private string[] engApresChoix1ApresAnimation =
+    {
+        "Thank you immensely, Frog. You seem to be a more than promising god, and I am reassured now.",
+        "I would like to ask you one last favor, if you're willing.",
+        "Could you take my place, my child? I have caused far too much sorrow in this universe. I would now aspire to regain the peace I once lost.",
+        "You will do wonderfully, do not doubt yourself. You have had the courage and strength to come this far, you will be a perfect God.",
+        "Cherish this universe that witnessed your birth, and everything will be fine.",
+        "Farewell, my friend. Thank you..."
+    };
+
+    private string[] engApresChoix2 =
+    {
+        "You prefer to do nothing? I understand, this people have already suffered a great deal. Let us give them the rest they deserve.",
+        "However, I would still like to ask you one last favor, if you're willing.",
+        "Could you take my place, my child? I have caused far too much sorrow in this universe. I would now aspire to regain the peace I once lost.",
+        "You will do wonderfully, do not doubt yourself. You have had the courage and strength to come this far, you will be a perfect God.",
+        "Cherish this universe that witnessed your birth, and everything will be fine.",
+        "Farewell, my friend."
     };
 }

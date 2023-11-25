@@ -8,6 +8,7 @@ public class AmpSoleilRougeDialogue : MonoBehaviour
     bool isCooldownSet = false;
     int cooldown = 0;
     string[] messages = { "DEGAGE", "VAS T'EN", "C'EST TROP TARD", "C'EST LA FIN", "JE SUIS UNIQUE", "OBEIS MOI" };
+    string[] engMessages = { "GO AWAY", "YOU NEED TO GO", "IT IS TOO LATE", "IT IS THE END", "I AM THE ONLY ONE", "OBEY ME" };
 
     [SerializeField] bool debugMode = false;
 
@@ -33,7 +34,9 @@ public class AmpSoleilRougeDialogue : MonoBehaviour
 
         if (!DialogManager.instance.isItActive() && !OpenCosmoGuide.instance.CosmoGuideIsOpen && !PlayerStatus.instance.isAnimated && !AmpSwimNinjaEvents.instance.isNinjaAscending && !AmpSwimNinjaEvents.instance.isPlayerMounting && !AmpSwimNinjaEvents.instance.isPlayerDismounting && isPlayerHere)
         {
-            DialogManager.instance.OpenMessage(messages[Random.Range(0, messages.Length)], "???", "SoleilRouge");
+            int randomNb = Random.Range(0, messages.Length);
+            int engRandomNb = Random.Range(0, engMessages.Length);
+            DialogManager.instance.OpenMessage(messages[randomNb], engMessages[engRandomNb], "???", "SoleilRouge");
         } 
     }
 

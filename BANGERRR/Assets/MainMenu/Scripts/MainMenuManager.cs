@@ -53,6 +53,8 @@ public class MainMenuManager : MonoBehaviour
             ChapterManager.ResetProgression();
             PlayerPrefs.DeleteAll();
             ChapterManager.InitPlayerPrefs();
+            LanguageManager.instance.InitLang();
+            LanguageManager.instance.ToggleLang((LanguageManager.Lang)GlobalVariables.Get<int>("lang"));
         }
     }
 

@@ -108,9 +108,9 @@ public class PhaseManager : MonoBehaviour
         yield return new WaitUntil(() => !upBlink.IsBlinking());
         yield return new WaitForSeconds(mo);
     }
-    private IEnumerator Talk(string text, float duration, float mo)
+    private IEnumerator Talk(string text, string engText, float duration, float mo)
     {
-        StartCoroutine(dialog.EphemeralMessage(dialogName, text, duration));
+        StartCoroutine(dialog.EphemeralMessage(dialogName, text, engText, duration, "Oeil"));
         yield return new WaitUntil(() => !dialog.ephemeralMessageGoing);
         yield return new WaitForSeconds(mo);
     }
@@ -190,9 +190,9 @@ public class PhaseManager : MonoBehaviour
         hueRotationSpeed = hueSpeeds[0];
 
         yield return Blink(1, 2);
-        yield return Talk("Qui ose perturber mon sommeil ?!", 6, 2);
+        yield return Talk("Qui ose perturber mon sommeil ?!", "Who dares disrupt my sleep?!", 6, 2);
         AudioManager.instance.FadeIn("fight", 200);
-        yield return Talk("Crains ma colère...", 4, 2);
+        yield return Talk("Crains ma colère...", "Fear my wrath...", 4, 2);
         StartCoroutine(Phase1());
     }
     private IEnumerator Phase1()
@@ -203,7 +203,7 @@ public class PhaseManager : MonoBehaviour
         yield return Blink(1, .5f);
         yield return Laser(3, 1);
         yield return Blow(1, 10, 1);
-        yield return Talk("Je t'aurais prévenu...", 4, 2);
+        yield return Talk("Je t'aurais prévenu...", "I warned you...", 4, 2);
         StartCoroutine(Phase2());
     }
     private IEnumerator Phase2()
@@ -214,7 +214,7 @@ public class PhaseManager : MonoBehaviour
         yield return Blink(2, .4f);
         yield return Laser(6, .8f);
         yield return Blow(2, 8, 2);
-        yield return Talk("Cette fois, tu es fini !", 4.5f, 2);
+        yield return Talk("Cette fois, tu es fini !", "This time, you're done for!", 4.5f, 2);
         StartCoroutine(Phase3());
     }
     private IEnumerator Phase3()
@@ -225,7 +225,7 @@ public class PhaseManager : MonoBehaviour
         yield return Blink(3, .3f);
         yield return Laser(12, .7f);
         yield return Blow(3, 7, 3);
-        yield return Talk("Aaaaaah maudit sois-tu !!!", 4.7f, 1);
+        yield return Talk("Aaaaaah maudit sois-tu !!!", "Aaaaaah damn you!!!!", 4.7f, 1);
         StartCoroutine(Phase4());
     }
 

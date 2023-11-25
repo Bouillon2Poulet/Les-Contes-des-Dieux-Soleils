@@ -26,7 +26,7 @@ public class NoteSolimont : Note, IInteractable
             }
             else
             {
-                DialogManager.instance.OpenMessage("Ne touche pas à ça !", "Flegmardo", "Solimont");
+                DialogManager.instance.OpenMessage("Ne touche pas à ça !", "Leave that alone!", "Flegmardo", "Solimont"); ;
             }
         }
     }

@@ -13,7 +13,10 @@ public class SolPuzzlePiece : Note, IInteractable
             M.Isador_PuzzlePieceFound = true;
             M.updateNPCPages();
 
-            DialogManager.instance.OpenMessage("La voilà ! Elle est minuscule…", "Pièce de puzzle", "Solisede");
+            string frString = "La voilà, la pièce manquante ! Elle est minuscule...";
+            string engString = "There it is, the missing piece! It's tiny...";
+
+            DialogManager.instance.OpenMessage(frString, engString, "Puzzle", "Solisede");
             
             GetComponent<InteractionBubble>().TurnOff();
             

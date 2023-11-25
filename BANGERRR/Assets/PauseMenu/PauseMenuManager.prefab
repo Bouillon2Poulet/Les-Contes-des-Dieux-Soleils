@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3133623025111973122}
   - component: {fileID: 2883797890927280908}
   - component: {fileID: 5365846404213275179}
+  - component: {fileID: 7987493933996894902}
   m_Layer: 0
   m_Name: OptionsBackground
   m_TagString: Untagged
@@ -76,6 +77,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7987493933996894902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263915177872206138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1f209b070665548b61f8683f798ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  French: {fileID: 21300000, guid: 8b2bc91ec7fcd35438b782e099265093, type: 3}
+  English: {fileID: 21300000, guid: c7123885f562a8e41b9758193899cd1e, type: 3}
 --- !u!1 &939079219566349354
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +556,7 @@ GameObject:
   - component: {fileID: 4635988964415785489}
   - component: {fileID: 3907319193592458708}
   - component: {fileID: 8225632292676132645}
+  - component: {fileID: 4193394137043366931}
   m_Layer: 0
   m_Name: QUITTER
   m_TagString: Untagged
@@ -618,6 +634,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546ec8c105f0ab44ca85b0d3c4fe7002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4193394137043366931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651350330411012261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1f209b070665548b61f8683f798ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  French: {fileID: 21300000, guid: dbd63beaadfd3c941b756c6d400643f8, type: 3}
+  English: {fileID: 21300000, guid: 292b4f5b25731a840bdee1640cd8ba17, type: 3}
 --- !u!1 &3737710235971748357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,6 +1088,7 @@ GameObject:
   - component: {fileID: 809092114625689629}
   - component: {fileID: 1769662248306961273}
   - component: {fileID: 748736960537331853}
+  - component: {fileID: 2234831396479165625}
   m_Layer: 0
   m_Name: RETOUR
   m_TagString: Untagged
@@ -1135,6 +1166,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecbfc1437293a546a9ced80139084c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2234831396479165625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7607174336449849120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1f209b070665548b61f8683f798ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  French: {fileID: 21300000, guid: 765138c6bb18d3045af3a4404d8a995a, type: 3}
+  English: {fileID: 21300000, guid: e18f5a47f73a92546917af9d281727c4, type: 3}
 --- !u!1 &7907103474271193570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,6 +1282,7 @@ GameObject:
   - component: {fileID: 4151972536468026298}
   - component: {fileID: 6959354305281589249}
   - component: {fileID: 3227548851838919158}
+  - component: {fileID: 4392132389322253478}
   m_Layer: 0
   m_Name: RECOMMENCER
   m_TagString: Untagged
@@ -1314,6 +1360,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b09c7133f8d784c83aad4249a202e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4392132389322253478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8097776811571583741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1f209b070665548b61f8683f798ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  French: {fileID: 21300000, guid: 32516a34394953b4e9a1ddc9acb4798e, type: 3}
+  English: {fileID: 21300000, guid: 59b79ea0634db1245bfe73f54438e2fc, type: 3}
 --- !u!1 &8677191952293454708
 GameObject:
   m_ObjectHideFlags: 0

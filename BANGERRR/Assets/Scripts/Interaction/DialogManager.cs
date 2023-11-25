@@ -42,6 +42,8 @@ public class DialogManager : MonoBehaviour
     public GameObject Solimont;
     public GameObject Solisede;
 
+    bool French = false;
+
     private void InitSkin(string skinName)
     {
         GameObject currentSkin = Neutre;
@@ -71,7 +73,7 @@ public class DialogManager : MonoBehaviour
         OpenDialog(messages, actors, "null");
     }
 
-    public void OpenMonologue(string[] phrases, string actor, string skin)
+    public void OpenMonologue(string[] phrases, string[] engPhrases, string actor, string skin)
     {
         string[] actors = new string[] { actor };
         Message[] messages = new Message[phrases.Length];
@@ -79,7 +81,8 @@ public class DialogManager : MonoBehaviour
         {
             Message newMessage = new Message {
                 actorID = 0,
-                message = phrases[i]
+                message = phrases[i],
+                engMessage = engPhrases[i]
             };
             messages[i] = newMessage;
         }
@@ -113,13 +116,14 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void OpenMessage(string text, string name, string skin)
+    public void OpenMessage(string text, string engText, string name, string skin)
     {
         InitSkin(skin);
 
         Message uniqueMessage = new Message
         {
             message = text,
+            engMessage = engText,
             actorID = 0
         };
         Message[] messages = { uniqueMessage };
@@ -136,7 +140,13 @@ public class DialogManager : MonoBehaviour
         //messageText.text = messageToDisplay.message;
         npcNameText.text = currentActors[messageToDisplay.actorID];
 
-        foreach(char letter in messageToDisplay.message.ToCharArray())
+        char[] stringToType;
+        if (French)
+            stringToType = messageToDisplay.message.ToCharArray();
+        else
+            stringToType = messageToDisplay.engMessage.ToCharArray();
+
+        foreach (char letter in stringToType)
         {
             //Debug.Log(wordSpeed);
             if (previousLetter == '.')
@@ -199,21 +209,18 @@ public class DialogManager : MonoBehaviour
         Debug.Log("[DialogManager] FORCED End of messages");
     }
 
-
-    public IEnumerator EphemeralMessage(string name, string text, float duration)
-    {
-        StartCoroutine(EphemeralMessage(name, text, duration, "Oeil"));
-        yield return null;
-    }
-
-    public IEnumerator EphemeralMessage(string name, string text, float duration, string skin)
+    public IEnumerator EphemeralMessage(string name, string text, string engText, float duration, string skin)
     {
         InitSkin(skin);
 
         ephemeralMessageGoing = true;
 
         npcNameText.text = name;
-        messageText.text = text;
+
+        if (French)
+            messageText.text = text;
+        else
+            messageText.text = engText;
 
         float fadingSpeed = .08f;
         float fadingProgression = 0f;
@@ -245,6 +252,12 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
+        LanguageManager.Lang lang = (LanguageManager.Lang)GlobalVariables.Get<int>("lang");
+        if (lang == LanguageManager.Lang.French)
+        {
+            French = true;
+        }
+
         normalDialogBoxScale = Neutre.GetComponent<RectTransform>().localScale;
         hiddenDialogBoxScale = Vector3.zero;
 

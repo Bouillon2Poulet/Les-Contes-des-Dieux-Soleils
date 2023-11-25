@@ -31,6 +31,11 @@ public class debugManager : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerPrefs.HasKey("lang"))
+        {
+            GlobalVariables.Set("lang", PlayerPrefs.GetInt("lang"));
+        }
+
         pageNames = new string[] { "Triton", "Eaux Divines", "Solisède", "Solimont", "Amphipolis", "Larme", "Oeil" };
         pages = new List<Transform[]>
         {

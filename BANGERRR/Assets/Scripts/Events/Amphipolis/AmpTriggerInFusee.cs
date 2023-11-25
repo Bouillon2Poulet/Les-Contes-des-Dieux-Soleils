@@ -42,6 +42,7 @@ public class AmpTriggerInFusee : MonoBehaviour
 
     private bool jetpackMessageSent = false;
     readonly string jetpackLine = "[!] RÉSERVÉ AU PERSONNEL QUALIFIÉ [!]<br>CONTRÔLES: [A] et [E]<br>[!] RISQUES D’EXPLOSION [!]<br>[!] ACTIVATION AUTOMATIQUE [!]";
+    readonly string engJetpackLine = "[!] QUALIFIED PERSONNEL ONLY [!]<br>CONTROLS: [A] and [E]<br>[!] EXPLOSION HAZARDS [!]<br>[!] AUTOMATIC ACTIVATION [!]";
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -86,7 +87,7 @@ public class AmpTriggerInFusee : MonoBehaviour
             {
                 jetpackMessageSent = true;
                 AudioManager.instance.Play("paper");
-                StartCoroutine(DialogManager.instance.EphemeralMessage("Jetpack", jetpackLine, 12f, "Amphipolis"));
+                StartCoroutine(DialogManager.instance.EphemeralMessage("Jetpack", jetpackLine, engJetpackLine, 12f, "Amphipolis"));
             }
 
             if (animationProgress >= .5f)
