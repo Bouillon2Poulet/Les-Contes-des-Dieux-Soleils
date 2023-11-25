@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ChapterSelectionManager : MonoBehaviour
 {
+    public static ChapterSelectionManager instance;
+
     public GameObject TritonPrefab;
     public GameObject EDPrefab;
     public GameObject SolisedePrefab;
@@ -27,7 +28,7 @@ public class ChapterSelectionManager : MonoBehaviour
     public float cameraSpeed = 75;
 
     private List<GameObject> PlanetsPrefabs;
-    private List<GameObject> ChaptersTitles;
+    private List<GameObject> ChaptersTitles = new List<GameObject>();
     private uint currentPlanetIndex = 0;
     // public uint maxPlanetIndex = 3;
 
@@ -45,10 +46,12 @@ public class ChapterSelectionManager : MonoBehaviour
     public GameObject ArrowLeft;
 
     readonly string[] ChapterNames = { "Triton", "Eaux Divines", "Solisède", "Solimont", "Amphipolis", "Oeil", "Omnio" };
+    readonly Dictionary<int, string> ChapterTranslation = new Dictionary<int, string>();
 
     // Start is called before the first frame update
     void Start()
     {
+        InitTranslations();
         PlanetsPrefabs = new List<GameObject>{
             Instantiate(TritonPrefab),
             Instantiate(EDPrefab),
@@ -59,7 +62,7 @@ public class ChapterSelectionManager : MonoBehaviour
             Instantiate(CentreUniversPrefab)
         };
 
-        ChaptersTitles = new List<GameObject>();
+        //ChaptersTitles = new List<GameObject>();
 
         float[] PrefabResizes = new float[] { 1.15f, 0.53f, 0.51f, 10.5f, 17.8f, 6.84f, 1.61f };
 
@@ -78,11 +81,11 @@ public class ChapterSelectionManager : MonoBehaviour
 
             ChaptersTitles.Add(new GameObject());
             ChaptersTitles.Last().name = ((ChapterManager.Chapter)i).ToString() + "_title";
-            ChaptersTitles.Last().AddComponent<UnityEngine.UI.Text>();
-            ChaptersTitles.Last().GetComponent<UnityEngine.UI.Text>().text = "Chapitre " + i + " " + ChapterNames[i];
-            ChaptersTitles.Last().GetComponent<UnityEngine.UI.Text>().font = font;
-            ChaptersTitles.Last().GetComponent<UnityEngine.UI.Text>().fontSize = 60;
-            ChaptersTitles.Last().GetComponent<UnityEngine.UI.Text>().alignment = TextAnchor.MiddleCenter;
+            ChaptersTitles.Last().AddComponent<Text>();
+            ChaptersTitles.Last().GetComponent<Text>().text = "Chapitre " + i + " " + ChapterNames[i];
+            ChaptersTitles.Last().GetComponent<Text>().font = font;
+            ChaptersTitles.Last().GetComponent<Text>().fontSize = 60;
+            ChaptersTitles.Last().GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
 
             ChaptersTitles.Last().GetComponent<RectTransform>().sizeDelta = new Vector2(450, 180);
             ChaptersTitles.Last().transform.SetParent(UICanvas.transform);
@@ -90,9 +93,30 @@ public class ChapterSelectionManager : MonoBehaviour
             ChaptersTitles.Last().SetActive(false);
             i++;
         }
+
+        if (PlayerPrefs.HasKey("lang"))
+        {
+            LanguageManager.Lang lang = (LanguageManager.Lang)GlobalVariables.Get<int>("lang");
+            UpdateTitlesLang(lang);
+        }
     }
 
-    // Update is called once per frame
+    public void UpdateTitlesLang(LanguageManager.Lang lang)
+    {
+        int i = 0;
+        foreach (GameObject chapterTitle in ChaptersTitles)
+        {
+            chapterTitle.GetComponent<Text>().text = ChapterTranslation[(int)lang] + i + " " + ChapterNames[i++];
+        }
+        Debug.Log("Updated chapter titles to " + lang);
+    }
+
+    void InitTranslations()
+    {
+        ChapterTranslation[(int)LanguageManager.Lang.French] = "Chapitre ";
+        ChapterTranslation[(int)LanguageManager.Lang.English] = "Chapter ";
+    }
+
     void Update()
     {
         foreach (GameObject planet in PlanetsPrefabs)
@@ -220,6 +244,17 @@ public class ChapterSelectionManager : MonoBehaviour
             cameraIsMoving = -1;
             //GetComponentInChildren<BackgroundLineManager>().createLine(cameraIsMoving, (int)currentPlanetIndex);
             JouerBtnFromSelection.color = hideColor;
+        }
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
         }
     }
 }

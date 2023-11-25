@@ -141,4 +141,5 @@ public class Message
 {
     public int actorID;
     public string message;
+    public string engMessage;
 }
