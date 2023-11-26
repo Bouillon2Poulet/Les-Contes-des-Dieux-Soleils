@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 178526120}
   - component: {fileID: 178526122}
   - component: {fileID: 178526121}
+  - component: {fileID: 178526123}
   m_Layer: 5
   m_Name: Sous titre (1)
   m_TagString: Untagged
@@ -637,6 +638,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178526119}
   m_CullTransparentMesh: 1
+--- !u!114 &178526123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178526119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d93774cabceef48bbcfd692977f341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  french: Fait avec
+  english: Made with
 --- !u!1 &181533343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,6 +1475,7 @@ GameObject:
   - component: {fileID: 303724140}
   - component: {fileID: 303724142}
   - component: {fileID: 303724141}
+  - component: {fileID: 303724143}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1508,7 +1524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "laisser le destin guider les \xE9v\xE9nements"
+  m_text: "Laisser le destin guider les \xE9v\xE9nements"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e56d917ce67b40e4d9a9449fd536d6bb, type: 2}
   m_sharedMaterial: {fileID: 9062477860951269319, guid: e56d917ce67b40e4d9a9449fd536d6bb, type: 2}
@@ -1585,6 +1601,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303724139}
   m_CullTransparentMesh: 1
+--- !u!114 &303724143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303724139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d93774cabceef48bbcfd692977f341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  french: "Laisser le destin guider les \xE9v\xE9nements"
+  english: Let destiny <br>be <br>the guide
 --- !u!1 &312512682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,6 +1705,7 @@ GameObject:
   - component: {fileID: 400105146}
   - component: {fileID: 400105148}
   - component: {fileID: 400105147}
+  - component: {fileID: 400105149}
   m_Layer: 5
   m_Name: UnJeu
   m_TagString: Untagged
@@ -1799,6 +1830,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400105145}
   m_CullTransparentMesh: 1
+--- !u!114 &400105149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400105145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d93774cabceef48bbcfd692977f341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  french: Un jeu de Quent1 et Rom1
+  english: A game by Quent1 et Rom1
 --- !u!1001 &443617524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2913,6 +2958,7 @@ GameObject:
   - component: {fileID: 1085604895}
   - component: {fileID: 1085604897}
   - component: {fileID: 1085604896}
+  - component: {fileID: 1085604898}
   m_Layer: 5
   m_Name: Sous titre
   m_TagString: Untagged
@@ -3039,6 +3085,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085604894}
   m_CullTransparentMesh: 1
+--- !u!114 &1085604898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085604894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d93774cabceef48bbcfd692977f341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  french: "Communaut\xE9 Unity"
+  english: Unity Community
 --- !u!1 &1138907180 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2821130955479398616, guid: eed0fc1507d3a3f469e75c9a55162521, type: 3}
@@ -3138,6 +3198,7 @@ GameObject:
   - component: {fileID: 1215132764}
   - component: {fileID: 1215132766}
   - component: {fileID: 1215132765}
+  - component: {fileID: 1215132767}
   m_Layer: 5
   m_Name: info
   m_TagString: Untagged
@@ -3262,6 +3323,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215132763}
   m_CullTransparentMesh: 1
+--- !u!114 &1215132767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215132763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d93774cabceef48bbcfd692977f341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  french: "Direction artistique <br>Cr\xE9ation 2D & 3D <br>Programmation UI & FX"
+  english: Art direction <br>2D & 3D creation<br>UI & FX programming
 --- !u!1 &1234690378
 GameObject:
   m_ObjectHideFlags: 0
@@ -4022,6 +4097,7 @@ GameObject:
   - component: {fileID: 1546756148}
   - component: {fileID: 1546756150}
   - component: {fileID: 1546756149}
+  - component: {fileID: 1546756151}
   m_Layer: 5
   m_Name: info
   m_TagString: Untagged
@@ -4069,7 +4145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Lead d\xE9veloppement\nSound Design\nProgrammation monde & gameplay"
+  m_text: "Lead d\xE9veloppement <br>Sound Design <br>Programmation monde & gameplay"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f85c8ebfd4de9d248b69ecab4d4e6c78, type: 2}
   m_sharedMaterial: {fileID: 702255461443898989, guid: f85c8ebfd4de9d248b69ecab4d4e6c78, type: 2}
@@ -4146,6 +4222,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546756147}
   m_CullTransparentMesh: 1
+--- !u!114 &1546756151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546756147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d93774cabceef48bbcfd692977f341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  french: "Lead d\xE9veloppement <br>Sound Design <br>Programmation monde & gameplay"
+  english: Lead development <br>Sound Design <br>World & gameplay programming
 --- !u!1 &1549993998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9218413647548321956, guid: 83a8cc15f1ee2734480053a0db59b02c, type: 3}
@@ -4162,6 +4252,7 @@ GameObject:
   - component: {fileID: 1596274224}
   - component: {fileID: 1596274226}
   - component: {fileID: 1596274225}
+  - component: {fileID: 1596274227}
   m_Layer: 5
   m_Name: info
   m_TagString: Untagged
@@ -4288,6 +4379,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596274223}
   m_CullTransparentMesh: 1
+--- !u!114 &1596274227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596274223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d93774cabceef48bbcfd692977f341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  french: Pixel Effect <br>Aide programmation
+  english: Pixel Effect <br>Programming assistance
 --- !u!1001 &1638753435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5412,6 +5517,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 321245948414471440, guid: 83a8cc15f1ee2734480053a0db59b02c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3627304153482418837, guid: 83a8cc15f1ee2734480053a0db59b02c, type: 3}
       propertyPath: m_Name
       value: Main Canvas
@@ -18511,7 +18620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: extirper le Soleil Rouge de l'existence
+  m_text: Extirper le Soleil Rouge de l'existence
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e56d917ce67b40e4d9a9449fd536d6bb, type: 2}
   m_sharedMaterial: {fileID: 9062477860951269319, guid: e56d917ce67b40e4d9a9449fd536d6bb, type: 2}
@@ -34413,6 +34522,7 @@ GameObject:
   - component: {fileID: 974903182846572133}
   - component: {fileID: 5050509153424736233}
   - component: {fileID: 2335818904551788811}
+  - component: {fileID: 5311945700980209467}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -34420,6 +34530,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5311945700980209467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311945700980209466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d93774cabceef48bbcfd692977f341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  french: Extirper le Soleil Rouge de l'existence
+  english: Extirpate the Red Sun from existence
 --- !u!4 &5328145710479444985
 Transform:
   m_ObjectHideFlags: 0

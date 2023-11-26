@@ -233,7 +233,7 @@ public class EndManager : MonoBehaviour
         "They will perish without its light, you say? I am weary of this power, arbiter of lives and deaths for the beings I created. I lack the energy for such a decision.",
         "But now that you are here, Frog, could you help me rectify my past mistakes?",
         "Should I extract the Red Sun from existence, freeing the universe from its accursed glow, risking the annihilation of the Lizards in the process?",
-        "Or should we let destiny guide events, since it led you here?"
+        "Or should we let destiny be the guide, since it led you here?"
     };
 
 
