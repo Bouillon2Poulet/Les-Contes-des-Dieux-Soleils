@@ -117,6 +117,7 @@ public class LarmeToAmphipolis : MonoBehaviour
                 if (isPlayerOnboard)
                 {
                     transform.SetParent(futureParentOfLarme);
+                    LarmeGA.GetComponent<AudioZone>().ForceEnd(60);
                     larmeHasDefinitlyLanded = true;
                     Debug.Log("Larme has landed for good");
                 } 

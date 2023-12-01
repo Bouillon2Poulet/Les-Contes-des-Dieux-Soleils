@@ -27,4 +27,12 @@ public class AudioZone : MonoBehaviour
             }
         }
     }
+
+    public void ForceEnd(int duration)
+    {
+        if (AudioManager.instance.isItPlaying(musicName))
+        {
+            AudioManager.instance.FadeOut(musicName, duration);
+        }
+    }
 }
