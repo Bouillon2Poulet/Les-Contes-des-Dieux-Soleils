@@ -211,40 +211,54 @@ public class DialogManager : MonoBehaviour
 
     public IEnumerator EphemeralMessage(string name, string text, string engText, float duration, string skin)
     {
-        InitSkin(skin);
-
-        ephemeralMessageGoing = true;
-
-        npcNameText.text = name;
-
-        if (French)
-            messageText.text = text;
-        else
-            messageText.text = engText;
-
-        float fadingSpeed = .08f;
-        float fadingProgression = 0f;
-        backgroundBox.localScale = Vector3.one;
-        arrow.localScale = Vector3.zero;
-
-        while (fadingProgression < 1f)
+        if (!ephemeralMessageGoing)
         {
-            DialogBoxGroup.alpha = fadingProgression;
-            fadingProgression += fadingSpeed;
-            yield return null;
-        }
-        DialogBoxGroup.alpha = 1f;
+            InitSkin(skin);
 
-        yield return new WaitForSeconds(duration);
+            ephemeralMessageGoing = true;
 
-        while (fadingProgression > 0f)
-        {
-            DialogBoxGroup.alpha = fadingProgression;
-            fadingProgression -= fadingSpeed;
-            yield return null;
+            npcNameText.text = name;
+
+            if (French)
+                messageText.text = text;
+            else
+                messageText.text = engText;
+
+            float fadingSpeed = .08f;
+            float fadingProgression = 0f;
+            backgroundBox.localScale = Vector3.one;
+            arrow.localScale = Vector3.zero;
+
+            while (fadingProgression < 1f)
+            {
+                Debug.Log("EphMessage appearing");
+                DialogBoxGroup.alpha = fadingProgression;
+                fadingProgression += fadingSpeed;
+                yield return null;
+            }
+            DialogBoxGroup.alpha = 1f;
+
+            Debug.Log("EphMessage will wait for " + duration + " s");
+            yield return new WaitForSeconds(duration);
+
+            while (fadingProgression > 0f)
+            {
+                Debug.Log("EphMessage disappearing");
+                DialogBoxGroup.alpha = fadingProgression;
+                fadingProgression -= fadingSpeed;
+                yield return null;
+            }
+            DialogBoxGroup.alpha = 0f;
+
+            backgroundBox.localScale = Vector3.zero;
+            arrow.localScale = Vector3.one;
+            ephemeralMessageGoing = false;
         }
+    }
+
+    public void ForceStopEphemeralMessage()
+    {
         DialogBoxGroup.alpha = 0f;
-
         backgroundBox.localScale = Vector3.zero;
         arrow.localScale = Vector3.one;
         ephemeralMessageGoing = false;
