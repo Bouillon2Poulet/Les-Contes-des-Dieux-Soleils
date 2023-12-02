@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class CometCreation : MonoBehaviour
 {
-    public GameObject cometPrefab; // Préfabriqué de la "Larme"
+    /// DEPRECATED
+
+    /*public GameObject cometPrefab; // Préfabriqué de la "Larme"
     bool canComet = true;
     void Start()
     {
@@ -25,5 +27,5 @@ public class CometCreation : MonoBehaviour
     void createComet()
     {
 
-    }
+    }*/
 }

@@ -62,7 +62,7 @@ public class SolRituelStarter : MonoBehaviour
         player.position = TpPont.position; // TP Joueur
         player.rotation = TpPont.rotation;
         FadeToBlack.instance.Fade(false, .5f);
-        FindAnyObjectByType<SystemDayCounter>().pauseSystem(); // 
+        SystemDayCounter.instance.pauseSystem(); // 
         FindAnyObjectByType<NPCEventsManager>().SolDeactivateNPCs(); //
         FindAnyObjectByType<NPCEventsManager>().Sol_ritualStarted = true;
         LeVraiPont.SetActive(true);

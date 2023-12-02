@@ -14,13 +14,13 @@ public class SimpleEllipseRotation : MonoBehaviour
     void Start()
     {
         int invertFactor = (invert) ? -1 : 1;
-        transform.position = GetPosition(GetComponentInParent<SystemDayCounter>().systemTime, invertFactor); // Met à jour la position de l'objet sur l'ellipse
+        transform.position = GetPosition(SystemDayCounter.instance.systemTime, invertFactor); // Met à jour la position de l'objet sur l'ellipse
     }
     // Update is called once per frame
     void Update()
     {
         int invertFactor = (invert) ? -1 : 1;
-        transform.position = GetPosition(GetComponentInParent<SystemDayCounter>().systemTime, invertFactor); // Met à jour la position de l'objet sur l'ellipse
+        transform.position = GetPosition(SystemDayCounter.instance.systemTime, invertFactor); // Met à jour la position de l'objet sur l'ellipse
     }
 
     Vector3 GetPosition(float time, int invertFactor){

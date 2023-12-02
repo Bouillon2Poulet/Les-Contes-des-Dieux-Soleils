@@ -21,7 +21,7 @@ public class SimpleEllipseRotationTristan : MonoBehaviour
     {
         int invertFactor = (invert) ? -1 : 1;
         currentAngle = offset;
-        vitesseRadiale = (speed * 2f * Mathf.PI)/GetComponentInParent<SystemDayCounter>().oneDayDurationInIRLSeconds;
+        vitesseRadiale = (speed * 2f * Mathf.PI)/SystemDayCounter.instance.oneDayDurationInIRLSeconds;
         transform.position = GetPosition(invertFactor); // Met à jour la position de l'objet sur l'ellipse
     }
     // Update is called once per frame
@@ -46,6 +46,6 @@ public class SimpleEllipseRotationTristan : MonoBehaviour
 
     public void updateVitesseRadiale()
     {
-        vitesseRadiale = (speed * 2f * Mathf.PI) / GetComponentInParent<SystemDayCounter>().oneDayDurationInIRLSeconds;
+        vitesseRadiale = (speed * 2f * Mathf.PI) / SystemDayCounter.instance.oneDayDurationInIRLSeconds;
     }
 }

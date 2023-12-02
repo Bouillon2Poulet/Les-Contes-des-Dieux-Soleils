@@ -60,6 +60,15 @@ public class debugManager : MonoBehaviour
 
     private void Update()
     {
+        /*if (Input.GetKeyDown(KeyCode.F7))
+            SystemDayCounter.instance.pauseSystem();
+
+        if (Input.GetKeyDown(KeyCode.F8))
+            SystemDayCounter.instance.resumeSystem();
+
+        if (Input.GetKeyDown(KeyCode.F9))
+            SystemDayCounter.instance.SpeedUpSystem();*/
+
         if (Input.GetKeyDown(KeyCode.F5))
         {
             AudioManager.instance.Play("debug");

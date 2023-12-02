@@ -38,12 +38,16 @@ public class LarmeToAmphipolis : MonoBehaviour
 
     private void FixedUpdate()
     {
+        ForceSystemSpeed();
+
         if (CheckBeginHour() && !hasAnimationStarted && !hasAnimationStopped && !larmeHasDefinitlyLanded) // BEGIN ANIMATION
         {
             hasAnimationStarted = true;
         }
         else if (hasAnimationStarted && !hasAnimationStopped) // DO ANIMATION
         {
+            //Debug.Log(interpolateAmount);
+
             Midpoint = (LAS3.position + LAT5.position) / 2;
 
             // The debug of the courbe ^^ :
@@ -66,7 +70,7 @@ public class LarmeToAmphipolis : MonoBehaviour
                     midpointCube.transform.position = Midpoint;
 
                     // Pause system
-                    FindAnyObjectByType<SystemDayCounter>().pauseSystem();
+                    SystemDayCounter.instance.pauseSystem();
                 }
                 if (hasSpheresBeenCreated)
                 {
@@ -135,24 +139,38 @@ public class LarmeToAmphipolis : MonoBehaviour
         }
     }
 
+    void ForceSystemSpeed()
+    {
+        if (
+            (SystemDayCounter.instance.minutes > 55 && SystemDayCounter.instance.minutes < 60) ||
+            (SystemDayCounter.instance.minutes > 445 && SystemDayCounter.instance.minutes < 450) ||
+            (SystemDayCounter.instance.minutes > 775 && SystemDayCounter.instance.minutes < 750) ||
+            (SystemDayCounter.instance.minutes > 1205 && SystemDayCounter.instance.minutes < 1210)
+            )
+        {
+            Debug.Log("NEED TO NORMAL SPEED");
+            SystemDayCounter.instance.resumeSystem();
+        }
+    }
+
     private bool CheckBeginHour()
     {
-        if (FindAnyObjectByType<SystemDayCounter>().hour == 1)
+        if (SystemDayCounter.instance.hour == 1)
         {
             farMode = false;
             return true;
         }
-        else if (FindAnyObjectByType<SystemDayCounter>().minutes == 450)
+        else if (SystemDayCounter.instance.minutes == 450)
         {
             farMode = true;
             return true;
         }
-        else if (FindAnyObjectByType<SystemDayCounter>().hour == 13)
+        else if (SystemDayCounter.instance.hour == 13)
         {
             farMode = false;
             return true;
         }
-        else if (FindAnyObjectByType<SystemDayCounter>().minutes == 1210)
+        else if (SystemDayCounter.instance.minutes == 1210)
         {
             farMode = true;
             return true;
@@ -162,18 +180,18 @@ public class LarmeToAmphipolis : MonoBehaviour
             return false;
         }
 
-        /*return (FindAnyObjectByType<SystemDayCounter>().hour == 1
-            || FindAnyObjectByType<SystemDayCounter>().minutes == 450
-            || FindAnyObjectByType<SystemDayCounter>().hour == 13
-            || FindAnyObjectByType<SystemDayCounter>().minutes == 1170);*/
+        /*return (SystemDayCounter.instance.hour == 1
+            || SystemDayCounter.instance.minutes == 450
+            || SystemDayCounter.instance.hour == 13
+            || SystemDayCounter.instance.minutes == 1170);*/
     }
 
     private bool CheckEndHour()
     {
-        return (FindAnyObjectByType<SystemDayCounter>().hour == 6
-            || FindAnyObjectByType<SystemDayCounter>().minutes == 750
-            || FindAnyObjectByType<SystemDayCounter>().hour == 19
-            || FindAnyObjectByType<SystemDayCounter>().minutes == 55);
+        return (SystemDayCounter.instance.hour == 6
+            || SystemDayCounter.instance.minutes == 750
+            || SystemDayCounter.instance.hour == 19
+            || SystemDayCounter.instance.minutes == 55);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -197,5 +215,23 @@ public class LarmeToAmphipolis : MonoBehaviour
         Vector3 ab_bc = QuadraticLerp(a, b, c, t);
         Vector3 bc_cd = QuadraticLerp(b, c, d, t);
         return Vector3.Lerp(ab_bc, bc_cd, t);
+    }
+
+    public bool IsAnimated()
+    {
+        return (hasAnimationStarted && !hasAnimationStopped);
+    }
+
+    public static LarmeToAmphipolis instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 }

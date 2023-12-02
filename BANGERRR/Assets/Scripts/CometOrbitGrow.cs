@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CometOrbitGrow : MonoBehaviour
 {
-    float minSemiMajorAxis;
+    /// DEPRECATED
+    /*float minSemiMajorAxis;
     float minSemiMinorAxis;
     float startTime;
 
@@ -22,5 +23,5 @@ public class CometOrbitGrow : MonoBehaviour
     {
         GetComponent<SimpleEllipseRotation>().semiMajorAxis = ((GetComponentInParent<SystemDayCounter>().systemTime*minSemiMajorAxis)/startTime);
         GetComponent<SimpleEllipseRotation>().semiMinorAxis = ((GetComponentInParent<SystemDayCounter>().systemTime*minSemiMinorAxis)/startTime);
-    }
+    }*/
 }

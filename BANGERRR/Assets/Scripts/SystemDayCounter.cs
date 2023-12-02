@@ -3,8 +3,11 @@ using TMPro;
 
 public class SystemDayCounter : MonoBehaviour
 {
+    public static SystemDayCounter instance;
+
     public float oneDayDurationInIRLSeconds = 600f;
     private float pauseValue = 1048575f;
+    private float speedUpValue = 60f;
     private float goingValue;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI debugTime; // TO DELETE
@@ -23,6 +26,14 @@ public class SystemDayCounter : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         goingValue = oneDayDurationInIRLSeconds;
         TimeAtWhichTheSceneStarted = Time.time;
         /// DEBUG ONLY, TO DELETE
@@ -63,11 +74,18 @@ public class SystemDayCounter : MonoBehaviour
 
     public void pauseSystem()
     {
-        UpdateSystemSpeed(pauseValue);
+        if (!LarmeToAmphipolis.instance.IsAnimated())
+            UpdateSystemSpeed(pauseValue);
     }
 
     public void resumeSystem()
     {
         UpdateSystemSpeed(goingValue);
+    }
+
+    public void SpeedUpSystem()
+    {
+        if (!LarmeToAmphipolis.instance.IsAnimated())
+            UpdateSystemSpeed(speedUpValue);
     }
 }

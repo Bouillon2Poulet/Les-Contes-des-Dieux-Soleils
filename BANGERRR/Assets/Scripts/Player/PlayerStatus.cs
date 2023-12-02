@@ -253,7 +253,7 @@ public class PlayerStatus : MonoBehaviour
     {
         if (inMenu)
         {
-            Debug.Log("IN game menu");
+            //Debug.Log("IN game menu");
             FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
             FindAnyObjectByType<MainCameraManager>().blockMovement();
             Cursor.lockState = CursorLockMode.None;
@@ -261,7 +261,7 @@ public class PlayerStatus : MonoBehaviour
         }
         else
         {
-            Debug.Log("OUT game menu");
+            //Debug.Log("OUT game menu");
             if (!DialogManager.instance.isItActive())
             {
                 FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
