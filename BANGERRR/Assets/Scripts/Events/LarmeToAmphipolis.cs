@@ -38,7 +38,7 @@ public class LarmeToAmphipolis : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ForceSystemSpeed();
+        //ForceSystemSpeed();
 
         if (CheckBeginHour() && !hasAnimationStarted && !hasAnimationStopped && !larmeHasDefinitlyLanded) // BEGIN ANIMATION
         {
@@ -155,21 +155,25 @@ public class LarmeToAmphipolis : MonoBehaviour
 
     private bool CheckBeginHour()
     {
+        // 1 heure
         if (SystemDayCounter.instance.hour == 1)
         {
             farMode = false;
             return true;
         }
+        // 7 heures 30
         else if (SystemDayCounter.instance.minutes == 450)
         {
             farMode = true;
             return true;
         }
+        // 13 heures
         else if (SystemDayCounter.instance.hour == 13)
         {
             farMode = false;
             return true;
         }
+        // 20 heures 10
         else if (SystemDayCounter.instance.minutes == 1210)
         {
             farMode = true;

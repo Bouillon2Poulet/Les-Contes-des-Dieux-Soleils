@@ -50,8 +50,10 @@ public class SystemDayCounter : MonoBehaviour
         hour = (int)(systemTime / 3600f);
         minutes = (int)(systemTime / 60f);
 
-        string timeString = string.Format("Jour {0} - {1}h", dayCounter, hour);
+        string minutesString = (minutes%60 < 10) ? "0" + minutes%60 : "" + minutes%60;
+        string timeString = string.Format("Jour {0} - {1}h {2}", dayCounter, hour, minutesString);
         timeText.text = timeString;
+
         debugTime.text = ""+ hour; // DEBUG - TO DELETE
         debugTimeMin.text = "" + minutes; // DEBUG - TO DELETE
 

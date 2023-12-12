@@ -18,7 +18,7 @@ public class PaperNPC : MonoBehaviour, IInteractable
     [Header("Paper")]
     public GameObject Paper;
 
-    [SerializeField] bool isOkidokiLetter = false;
+    //[SerializeField] bool isOkidokiLetter = false;
 
     private void FixedUpdate()
     {
@@ -48,10 +48,10 @@ public class PaperNPC : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (isOkidokiLetter)
+        /*if (isOkidokiLetter)
         {
             Debug.Log("I am Okidoki Letter");
-        }
+        }*/
         AudioManager.instance.Play("paper");
         bool newState = !Paper.activeSelf;
         Paper.SetActive(newState);
