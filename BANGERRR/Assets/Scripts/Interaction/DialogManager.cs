@@ -18,6 +18,7 @@ public class DialogManager : MonoBehaviour
     public static bool isActive = false;
     public bool ephemeralMessageGoing = false;
     [SerializeField] private bool updatesNPCPages = true;
+    bool hasClosedThisFrame = false;
 
     bool isTyping = false;
     char previousLetter = ' ';
@@ -93,7 +94,7 @@ public class DialogManager : MonoBehaviour
     {
         InitSkin(skin);
 
-        if (!isActive)
+        if (!isActive && !hasClosedThisFrame)
         {
             isActive = true;
             currentMessages = messages;
@@ -191,6 +192,7 @@ public class DialogManager : MonoBehaviour
         else
         {
             isActive = false;
+            hasClosedThisFrame = true;
             FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             if (updatesNPCPages)
             {
@@ -290,6 +292,7 @@ public class DialogManager : MonoBehaviour
 
     void Update()
     {
+        hasClosedThisFrame = false;
         if (isActive == true && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
         {
             if (currentMessages != null && !isTyping)

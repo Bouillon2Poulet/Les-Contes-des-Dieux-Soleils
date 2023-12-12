@@ -9,7 +9,6 @@ public class CrossCaseBtn : MonoBehaviour, IPointerClickHandler
     public void Start()
     {
         Cross.SetActive(PlayerPrefs.GetInt("dialoguesRapides") == 1);
-        DialogManager.instance.DialoguesRapides(PlayerPrefs.GetInt("dialoguesRapides") == 1);
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)

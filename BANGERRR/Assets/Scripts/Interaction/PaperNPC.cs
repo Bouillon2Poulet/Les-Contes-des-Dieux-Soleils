@@ -17,13 +17,28 @@ public class PaperNPC : MonoBehaviour, IInteractable
 
     [Header("Paper")]
     public GameObject Paper;
+    private bool hasAlreadyChangedStateThisFrame = false;
 
-    //[SerializeField] bool isOkidokiLetter = false;
-
-    private void FixedUpdate()
+    private void Update()
     {
+        if (hasAlreadyChangedStateThisFrame)
+            hasAlreadyChangedStateThisFrame = false;
+
         IdleRotateNote();
         IdleMoveNote();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Paper.activeSelf && !hasAlreadyChangedStateThisFrame)
+            {
+                hasAlreadyChangedStateThisFrame = true;
+                AudioManager.instance.Play("paper");
+                Paper.SetActive(false);
+                PlayerStatus.instance.GameMenuCursor(false);
+                PlayerStatus.instance.isAnimated = false;
+                FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            }
+        }
     }
 
     private void IdleRotateNote()
@@ -48,22 +63,22 @@ public class PaperNPC : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        /*if (isOkidokiLetter)
+        if (!hasAlreadyChangedStateThisFrame)
         {
-            Debug.Log("I am Okidoki Letter");
-        }*/
-        AudioManager.instance.Play("paper");
-        bool newState = !Paper.activeSelf;
-        Paper.SetActive(newState);
-        PlayerStatus.instance.GameMenuCursor(newState);
-        PlayerStatus.instance.isAnimated = newState;
-        if (newState)
-        {
-            FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
-        }
-        else
-        {
-            FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            hasAlreadyChangedStateThisFrame = true;
+            AudioManager.instance.Play("paper");
+            bool newState = !Paper.activeSelf;
+            Paper.SetActive(newState);
+            PlayerStatus.instance.GameMenuCursor(newState);
+            PlayerStatus.instance.isAnimated = newState;
+            if (newState)
+            {
+                FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
+            }
+            else
+            {
+                FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            }
         }
     }
 

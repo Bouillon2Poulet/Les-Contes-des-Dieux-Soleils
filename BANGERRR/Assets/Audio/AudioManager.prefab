@@ -253,7 +253,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b966a39f94147dd4787806d3709af15f, type: 3}
     music: 0
     loop: 0
-    volume: 0.8
+    volume: 0.65
     source: {fileID: 0}
   - name: button
     clip: {fileID: 8300000, guid: 825d4d84c8ce5e04a9fb6beb146ec3fa, type: 3}
@@ -265,13 +265,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8dd3a183f9aa24742b7e1f42909e8b09, type: 3}
     music: 0
     loop: 1
-    volume: 0.7
+    volume: 0.5
     source: {fileID: 0}
   - name: elevatordone
     clip: {fileID: 8300000, guid: 653000101db97444f86b39320872daeb, type: 3}
     music: 0
     loop: 0
-    volume: 0.7
+    volume: 0.9
     source: {fileID: 0}
   - name: pince
     clip: {fileID: 8300000, guid: 03148727df9cb4344b3e96b063b05681, type: 3}
@@ -301,7 +301,25 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 978daf3585c0285469f80226bb60203c, type: 3}
     music: 0
     loop: 0
-    volume: 0.5
+    volume: 0.15
+    source: {fileID: 0}
+  - name: rock
+    clip: {fileID: 8300000, guid: 2f7c1ba2ff24642478e5076813523782, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.4
+    source: {fileID: 0}
+  - name: amphipolis_int
+    clip: {fileID: 8300000, guid: 55db3756880b0704094770b75fab6973, type: 3}
+    music: 1
+    loop: 1
+    volume: 0.823
+    source: {fileID: 0}
+  - name: gone
+    clip: {fileID: 8300000, guid: 6e1e4c141dc5bce459b1d2ccfc4d9e8a, type: 3}
+    music: 1
+    loop: 0
+    volume: 0.823
     source: {fileID: 0}
   MusicGroup: {fileID: -8758951673081790777, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}
   FxGroup: {fileID: 149494303244688294, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}

@@ -11,8 +11,7 @@ public class SolRituelStarter : MonoBehaviour
     public GameObject TriggerPont;
 
     private bool isPlayerIn = false;
-    private bool hasStartedRitual = false;
-    private int ritualPhase = 0;
+    private bool hasRitualStarted = false;
 
     private void Start()
     {
@@ -22,52 +21,48 @@ public class SolRituelStarter : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (hasStartedRitual)
+        if (isPlayerIn && !hasRitualStarted)
         {
-            if (ritualPhase == 1)
+            if (FindAnyObjectByType<isSolisedeAlignedWithSolimont>().Check())
             {
-                Debug.Log("Jme kill");
-                gameObject.SetActive(false);
-            }
-        } 
-        else
-        {
-            if (isPlayerIn)
-            {
-                if (FindAnyObjectByType<isSolisedeAlignedWithSolimont>().Check())
+                if (FindAnyObjectByType<NPCEventsManager>().Nere.isPageCRead)
                 {
-                    if (FindAnyObjectByType<NPCEventsManager>().Nere.isPageCRead)
-                    {
-                        Debug.Log("Starting the ritual");
-                        FadeToBlack.instance.Fade(true, .5f);
-                        Invoke(nameof(StartRitual), 1);
-
-                        AudioManager.instance.FadeOut("solisede", 50);
-                        AudioManager.instance.FadeIn("rituel", 50);
-
-                        hasStartedRitual = true;
-                        ritualPhase = 1;
-                    }
+                    hasRitualStarted = true;
+                    Debug.Log("Starting the ritual");
+                    StartCoroutine(nameof(Ritual));
                 }
             }
         }
     }
 
-    private void StartRitual()
+    private IEnumerator Ritual()
     {
         if (DialogManager.instance.isItActive())
         {
             DialogManager.instance.ForceEnd();
         }
+
+        AudioManager.instance.FadeOut("solisede", 50);
+        AudioManager.instance.FadeIn("rituel", 50);
+
+        yield return FadeToBlack.instance.Fade(true, .3f);
+
+        SystemDayCounter.instance.pauseSystem();
+        // + kill current larme si jamais ça fait des bugs mais pour l'instant ça a l'air d'aller
+
         player.position = TpPont.position; // TP Joueur
         player.rotation = TpPont.rotation;
-        FadeToBlack.instance.Fade(false, .5f);
-        SystemDayCounter.instance.pauseSystem(); // 
-        FindAnyObjectByType<NPCEventsManager>().SolDeactivateNPCs(); //
+
+        FindAnyObjectByType<NPCEventsManager>().SolDeactivateNPCs();
         FindAnyObjectByType<NPCEventsManager>().Sol_ritualStarted = true;
         LeVraiPont.SetActive(true);
         TriggerPont.SetActive(true);
-        Invoke(nameof(ShowRitualDialogs), 1);
+
+        yield return FadeToBlack.instance.Fade(false, .5f);
+
+        yield return new WaitForSeconds(1);
+
+        ShowRitualDialogs();
     }
 
     private void ShowRitualDialogs()

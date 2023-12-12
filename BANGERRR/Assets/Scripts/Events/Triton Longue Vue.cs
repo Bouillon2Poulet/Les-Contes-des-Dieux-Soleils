@@ -64,6 +64,8 @@ public class TritonLongueVue : MonoBehaviour, IInteractable
                 TelescopeImageMask.SetActive(false);
                 playerMovement.unblockPlayerMoveInputs();
 
+                AudioManager.instance.Play("gone");
+
                 FindAnyObjectByType<EDTransitionScript>().StartAnimation();
             }
         }

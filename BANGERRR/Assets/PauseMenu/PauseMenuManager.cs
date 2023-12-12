@@ -27,6 +27,8 @@ public class PauseMenuManager : MonoBehaviour
         float PlayerFxVolume = PlayerPrefs.GetFloat("fxVolume");
         fxSlider.value = PlayerFxVolume;
         audioMixer.SetFloat("fxVolume", Mathf.Log10(PlayerFxVolume) * 20);
+
+        DialogManager.instance.DialoguesRapides(PlayerPrefs.GetInt("dialoguesRapides") == 1);
     }
 
     void Update()

@@ -45,6 +45,8 @@ public class AmpAscenseur : MonoBehaviour
                 AmpSoleilRougeDialogue.instance.gameObject.SetActive(false);
                 intGAsHaveBeenActivated = true;
                 AmpNPCManager.instance.ToggleInteriorObjects(true);
+                AudioManager.instance.FadeOut("amphipolis", 120);
+                AudioManager.instance.FadeIn("amphipolis_int", 120);
                 playerMovement.gameObject.transform.SetParent(elevator);
             }
 

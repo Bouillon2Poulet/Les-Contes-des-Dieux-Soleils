@@ -28,7 +28,7 @@ public class LarmeToAmphipolis : MonoBehaviour
     private bool isPlayerOnboard = false;
     private bool larmeHasDefinitlyLanded = false;
     public Transform futureParentOfLarme;
-    public GameObject LarmeGA;
+    public AudioZone LarmeAudioZone;
 
     // debug
     readonly bool debugCourbe = false;
@@ -121,7 +121,8 @@ public class LarmeToAmphipolis : MonoBehaviour
                 if (isPlayerOnboard)
                 {
                     transform.SetParent(futureParentOfLarme);
-                    LarmeGA.GetComponent<AudioZone>().ForceEnd(60);
+                    LarmeAudioZone.ForceEnd(60);
+                    LarmeAudioZone.gameObject.SetActive(false);
                     larmeHasDefinitlyLanded = true;
                     Debug.Log("Larme has landed for good");
                 } 
@@ -136,7 +137,16 @@ public class LarmeToAmphipolis : MonoBehaviour
             interpolateAmount = 0f;
             hasAnimationStarted = false;
             hasAnimationStopped = false;
+            transform.position = new Vector3(5000f, 5000f, 5000f);
         }
+    }
+
+    public void ForceReset()
+    {
+        interpolateAmount = 0f;
+        hasAnimationStarted = false;
+        hasAnimationStopped = false;
+        rotationOffset = Quaternion.Euler(180f, 0f, 0f);
     }
 
     void ForceSystemSpeed()

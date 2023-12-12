@@ -18,6 +18,8 @@ public class SystemDayCounter : MonoBehaviour
     public int hour;
     public int minutes;
 
+    private string dayString;
+
     public float offset;
     [Header("Debug")]
     public bool ConstantSpeedUpdate = false;
@@ -41,6 +43,19 @@ public class SystemDayCounter : MonoBehaviour
         UpdateSystemSpeed(goingValue);*/
     }
 
+    private void Start()
+    {
+        LanguageManager.Lang lang = (LanguageManager.Lang)GlobalVariables.Get<int>("lang");
+        if (lang == LanguageManager.Lang.French)
+        {
+            dayString = "Jour";
+        }
+        else
+        {
+            dayString = "Day";
+        }
+    }
+
     void Update()
     {
         float appTime = Time.time - TimeAtWhichTheSceneStarted;
@@ -51,7 +66,7 @@ public class SystemDayCounter : MonoBehaviour
         minutes = (int)(systemTime / 60f);
 
         string minutesString = (minutes%60 < 10) ? "0" + minutes%60 : "" + minutes%60;
-        string timeString = string.Format("Jour {0} - {1}h {2}", dayCounter, hour, minutesString);
+        string timeString = string.Format(dayString + " {0} - {1} h {2}", dayCounter, hour, minutesString);
         timeText.text = timeString;
 
         debugTime.text = ""+ hour; // DEBUG - TO DELETE
@@ -76,8 +91,7 @@ public class SystemDayCounter : MonoBehaviour
 
     public void pauseSystem()
     {
-        if (!LarmeToAmphipolis.instance.IsAnimated())
-            UpdateSystemSpeed(pauseValue);
+        UpdateSystemSpeed(pauseValue);
     }
 
     public void resumeSystem()
