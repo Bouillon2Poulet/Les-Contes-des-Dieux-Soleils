@@ -103,7 +103,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: aba1ed2ee076333418b67d4249ae4fb7, type: 3}
     music: 1
     loop: 1
-    volume: 0.7
+    volume: 0.4
     source: {fileID: 0}
   - name: mk
     clip: {fileID: 8300000, guid: a858de526e8f0854d9b9247846d0314c, type: 3}
@@ -380,6 +380,24 @@ MonoBehaviour:
     music: 0
     loop: 0
     volume: 0.6
+    source: {fileID: 0}
+  - name: bulledead
+    clip: {fileID: 8300000, guid: 2144bc96ee9a5ab478908bbc74c17812, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.6
+    source: {fileID: 0}
+  - name: omnio_lasercharge
+    clip: {fileID: 8300000, guid: 156da317f84515841b3337c7afdef263, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: omnio_laserloop
+    clip: {fileID: 8300000, guid: 6856a42f2efd0d746b73610e552c7144, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.7
     source: {fileID: 0}
   MusicGroup: {fileID: -8758951673081790777, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}
   FxGroup: {fileID: 149494303244688294, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}

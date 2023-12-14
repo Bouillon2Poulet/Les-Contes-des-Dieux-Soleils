@@ -26,6 +26,7 @@ public class Centre : MonoBehaviour
     public void Hit()
     {
         hit = true;
+        AudioManager.instance.Play("omnio_hit");
         //Debug.Log("Hit Flash!");
         StartCoroutine(EFlash());
 

@@ -82,6 +82,7 @@ public class LineInstantiator : MonoBehaviour
         IrisAnimate();
         yield return new WaitUntil(() => isIrisAnimationFinished);
         StartLaser();
+        AudioManager.instance.Play("omnio_laserloop");
 
         float endTime = Time.time + duration;
         while (Time.time < endTime && !hit)
@@ -90,6 +91,7 @@ public class LineInstantiator : MonoBehaviour
         }
 
         StopLaser();
+        AudioManager.instance.Stop("omnio_laserloop");
         if (hit)
         {
             Debug.Log("Brûlé !!");

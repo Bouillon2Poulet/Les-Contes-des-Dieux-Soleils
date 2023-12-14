@@ -141,4 +141,14 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+
+    public void StopAllNonMusicLoops()
+    {
+        Sound[] nonMusics = Array.FindAll(Sounds, sound => !sound.music);
+        Sound[] loops = Array.FindAll(nonMusics, sound => sound.loop);
+        foreach(Sound m in loops)
+        {
+            Stop(m.name);
+        }
+    }
 }

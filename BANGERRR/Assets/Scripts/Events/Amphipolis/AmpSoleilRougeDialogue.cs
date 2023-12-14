@@ -37,7 +37,8 @@ public class AmpSoleilRougeDialogue : MonoBehaviour
             int randomNb = Random.Range(0, messages.Length);
             int engRandomNb = Random.Range(0, engMessages.Length);
             DialogManager.instance.OpenMessage(messages[randomNb], engMessages[engRandomNb], "???", "SoleilRouge");
-        } 
+            AudioManager.instance.Play("redsuntalk");
+        }
     }
 
     private void OnTriggerEnter(Collider other)

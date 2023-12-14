@@ -45,6 +45,7 @@ public class Blink : MonoBehaviour
                 if (transform.localEulerAngles.x < minAngle && transform.localEulerAngles.x > minAngle - 5f)
                 {
                     isClosing = false;
+                    AudioManager.instance.Play("omnio_blink");
                     nextYouStop -= 1;
                 }
                 sens = (isClosing) ? -1 : 1;

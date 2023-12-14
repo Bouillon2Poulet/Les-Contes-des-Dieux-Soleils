@@ -61,6 +61,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public static bool wearingBulleJetpack = false;
     [SerializeField] GameObject BulleJetpack;
     [SerializeField] GameObject BulleJetpackSide;
+    bool isJetpackSoundPlaying = false;
 
     private enum Direction { right, left, front, back, };
     Direction facing;
@@ -219,6 +220,19 @@ public class ThirdPersonMovement : MonoBehaviour
                 if (Input.GetKey(KeyCode.Q))
                 {
                     rb.AddForce(gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 3f), ForceMode.Force);
+                    if (!isJetpackSoundPlaying)
+                    {
+                        AudioManager.instance.Play("thruster");
+                        isJetpackSoundPlaying = true;
+                    }
+                }
+                else
+                {
+                    if (isJetpackSoundPlaying)
+                    {
+                        AudioManager.instance.Stop("thruster");
+                        isJetpackSoundPlaying = false;
+                    }
                 }
 
                 Jetpack_left.SetActive(facing == Direction.left);
@@ -228,6 +242,11 @@ public class ThirdPersonMovement : MonoBehaviour
             }
             else
             {
+                if (isJetpackSoundPlaying)
+                {
+                    AudioManager.instance.Stop("thruster");
+                    isJetpackSoundPlaying = false;
+                }
                 Jetpack_left.SetActive(false);
                 Jetpack_right.SetActive(false);
                 Jetpack_front.SetActive(false);

@@ -34,6 +34,7 @@ public class LoadSceneManager : MonoBehaviour
 
     public void LoadScene(int buildIndex, bool withLoadingScreen)
     {
+        AudioManager.instance.StopAllNonMusicLoops();
         StartCoroutine(LoadAsyncScene(buildIndex, withLoadingScreen));
     }
 

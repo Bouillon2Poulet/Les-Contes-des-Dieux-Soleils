@@ -25,6 +25,7 @@ public class Missile : MonoBehaviour
             Vector3 closestSpawnerPosition = GetClosestSpawnerPosition();
 
             GameObject rocket = Instantiate(rocketPrefab, closestSpawnerPosition, rocketPrefab.transform.rotation);
+            AudioManager.instance.Play("omnio_missile");
 
             Vector3 closestSpawnTarget = GetClosestSpawnTarget();
 

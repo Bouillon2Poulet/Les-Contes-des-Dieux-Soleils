@@ -31,6 +31,7 @@ public class Aspire : MonoBehaviour
         // Check for left mouse button click to start the animation
         if (triggered && !animationStarted)
         {
+            AudioManager.instance.Play("omnio_aspire");
             triggered = false;
             animationStarted = true;
             timeStart = Time.time;

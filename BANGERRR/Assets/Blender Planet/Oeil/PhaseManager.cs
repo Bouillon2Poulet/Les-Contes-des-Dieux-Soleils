@@ -84,6 +84,7 @@ public class PhaseManager : MonoBehaviour
     }
     private IEnumerator ResetPlayer()
     {
+        AudioManager.instance.Play("bulledead");
         AudioManager.instance.FadeOut("fight", 60);
         yield return Fade(true, 1f);
 
@@ -110,12 +111,14 @@ public class PhaseManager : MonoBehaviour
     }
     private IEnumerator Talk(string text, string engText, float duration, float mo)
     {
+        AudioManager.instance.Play("omnio_talk");
         StartCoroutine(dialog.EphemeralMessage(dialogName, text, engText, duration, "Oeil"));
         yield return new WaitUntil(() => !dialog.ephemeralMessageGoing);
         yield return new WaitForSeconds(mo);
     }
     private IEnumerator Laser(float duration, float mo)
     {
+        AudioManager.instance.Play("omnio_lasercharge");
         laser.Trigger(duration);
         yield return new WaitUntil(() => !laser.laserGoing);
         yield return new WaitForSeconds(mo);
@@ -124,6 +127,7 @@ public class PhaseManager : MonoBehaviour
     {
         Centre.instance.hit = false;
         hitByMissile = false;
+        AudioManager.instance.Play("omnio_blow");
         blow.Trigger();
 
         int di = 0;
