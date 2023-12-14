@@ -129,6 +129,7 @@ public class NPCEventsManager : MonoBehaviour
         // Paressept
         if (Soli_songSung)
         {
+            Paressept11.isPageARead = true;
             Paressept11.pageB = true;
         }
 

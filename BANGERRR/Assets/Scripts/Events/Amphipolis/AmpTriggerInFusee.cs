@@ -31,6 +31,7 @@ public class AmpTriggerInFusee : MonoBehaviour
     public Transform fuseeDirector;
     private Quaternion initialFuseeRotation;
     private bool initRotationSet = false;
+    private bool dyingMusicStarted = false;
     private bool startPointingTowardsSun = false;
     private float rotationProgress = 0f;
 
@@ -101,6 +102,17 @@ public class AmpTriggerInFusee : MonoBehaviour
                 }
             }
 
+            if (animationProgress >= .7f)
+            {
+                if (!dyingMusicStarted)
+                {
+                    dyingMusicStarted = true;
+                    AudioManager.instance.FadeOut("amphipolis_int", 120);
+                    AudioManager.instance.FadeOut("amphipolis", 120);
+                    AudioManager.instance.FadeIn("dying", 120);
+                }
+            }
+
             if (animationProgress >= 1)
             {
                 isDescending = false;
@@ -160,6 +172,7 @@ public class AmpTriggerInFusee : MonoBehaviour
     public void Kill()
     {
         Debug.Log("KILL FUSEE");
+        AudioManager.instance.Play("rocketblow");
         AudioManager.instance.Stop("thruster");
         fusee_body.SetActive(false);
 

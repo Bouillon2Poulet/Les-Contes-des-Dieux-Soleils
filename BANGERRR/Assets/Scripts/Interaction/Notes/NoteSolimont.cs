@@ -9,6 +9,10 @@ public class NoteSolimont : Note, IInteractable
 
     private bool beenSung;
 
+    [Header("Eleven Moving")]
+    [SerializeField] Rigidbody Eleven;
+    [SerializeField] Transform newPos;
+
     public void Interact()
     {
         if (!beenSung)
@@ -22,13 +26,34 @@ public class NoteSolimont : Note, IInteractable
                 murInvisible.SetActive(false);
                 ///DialogManager.instance.OpenMessage("*Chanson*", "DEBUG", "Solimont");
                 GetComponent<InteractionBubble>().TurnOff();
-                transform.gameObject.SetActive(false);
+
+                StartCoroutine(nameof(MoveEleven));
             }
             else
             {
-                DialogManager.instance.OpenMessage("Ne touche pas à ça !", "Leave that alone!", "Flegmardo", "Solimont"); ;
+                DialogManager.instance.OpenMessage("Ne touche pas à ça !", "Leave that alone!", "Flegmardo", "Solimont");
             }
         }
+    }
+
+    IEnumerator MoveEleven()
+    {
+        FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
+        FindAnyObjectByType<MainCameraManager>().blockMovement();
+
+        yield return new WaitForSeconds(5);
+
+        yield return FadeToBlack.instance.Fade(true, 1);
+
+        Eleven.position = newPos.position;
+        Eleven.rotation = newPos.rotation;
+
+        yield return FadeToBlack.instance.Fade(false, 1);
+
+        FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+        FindAnyObjectByType<MainCameraManager>().unblockMovement();
+
+        gameObject.SetActive(false);
     }
 
     public Transform GetTransform()

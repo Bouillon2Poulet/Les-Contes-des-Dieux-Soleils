@@ -111,14 +111,30 @@ public class PlayerStatus : MonoBehaviour
         Debug.Log("Hitblinked");
     }
 
-    private void DieAndRespawn()
+    private IEnumerator DieAndRespawn()
     {
-        Debug.Log("T'es mort");
+        Debug.Log("bulledead");
         isDead = true;
-        // Va falloir animer une transition plus sympa ici
-        isDead = false;
+        AudioManager.instance.Play("bulledead");
+
+        FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
+        FindAnyObjectByType<MainCameraManager>().blockMovement();
+        spriteRenderer.enabled = false;
+        yield return FadeToBlack.instance.Fade(true, 1);
+
         //transform.SetPositionAndRotation(respawnPointPosition, respawnPointRotation);
-        transform.SetPositionAndRotation(bubbleRespawnTransform.position, bubbleRespawnTransform.rotation);
+        transform.GetComponent<Rigidbody>().position = bubbleRespawnTransform.position;
+        transform.GetComponent<Rigidbody>().rotation = bubbleRespawnTransform.rotation;
+        spriteRenderer.enabled = true;
+
+        yield return new WaitForSeconds(1f);
+
+        FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+        FindAnyObjectByType<MainCameraManager>().unblockMovement();
+        isDead = false;
+        yield return FadeToBlack.instance.Fade(false, 1);
+
+        yield return null;
     }
 
     public void JumpRespawn()
@@ -171,7 +187,7 @@ public class PlayerStatus : MonoBehaviour
             if (blinkTimer >= suffocationCountdown)
             {
                 StopBlinking();
-                DieAndRespawn();
+                StartCoroutine(nameof(DieAndRespawn));
             }
         }
         else

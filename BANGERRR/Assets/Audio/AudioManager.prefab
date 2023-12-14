@@ -103,7 +103,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: aba1ed2ee076333418b67d4249ae4fb7, type: 3}
     music: 1
     loop: 1
-    volume: 0.84
+    volume: 0.7
     source: {fileID: 0}
   - name: mk
     clip: {fileID: 8300000, guid: a858de526e8f0854d9b9247846d0314c, type: 3}
@@ -217,13 +217,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: fdd3174afab186743aa4e0c453605373, type: 3}
     music: 0
     loop: 0
-    volume: 0.8
+    volume: 1
     source: {fileID: 0}
   - name: bullepete
     clip: {fileID: 8300000, guid: e80377ff754514f4985ac45976c52ace, type: 3}
     music: 0
     loop: 0
-    volume: 0.8
+    volume: 1
     source: {fileID: 0}
   - name: concrete
     clip: {fileID: 8300000, guid: a84e3333e7a26714a920f9f5da2d981f, type: 3}
@@ -320,6 +320,66 @@ MonoBehaviour:
     music: 1
     loop: 0
     volume: 0.823
+    source: {fileID: 0}
+  - name: dying
+    clip: {fileID: 8300000, guid: d2bda80d235312e4f9e90308a84172dc, type: 3}
+    music: 1
+    loop: 0
+    volume: 0.9
+    source: {fileID: 0}
+  - name: rocketblow
+    clip: {fileID: 8300000, guid: 63dd6d9aa02e1bf459672f0450fe9dd4, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.65
+    source: {fileID: 0}
+  - name: omnio_talk
+    clip: {fileID: 8300000, guid: 68cfc9fd14e6f0e4e9707326ed208333, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: omnio_blow
+    clip: {fileID: 8300000, guid: c2cfca408c62da8489fbc3c171cec81c, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: omnio_aspire
+    clip: {fileID: 8300000, guid: 921cc9ab07b1b8647ae596ea717cbc70, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: omnio_hit
+    clip: {fileID: 8300000, guid: 230ffedae0131f24c8d929dd40a1fc42, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: omnio_missile
+    clip: {fileID: 8300000, guid: 66f3bfea233319543a709c14295c931d, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: omnio_blink
+    clip: {fileID: 8300000, guid: 4cd792b608f38da428b6f3b62913a8bb, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: redsuntalk
+    clip: {fileID: 8300000, guid: fa0bdd7fc9711534ab56c2bba12814d3, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: npc_talk
+    clip: {fileID: 8300000, guid: 40d65b055949919478ab0c6eef37a866, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.6
     source: {fileID: 0}
   MusicGroup: {fileID: -8758951673081790777, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}
   FxGroup: {fileID: 149494303244688294, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}
