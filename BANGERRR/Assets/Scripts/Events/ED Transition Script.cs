@@ -48,6 +48,7 @@ public class EDTransitionScript : MonoBehaviour
         playerMovement.CapSpeed();
         playerStatus.unblockSuffocation();
         playerStatus.stopAnimate();
+        KeyInteractionManager.instance.gameObject.SetActive(true);
         hasAnimationStopped = true;
     }
 

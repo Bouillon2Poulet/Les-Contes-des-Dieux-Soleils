@@ -27,14 +27,17 @@ public class debugManager : MonoBehaviour
     private string[] pageNames;
     private bool isShown = false;
 
+    [SerializeField] GameObject debugInfo;
+    bool cheatMode = false;
+
     public GameObject arpenteur;
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("lang"))
+        /*if (PlayerPrefs.HasKey("lang"))
         {
             GlobalVariables.Set("lang", PlayerPrefs.GetInt("lang"));
-        }
+        }*/
 
         pageNames = new string[] { "Triton", "Eaux Divines", "Solisède", "Solimont", "Amphipolis", "Larme", "Oeil" };
         pages = new List<Transform[]>
@@ -60,82 +63,97 @@ public class debugManager : MonoBehaviour
 
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.F7))
-            SystemDayCounter.instance.pauseSystem();
-
-        if (Input.GetKeyDown(KeyCode.F8))
-            SystemDayCounter.instance.resumeSystem();
-
-        if (Input.GetKeyDown(KeyCode.F9))
-            SystemDayCounter.instance.SpeedUpSystem();*/
-
-        if (Input.GetKeyDown(KeyCode.F5))
+        if (Input.GetKey(KeyCode.LeftControl)
+            && Input.GetKey(KeyCode.C) 
+            && Input.GetKey(KeyCode.H)
+            && Input.GetKey(KeyCode.E)
+            && Input.GetKey(KeyCode.A)
+            && Input.GetKeyDown(KeyCode.T))
         {
             AudioManager.instance.Play("debug");
-            if (arpenteur.activeSelf)
-            {
-                arpenteur.SetActive(false);
-                arpenteur.GetComponent<Arpenteur>().cam.Priority = 0;
-                FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
-            }
-            else
-            {
-                arpenteur.SetActive(true);
-                arpenteur.GetComponent<Arpenteur>().cam.Priority = 1000;
-                FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
-            }
+            AudioManager.instance.Play("omnio_talk");
+            cheatMode = true;
+            debugInfo.SetActive(true);
         }
 
-        for (int i = 0; i < totalPage; i++)
+        if (cheatMode)
         {
-            if (Input.GetKeyDown(inputs[i]))
+            if (Input.GetKeyDown(KeyCode.F5))
             {
-                if (i >= 0 && i < pages[currentPage].Length)
+                AudioManager.instance.Play("debug");
+                if (arpenteur.activeSelf)
                 {
-                    AudioManager.instance.Play("debug");
-                    Teleport(pages[currentPage][i]);
+                    arpenteur.SetActive(false);
+                    arpenteur.GetComponent<Arpenteur>().cam.Priority = 0;
+                    FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+                }
+                else
+                {
+                    arpenteur.SetActive(true);
+                    arpenteur.GetComponent<Arpenteur>().cam.Priority = 1000;
+                    FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
                 }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            AudioManager.instance.Play("debug");
-            currentPage++;
-            currentPage %= totalPage;
-            UpdateUI();
-        }
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            AudioManager.instance.Play("debug");
-            currentPage--;
-            if (currentPage == -1)
-                currentPage = totalPage - 1;
-            UpdateUI();
-        }
+            for (int i = 0; i < totalPage; i++)
+            {
+                if (Input.GetKeyDown(inputs[i]))
+                {
+                    if (i >= 0 && i < pages[currentPage].Length)
+                    {
+                        AudioManager.instance.Play("debug");
+                        Teleport(pages[currentPage][i]);
+                    }
+                }
+            }
 
-        if (Input.GetKeyDown(KeyCode.Home))
-        {
-            PlayerStatus.instance.JumpRespawn();
-            AudioManager.instance.Play("debug");
-        }
+            if (Input.GetKeyDown(KeyCode.F2))
+            {
+                AudioManager.instance.Play("debug");
+                currentPage++;
+                currentPage %= totalPage;
+                UpdateUI();
+            }
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                AudioManager.instance.Play("debug");
+                currentPage--;
+                if (currentPage == -1)
+                    currentPage = totalPage - 1;
+                UpdateUI();
+            }
 
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            AudioManager.instance.Play("debug");
-            ToggleView(!isShown);
-        }
+            if (Input.GetKeyDown(KeyCode.F4))
+            {
+                PlayerStatus.instance.JumpRespawn();
+                AudioManager.instance.Play("debug");
+            }
 
-        if (Input.GetKeyDown(KeyCode.RightControl))
-        {
-            AudioManager.instance.Play("debug");
-            movements.JETPACKMODE = !movements.JETPACKMODE;
-        }
+            if (Input.GetKeyDown(KeyCode.F3))
+            {
+                AudioManager.instance.Play("debug");
+                ToggleView(!isShown);
+            }
 
-        if (Input.GetKeyDown(KeyCode.KeypadMultiply))
-        {
-            AudioManager.instance.Play("debug");
-            LoadSceneManager.instance.LoadScene(2, true);
+            if (Input.GetKeyDown(KeyCode.F6))
+            {
+                AudioManager.instance.Play("debug");
+                movements.JETPACKMODE = !movements.JETPACKMODE;
+            }
+
+            if (Input.GetKeyDown(KeyCode.F7))
+            {
+                AudioManager.instance.Play("debug");
+                LoadSceneManager.instance.LoadScene(2, true);
+            }
+
+            if (Input.GetKeyDown(KeyCode.F8))
+            {
+                Debug.Log("Debug Quitter");
+                AudioManager.instance.StopAllMusic();
+                PlayerStatus.instance.GameMenuCursor(true);
+                LoadSceneManager.instance.LoadScene(0, true);
+            }
         }
     }
 

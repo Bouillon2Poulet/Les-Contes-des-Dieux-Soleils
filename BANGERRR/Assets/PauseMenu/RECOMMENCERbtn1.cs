@@ -10,7 +10,7 @@ public class RECOMMENCERbtn : MonoBehaviour, IPointerClickHandler
         if (pointerEventData.button == PointerEventData.InputButton.Left)
         {
             AudioManager.instance.Play("click");
-            //TODO Recommencer le chapitre
+            AudioManager.instance.StopAllMusic();
             Debug.Log("Recommencer");
             GlobalVariables.Set("planetIndex", ChapterManager.currentChapterIndex);
 

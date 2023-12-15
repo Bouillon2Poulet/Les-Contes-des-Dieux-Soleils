@@ -206,20 +206,7 @@ public class ThirdPersonMovement : MonoBehaviour
                     ToggleEmission(pSys[1], facing == Direction.right);
                     ToggleEmission(pSys[2], facing == Direction.front || facing == Direction.back);
                     ToggleEmission(pSys[3], facing == Direction.front || facing == Direction.back);
-                }
-                else
-                {
-                    foreach(ParticleSystem psys in pSys)
-                    {
-                        ToggleEmission(psys, false);
-                    }
-                    Debug.Log("NOT GOING UP");
-                }
 
-                // DOWN
-                if (Input.GetKey(KeyCode.Q))
-                {
-                    rb.AddForce(gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 3f), ForceMode.Force);
                     if (!isJetpackSoundPlaying)
                     {
                         AudioManager.instance.Play("thruster");
@@ -228,11 +215,23 @@ public class ThirdPersonMovement : MonoBehaviour
                 }
                 else
                 {
+                    foreach(ParticleSystem psys in pSys)
+                    {
+                        ToggleEmission(psys, false);
+                    }
+                    //Debug.Log("NOT GOING UP");
+
                     if (isJetpackSoundPlaying)
                     {
                         AudioManager.instance.Stop("thruster");
                         isJetpackSoundPlaying = false;
                     }
+                }
+
+                // DOWN
+                if (Input.GetKey(KeyCode.Q))
+                {
+                    rb.AddForce(gravityBody.GravityDirection * (gravityBody.GravityForce * Time.fixedDeltaTime * 3f), ForceMode.Force);
                 }
 
                 Jetpack_left.SetActive(facing == Direction.left);

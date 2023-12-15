@@ -6,7 +6,6 @@ using TMPro;
 public class Carnet : MonoBehaviour, IInteractable
 {
     public GameObject CarnetBox;
-    private bool hasAlreadyChangedStateThisFrame = false;
 
     public TextMeshProUGUI JourText;
     public TextMeshProUGUI CorpsText;
@@ -32,26 +31,36 @@ public class Carnet : MonoBehaviour, IInteractable
     public float frequency = .5f;
     private Vector3 startPos;
 
+    bool justClosed = false;
+    bool justOpened = false;
+
     private void Update()
     {
-        if (hasAlreadyChangedStateThisFrame)
-            hasAlreadyChangedStateThisFrame = false;
-
         IdleRotateNote();
         IdleMoveNote();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && CarnetBox.activeSelf && !justOpened)
         {
-            if (CarnetBox.activeSelf && !hasAlreadyChangedStateThisFrame)
-            {
-                hasAlreadyChangedStateThisFrame = true;
-                AudioManager.instance.Play("paper");
-                CarnetBox.SetActive(false);
-                PlayerStatus.instance.GameMenuCursor(false);
-                PlayerStatus.instance.isAnimated = false;
-                FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
-            }
+            AudioManager.instance.Play("paper");
+            CarnetBox.SetActive(false);
+            PlayerStatus.instance.GameMenuCursor(false);
+            PlayerStatus.instance.isAnimated = false;
+            FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            justClosed = true;
+            StartCoroutine(nameof(DisableJustClosed));
         }
+    }
+
+    IEnumerator DisableJustClosed()
+    {
+        yield return new WaitForSecondsRealtime(.1f);
+        justClosed = false;
+    }
+
+    IEnumerator DisableJustOpened()
+    {
+        yield return new WaitForSecondsRealtime(.1f);
+        justOpened = false;
     }
 
     private void IdleRotateNote()
@@ -78,23 +87,15 @@ public class Carnet : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if(!hasAlreadyChangedStateThisFrame)
+        if(!CarnetBox.activeSelf && !justClosed)
         {
-            hasAlreadyChangedStateThisFrame = true;
             AudioManager.instance.Play("paper");
-            bool newState = !CarnetBox.activeSelf;
-            CarnetBox.SetActive(newState);
-            PlayerStatus.instance.GameMenuCursor(newState);
-            PlayerStatus.instance.isAnimated = newState;
-
-            if (newState)
-            {
-                FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
-            }
-            else
-            {
-                FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
-            }
+            CarnetBox.SetActive(true);
+            PlayerStatus.instance.GameMenuCursor(true);
+            PlayerStatus.instance.isAnimated = true;
+            FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
+            justOpened = true;
+            StartCoroutine(nameof(DisableJustOpened));
         }
     }
 

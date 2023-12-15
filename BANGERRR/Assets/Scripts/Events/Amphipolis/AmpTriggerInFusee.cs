@@ -43,7 +43,7 @@ public class AmpTriggerInFusee : MonoBehaviour
 
     private bool jetpackMessageSent = false;
     readonly string jetpackLine = "[!] RÉSERVÉ AU PERSONNEL QUALIFIÉ [!]<br>CONTRÔLES: [A] et [E]<br>[!] RISQUES D’EXPLOSION [!]<br>[!] ACTIVATION AUTOMATIQUE [!]";
-    readonly string engJetpackLine = "[!] QUALIFIED PERSONNEL ONLY [!]<br>CONTROLS: [A] and [E]<br>[!] EXPLOSION HAZARDS [!]<br>[!] AUTOMATIC ACTIVATION [!]";
+    readonly string engJetpackLine = "[!] QUALIFIED PERSONNEL ONLY [!]<br>CONTROLS: [Q] and [E]<br>[!] EXPLOSION HAZARDS [!]<br>[!] AUTOMATIC ACTIVATION [!]";
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -115,10 +115,10 @@ public class AmpTriggerInFusee : MonoBehaviour
 
             if (animationProgress >= 1)
             {
-                isDescending = false;
                 AudioManager.instance.Stop("elevatorloop");
                 Debug.Log("Fusee down B)");
                 fusee_body.transform.SetParent(null);
+                isDescending = false;
             }
         }
 

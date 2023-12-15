@@ -25,8 +25,18 @@ public class EndManager : MonoBehaviour
     public static int choice = 0;
     public static bool HasEnded = false;
 
+    public static EndManager instance;
+
     private void Awake()
     {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         if (ChapterManager.maxChapterIndexDiscoveredByPlayer == 6)
         {
             fin.DiscoverPlanet();
@@ -261,4 +271,21 @@ public class EndManager : MonoBehaviour
         "Cherish this universe that witnessed your birth, and everything will be fine.",
         "Farewell, my friend."
     };
+
+    public void GoBackToMenu()
+    {
+        StartCoroutine(nameof(BackToMenu));
+    }
+
+    IEnumerator BackToMenu()
+    {
+        Debug.Log("BackToMenu after credits");
+        AudioManager.instance.FadeOut("c2u", 120);
+        yield return FadeToBlack.instance.Fade(true, .5f);
+
+        PlayerStatus.instance.GameMenuCursor(true);
+        LoadSceneManager.instance.LoadScene(0, true);
+
+        yield return null;
+    }
 }

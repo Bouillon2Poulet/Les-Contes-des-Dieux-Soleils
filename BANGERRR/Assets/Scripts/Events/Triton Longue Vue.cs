@@ -26,11 +26,24 @@ public class TritonLongueVue : MonoBehaviour, IInteractable
             StartLarmeAnimation();
             GetComponent<InteractionBubble>().ToggleActionIcon(false);
             AudioManager.instance.Play("scope");
+            StartCoroutine(nameof(DelayedMessage));
         } 
         else if (!larmeAnimationHasStarted)
         {
             BasicInteractTelescope();
         }
+    }
+
+    IEnumerator DelayedMessage()
+    {
+        yield return new WaitForSecondsRealtime(4.2f);
+        StartCoroutine(DialogManager.instance.EphemeralMessage(
+            "Triton",
+            "Comme chaque jour, la même vue... <br>À moins que...",
+            "Like every day, the same view... <br>Unless...",
+            6, "Neutre"
+        ));
+        yield return null;
     }
 
     private void BasicInteractTelescope()
@@ -76,9 +89,11 @@ public class TritonLongueVue : MonoBehaviour, IInteractable
         larmeAnimationHasStarted = true; 
         
         playerMovement.blockPlayerMoveInputs();
+        PlayerStatus.instance.isAnimated = true;
 
         TelescopeCamera.Priority = 100;
         TelescopeImageMask.SetActive(true);
+        KeyInteractionManager.instance.gameObject.SetActive(false);
 
         larme.SetActive(true);
     }

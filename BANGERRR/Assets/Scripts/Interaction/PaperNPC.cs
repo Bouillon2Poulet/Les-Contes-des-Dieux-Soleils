@@ -17,28 +17,38 @@ public class PaperNPC : MonoBehaviour, IInteractable
 
     [Header("Paper")]
     public GameObject Paper;
-    private bool hasAlreadyChangedStateThisFrame = false;
 
-    private void Update()
+    bool justClosed = false;
+    bool justOpened = false;
+
+    private void FixedUpdate()
     {
-        if (hasAlreadyChangedStateThisFrame)
-            hasAlreadyChangedStateThisFrame = false;
-
         IdleRotateNote();
         IdleMoveNote();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && Paper.activeSelf && !justOpened)
         {
-            if (Paper.activeSelf && !hasAlreadyChangedStateThisFrame)
-            {
-                hasAlreadyChangedStateThisFrame = true;
-                AudioManager.instance.Play("paper");
-                Paper.SetActive(false);
-                PlayerStatus.instance.GameMenuCursor(false);
-                PlayerStatus.instance.isAnimated = false;
-                FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
-            }
+            Debug.Log("PAPER Close");
+            AudioManager.instance.Play("paper");
+            Paper.SetActive(false);
+            PlayerStatus.instance.GameMenuCursor(false);
+            PlayerStatus.instance.isAnimated = false;
+            FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
+            justClosed = true;
+            StartCoroutine(nameof(DisableJustClosed));
         }
+    }
+
+    IEnumerator DisableJustClosed()
+    {
+        yield return new WaitForSecondsRealtime(.1f);
+        justClosed = false;
+    }
+
+    IEnumerator DisableJustOpened()
+    {
+        yield return new WaitForSecondsRealtime(.1f);
+        justOpened = false;
     }
 
     private void IdleRotateNote()
@@ -63,22 +73,16 @@ public class PaperNPC : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (!hasAlreadyChangedStateThisFrame)
+        if (!Paper.activeSelf && !justClosed)
         {
-            hasAlreadyChangedStateThisFrame = true;
+            Debug.Log("PAPER Open");
             AudioManager.instance.Play("paper");
-            bool newState = !Paper.activeSelf;
-            Paper.SetActive(newState);
-            PlayerStatus.instance.GameMenuCursor(newState);
-            PlayerStatus.instance.isAnimated = newState;
-            if (newState)
-            {
-                FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
-            }
-            else
-            {
-                FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
-            }
+            Paper.SetActive(true);
+            PlayerStatus.instance.GameMenuCursor(true);
+            PlayerStatus.instance.isAnimated = true;
+            FindAnyObjectByType<ThirdPersonMovement>().blockPlayerMoveInputs();
+            justOpened = true;
+            StartCoroutine(nameof(DisableJustOpened));
         }
     }
 

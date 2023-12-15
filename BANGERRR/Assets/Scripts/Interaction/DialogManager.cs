@@ -62,6 +62,7 @@ public class DialogManager : MonoBehaviour
             currentSkin = Solisede;
 
         DialogBoxGroup = currentSkin.GetComponent<CanvasGroup>();
+        DialogBoxGroup.alpha = 1f;
         npcNameText = currentSkin.transform.Find("Name").GetComponent<TextMeshProUGUI>();
         messageText = currentSkin.transform.Find("Message").GetComponent<TextMeshProUGUI>();
         backgroundBox = currentSkin.GetComponent<RectTransform>();
@@ -193,6 +194,7 @@ public class DialogManager : MonoBehaviour
         {
             isActive = false;
             hasClosedThisFrame = true;
+            StartCoroutine(nameof(ToggleHasClosedThisFrame));
             FindAnyObjectByType<ThirdPersonMovement>().unblockPlayerMoveInputs();
             if (updatesNPCPages)
             {
@@ -201,6 +203,12 @@ public class DialogManager : MonoBehaviour
             backgroundBox.localScale = hiddenDialogBoxScale;
             Debug.Log("[DialogManager] End of messages");
         }
+    }
+
+    IEnumerator ToggleHasClosedThisFrame()
+    {
+        yield return new WaitForSecondsRealtime(.1f);
+        hasClosedThisFrame = false;
     }
 
     public void ForceEnd()
@@ -292,7 +300,6 @@ public class DialogManager : MonoBehaviour
 
     void Update()
     {
-        hasClosedThisFrame = false;
         if (isActive == true && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
         {
             if (currentMessages != null && !isTyping)

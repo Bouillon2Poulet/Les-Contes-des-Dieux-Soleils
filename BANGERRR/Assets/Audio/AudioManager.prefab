@@ -67,7 +67,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e58222b563d90904b8804f5418bf6bb4, type: 3}
     music: 1
     loop: 1
-    volume: 0.8
+    volume: 0.9
     source: {fileID: 0}
   - name: solisede
     clip: {fileID: 8300000, guid: f4e417fd4f73c824cbbd69b6991fe327, type: 3}
@@ -103,7 +103,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: aba1ed2ee076333418b67d4249ae4fb7, type: 3}
     music: 1
     loop: 1
-    volume: 0.4
+    volume: 0.36
     source: {fileID: 0}
   - name: mk
     clip: {fileID: 8300000, guid: a858de526e8f0854d9b9247846d0314c, type: 3}
@@ -337,13 +337,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 68cfc9fd14e6f0e4e9707326ed208333, type: 3}
     music: 0
     loop: 0
-    volume: 0.8
+    volume: 0.7
     source: {fileID: 0}
   - name: omnio_blow
     clip: {fileID: 8300000, guid: c2cfca408c62da8489fbc3c171cec81c, type: 3}
     music: 0
     loop: 0
-    volume: 0.8
+    volume: 0.9
     source: {fileID: 0}
   - name: omnio_aspire
     clip: {fileID: 8300000, guid: 921cc9ab07b1b8647ae596ea717cbc70, type: 3}
@@ -361,7 +361,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 66f3bfea233319543a709c14295c931d, type: 3}
     music: 0
     loop: 0
-    volume: 0.8
+    volume: 0.9
     source: {fileID: 0}
   - name: omnio_blink
     clip: {fileID: 8300000, guid: 4cd792b608f38da428b6f3b62913a8bb, type: 3}
@@ -391,13 +391,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 156da317f84515841b3337c7afdef263, type: 3}
     music: 0
     loop: 0
-    volume: 0.8
+    volume: 0.9
     source: {fileID: 0}
   - name: omnio_laserloop
     clip: {fileID: 8300000, guid: 6856a42f2efd0d746b73610e552c7144, type: 3}
     music: 0
     loop: 0
-    volume: 0.7
+    volume: 0.85
     source: {fileID: 0}
   MusicGroup: {fileID: -8758951673081790777, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}
   FxGroup: {fileID: 149494303244688294, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}

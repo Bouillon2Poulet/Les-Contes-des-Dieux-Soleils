@@ -6,6 +6,7 @@ public class Credits : MonoBehaviour
 {
     public void End()
     {
-        transform.gameObject.SetActive(false);
+        EndManager.instance.GoBackToMenu();
+        gameObject.SetActive(false);
     }
 }

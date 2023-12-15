@@ -9,6 +9,8 @@ public class NoteSolimont : Note, IInteractable
 
     private bool beenSung;
 
+    public SpriteRenderer noteSpriteRenderer;
+
     [Header("Eleven Moving")]
     [SerializeField] Rigidbody Eleven;
     [SerializeField] Transform newPos;
@@ -47,6 +49,8 @@ public class NoteSolimont : Note, IInteractable
 
         Eleven.position = newPos.position;
         Eleven.rotation = newPos.rotation;
+
+        noteSpriteRenderer.enabled = false;
 
         yield return FadeToBlack.instance.Fade(false, 1);
 
