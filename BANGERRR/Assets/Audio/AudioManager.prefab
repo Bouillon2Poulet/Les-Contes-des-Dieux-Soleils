@@ -399,5 +399,11 @@ MonoBehaviour:
     loop: 0
     volume: 0.85
     source: {fileID: 0}
+  - name: next_message
+    clip: {fileID: 8300000, guid: 058dce5b1da549442b15ba8fdc749bd8, type: 3}
+    music: 0
+    loop: 0
+    volume: 0.4
+    source: {fileID: 0}
   MusicGroup: {fileID: -8758951673081790777, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}
   FxGroup: {fileID: 149494303244688294, guid: c2dd12f17e9c4d84ea2f3692c2ff5caa, type: 2}

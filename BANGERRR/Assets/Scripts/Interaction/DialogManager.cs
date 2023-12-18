@@ -138,6 +138,8 @@ public class DialogManager : MonoBehaviour
         isTyping = true;
         messageText.text = "";
 
+        AudioManager.instance.Play("next_message");
+
         Message messageToDisplay = currentMessages[activeMessageIndex];
         //messageText.text = messageToDisplay.message;
         npcNameText.text = currentActors[messageToDisplay.actorID];
@@ -302,7 +304,7 @@ public class DialogManager : MonoBehaviour
     {
         if (isActive == true && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
         {
-            if (currentMessages != null && !isTyping)
+            if (currentMessages != null && !isTyping && !PauseMenuManager.PauseCanvas.enabled)
             {
                 NextMessage();
             }

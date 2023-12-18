@@ -26,7 +26,7 @@ public class OpenCosmoGuide : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && playerStatus.hasCosmoGuide && !DialogManager.isActive && !playerStatus.isAnimated)
+        if (Input.GetKeyDown(KeyCode.C) && playerStatus.hasCosmoGuide && !playerStatus.isAnimated)
         {
             CosmoGuideIsOpen = !CosmoGuideIsOpen;
             if (CosmoGuideIsOpen)

@@ -36,12 +36,12 @@ public class TritonLongueVue : MonoBehaviour, IInteractable
 
     IEnumerator DelayedMessage()
     {
-        yield return new WaitForSecondsRealtime(4.2f);
+        yield return new WaitForSecondsRealtime(3f);
         StartCoroutine(DialogManager.instance.EphemeralMessage(
             "Triton",
-            "Comme chaque jour, la même vue... <br>À moins que...",
-            "Like every day, the same view... <br>Unless...",
-            6, "Neutre"
+            "Aujourd'hui encore l'univers semble tranquille, tout comme ma vie l'était hier et comme elle le sera surement demain. Parfois je me demande ce qui se cache derrière le soleil, puis j'arrête vite car la curiosité est un vilain défaut...",
+            "The universe still seems tranquil today, just as my life was yesterday and will surely be tomorrow. Sometimes I wonder what's behind the sun, but then I quickly stop, because curiosity is a bad habit...",
+            10, "Neutre"
         ));
         yield return null;
     }

@@ -103,9 +103,9 @@ public class PhaseManager : MonoBehaviour
     }
 
     // Boss Actions
-    private IEnumerator Blink(int amount, float mo)
+    private IEnumerator Blink(int amount, float mo, float speed)
     {
-        BlinkEye(amount);
+        BlinkEye(amount, speed);
         yield return new WaitUntil(() => !upBlink.IsBlinking());
         yield return new WaitForSeconds(mo);
     }
@@ -193,7 +193,7 @@ public class PhaseManager : MonoBehaviour
         yield return new WaitForSeconds(6);
         hueRotationSpeed = hueSpeeds[0];
 
-        yield return Blink(1, 2);
+        yield return Blink(1, 2, 15f);
         yield return Talk("Qui ose perturber mon sommeil ?!", "Who dares disrupt my sleep?!", 6, 2);
         AudioManager.instance.FadeIn("fight", 200);
         yield return Talk("Crains ma colère...", "Fear my wrath...", 4, 2);
@@ -204,7 +204,7 @@ public class PhaseManager : MonoBehaviour
         Debug.Log("Phase 1");
         hueRotationSpeed = hueSpeeds[1];
 
-        yield return Blink(1, .5f);
+        yield return Blink(1, .5f, 17f);
         yield return Laser(3, 1);
         yield return Blow(1, 10, 1);
         yield return Talk("Je t'aurais prévenu...", "I warned you...", 4, 2);
@@ -215,7 +215,7 @@ public class PhaseManager : MonoBehaviour
         Debug.Log("Phase 2");
         hueRotationSpeed = hueSpeeds[2];
 
-        yield return Blink(2, .4f);
+        yield return Blink(2, .4f, 23f);
         yield return Laser(6, .8f);
         yield return Blow(2, 8, 2);
         yield return Talk("Cette fois, tu es fini !", "This time, you're done for!", 4.5f, 2);
@@ -226,7 +226,7 @@ public class PhaseManager : MonoBehaviour
         Debug.Log("Phase 3");
         hueRotationSpeed = hueSpeeds[3];
 
-        yield return Blink(3, .3f);
+        yield return Blink(3, .3f, 30f);
         yield return Laser(12, .7f);
         yield return Blow(3, 7, 3);
         yield return Talk("Aaaaaah maudit sois-tu !!!", "Aaaaaah damn you!!!!", 4.7f, 1);
@@ -247,10 +247,10 @@ public class PhaseManager : MonoBehaviour
     }
 
     // Code optimization
-    private void BlinkEye(int amount)
+    private void BlinkEye(int amount, float speed)
     {
-        upBlink.Trigger(amount);
-        downBlink.Trigger(amount);
+        upBlink.Trigger(amount, speed);
+        downBlink.Trigger(amount, speed);
     }
 
     public static PhaseManager instance { get; private set; }

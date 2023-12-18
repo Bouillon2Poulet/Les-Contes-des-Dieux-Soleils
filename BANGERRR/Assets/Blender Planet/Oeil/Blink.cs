@@ -19,12 +19,13 @@ public class Blink : MonoBehaviour
         minAngle = (isUp) ? 360f : 0;
     }
 
-    public void Trigger(int amount)
+    public void Trigger(int amount, float s = 15f)
     {
         if (!isBlinking)
         {
             isBlinking = true;
             nextYouStop = amount;
+            speed = s;
         }
     }
 
